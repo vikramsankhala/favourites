@@ -113,7 +113,8 @@ body::before {
   max-width: 720px;
 }
 
-.hero h1 {
+.hero h1,
+.hero .group-name {
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 700;
   margin-bottom: 0.5rem;
@@ -170,6 +171,33 @@ body::before {
 .section-join {
   background: linear-gradient(135deg, rgba(232, 185, 35, 0.08), rgba(22, 26, 34, 0.9));
   border: 1px solid var(--border);
+}
+
+.group-name-large {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  text-align: center;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+.join-role-main {
+  text-align: center;
+  color: var(--muted);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.join-call-main {
+  text-align: center;
+  color: var(--text);
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
 }
 
 .join-card {
