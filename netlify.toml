@@ -1,0 +1,10 @@
+# Netlify config at repo root — ensures correct deploy when connected via Git
+
+[build]
+  publish = "website"
+
+# SPA fallback: serve index.html for all paths (fixes 404 on direct links)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
