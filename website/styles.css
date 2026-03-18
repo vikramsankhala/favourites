@@ -376,6 +376,12 @@ body::before {
   color: var(--accent);
 }
 
+.equipment-card .youtube-links {
+  margin-top: 0.75rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border);
+}
+
 /* Wiring Section */
 .theory-box {
   background: var(--card-bg);
@@ -963,6 +969,24 @@ body::before {
 
 .youtube-links a:hover {
   background: rgba(232, 185, 35, 0.2);
+}
+
+.youtube-hero {
+  margin-top: 1.5rem;
+  justify-content: center;
+}
+
+.theory-card .youtube-links,
+.gig-card .youtube-links,
+.music-card .youtube-links,
+.composition-card .youtube-links,
+.fusion-card .youtube-links,
+.similar-card .youtube-links {
+  margin-top: 0.75rem;
+}
+
+.join-info .youtube-links {
+  margin-bottom: 1rem;
 }
 
 .homestudio-note {
