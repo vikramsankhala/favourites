@@ -1043,6 +1043,13 @@ body::before {
   background: rgba(232, 185, 35, 0.06);
 }
 
+.fusion-subsection-title {
+  margin-top: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--accent);
+  font-size: 1.15rem;
+}
+
 /* Similar Setups */
 .similar-grid {
   display: grid;
