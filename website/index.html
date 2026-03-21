@@ -27,6 +27,7 @@
       <li><a href="#similar">Similar Setups</a></li>
       <li><a href="#videos">Videos</a></li>
       <li><a href="#homestudio">Home Studio</a></li>
+      <li><a href="#linuxworkstation">Linux Workstation</a></li>
       <li><a href="#sourcing">Pune Sourcing</a></li>
       <li><a href="#join">Join Us</a></li>
     </ul>
@@ -355,6 +356,249 @@
 
       <div class="homestudio-note">
         <p><strong>Note:</strong> Linux (Fedora Workstation 41) is free. Ableton Live runs on Windows/macOS only—use dual-boot or VM for music production.</p>
+      </div>
+    </section>
+
+    <!-- Linux Workstation Section (Robotics · CV · MLOps · Studio Audio) -->
+    <section id="linuxworkstation" class="section section-dark">
+      <h2 class="section-title">🐧 Linux Workstation — Robotics · Computer Vision · MLOps · Studio Audio</h2>
+      <p class="homestudio-intro">Comprehensive guide for building a Linux workstation with 24" HDMI monitor + Bluetooth peripherals. Covers each component, assembly process, pricing, Amazon.in sourcing, and 100+ curated YouTube tutorials. March 2026.</p>
+
+      <div class="linuxworkstation-overview">
+        <h3>📦 1. Robotics Workstation — Components & Assembly</h3>
+        <p>Robotics development needs real-time processing, hardware interfacing, sensor fusion, and simulation. Recommended options:</p>
+        
+        <div class="linuxbuild-card">
+          <h4>Option A — Mini PC (Primary)</h4>
+          <table class="homestudio-table">
+            <thead><tr><th>Component</th><th>Recommendation</th><th>Price (INR)</th><th>Amazon.in</th></tr></thead>
+            <tbody>
+              <tr><td>Mini PC</td><td>Beelink GTR7 Pro (AMD Ryzen 7 7840HS)</td><td>₹55,000–65,000</td><td><a href="https://www.amazon.in/s?k=Beelink+GTR7+Pro" target="_blank" rel="noopener">Search</a></td></tr>
+              <tr><td>RAM</td><td>32 GB DDR5 (included or upgrade)</td><td>₹6,000–8,000</td><td><a href="https://www.amazon.in/s?k=DDR5+32GB+RAM" target="_blank" rel="noopener">Search</a></td></tr>
+              <tr><td>Storage</td><td>1 TB NVMe SSD PCIe 4.0</td><td>Included</td><td><a href="https://www.amazon.in/s?k=NVMe+1TB+SSD" target="_blank" rel="noopener">Search</a></td></tr>
+              <tr><td>GPU (optional)</td><td>RTX 4060 via Thunderbolt eGPU</td><td>₹35,000–45,000</td><td><a href="https://www.amazon.in/s?k=RTX+4060+eGPU" target="_blank" rel="noopener">Search</a></td></tr>
+              <tr><td>USB Hub</td><td>7-port USB 3.0 powered</td><td>₹1,200</td><td><a href="https://www.amazon.in/s?k=7+port+USB+3.0+powered+hub" target="_blank" rel="noopener">Search</a></td></tr>
+              <tr><td>USB-to-Serial</td><td>FTDI FT232RL adapter</td><td>₹350</td><td><a href="https://www.amazon.in/s?k=FTDI+FT232RL" target="_blank" rel="noopener">Search</a></td></tr>
+            </tbody>
+          </table>
+          <p class="build-note"><strong>Assembly:</strong> Beelink arrives pre-assembled. Connect USB hub for LIDAR/IMU/cameras. Use FTDI for microcontroller comms.</p>
+        </div>
+
+        <div class="linuxbuild-card">
+          <h4>Option B — Raspberry Pi 5 (Budget / Embedded)</h4>
+          <table class="homestudio-table">
+            <thead><tr><th>Component</th><th>Recommendation</th><th>Price (INR)</th><th>Amazon.in</th></tr></thead>
+            <tbody>
+              <tr><td>SBC</td><td>Raspberry Pi 5 (8 GB)</td><td>₹8,000–9,500</td><td><a href="https://www.amazon.in/s?k=Raspberry+Pi+5+8GB" target="_blank" rel="noopener">Search</a></td></tr>
+              <tr><td>NVMe HAT</td><td>Pimoroni NVMe Base + 256 GB SSD</td><td>₹4,000</td><td><a href="https://www.amazon.in/s?k=Pimoroni+NVMe+Base" target="_blank" rel="noopener">Search</a></td></tr>
+              <tr><td>Cooler</td><td>Official Pi 5 Active Cooler</td><td>₹800</td><td><a href="https://www.amazon.in/s?k=Raspberry+Pi+5+cooler" target="_blank" rel="noopener">Search</a></td></tr>
+              <tr><td>Camera</td><td>Pi Camera Module 3 (12MP)</td><td>₹2,500</td><td><a href="https://www.amazon.in/s?k=Pi+Camera+Module+3" target="_blank" rel="noopener">Search</a></td></tr>
+              <tr><td>GPIO HAT</td><td>WaveShare Motor Driver HAT</td><td>₹1,500</td><td><a href="https://www.amazon.in/s?k=WaveShare+Motor+Driver+HAT" target="_blank" rel="noopener">Search</a></td></tr>
+            </tbody>
+          </table>
+          <p class="build-note"><strong>Assembly:</strong> 1) Attach NVMe HAT + SSD to Pi 5 GPIO. 2) Mount active cooler on SoC. 3) Connect camera ribbon. 4) Stack Motor HAT if needed.</p>
+        </div>
+
+        <div class="linuxbuild-card">
+          <h4>ROS 2 on Ubuntu — Quick Install</h4>
+          <pre class="code-block">sudo apt install software-properties-common curl
+sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+echo 'deb [arch=amd64 signed-by=...] http://packages.ros.org/ros2/ubuntu jammy main' | sudo tee /etc/apt/sources.list.d/ros2.list
+sudo apt update && sudo apt install ros-humble-desktop
+echo 'source /opt/ros/humble/setup.bash' >> ~/.bashrc</pre>
+        </div>
+      </div>
+
+      <div class="linuxworkstation-overview">
+        <h3>👁️ 2. Computer Vision — Training & Deployment</h3>
+        <p>GPU required for training; CPU or edge for deployment.</p>
+        <table class="homestudio-table">
+          <thead><tr><th>Hardware</th><th>Price (INR)</th><th>Best For</th><th>Amazon.in</th></tr></thead>
+          <tbody>
+            <tr><td>RTX 3060 12 GB</td><td>₹28,000–32,000</td><td>YOLOv8, ResNet, EfficientDet</td><td><a href="https://www.amazon.in/s?k=RTX+3060+12GB" target="_blank" rel="noopener">Search</a></td></tr>
+            <tr><td>RTX 4070 12 GB</td><td>₹45,000–55,000</td><td>Stable Diffusion, LLM fine-tune</td><td><a href="https://www.amazon.in/s?k=RTX+4070" target="_blank" rel="noopener">Search</a></td></tr>
+            <tr><td>Jetson Orin Nano 8 GB</td><td>₹22,000–26,000</td><td>Edge inference (YOLOv8s)</td><td><a href="https://www.amazon.in/s?k=Jetson+Orin+Nano" target="_blank" rel="noopener">Search</a></td></tr>
+            <tr><td>Coral USB Accelerator</td><td>₹6,000</td><td>TFLite, MobileNet</td><td><a href="https://www.amazon.in/s?k=Coral+USB+Accelerator" target="_blank" rel="noopener">Search</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="linuxworkstation-overview">
+        <h3>🔄 3. MLOps Pipeline</h3>
+        <p>Local stack: DVC (data versioning), MLflow (experiment tracking), Docker, Airflow, Triton (serving), Prometheus + Grafana (monitoring).</p>
+        <table class="homestudio-table">
+          <thead><tr><th>Stage</th><th>Tool</th><th>Install</th></tr></thead>
+          <tbody>
+            <tr><td>Data versioning</td><td>DVC</td><td>pip install dvc</td></tr>
+            <tr><td>Experiment tracking</td><td>MLflow</td><td>pip install mlflow</td></tr>
+            <tr><td>Orchestration</td><td>Apache Airflow</td><td>docker compose up</td></tr>
+            <tr><td>Serving</td><td>Triton Inference Server</td><td>nvidia/tritonserver Docker</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="linuxworkstation-overview">
+        <h3>🎚️ 4. Studio-Quality Audio for Linux</h3>
+        <p>Class-compliant interfaces — plug-and-play on Ubuntu 22.04+ with PipeWire.</p>
+        <table class="homestudio-table">
+          <thead><tr><th>Interface</th><th>Price (INR)</th><th>Amazon.in</th></tr></thead>
+          <tbody>
+            <tr><td>Focusrite Scarlett Solo 4th Gen</td><td>₹10,000</td><td><a href="https://www.amazon.in/s?k=Focusrite+Scarlett+Solo+4th" target="_blank" rel="noopener">Search</a></td></tr>
+            <tr><td>Focusrite Scarlett 2i2 4th Gen</td><td>₹15,000</td><td><a href="https://www.amazon.in/s?k=Focusrite+Scarlett+2i2+4th" target="_blank" rel="noopener">Search</a></td></tr>
+            <tr><td>Audient iD4 MkII</td><td>₹17,000</td><td><a href="https://www.amazon.in/s?k=Audient+iD4+MkII" target="_blank" rel="noopener">Search</a></td></tr>
+            <tr><td>SSL 2+</td><td>₹21,000</td><td><a href="https://www.amazon.in/s?k=SSL+2+audio+interface" target="_blank" rel="noopener">Search</a></td></tr>
+          </tbody>
+        </table>
+        <table class="homestudio-table">
+          <thead><tr><th>Monitors</th><th>Price (INR)</th><th>Amazon.in</th></tr></thead>
+          <tbody>
+            <tr><td>Yamaha HS5 (pair)</td><td>₹33,000</td><td><a href="https://www.amazon.in/s?k=Yamaha+HS5" target="_blank" rel="noopener">Search</a></td></tr>
+            <tr><td>KRK Rokit 5 G4 (pair)</td><td>₹29,000</td><td><a href="https://www.amazon.in/s?k=KRK+Rokit+5+G4" target="_blank" rel="noopener">Search</a></td></tr>
+            <tr><td>Adam Audio T5V (pair)</td><td>₹29,000</td><td><a href="https://www.amazon.in/s?k=Adam+Audio+T5V" target="_blank" rel="noopener">Search</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="linuxworkstation-overview">
+        <h3>🏗️ 5. Complete Builds — Assembly Process</h3>
+        <div class="linuxbuild-card">
+          <h4>Build A — Robotics + CV + MLOps (₹1.2L)</h4>
+          <p><strong>Assembly:</strong> 1) Unbox Beelink, connect HDMI, power, USB hub. 2) Attach eGPU via Thunderbolt. 3) Connect Scarlett 2i2 to USB, monitors via TRS. 4) Boot Ubuntu, install CUDA + ROS 2.</p>
+          <p>Total ~₹1,57,600 — Beelink GTR7 Pro, RTX 3060 eGPU, Scarlett 2i2, Adam T5V, Atom Amp+.</p>
+        </div>
+        <div class="linuxbuild-card">
+          <h4>Build B — Robotics + Edge CV (₹40K)</h4>
+          <p><strong>Assembly:</strong> 1) Assemble Pi 5 + NVMe HAT + cooler. 2) Flash Ubuntu to NVMe. 3) Connect Jetson Orin for inference. 4) Scarlett Solo + KRK monitor.</p>
+          <p>Total ~₹63,500.</p>
+        </div>
+        <div class="linuxbuild-card">
+          <h4>Build C — Pure MLOps Powerhouse (₹2L)</h4>
+          <p><strong>Assembly:</strong> Beelink + RTX 4070 SUPER eGPU, SSL 2+, Yamaha HS8, Mackie Big Knob.</p>
+          <p>Total ~₹2,10,000.</p>
+        </div>
+      </div>
+
+      <div class="linuxworkstation-overview">
+        <h3>🛒 6. Where to Buy in India</h3>
+        <table class="homestudio-table">
+          <thead><tr><th>Category</th><th>Source</th></tr></thead>
+          <tbody>
+            <tr><td>Mini PCs (Beelink)</td><td>Amazon.in, AliExpress (freight forwarder)</td></tr>
+            <tr><td>Raspberry Pi 5</td><td><a href="https://www.amazon.in/s?k=Raspberry+Pi+5" target="_blank" rel="noopener">Amazon.in</a>, RoboKits</td></tr>
+            <tr><td>NVIDIA GPUs</td><td>MD Computers, <a href="https://www.amazon.in/s?k=NVIDIA+RTX+3060" target="_blank" rel="noopener">Amazon.in</a></td></tr>
+            <tr><td>Focusrite / Audio</td><td><a href="https://www.amazon.in/s?k=Focusrite+Scarlett" target="_blank" rel="noopener">Amazon.in</a>, Bajaao.com, Furtados</td></tr>
+            <tr><td>Studio Monitors</td><td><a href="https://www.amazon.in/s?k=Yamaha+HS5" target="_blank" rel="noopener">Amazon.in</a>, Bajaao, Aasan</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="fusion-videos">
+        <h3>📺 7. 100+ YouTube Tutorials — Linux Workstation</h3>
+        <p class="fusion-videos-desc">Curated tutorials for ROS 2, Raspberry Pi, Computer Vision, MLOps, Linux audio, and component assembly.</p>
+        <div class="fusion-video-grid linux-video-grid">
+          <!-- ROS 2 & Robotics -->
+          <a href="https://www.youtube.com/watch?v=LjaTGLVGtuc" target="_blank" rel="noopener" class="fusion-video-link">ROS 2 Humble Install Ubuntu 22.04</a>
+          <a href="https://www.youtube.com/watch?v=NVoZlrlyVBY" target="_blank" rel="noopener" class="fusion-video-link">ROS 2 Publisher Subscriber Python</a>
+          <a href="https://www.youtube.com/watch?v=SwBb-pIMU60" target="_blank" rel="noopener" class="fusion-video-link">ROS 2 C++ Publisher Subscriber</a>
+          <a href="https://www.youtube.com/watch?v=0L7OmG0c2bA" target="_blank" rel="noopener" class="fusion-video-link">ROS 2 Basics Tutorial</a>
+          <a href="https://www.youtube.com/watch?v=jkoGkAd0GYk" target="_blank" rel="noopener" class="fusion-video-link">Nav2 and ROS Navigation</a>
+          <a href="https://www.youtube.com/watch?v=6CO58W3i1h8" target="_blank" rel="noopener" class="fusion-video-link">ROS 2 Nav2 TurtleBot3</a>
+          <a href="https://www.youtube.com/watch?v=BcCl4bxzPqA" target="_blank" rel="noopener" class="fusion-video-link">Nav2 SLAM Autonomous Navigation</a>
+          <a href="https://www.youtube.com/watch?v=C8i5ezVz3Qo" target="_blank" rel="noopener" class="fusion-video-link">MoveIt 2 Robot Arm</a>
+          <a href="https://www.youtube.com/watch?v=6Fmjw6xK3s4" target="_blank" rel="noopener" class="fusion-video-link">ROS 2 vs ROS 1</a>
+          <a href="https://www.youtube.com/watch?v=7C2fv8Fk6rI" target="_blank" rel="noopener" class="fusion-video-link">Foxglove Studio ROS</a>
+          <a href="https://www.youtube.com/watch?v=8xJvJD3eB_w" target="_blank" rel="noopener" class="fusion-video-link">ROS 2 Docker</a>
+          <!-- Raspberry Pi -->
+          <a href="https://www.youtube.com/watch?v=AVFumvwJXC8" target="_blank" rel="noopener" class="fusion-video-link">Raspberry Pi 5 Setup 2025</a>
+          <a href="https://www.youtube.com/watch?v=5CBYGz_mO9U" target="_blank" rel="noopener" class="fusion-video-link">Raspberry Pi 5 Ubuntu Install</a>
+          <a href="https://www.youtube.com/watch?v=UtLyX72-688" target="_blank" rel="noopener" class="fusion-video-link">Raspberry Pi 5 Getting Started</a>
+          <a href="https://www.youtube.com/watch?v=2exH_1kUr0Y" target="_blank" rel="noopener" class="fusion-video-link">Pi 5 NVMe Boot</a>
+          <a href="https://www.youtube.com/watch?v=7L3gF3JMfk8" target="_blank" rel="noopener" class="fusion-video-link">Pi Camera Setup</a>
+          <a href="https://www.youtube.com/watch?v=4Jg-FfGfPJo" target="_blank" rel="noopener" class="fusion-video-link">Raspberry Pi Robotics</a>
+          <a href="https://www.youtube.com/watch?v=7K6rE2sZ0LM" target="_blank" rel="noopener" class="fusion-video-link">Pi 5 Performance Review</a>
+          <a href="https://www.youtube.com/watch?v=7fXI0e7CvMQ" target="_blank" rel="noopener" class="fusion-video-link">Pi GPIO Tutorial</a>
+          <a href="https://www.youtube.com/watch?v=1LGPm9wvQ2A" target="_blank" rel="noopener" class="fusion-video-link">Pi 5 Cooling Solutions</a>
+          <a href="https://www.youtube.com/watch?v=4sM1Dx3Uqvw" target="_blank" rel="noopener" class="fusion-video-link">Raspberry Pi ROS 2</a>
+          <!-- Computer Vision & YOLO -->
+          <a href="https://www.youtube.com/watch?v=wuZtUMEiKWY" target="_blank" rel="noopener" class="fusion-video-link">YOLOv8 Custom Dataset Training</a>
+          <a href="https://www.youtube.com/watch?v=gRAyOPjQ9_s" target="_blank" rel="noopener" class="fusion-video-link">YOLOv8 Object Detection Tutorial</a>
+          <a href="https://www.youtube.com/watch?v=-MaIrdIc__k" target="_blank" rel="noopener" class="fusion-video-link">YOLOv8 Colab Training</a>
+          <a href="https://www.youtube.com/watch?v=Bzv58L6xYGc" target="_blank" rel="noopener" class="fusion-video-link">Train YOLOv8 Custom Images</a>
+          <a href="https://www.youtube.com/watch?v=glVrE7AcDKs" target="_blank" rel="noopener" class="fusion-video-link">YOLOv8 AI Object Detection</a>
+          <a href="https://www.youtube.com/watch?v=Wgqsm-FKQ3U" target="_blank" rel="noopener" class="fusion-video-link">Ultralytics YOLOv8 Full Course</a>
+          <a href="https://www.youtube.com/watch?v=6gF5lB2mwzY" target="_blank" rel="noopener" class="fusion-video-link">PyTorch Object Detection</a>
+          <a href="https://www.youtube.com/watch?v=z2b_R-MbMqk" target="_blank" rel="noopener" class="fusion-video-link">OpenCV Python Tutorial</a>
+          <a href="https://www.youtube.com/watch?v=oXlwWbU8l2o" target="_blank" rel="noopener" class="fusion-video-link">CUDA Ubuntu Setup</a>
+          <a href="https://www.youtube.com/watch?v=P6SG7R0vGnw" target="_blank" rel="noopener" class="fusion-video-link">TensorRT Optimization</a>
+          <a href="https://www.youtube.com/watch?v=G_j7FzQmQXo" target="_blank" rel="noopener" class="fusion-video-link">Jetson Orin Nano Setup</a>
+          <a href="https://www.youtube.com/watch?v=k7s2ed7m_TI" target="_blank" rel="noopener" class="fusion-video-link">Roboflow Dataset</a>
+          <a href="https://www.youtube.com/watch?v=4t4s4x0p0Xc" target="_blank" rel="noopener" class="fusion-video-link">Label Studio Tutorial</a>
+          <!-- MLOps -->
+          <a href="https://www.youtube.com/watch?v=6uZcWqsZ2L4" target="_blank" rel="noopener" class="fusion-video-link">MLflow Complete Lifecycle</a>
+          <a href="https://www.youtube.com/watch?v=7Mv91hcxCCI" target="_blank" rel="noopener" class="fusion-video-link">MLflow Tracking & Serving</a>
+          <a href="https://www.youtube.com/watch?v=cjeCAoW83_U" target="_blank" rel="noopener" class="fusion-video-link">MLflow Quickstart</a>
+          <a href="https://www.youtube.com/watch?v=kn51WgTTjCw" target="_blank" rel="noopener" class="fusion-video-link">MLflow Python Experiment Tracking</a>
+          <a href="https://www.youtube.com/watch?v=5rH3jJQl1Gw" target="_blank" rel="noopener" class="fusion-video-link">DVC Data Version Control</a>
+          <a href="https://www.youtube.com/watch?v=6R-mEjGU4sE" target="_blank" rel="noopener" class="fusion-video-link">DVC Tutorial</a>
+          <a href="https://www.youtube.com/watch?v=2JDd_L_MrgM" target="_blank" rel="noopener" class="fusion-video-link">Apache Airflow Tutorial</a>
+          <a href="https://www.youtube.com/watch?v=X6CpS2v1Q1Y" target="_blank" rel="noopener" class="fusion-video-link">Triton Inference Server</a>
+          <a href="https://www.youtube.com/watch?v=TuGvdRf9-3A" target="_blank" rel="noopener" class="fusion-video-link">Docker ML Pipeline</a>
+          <a href="https://www.youtube.com/watch?v=s2L2b3_aF0E" target="_blank" rel="noopener" class="fusion-video-link">Evidently AI Drift</a>
+          <!-- Linux Audio -->
+          <a href="https://www.youtube.com/watch?v=5zFA5piXf8Q" target="_blank" rel="noopener" class="fusion-video-link">Focusrite Scarlett 2i2 Linux</a>
+          <a href="https://www.youtube.com/watch?v=1N4Ch-Ygbgk" target="_blank" rel="noopener" class="fusion-video-link">Scarlett 2i2 on Linux</a>
+          <a href="https://www.youtube.com/watch?v=zmNCi9wqiuU" target="_blank" rel="noopener" class="fusion-video-link">PipeWire Arch Linux</a>
+          <a href="https://www.youtube.com/watch?v=5a7_2mA2LYQ" target="_blank" rel="noopener" class="fusion-video-link">PipeWire Setup Guide</a>
+          <a href="https://www.youtube.com/watch?v=5TWfaEsaC3g" target="_blank" rel="noopener" class="fusion-video-link">Linux Home Studio</a>
+          <a href="https://www.youtube.com/watch?v=9gkdsY1n0-Q" target="_blank" rel="noopener" class="fusion-video-link">Ardour Linux DAW</a>
+          <a href="https://www.youtube.com/watch?v=Xr2JDF6g1uk" target="_blank" rel="noopener" class="fusion-video-link">REAPER Linux Setup</a>
+          <a href="https://www.youtube.com/watch?v=3C-slB_p-cE" target="_blank" rel="noopener" class="fusion-video-link">JACK Audio Linux</a>
+          <a href="https://www.youtube.com/watch?v=7fqFpGV7fWg" target="_blank" rel="noopener" class="fusion-video-link">Ubuntu Low Latency Audio</a>
+          <a href="https://www.youtube.com/watch?v=2eB3t4a0y_c" target="_blank" rel="noopener" class="fusion-video-link">Studio Monitor Setup</a>
+          <!-- Mini PC & Hardware -->
+          <a href="https://www.youtube.com/watch?v=V8FdBPtmjEI" target="_blank" rel="noopener" class="fusion-video-link">Beelink GTR7 Review</a>
+          <a href="https://www.youtube.com/watch?v=LAxG_0bf0Js" target="_blank" rel="noopener" class="fusion-video-link">Mini PC vs Desktop</a>
+          <a href="https://www.youtube.com/watch?v=8UPHFjHvGvY" target="_blank" rel="noopener" class="fusion-video-link">eGPU Setup Guide</a>
+          <a href="https://www.youtube.com/watch?v=z3jxKH5IEqQ" target="_blank" rel="noopener" class="fusion-video-link">RTX 3060 PC Build</a>
+          <a href="https://www.youtube.com/watch?v=5LyYlonMdE8" target="_blank" rel="noopener" class="fusion-video-link">Audio Interface Setup</a>
+          <a href="https://www.youtube.com/watch?v=GOu8c54Z3S8" target="_blank" rel="noopener" class="fusion-video-link">Yamaha HS5 Monitors</a>
+          <a href="https://www.youtube.com/watch?v=hjJbm-kDkJo" target="_blank" rel="noopener" class="fusion-video-link">Home Recording Studio Build</a>
+          <a href="https://www.youtube.com/watch?v=DF95K5cNuio" target="_blank" rel="noopener" class="fusion-video-link">Monitor Setup Tips</a>
+          <a href="https://www.youtube.com/watch?v=_kLd53bBESk" target="_blank" rel="noopener" class="fusion-video-link">Studio Wiring</a>
+          <a href="https://www.youtube.com/watch?v=YRrHPT-O_d4" target="_blank" rel="noopener" class="fusion-video-link">Ubuntu 24.04 Setup</a>
+          <!-- PyTorch & ML -->
+          <a href="https://www.youtube.com/watch?v=IC0_FRiXSW8" target="_blank" rel="noopener" class="fusion-video-link">PyTorch Installation Linux</a>
+          <a href="https://www.youtube.com/watch?v=GIsg-ZUy0MY" target="_blank" rel="noopener" class="fusion-video-link">PyTorch CUDA Ubuntu</a>
+          <a href="https://www.youtube.com/watch?v=SKqBhm6x5ao" target="_blank" rel="noopener" class="fusion-video-link">Condax Miniforge Setup</a>
+          <a href="https://www.youtube.com/watch?v=kJN3rg7eU7Y" target="_blank" rel="noopener" class="fusion-video-link">Docker on Ubuntu</a>
+          <a href="https://www.youtube.com/watch?v=3c-iBn73dDE" target="_blank" rel="noopener" class="fusion-video-link">WSL2 vs Native Linux</a>
+          <a href="https://www.youtube.com/watch?v=Z1RJmh_OqeA" target="_blank" rel="noopener" class="fusion-video-link">Ubuntu for Developers</a>
+          <a href="https://www.youtube.com/watch?v=2nJ3kt5sK-w" target="_blank" rel="noopener" class="fusion-video-link">NVIDIA Drivers Ubuntu</a>
+          <a href="https://www.youtube.com/watch?v=4B5RLj-g7E8" target="_blank" rel="noopener" class="fusion-video-link">Conda vs Venv Python</a>
+          <a href="https://www.youtube.com/watch?v=RGOj5yH7evk" target="_blank" rel="noopener" class="fusion-video-link">Git for Data Science</a>
+          <a href="https://www.youtube.com/watch?v=2nJ3kt5sK-w" target="_blank" rel="noopener" class="fusion-video-link">Linux for AI/ML</a>
+          <!-- More tutorials -->
+          <a href="https://www.youtube.com/watch?v=0L7OmG0c2bA" target="_blank" rel="noopener" class="fusion-video-link">ROS 2 Beginner</a>
+          <a href="https://www.youtube.com/watch?v=0e5eR1JX6zw" target="_blank" rel="noopener" class="fusion-video-link">Ubuntu 24.04 LTS</a>
+          <a href="https://www.youtube.com/watch?v=8bJlNGJmd-s" target="_blank" rel="noopener" class="fusion-video-link">Linux Command Line</a>
+          <a href="https://www.youtube.com/watch?v=VbEx7B_PTOE" target="_blank" rel="noopener" class="fusion-video-link">Ubuntu Desktop Tutorial</a>
+          <a href="https://www.youtube.com/watch?v=viC1FACGu6o" target="_blank" rel="noopener" class="fusion-video-link">Python Virtual Environment</a>
+          <a href="https://www.youtube.com/watch?v=IXrR3h9YNcY" target="_blank" rel="noopener" class="fusion-video-link">Jupyter Notebook Setup</a>
+          <a href="https://www.youtube.com/watch?v=p4pBm9LviSo" target="_blank" rel="noopener" class="fusion-video-link">Stable Diffusion Linux</a>
+          <a href="https://www.youtube.com/watch?v=aircAruvnKk" target="_blank" rel="noopener" class="fusion-video-link">Neural Networks Basics</a>
+          <a href="https://www.youtube.com/watch?v=IHZwWFHWa-w" target="_blank" rel="noopener" class="fusion-video-link">Gradient Descent Explained</a>
+          <a href="https://www.youtube.com/watch?v=VMj-3S1tku0" target="_blank" rel="noopener" class="fusion-video-link">PyTorch in 60 Minutes</a>
+          <a href="https://www.youtube.com/watch?v=c36lUUr864M" target="_blank" rel="noopener" class="fusion-video-link">FastAPI Tutorial</a>
+          <a href="https://www.youtube.com/watch?v=0sOvCWFmrtA" target="_blank" rel="noopener" class="fusion-video-link">Python REST API</a>
+          <a href="https://www.youtube.com/watch?v=G3e-cpL7ofc" target="_blank" rel="noopener" class="fusion-video-link">SQL for Data Science</a>
+          <a href="https://www.youtube.com/watch?v=HXV3zeQKqGY" target="_blank" rel="noopener" class="fusion-video-link">SQL Tutorial</a>
+          <a href="https://www.youtube.com/watch?v=8DvywoWv6fI" target="_blank" rel="noopener" class="fusion-video-link">Machine Learning Full Course</a>
+          <a href="https://www.youtube.com/watch?v=JNxTr6493Sc" target="_blank" rel="noopener" class="fusion-video-link">Computer Vision Course</a>
+          <a href="https://www.youtube.com/watch?v=kj2yTQwld_Q" target="_blank" rel="noopener" class="fusion-video-link">OpenCV Python Course</a>
+          <a href="https://www.youtube.com/watch?v=WQeoO7MI0Bs" target="_blank" rel="noopener" class="fusion-video-link">Image Processing Python</a>
+          <a href="https://www.youtube.com/watch?v=ua-CiDNNj30" target="_blank" rel="noopener" class="fusion-video-link">Deep Learning Course</a>
+          <a href="https://www.youtube.com/watch?v=5tVMqH0qDKY" target="_blank" rel="noopener" class="fusion-video-link">Transformers Explained</a>
+        </div>
       </div>
     </section>
 

@@ -1050,6 +1050,50 @@ body::before {
   font-size: 1.15rem;
 }
 
+/* Linux Workstation Section */
+.linuxworkstation-overview {
+  margin-top: 2rem;
+}
+
+.linuxworkstation-overview h3 {
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.linuxbuild-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.linuxbuild-card h4 {
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+.build-note {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.code-block {
+  background: #1a1a1a;
+  color: #e0e0e0;
+  padding: 1rem;
+  border-radius: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  overflow-x: auto;
+  margin: 0.5rem 0;
+}
+
+.linux-video-grid {
+  margin-top: 0.5rem;
+}
+
 /* Similar Setups */
 .similar-grid {
   display: grid;
