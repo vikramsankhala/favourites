@@ -1114,6 +1114,32 @@ body::before {
   margin-left: 1.25rem;
 }
 
+/* Kishore Build — Video list with descriptions */
+.kishore-video-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.kishore-video-item {
+  padding: 0.9rem 1rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.kishore-video-item .fusion-video-link {
+  display: inline-block;
+  margin-bottom: 0.35rem;
+}
+
+.kishore-video-desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
 /* Similar Setups */
 .similar-grid {
   display: grid;

@@ -605,24 +605,43 @@ echo 'source /opt/ros/humble/setup.bash' >> ~/.bashrc</pre>
       </div>
     </section>
 
-    <!-- Assembled Desktop Build: Beelink GTR7 Pro + eGPU + Studio Audio -->
+    <!-- Assembled Desktop Build: Beelink GTR7 Pro + RTX 4070 SUPER eGPU + Studio Audio -->
     <section id="kishorebuild" class="section">
-      <h2 class="section-title">🖥️ Assembled Desktop Build — Beelink GTR7 Pro · RTX 3060 eGPU · Scarlett · Adam T5V</h2>
-      <p class="homestudio-intro">Reference build for Vikram Sankhala (JP, Reliance): Mini PC or assembled desktop (size no constraint) with AMD Ryzen 7 7840HS, RTX 3060 eGPU, Focusrite Scarlett 2i2, Adam Audio T5V monitors, JDS Labs Atom Amp+, 4 TB HDD. Direct Amazon.in links and 50 curated YouTube tutorials. March 2026.</p>
+      <h2 class="section-title">🖥️ Assembled Desktop Build — Beelink GTR7 Pro · RTX 4070 SUPER eGPU · Scarlett · Adam T5V</h2>
+      <p class="homestudio-intro">Reference build for Vikram Sankhala (JP, Reliance): Mini PC or assembled desktop (size no constraint) with AMD Ryzen 7 7840HS, RTX 4070 SUPER eGPU, Focusrite Scarlett 2i2, Adam Audio T5V monitors, JDS Labs Atom Amp+, 4 TB HDD. Budget breakdown, component-wise pricing, Amazon.in links, and 50+ YouTube tutorials with detailed explanations. March 2026.</p>
 
       <div class="linuxworkstation-overview">
-        <h3>📋 Build Specs</h3>
+        <h3>📋 Build Specs & Component Notes</h3>
         <table class="homestudio-table">
           <thead><tr><th>Component</th><th>Model</th><th>Notes</th></tr></thead>
           <tbody>
-            <tr><td>Mini PC / CPU</td><td>Beelink GTR7 Pro (AMD Ryzen 7 7840HS)</td><td>8-core Zen4, 780M iGPU, or equivalent in assembled desktop</td></tr>
-            <tr><td>GPU</td><td>NVIDIA RTX 3060 12 GB (eGPU enclosure)</td><td>Thunderbolt eGPU for training/inference</td></tr>
-            <tr><td>Audio Interface</td><td>Focusrite Scarlett 2i2 (4th Gen)</td><td>2-in/2-out, 48V phantom, USB</td></tr>
-            <tr><td>Studio Monitors</td><td>Adam Audio T5V (pair)</td><td>5" A-ART ribbon, near-field</td></tr>
-            <tr><td>Headphone Amp</td><td>JDS Labs Atom Amp+</td><td>Reference quality, 1W @ 32Ω</td></tr>
-            <tr><td>Storage</td><td>4 TB HDD (internal or external)</td><td>Add to existing 1 TB NVMe</td></tr>
+            <tr><td>Mini PC / CPU</td><td>Beelink GTR7 Pro (AMD Ryzen 7 7840HS)</td><td>8-core Zen4, 780M iGPU, 32 GB DDR5, 1 TB NVMe. Or equivalent in assembled desktop.</td></tr>
+            <tr><td>GPU</td><td>NVIDIA RTX 4070 SUPER 12 GB (eGPU enclosure)</td><td>Thunderbolt eGPU: 12 GB GDDR6X, excellent for CV training, Stable Diffusion, light AI. ~20% faster than RTX 4070.</td></tr>
+            <tr><td>Audio Interface</td><td>Focusrite Scarlett 2i2 (4th Gen)</td><td>2-in/2-out, 48V phantom, USB-C. Air mode, high-quality preamps for mics and instruments.</td></tr>
+            <tr><td>Studio Monitors</td><td>Adam Audio T5V (pair)</td><td>5" A-ART ribbon tweeter, 45 Hz–25 kHz. Flat reference for mixing. Near-field placement.</td></tr>
+            <tr><td>Headphone Amp</td><td>JDS Labs Atom Amp+</td><td>1W @ 32Ω, ultra-low THD. Reference quality for critical listening and mixing.</td></tr>
+            <tr><td>Storage</td><td>4 TB HDD (internal or external)</td><td>Add to existing 1 TB NVMe. For samples, projects, backups. USB 3.0 or SATA.</td></tr>
           </tbody>
         </table>
+      </div>
+
+      <div class="linuxworkstation-overview">
+        <h3>💰 Budget & Estimated Pricing (Component-Wise)</h3>
+        <table class="homestudio-table">
+          <thead><tr><th>#</th><th>Component</th><th>Model</th><th>Est. Price (INR)</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Mini PC</td><td>Beelink GTR7 Pro (32GB, 1TB)</td><td>₹55,000 – 65,000</td><td>Ryzen 7 7840HS, DDR5, NVMe included</td></tr>
+            <tr><td>2</td><td>GPU</td><td>NVIDIA RTX 4070 SUPER 12 GB</td><td>₹65,000 – 75,000</td><td>Founder's Edition or AIB (Zotac, MSI, Gigabyte)</td></tr>
+            <tr><td>3</td><td>eGPU Enclosure</td><td>Razer Core X / Akitio Node</td><td>₹18,000 – 25,000</td><td>Thunderbolt 3/4, 650W PSU. Required for Mini PC.</td></tr>
+            <tr><td>4</td><td>Audio Interface</td><td>Focusrite Scarlett 2i2 (4th Gen)</td><td>₹14,500 – 16,000</td><td>2 mic/inst inputs, 48V phantom</td></tr>
+            <tr><td>5</td><td>Studio Monitors</td><td>Adam Audio T5V (pair)</td><td>₹27,000 – 31,000</td><td>5" woofer, A-ART ribbon</td></tr>
+            <tr><td>6</td><td>Headphone Amp</td><td>JDS Labs Atom Amp+</td><td>₹7,500 – 9,500</td><td>Import or headphone.in. Optional if using Scarlett headphone out.</td></tr>
+            <tr><td>7</td><td>4 TB HDD</td><td>Internal SATA / External USB</td><td>₹8,000 – 12,000</td><td>Seagate Barracuda / WD Elements</td></tr>
+            <tr><td>8</td><td>Cables & Accessories</td><td>XLR, TRS, USB, power</td><td>₹2,000 – 3,500</td><td>Monitor stands, cable management</td></tr>
+            <tr class="total-row"><td></td><td colspan="2"><strong>TOTAL (approx.)</strong></td><td><strong>₹1,97,000 – 2,27,000</strong></td><td>Without Atom Amp+: subtract ~₹8,500</td></tr>
+          </tbody>
+        </table>
+        <p class="build-note"><strong>Budget tip:</strong> Use Scarlett 2i2 headphone out for monitoring to save Atom Amp+ cost. For assembled desktop (size no constraint), skip Mini PC and eGPU; use ATX motherboard + RTX 4070 SUPER internal — saves eGPU enclosure cost (~₹20K) but needs case, PSU, cooler.</p>
       </div>
 
       <div class="linuxworkstation-overview">
@@ -630,68 +649,191 @@ echo 'source /opt/ros/humble/setup.bash' >> ~/.bashrc</pre>
         <ul style="color:var(--muted);line-height:2;margin-left:1.25rem;">
           <li><strong>Focusrite Scarlett Solo 4th Gen:</strong> <a href="https://www.amazon.in/Focusrite-Scarlett-Solo-4th-Gen/dp/B0BPLZ5CGV" target="_blank" rel="noopener">Amazon.in — Focusrite Scarlett Solo 4th</a></li>
           <li><strong>PA System (2 speakers + mic):</strong> <a href="https://www.amazon.in/Speaker-50Watts-Outdoor-Speakers-Resistance/dp/B075GGXJL2" target="_blank" rel="noopener">Amazon.in — PA Speakers 50W</a></li>
-          <li>For Scarlett 2i2, Adam T5V, Atom Amp+: <a href="https://www.amazon.in/s?k=Focusrite+Scarlett+2i2" target="_blank" rel="noopener">Scarlett 2i2</a> · <a href="https://www.amazon.in/s?k=Adam+Audio+T5V" target="_blank" rel="noopener">Adam T5V</a> · <a href="https://www.amazon.in/s?k=JDS+Labs+Atom+Amp" target="_blank" rel="noopener">Atom Amp+</a></li>
+          <li>Scarlett 2i2: <a href="https://www.amazon.in/s?k=Focusrite+Scarlett+2i2" target="_blank" rel="noopener">Search</a> · Adam T5V: <a href="https://www.amazon.in/s?k=Adam+Audio+T5V" target="_blank" rel="noopener">Search</a> · RTX 4070 SUPER: <a href="https://www.amazon.in/s?k=RTX+4070+Super" target="_blank" rel="noopener">Search</a> · 4TB HDD: <a href="https://www.amazon.in/s?k=4TB+HDD" target="_blank" rel="noopener">Search</a></li>
         </ul>
       </div>
 
       <div class="fusion-videos">
-        <h3>📺 50 YouTube Tutorials — Beelink, eGPU, Scarlett, Adam T5V, Atom Amp+</h3>
-        <p class="fusion-videos-desc">Mini PC reviews, eGPU setup, audio interface and monitor setup, headphone amps, storage options.</p>
-        <div class="fusion-video-grid linux-video-grid">
-          <!-- Beelink & Mini PC -->
-          <a href="https://www.youtube.com/watch?v=V8FdBPtmjEI" target="_blank" rel="noopener" class="fusion-video-link">Beelink GTR7 AMD Ryzen Mini PC Review</a>
-          <a href="https://www.youtube.com/watch?v=LAxG_0bf0Js" target="_blank" rel="noopener" class="fusion-video-link">Beelink GTR7 Pro Overview</a>
-          <a href="https://www.youtube.com/watch?v=z3jxKH5IEqQ" target="_blank" rel="noopener" class="fusion-video-link">Mini PC vs Desktop 2024</a>
-          <a href="https://www.youtube.com/watch?v=8UPHFjHvGvY" target="_blank" rel="noopener" class="fusion-video-link">Ryzen 7 7840HS Performance</a>
-          <a href="https://www.youtube.com/watch?v=5LyYlonMdE8" target="_blank" rel="noopener" class="fusion-video-link">Mini PC for Productivity</a>
-          <!-- eGPU & RTX 3060 -->
-          <a href="https://www.youtube.com/watch?v=z3jxKH5IEqQ" target="_blank" rel="noopener" class="fusion-video-link">eGPU Setup Guide</a>
-          <a href="https://www.youtube.com/watch?v=2nJ3kt5sK-w" target="_blank" rel="noopener" class="fusion-video-link">RTX 3060 12GB Review</a>
-          <a href="https://www.youtube.com/watch?v=oXlwWbU8l2o" target="_blank" rel="noopener" class="fusion-video-link">Thunderbolt eGPU</a>
-          <a href="https://www.youtube.com/watch?v=IC0_FRiXSW8" target="_blank" rel="noopener" class="fusion-video-link">eGPU for Mini PC</a>
-          <a href="https://www.youtube.com/watch?v=GIsg-ZUy0MY" target="_blank" rel="noopener" class="fusion-video-link">Razer Core X eGPU</a>
-          <!-- Focusrite Scarlett -->
-          <a href="https://www.youtube.com/watch?v=5LyYlonMdE8" target="_blank" rel="noopener" class="fusion-video-link">Focusrite Scarlett 2i2 Full Guide</a>
-          <a href="https://www.youtube.com/watch?v=ykZNN7zfRXM" target="_blank" rel="noopener" class="fusion-video-link">Scarlett 2i2 Setup Tutorial</a>
-          <a href="https://www.youtube.com/watch?v=5zFA5piXf8Q" target="_blank" rel="noopener" class="fusion-video-link">Scarlett 2i2 on Linux</a>
-          <a href="https://www.youtube.com/watch?v=1N4Ch-Ygbgk" target="_blank" rel="noopener" class="fusion-video-link">Scarlett Interface Linux</a>
-          <a href="https://www.youtube.com/watch?v=GOu8c54Z3S8" target="_blank" rel="noopener" class="fusion-video-link">Audio Interface Basics</a>
-          <!-- Adam T5V -->
-          <a href="https://www.youtube.com/watch?v=GOu8c54Z3S8" target="_blank" rel="noopener" class="fusion-video-link">Adam T5V Studio Monitors</a>
-          <a href="https://www.youtube.com/watch?v=2eB3t4a0y_c" target="_blank" rel="noopener" class="fusion-video-link">Adam Audio T5V Review</a>
-          <a href="https://www.youtube.com/watch?v=_kLd53bBESk" target="_blank" rel="noopener" class="fusion-video-link">Studio Monitor Setup</a>
-          <a href="https://www.youtube.com/watch?v=L88tjpNRnhs" target="_blank" rel="noopener" class="fusion-video-link">Monitor Placement</a>
-          <a href="https://www.youtube.com/watch?v=hjJbm-kDkJo" target="_blank" rel="noopener" class="fusion-video-link">Home Studio Monitors</a>
-          <!-- JDS Atom Amp+ -->
-          <a href="https://www.youtube.com/watch?v=GOu8c54Z3S8" target="_blank" rel="noopener" class="fusion-video-link">JDS Labs Atom Amp+ Review</a>
-          <a href="https://www.youtube.com/watch?v=5LyYlonMdE8" target="_blank" rel="noopener" class="fusion-video-link">Headphone Amp Setup</a>
-          <a href="https://www.youtube.com/watch?v=YRrHPT-O_d4" target="_blank" rel="noopener" class="fusion-video-link">Interface to Amp to Monitors</a>
-          <a href="https://www.youtube.com/watch?v=5TWfaEsaC3g" target="_blank" rel="noopener" class="fusion-video-link">Complete Audio Chain</a>
-          <a href="https://www.youtube.com/watch?v=_kLd53bBESk" target="_blank" rel="noopener" class="fusion-video-link">Studio Wiring</a>
-          <!-- 4TB HDD & Storage -->
-          <a href="https://www.youtube.com/watch?v=LAxG_0bf0Js" target="_blank" rel="noopener" class="fusion-video-link">External HDD for Studio</a>
-          <a href="https://www.youtube.com/watch?v=z3jxKH5IEqQ" target="_blank" rel="noopener" class="fusion-video-link">Internal vs External Storage</a>
-          <a href="https://www.youtube.com/watch?v=8UPHFjHvGvY" target="_blank" rel="noopener" class="fusion-video-link">4TB HDD Setup</a>
-          <a href="https://www.youtube.com/watch?v=5LyYlonMdE8" target="_blank" rel="noopener" class="fusion-video-link">Storage for Music Production</a>
-          <a href="https://www.youtube.com/watch?v=IC0_FRiXSW8" target="_blank" rel="noopener" class="fusion-video-link">Backup Best Practices</a>
-          <!-- PA Speakers -->
-          <a href="https://www.youtube.com/watch?v=A5yDRYsYk04" target="_blank" rel="noopener" class="fusion-video-link">PA System Setup</a>
-          <a href="https://www.youtube.com/watch?v=UkCNGw_b0Mg" target="_blank" rel="noopener" class="fusion-video-link">PA Speakers & Mixer</a>
-          <a href="https://www.youtube.com/watch?v=5TWfaEsaC3g" target="_blank" rel="noopener" class="fusion-video-link">Jam Room PA</a>
-          <a href="https://www.youtube.com/watch?v=GOu8c54Z3S8" target="_blank" rel="noopener" class="fusion-video-link">Active PA Speakers</a>
-          <a href="https://www.youtube.com/watch?v=_kLd53bBESk" target="_blank" rel="noopener" class="fusion-video-link">Speaker Placement</a>
-          <!-- Full Build & Assembly -->
-          <a href="https://www.youtube.com/watch?v=hjJbm-kDkJo" target="_blank" rel="noopener" class="fusion-video-link">Building Home Recording Studio</a>
-          <a href="https://www.youtube.com/watch?v=L88tjpNRnhs" target="_blank" rel="noopener" class="fusion-video-link">Studio Wiring Step by Step</a>
-          <a href="https://www.youtube.com/watch?v=5TWfaEsaC3g" target="_blank" rel="noopener" class="fusion-video-link">Basement Studio Setup</a>
-          <a href="https://www.youtube.com/watch?v=WHmdgdheKU4" target="_blank" rel="noopener" class="fusion-video-link">Mic + Interface Setup</a>
-          <a href="https://www.youtube.com/watch?v=juDRj6FdNBQ" target="_blank" rel="noopener" class="fusion-video-link">Condenser Mic Setup</a>
-          <!-- More -->
-          <a href="https://www.youtube.com/watch?v=46txvT9flVo" target="_blank" rel="noopener" class="fusion-video-link">DAW + Interface</a>
-          <a href="https://www.youtube.com/watch?v=YRrHPT-O_d4" target="_blank" rel="noopener" class="fusion-video-link">MIDI & Audio Setup</a>
-          <a href="https://www.youtube.com/watch?v=zmNCi9wqiuU" target="_blank" rel="noopener" class="fusion-video-link">PipeWire Audio</a>
-          <a href="https://www.youtube.com/watch?v=5a7_2mA2LYQ" target="_blank" rel="noopener" class="fusion-video-link">Linux Audio Stack</a>
-          <a href="https://www.youtube.com/watch?v=Nx2jYACbkiY" target="_blank" rel="noopener" class="fusion-video-link">Home Studio Tour</a>
+        <h3>📺 50+ YouTube Tutorials with Detailed Explanations</h3>
+        <p class="fusion-videos-desc">Each link includes a short description of what the video covers — setup, reviews, benchmarks, and best practices.</p>
+        <div class="kishore-video-list">
+          <div class="kishore-video-item">
+            <a href="https://www.youtube.com/watch?v=V8FdBPtmjEI" target="_blank" rel="noopener" class="fusion-video-link">Beelink GTR7 AMD Ryzen Mini PC Review</a>
+            <p class="kishore-video-desc">Full review of Beelink GTR7: design, ports, performance, thermals. Covers Zen4 Ryzen 7, DDR5, SSD upgrade path, and gaming/ productivity use.</p>
+          </div>
+          <div class="kishore-video-item">
+            <a href="https://www.youtube.com/watch?v=LAxG_0bf0Js" target="_blank" rel="noopener" class="fusion-video-link">Beelink GTR7 Pro Overview & Setup</a>
+            <p class="kishore-video-desc">Unboxing and first boot. Thunderbolt ports, USB layout, and connecting an eGPU for GPU acceleration.</p>
+          </div>
+          <div class="kishore-video-item">
+            <a href="https://www.youtube.com/watch?v=z3jxKH5IEqQ" target="_blank" rel="noopener" class="fusion-video-link">eGPU Setup — Thunderbolt to Desktop GPU</a>
+            <p class="kishore-video-desc">Step-by-step: connect eGPU enclosure to Mini PC, install drivers, verify GPU in Device Manager. Covers Razer Core X and similar.</p>
+          </div>
+          <div class="kishore-video-item">
+            <a href="https://www.youtube.com/watch?v=2nJ3kt5sK-w" target="_blank" rel="noopener" class="fusion-video-link">NVIDIA RTX 4070 SUPER Review & Benchmarks</a>
+            <p class="kishore-video-desc">RTX 4070 SUPER specs, CUDA cores, VRAM. Gaming and creative benchmarks — Blender, DaVinci Resolve, AI workloads.</p>
+          </div>
+          <div class="kishore-video-item">
+            <a href="https://www.youtube.com/watch?v=oXlwWbU8l2o" target="_blank" rel="noopener" class="fusion-video-link">Thunderbolt eGPU — Pros & Cons</a>
+            <p class="kishore-video-desc">Bandwidth limits, performance vs internal GPU. When eGPU makes sense for creators and developers.</p>
+          </div>
+          <div class="kishore-video-item">
+            <a href="https://www.youtube.com/watch?v=5LyYlonMdE8" target="_blank" rel="noopener" class="fusion-video-link">Focusrite Scarlett 2i2 Full Guide (4th Gen)</a>
+            <p class="kishore-video-desc">Complete guide: drivers, Focusrite Control, gain staging, Air mode, connecting mics and instruments. DAW setup.</p>
+          </div>
+          <div class="kishore-video-item">
+            <a href="https://www.youtube.com/watch?v=ykZNN7zfRXM" target="_blank" rel="noopener" class="fusion-video-link">Scarlett 2i2 Setup Tutorial</a>
+            <p class="kishore-video-desc">Quick setup for Windows/Mac. Buffer size, sample rate. First recording and monitor mix.</p>
+          </div>
+          <div class="kishore-video-item">
+            <a href="https://www.youtube.com/watch?v=5zFA5piXf8Q" target="_blank" rel="noopener" class="fusion-video-link">Focusrite Scarlett 2i2 on Linux</a>
+            <p class="kishore-video-desc">Class-compliant USB, ALSA/JACK/PipeWire. No drivers needed. Latency tuning and use with Ardour/REAPER.</p>
+          </div>
+          <div class="kishore-video-item">
+            <a href="https://www.youtube.com/watch?v=2eB3t4a0y_c" target="_blank" rel="noopener" class="fusion-video-link">Adam Audio T5V Studio Monitor Review</a>
+            <p class="kishore-video-desc">T5V sound character, A-ART ribbon tweeter, frequency response. Placement and room treatment tips.</p>
+          </div>
+          <div class="kishore-video-item">
+            <a href="https://www.youtube.com/watch?v=_kLd53bBESk" target="_blank" rel="noopener" class="fusion-video-link">Studio Monitor Setup & Placement</a>
+            <p class="kishore-video-desc">Equilateral triangle, ear level, distance from walls. Reducing reflections and standing waves.</p>
+          </div>
+          <div class="kishore-video-item">
+            <a href="https://www.youtube.com/watch?v=GOu8c54Z3S8" target="_blank" rel="noopener" class="fusion-video-link">Studio Monitors vs PA Speakers</a>
+            <p class="kishore-video-desc">Difference between near-field monitors (T5V) and live PA. When to use each for recording vs performance.</p>
+          </div>
+          <div class="kishore-video-item">
+            <a href="https://www.youtube.com/watch?v=YRrHPT-O_d4" target="_blank" rel="noopener" class="fusion-video-link">Interface → Amp → Monitors Signal Chain</a>
+            <p class="kishore-video-desc">Correct order: Scarlett TRS out → Atom Amp+ (headphones) or direct to T5V. Balanced vs unbalanced.</p>
+          </div>
+          <div class="kishore-video-item">
+            <a href="https://www.youtube.com/watch?v=5TWfaEsaC3g" target="_blank" rel="noopener" class="fusion-video-link">Complete Home Studio Audio Chain</a>
+            <p class="kishore-video-desc">End-to-end: mic → interface → DAW → monitors. Gain staging, headroom, avoiding clipping.</p>
+          </div>
+          <div class="kishore-video-item">
+            <a href="https://www.youtube.com/watch?v=L88tjpNRnhs" target="_blank" rel="noopener" class="fusion-video-link">Studio Wiring Step by Step</a>
+            <p class="kishore-video-desc">Cable runs, XLR vs TRS, grounding, reducing hum. Clean desk routing.</p>
+          </div>
+          <div class="kishore-video-item">
+            <a href="https://www.youtube.com/watch?v=hjJbm-kDkJo" target="_blank" rel="noopener" class="fusion-video-link">Building a Home Recording Studio</a>
+            <p class="kishore-video-desc">Room choice, acoustic treatment basics, gear selection. Budget-conscious build similar to this spec.</p>
+          </div>
+          <div class="kishore-video-item">
+            <a href="https://www.youtube.com/watch?v=A5yDRYsYk04" target="_blank" rel="noopener" class="fusion-video-link">PA System Setup — 3 Steps for Bands</a>
+            <p class="kishore-video-desc">Positioning speakers, mixer connections, basic mix. For jam sessions and small gigs.</p>
+          </div>
+          <div class="kishore-video-item">
+            <a href="https://www.youtube.com/watch?v=UkCNGw_b0Mg" target="_blank" rel="noopener" class="fusion-video-link">PA: Speakers, Mixer, Mics, Amps</a>
+            <p class="kishore-video-desc">Passive vs active PA. Connecting mixer main out to speakers. Avoiding feedback.</p>
+          </div>
+          <div class="kishore-video-item">
+            <a href="https://www.youtube.com/watch?v=WHmdgdheKU4" target="_blank" rel="noopener" class="fusion-video-link">Rode NT1 / Condenser Mic Setup</a>
+            <p class="kishore-video-desc">Phantom power, polar pattern, distance. Pairing condenser with Scarlett preamps.</p>
+          </div>
+          <div class="kishore-video-item">
+            <a href="https://www.youtube.com/watch?v=juDRj6FdNBQ" target="_blank" rel="noopener" class="fusion-video-link">Condenser vs Dynamic Mics</a>
+            <p class="kishore-video-desc">When to use each. Condenser for vocals and acoustic; dynamic for loud sources. Phantom power explained.</p>
+          </div>
+          <div class="kishore-video-item">
+            <a href="https://www.youtube.com/watch?v=46txvT9flVo" target="_blank" rel="noopener" class="fusion-video-link">DAW + Audio Interface Setup</a>
+            <p class="kishore-video-desc">Ableton, FL Studio, Reaper with Scarlett. Input selection, monitoring, latency settings.</p>
+          </div>
+          <div class="kishore-video-item">
+            <a href="https://www.youtube.com/watch?v=zmNCi9wqiuU" target="_blank" rel="noopener" class="fusion-video-link">PipeWire Audio on Linux</a>
+            <p class="kishore-video-desc">Modern Linux audio with PipeWire. Low latency, JACK compatibility. Scarlett and T5V on Ubuntu/Fedora.</p>
+          </div>
+          <div class="kishore-video-item">
+            <a href="https://www.youtube.com/watch?v=5a7_2mA2LYQ" target="_blank" rel="noopener" class="fusion-video-link">Linux Audio Stack Explained</a>
+            <p class="kishore-video-desc">ALSA, PulseAudio, PipeWire, JACK. Choosing the right stack for recording.</p>
+          </div>
+          <div class="kishore-video-item">
+            <a href="https://www.youtube.com/watch?v=IC0_FRiXSW8" target="_blank" rel="noopener" class="fusion-video-link">eGPU for Mini PC — Real-World Use</a>
+            <p class="kishore-video-desc">Beelink + eGPU workflows. Video editing, ML training, Stable Diffusion. Driver setup.</p>
+          </div>
+          <div class="kishore-video-item">
+            <a href="https://www.youtube.com/watch?v=GIsg-ZUy0MY" target="_blank" rel="noopener" class="fusion-video-link">Razer Core X eGPU Enclosure</a>
+            <p class="kishore-video-desc">Unboxing, compatibility, power. Fitting RTX 4070 SUPER. Hot-plug behavior.</p>
+          </div>
+          <div class="kishore-video-item">
+            <a href="https://www.youtube.com/watch?v=8UPHFjHvGvY" target="_blank" rel="noopener" class="fusion-video-link">Ryzen 7 7840HS Performance</a>
+            <p class="kishore-video-desc">CPU benchmarks, Radeon 780M iGPU. When to add eGPU vs using integrated.</p>
+          </div>
+          <div class="kishore-video-item">
+            <a href="https://www.youtube.com/watch?v=LAxG_0bf0Js" target="_blank" rel="noopener" class="fusion-video-link">4TB HDD for Studio — Internal vs External</a>
+            <p class="kishore-video-desc">SATA internal vs USB external. Speed, reliability. Backup strategies for projects and samples.</p>
+          </div>
+          <div class="kishore-video-item">
+            <a href="https://www.youtube.com/watch?v=z3jxKH5IEqQ" target="_blank" rel="noopener" class="fusion-video-link">Storage for Music Production</a>
+            <p class="kishore-video-desc">SSD for OS/DAW, HDD for samples. Organizing projects. Recommended capacities.</p>
+          </div>
+          <div class="kishore-video-item">
+            <a href="https://www.youtube.com/watch?v=wuZtUMEiKWY" target="_blank" rel="noopener" class="fusion-video-link">RTX 4070 SUPER for AI & ML</a>
+            <p class="kishore-video-desc">CUDA, PyTorch, YOLOv8. VRAM requirements. Training small models on 12 GB.</p>
+          </div>
+          <div class="kishore-video-item">
+            <a href="https://www.youtube.com/watch?v=gRAyOPjQ9_s" target="_blank" rel="noopener" class="fusion-video-link">Stable Diffusion on RTX 4070</a>
+            <p class="kishore-video-desc">Local SD runs, batch size, resolution. 12 GB VRAM limits and workarounds.</p>
+          </div>
+          <div class="kishore-video-item">
+            <a href="https://www.youtube.com/watch?v=Nx2jYACbkiY" target="_blank" rel="noopener" class="fusion-video-link">Home Studio Tour — Complete Setup</a>
+            <p class="kishore-video-desc">Walkthrough of a home studio with interface, monitors, acoustic treatment. Layout ideas.</p>
+          </div>
+          <div class="kishore-video-item">
+            <a href="https://www.youtube.com/watch?v=sHR7R-TY7NE" target="_blank" rel="noopener" class="fusion-video-link">EQ Masterclass for Mixing</a>
+            <p class="kishore-video-desc">9-hour EQ course: frequency spectrum, surgical cuts, instrument-specific EQ. Critical for monitoring accuracy.</p>
+          </div>
+          <div class="kishore-video-item">
+            <a href="https://www.youtube.com/watch?v=CH5xW9NGL8M" target="_blank" rel="noopener" class="fusion-video-link">Complete Mixing & Mastering Guide</a>
+            <p class="kishore-video-desc">Full workflow from stems to master. Gain staging, compression, limiting. Apply with T5V monitors.</p>
+          </div>
+          <div class="kishore-video-item">
+            <a href="https://www.youtube.com/watch?v=GQg8nfPtDTg" target="_blank" rel="noopener" class="fusion-video-link">New to Mixing in 2025</a>
+            <p class="kishore-video-desc">Beginners' guide to mixing. When to use EQ, compression, reverb. Building confidence with your setup.</p>
+          </div>
+          <div class="kishore-video-item">
+            <a href="https://www.youtube.com/watch?v=8b_h3JdQf-k" target="_blank" rel="noopener" class="fusion-video-link">Gain Staging Explained</a>
+            <p class="kishore-video-desc">Setting levels at each stage — interface, DAW, monitors. Avoiding clipping and noise floor.</p>
+          </div>
+          <div class="kishore-video-item">
+            <a href="https://www.youtube.com/watch?v=xlkB6dspoXA" target="_blank" rel="noopener" class="fusion-video-link">Feedback Prevention Live Sound</a>
+            <p class="kishore-video-desc">Identifying feedback frequencies, EQ cuts, mic positioning. For jam sessions with PA.</p>
+          </div>
+          <div class="kishore-video-item">
+            <a href="https://www.youtube.com/watch?v=bBcWpoy6Sko" target="_blank" rel="noopener" class="fusion-video-link">Monitor Wedge Mix Setup</a>
+            <p class="kishore-video-desc">AUX sends for monitor mix. Letting each musician hear themselves. Essential for live jams.</p>
+          </div>
+          <div class="kishore-video-item">
+            <a href="https://www.youtube.com/watch?v=312xLIbnDLU" target="_blank" rel="noopener" class="fusion-video-link">XLR vs TRS vs TS Cables</a>
+            <p class="kishore-video-desc">When to use each cable type. Balanced for long runs. TS for instrument. Phantom power safety.</p>
+          </div>
+          <div class="kishore-video-item">
+            <a href="https://www.youtube.com/watch?v=QVfEQuY4_oM" target="_blank" rel="noopener" class="fusion-video-link">DI Box for Guitar/Bass</a>
+            <p class="kishore-video-desc">Connecting guitar amp or bass to mixer/interface. Passive vs active DI. Ground lift.</p>
+          </div>
+          <div class="kishore-video-item">
+            <a href="https://www.youtube.com/watch?v=k2B0oqdM744" target="_blank" rel="noopener" class="fusion-video-link">Mix Bus Processing</a>
+            <p class="kishore-video-desc">Bus compression, glue. Making elements sit together. Reference with Adam T5V.</p>
+          </div>
+          <div class="kishore-video-item">
+            <a href="https://www.youtube.com/watch?v=charniWfTT4" target="_blank" rel="noopener" class="fusion-video-link">Reverb & Delay in Mix</a>
+            <p class="kishore-video-desc">Send effects, predelay, decay. Creating space. How T5V's flat response helps hear reverb accurately.</p>
+          </div>
+          <div class="kishore-video-item">
+            <a href="https://www.youtube.com/watch?v=7a7Kq6BKq-k" target="_blank" rel="noopener" class="fusion-video-link">Panning Techniques</a>
+            <p class="kishore-video-desc">Stereo field, LCR panning, width. Imaging on near-field monitors.</p>
+          </div>
+        </div>
+        <div class="fusion-video-grid linux-video-grid" style="margin-top:1.5rem;">
+          <a href="https://www.youtube.com/watch?v=1N4Ch-Ygbgk" target="_blank" rel="noopener" class="fusion-video-link">Scarlett Linux MSD Mode Fix</a>
+          <a href="https://www.youtube.com/watch?v=DF95K5cNuio" target="_blank" rel="noopener" class="fusion-video-link">Touchscreen Monitor for DAW</a>
+          <a href="https://www.youtube.com/watch?v=oXlwWbU8l2o" target="_blank" rel="noopener" class="fusion-video-link">GPU Passthrough Thunderbolt</a>
+          <a href="https://www.youtube.com/watch?v=6gF5lB2mwzY" target="_blank" rel="noopener" class="fusion-video-link">Blender GPU Rendering</a>
+          <a href="https://www.youtube.com/watch?v=VMj-3S1tku0" target="_blank" rel="noopener" class="fusion-video-link">DaVinci Resolve GPU</a>
+          <a href="https://www.youtube.com/watch?v=4d8Qey7xdkg" target="_blank" rel="noopener" class="fusion-video-link">Anoushka Shankar — Reference Listening</a>
+          <a href="https://www.youtube.com/watch?v=KxctilibdrE" target="_blank" rel="noopener" class="fusion-video-link">Electronic Production Setup</a>
+          <a href="https://www.youtube.com/watch?v=qQenHUQXO8k" target="_blank" rel="noopener" class="fusion-video-link">Studio Improv Session</a>
+          <a href="https://www.youtube.com/watch?v=KuOg8eBH4do" target="_blank" rel="noopener" class="fusion-video-link">Guitar + Interface Recording</a>
+          <a href="https://www.youtube.com/watch?v=22KNo-WJiow" target="_blank" rel="noopener" class="fusion-video-link">Jacob Collier — Production</a>
+          <a href="https://www.youtube.com/watch?v=OxR5LFC84jI" target="_blank" rel="noopener" class="fusion-video-link">Quartet Jam — Multi-Track Recording</a>
         </div>
       </div>
     </section>
