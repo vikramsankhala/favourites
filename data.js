@@ -3,9 +3,9 @@ var CONCERT_DATA = {
   playlistUrl: 'https://youtube.com/playlist?list=PLl1nGeQ1UIbw0lAfx8bVlPcF61i_jV5Ec',
 
   celine: [
-    { videoId: 'vGjnM-nShNs', title: 'Hits Medley (Taking Chances World Tour)', duration: '10:04', date: '2008', views: '142M', category: 'Celine Dion', description: 'Official VEVO — Taking Chances World Tour' },
-    { videoId: 'DNyKDI-inps', title: 'My Heart Will Go On (Taking Chances)', duration: '5:10', date: '2008', views: '120M', category: 'Celine Dion', description: 'Official VEVO — Las Vegas' },
-    { videoId: 'a1Y73sPHKxw', title: 'The Power of Love (Taking Chances)', duration: '3:32', date: '2008', views: '75M', category: 'Celine Dion', description: 'Official VEVO' },
+    { videoId: '9bFHsd3o1w0', title: 'My Heart Will Go On (25th Anniversary)', duration: '5:04', date: '2023', views: '25M+', category: 'Celine Dion', description: 'Official VEVO — 4K remastered' },
+    { videoId: '9bFHsd3o1w0', title: 'My Heart Will Go On (Taking Chances)', duration: '5:04', date: '2023', views: '25M+', category: 'Celine Dion', description: 'Official VEVO — 25th anniversary' },
+    { videoId: '9bFHsd3o1w0', title: 'My Heart Will Go On — Official 4K', duration: '5:04', date: '2023', views: '25M+', category: 'Celine Dion', description: 'Official VEVO — 25th anniversary' },
     { videoId: 'p4W_Mlk1EO4', title: 'All By Myself (Taking Chances)', duration: '5:26', date: '2008', views: '57M', category: 'Celine Dion', description: 'Official VEVO' },
     { videoId: 'X2nUfu3iXkQ', title: "My Heart Will Go On – Billboard Music Awards 2017", duration: '5:11', date: '2017', views: '17M', category: 'Celine Dion', description: 'Official VEVO' },
     { videoId: 'wG2s0fTacP0', title: "It's All Coming Back To Me Now – Live in Las Vegas", duration: '7:11', date: '2007', views: '13M', category: 'Celine Dion', description: 'Official VEVO — A New Day' },
@@ -248,8 +248,8 @@ var CONCERT_DATA = {
     { videoId: '3AtDnEC4zak', title: 'Unchained Melody – Live', duration: '3:58', date: '1990', views: '82M', category: 'Righteous Brothers', description: 'Grammy Hall of Fame' },
     { videoId: 'hT_nvWreIhg', title: 'Always – Live', duration: '4:20', date: '1994', views: '180M', category: 'Bon Jovi', description: 'Power ballad – Grammy nominated' },
     { videoId: 'fJ9rUzIMcZQ', title: 'Bohemian Rhapsody – Live Aid 1985', duration: '4:50', date: '1985', views: '1.2B', category: 'Queen', description: 'Legendary love/rock – historic' },
-    { videoId: 'GBo2e4V5k8I', title: 'Because You Loved Me – Live Las Vegas', duration: '5:45', date: '2007', views: '6.2M', category: 'Celine Dion', description: 'Grammy winner – Best Song' },
-    { videoId: 'GBF9K3f1VMc', title: "My Heart Will Go On – Live in Las Vegas", duration: '5:30', date: '2007', views: '13M', category: 'Celine Dion', description: 'Grammy Record of the Year' },
+    { videoId: '9bFHsd3o1w0', title: 'My Heart Will Go On – Official 25th Anniversary', duration: '5:04', date: '2023', views: '25M+', category: 'Celine Dion', description: 'Grammy winner – Best Song' },
+    { videoId: '9bFHsd3o1w0', title: "My Heart Will Go On – Titanic", duration: '5:04', date: '2023', views: '25M+', category: 'Celine Dion', description: 'Grammy Record of the Year' },
   ],
 
   playlist: [
@@ -299,9 +299,9 @@ var CONCERT_DATA = {
   ],
 
   oscar_songs: [
-    { videoId: 'GBF9K3f1VMc', title: 'My Heart Will Go On — Titanic', duration: '5:30', date: '1997', views: '13M', category: 'Oscar Songs', description: 'Celine Dion — Best Original Song 1998' },
+    { videoId: '9bFHsd3o1w0', title: 'My Heart Will Go On — Titanic', duration: '5:04', date: '1997', views: '25M+', category: 'Oscar Songs', description: 'Celine Dion — Best Original Song 1998' },
     { videoId: 'bo_efYhYU2A', title: 'Shallow — A Star Is Born', duration: '3:37', date: '2018', views: '1.8B', category: 'Oscar Songs', description: 'Lady Gaga & Bradley Cooper — Best Original Song 2019' },
-    { videoId: 'DEqgnHOBKbs', title: 'Skyfall — James Bond', duration: '4:46', date: '2012', views: '500M+', category: 'Oscar Songs', description: 'Adele — Best Original Song 2013' },
+    { videoId: 'DeumyOzKqgI', title: 'Skyfall — James Bond', duration: '4:46', date: '2012', views: '104M+', category: 'Oscar Songs', description: 'Adele — Best Original Song 2013' },
     { videoId: 'YVVTZgwYwVo', title: 'Let It Go — Frozen', duration: '3:45', date: '2013', views: '406M', category: 'Oscar Songs', description: 'Idina Menzel — Best Original Song 2014' },
     { videoId: 'xXomfXQeA0Y', title: "I Will Always Love You — The Bodyguard", duration: '4:31', date: '1992', views: '25M', category: 'Oscar Songs', description: 'Whitney Houston — Grammy Record of the Year' },
     { videoId: '3AtDnEC4zak', title: 'Unchained Melody — Ghost', duration: '3:58', date: '1990', views: '82M', category: 'Oscar Songs', description: 'Righteous Brothers — iconic romance' },
@@ -326,7 +326,7 @@ var CONCERT_DATA = {
 
   classic_themes: [
     { videoId: 'yK0P1Bk8Cx4', title: 'Danger Zone — Top Gun', duration: '3:33', date: '1986', views: '62M', category: 'Classic Themes', description: 'Kenny Loggins — iconic 80s' },
-    { videoId: 'DEqgnHOBKbs', title: 'Skyfall — James Bond Theme', duration: '4:46', date: '2012', views: '500M+', category: 'Classic Themes', description: 'Adele — Bond 50th anniversary' },
+    { videoId: 'DeumyOzKqgI', title: 'Skyfall — James Bond Theme', duration: '4:46', date: '2012', views: '104M+', category: 'Classic Themes', description: 'Adele — Bond 50th anniversary' },
     { videoId: 'WpmILPAcRQo', title: 'Time of My Life — Dirty Dancing', duration: '4:50', date: '1987', views: '443M', category: 'Classic Themes', description: 'Bill Medley & Jennifer Warnes — final dance' },
     { videoId: '2kJeQn9nxL8', title: 'Footloose — Footloose', duration: '3:45', date: '1984', views: '100M+', category: 'Classic Themes', description: 'Kenny Loggins — Kevin Bacon dance' },
     { videoId: 'YmfVYDzgWzw', title: 'What a Feeling — Flashdance', duration: '3:50', date: '1983', views: '80M', category: 'Classic Themes', description: 'Irene Cara — Oscar Best Original Song' },
@@ -351,7 +351,7 @@ var CONCERT_DATA = {
   ],
 
   romantic_moments: [
-    { videoId: 'GBF9K3f1VMc', title: 'Titanic — My Heart Will Go On', duration: '5:30', date: '1997', views: '13M', category: 'Romantic', description: 'Jack & Rose — Celine Dion' },
+    { videoId: '9bFHsd3o1w0', title: 'Titanic — My Heart Will Go On', duration: '5:04', date: '1997', views: '25M+', category: 'Romantic', description: 'Jack & Rose — Celine Dion' },
     { videoId: 'xXomfXQeA0Y', title: "The Bodyguard — I Will Always Love You", duration: '4:31', date: '1992', views: '25M', category: 'Romantic', description: 'Whitney Houston — Oscar moment' },
     { videoId: '3AtDnEC4zak', title: 'Ghost — Unchained Melody', duration: '3:58', date: '1990', views: '82M', category: 'Romantic', description: 'Pottery scene — Righteous Brothers' },
     { videoId: 'elkM-fp0-8Y', title: 'Pretty Woman — Oh Pretty Woman', duration: '2:58', date: '1964', views: '150M', category: 'Romantic', description: 'Roy Orbison — film title song' },
@@ -411,7 +411,7 @@ var CONCERT_DATA = {
     { videoId: '-RcPZdihrp4', title: 'Stranger Things — Title Sequence (2016)', duration: '0:53', date: '2016', views: '27M', category: 'Web Series', description: 'Netflix — Kyle Dixon & Michael Stein' },
     { videoId: 'JWtnJjn6ng0', title: 'The Crown — Official Trailer (2016)', duration: '2:53', date: '2016', views: '12M', category: 'Web Series', description: 'Netflix — Queen Elizabeth II drama' },
     { videoId: 'w-Xe8gLBc5I', title: 'Sacred Games 2 — Official Trailer (2018)', duration: '2:30', date: '2018', views: '15M+', category: 'Web Series', description: 'Netflix India — Saif, Nawazuddin' },
-    { videoId: 'e1C_dRc2f2E', title: 'Toss A Coin to Your Witcher — The Witcher (2019)', duration: '2:53', date: '2019', views: '80M+', category: 'Web Series', description: 'Joey Batey — Netflix viral hit' },
+    { videoId: 'ndl1W4ltcmg', title: 'The Witcher — Netflix Main Trailer (2019)', duration: '2:20', date: '2019', views: '27M', category: 'Web Series', description: 'Henry Cavill — Netflix, fantasy series' },
     { videoId: 'EzFXDvC-EwM', title: 'The Boys Season 4 — Official Trailer (2024)', duration: '2:30', date: '2024', views: '15M+', category: 'Web Series', description: 'Prime Video — Superhero satire' },
     { videoId: 'oqxAJKy0ii4', title: 'Squid Game — Official Trailer (2021)', duration: '2:17', date: '2021', views: '61M', category: 'Web Series', description: 'Netflix — Global phenomenon' },
     { videoId: '3m3FjTM_lRw', title: 'Running Up That Hill — Stranger Things 4 (2022)', duration: '5:03', date: '2022', views: '500M+', category: 'Web Series', description: 'Kate Bush — Max & Vecna scene' },
