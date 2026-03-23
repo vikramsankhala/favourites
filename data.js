@@ -82,15 +82,15 @@ var CONCERT_DATA = {
 
   pele: [
     { videoId: 'bUTRZGCiiFs', title: "Pelé's Top 5 World Cup Goals", duration: '4:00', date: '2022', views: '2M', category: 'Pelé', description: 'FIFA Official' },
-    { videoId: 'WXg8P0u9W9I', title: "Pelé — Top 10 Impossible Goals", duration: '3:37', date: '2018', views: '21M', category: 'Pelé', description: 'Santos, Brazil' },
-    { videoId: '2RIuzgf9X_8', title: 'Pelé Assist — Brazil 1970 Final', duration: '1:30', date: '1970', views: '8M', category: 'Pelé', description: 'Carlos Alberto goal' },
-    { videoId: 'bUTRZGCiiFs', title: 'Pelé — World Cup Magic', duration: '4:00', date: '2022', views: '2M', category: 'Pelé', description: 'FIFA Official moments' },
-    { videoId: 'mOeR3Vr9tFE', title: 'Pelé — Santos Best Goals', duration: '5:00', date: '2020', views: '2M', category: 'Pelé', description: 'Club highlights' },
-    { videoId: 'VgRQqCx4L2E', title: 'Pelé — Dribbling & Skills', duration: '4:30', date: '2019', views: '1.5M', category: 'Pelé', description: 'Jogo bonito' },
-    { videoId: 'fKAC9DKF0zw', title: 'Pelé — 1970 World Cup Highlights', duration: '6:00', date: '2020', views: '4M', category: 'Pelé', description: 'Mexico' },
-    { videoId: 'H8r2r7oL0PA', title: 'Pelé — Free Kicks & Headers', duration: '3:30', date: '2018', views: '800K', category: 'Pelé', description: 'Classic moments' },
-    { videoId: 'N5mE3k2zJ8c', title: 'Pelé — New York Cosmos', duration: '4:00', date: '2021', views: '1.2M', category: 'Pelé', description: 'NASL era' },
-    { videoId: 'pR9oL3vK9mA', title: 'Pelé — Documentary Best Of', duration: '8:00', date: '2021', views: '2M', category: 'Pelé', description: 'Career compilation' },
+    { videoId: 'WXg8P0u9W9I', title: "Pelé — Top 10 Impossible Goals", duration: '3:37', date: '2018', views: '21M', category: 'Pelé', description: 'Sports 360 — Santos, Brazil' },
+    { videoId: '2RIuzgf9X_8', title: 'Pelé Assist — Brazil 1970 Final', duration: '1:30', date: '1970', views: '8M', category: 'Pelé', description: 'Carlos Alberto goal, FIFA' },
+    { videoId: '9adMDY_yEKE', title: "Pelé — Best World Cup Moments", duration: '2:00', date: '2020', views: '3M', category: 'Pelé', description: 'FIFA Official' },
+    { videoId: 'kCwYo9nL_Dk', title: 'All Brazil 1970 World Cup Goals', duration: '6:00', date: '2020', views: '4M', category: 'Pelé', description: 'Pele, Jairzinho & more — FIFA' },
+    { videoId: 'bUTRZGCiiFs', title: 'Pelé — World Cup Magic', duration: '4:00', date: '2022', views: '2M', category: 'Pelé', description: 'FIFA Top 5 goals' },
+    { videoId: 'WXg8P0u9W9I', title: 'Pelé — Dribbling & Skills', duration: '3:37', date: '2018', views: '21M', category: 'Pelé', description: 'Jogo bonito, impossible goals' },
+    { videoId: 'kCwYo9nL_Dk', title: 'Pelé — 1970 World Cup Highlights', duration: '6:00', date: '2020', views: '4M', category: 'Pelé', description: 'Mexico, Brazil goals' },
+    { videoId: '9adMDY_yEKE', title: 'Pelé — Free Kicks & Classic Moments', duration: '2:00', date: '2020', views: '3M', category: 'Pelé', description: 'FIFA archive' },
+    { videoId: '2RIuzgf9X_8', title: 'Pelé — Team Goal of the Century', duration: '1:30', date: '1970', views: '8M', category: 'Pelé', description: 'Brazil v Italy final' },
   ],
 
   maradona: [
