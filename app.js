@@ -1,5 +1,5 @@
 (function () {
-  const CATEGORY_KEYS = ['celine', 'shakira', 'enrique', 'dance', 'classics', 'football', 'pele', 'maradona', 'messi', 'messigear', 'ronaldo', 'cruyff', 'zidane', 'ronaldinho', 'r9', 'vanbasten', 'beckenbauer', 'oscar_songs', 'musical_films', 'classic_themes', 'movie_dance', 'romantic_moments', 'web_series', 'hindi_web_series', 'hindi_movies', 'bengali_movies', 'malayalam_movies', 'jubin_nautiyal', 'raabta', 'arijit_singh', 'atif_aslam', 'rubaru', 'punjabi_songs', 'soulful', 'punjabi_dance', 'tt_gear', 'tt_players', 'tt_legends', 'tt_styles', 'tt_matches', 'tennis_aces', 'tennis_dtl', 'tennis_crosscourt', 'tennis_single_dtl', 'tennis_single_crosscourt', 'bike_secondhand', 'bike_customization', 'bike_enhancements', 'bike_gear', 'bike_repairs', 'playlist', 'love', 'african', 'latin', 'flamenco'];
+  const CATEGORY_KEYS = ['celine', 'shakira', 'enrique', 'dance', 'classics', 'football', 'pele', 'maradona', 'messi', 'messigear', 'ronaldo', 'cruyff', 'zidane', 'ronaldinho', 'r9', 'vanbasten', 'beckenbauer', 'oscar_songs', 'musical_films', 'classic_themes', 'movie_dance', 'romantic_moments', 'web_series', 'hindi_web_series', 'hindi_movies', 'bengali_movies', 'malayalam_dance_ladies', 'malayalam_movies', 'jubin_nautiyal', 'raabta', 'arijit_singh', 'atif_aslam', 'rubaru', 'punjabi_songs', 'soulful', 'punjabi_dance', 'tt_gear', 'tt_players', 'tt_legends', 'tt_styles', 'tt_matches', 'tennis_aces', 'tennis_dtl', 'tennis_crosscourt', 'tennis_single_dtl', 'tennis_single_crosscourt', 'bike_secondhand', 'bike_customization', 'bike_enhancements', 'bike_gear', 'bike_repairs', 'playlist', 'love', 'african', 'latin', 'flamenco'];
   const BADGE_MAP = {
     celine: 'badge-celine', shakira: 'badge-shakira', enrique: 'badge-enrique', dance: 'badge-dance',
     classics: 'badge-classics', football: 'badge-football', playlist: 'badge-playlist', love: 'badge-love',
@@ -9,7 +9,7 @@
     r9: 'badge-r9', vanbasten: 'badge-vanbasten', beckenbauer: 'badge-beckenbauer',
     oscar_songs: 'badge-oscar', musical_films: 'badge-musical', classic_themes: 'badge-themes',
     movie_dance: 'badge-movie-dance', romantic_moments: 'badge-romantic',
-    hindi_movies: 'badge-hindi', bengali_movies: 'badge-bengali', malayalam_movies: 'badge-malayalam',
+    hindi_movies: 'badge-hindi', bengali_movies: 'badge-bengali', malayalam_dance_ladies: 'badge-malayalam', malayalam_movies: 'badge-malayalam',
     jubin_nautiyal: 'badge-indian', raabta: 'badge-indian', arijit_singh: 'badge-indian', atif_aslam: 'badge-indian', rubaru: 'badge-indian',
     punjabi_songs: 'badge-indian', soulful: 'badge-indian', punjabi_dance: 'badge-indian',
     web_series: 'badge-web', hindi_web_series: 'badge-hindi-web',

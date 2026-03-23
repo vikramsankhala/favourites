@@ -421,6 +421,15 @@ var CONCERT_DATA = {
     { videoId: 'zgGTVaG2UiQ', title: 'Squid Game Season 3 — Official Trailer (2025)', duration: '2:00', date: '2025', views: '15M+', category: 'Web Series', description: 'Netflix — Latest season' },
   ],
 
+  malayalam_dance_ladies: [
+    { videoId: 'FXiaIH49oAU', title: 'Entammede Jimikki Kammal — Velipadinte Pusthakam | Mohanlal', duration: '3:45', date: '2017', views: '114M', category: 'Malayalam Dance', description: 'Sony Music — Shaan Rahman, viral ladies dance' },
+    { videoId: '55KzMQB6b18', title: 'Sulthaan — Aadu 3 | Vedhika Energetic Dance', duration: '4:34', date: '2026', views: '10M+', category: 'Malayalam Dance', description: 'Friday Music — Shaan Rahman, Vedhika & Vinayakan' },
+    { videoId: 'kzpS-A3QJqE', title: 'Kaattuchembakam — Pallichattambi | Tovino, Kayadu', duration: '3:50', date: '2026', views: '10M+', category: 'Malayalam Dance', description: 'Sony Malayalam — Jakes Bejoy, Kayadu Lohar dance' },
+    { videoId: 'VzT2xurZrbI', title: 'Kalapakkaara — King of Kotha | Dulquer Salmaan', duration: '3:45', date: '2023', views: '119M', category: 'Malayalam Dance', description: 'Sony Malayalam — Jakes Bejoy, party anthem' },
+    { videoId: 'pf0aHbTGBxA', title: 'Kakka Malayile — Mallu Singh | Kunchako, Unni Mukundan', duration: '3:30', date: '2024', views: '5M+', category: 'Malayalam Dance', description: 'Manorama Music — M. Jayachandran, upbeat' },
+    { videoId: 'Dw4Y53cEKMk', title: 'Madabhara Mizhiyoram — Malaikottai Vaaliban | Mohanlal', duration: '4:00', date: '2024', views: '15M+', category: 'Malayalam Dance', description: 'Saregama — Prashant Pillai, Lijo Jose Pellissery' },
+  ],
+
   malayalam_movies: [
     { videoId: 'toPuRhp6Xi0', title: 'Harivarasanam — Swami Ayyappan (1975)', duration: '4:45', date: '1996', views: '8M+', category: 'Malayalam', description: 'Thanka Thinkal — Indraprastham, Mammootty' },
     { videoId: 'DJwydcBv2lg', title: 'Nilave Maayumo — Minnaram (1994)', duration: '4:20', date: '2015', views: '150M+', category: 'Malayalam', description: 'Malare — Premam, Nivin Pauly, Sai Pallavi' },
