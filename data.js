@@ -608,6 +608,7 @@ var CONCERT_DATA = {
     { videoId: 'S7lCwHflglE', title: 'Avoid Frankenstein Mods — Clean Custom', duration: '20:00', date: '2023', views: '500K+', category: 'Custom', description: 'What NOT to do when customizing' },
     { videoId: 'VHVT_JjPWVg', title: 'Chain & Sprocket — Smooth Ride Setup', duration: '15:00', date: '2023', views: '200K', category: 'Custom', description: 'Proper tension = comfort & longevity' },
     { videoId: 'z-JyIDWT5qs', title: 'Helmet & Ergonomics — Rider Comfort', duration: '12:00', date: '2024', views: '150K', category: 'Custom', description: 'Fit impacts stability & fatigue' },
+    { videoId: 'TddTRPhfkG4', title: 'Engine Spray Painting At Home — DIY Any Bike', duration: '15:00', date: '2025', views: '100K+', category: 'Custom', description: 'The Sam Pawar — engine paint with spray can' },
   ],
 
   bike_enhancements: [
