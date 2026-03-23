@@ -637,6 +637,15 @@ var CONCERT_DATA = {
     { videoId: 'aAhgNCdQBPY', title: 'Lightweight Bike — Low Maintenance Wins', duration: '12:00', date: '2026', views: '100K+', category: 'Repairs', description: '100–125cc = less to fix' },
   ],
 
+  jubin_nautiyal: [
+    { videoId: 'gvyUuxdRdR4', title: 'Raataan Lambiyan — Shershaah | Jubin Nautiyal, Asees Kaur', duration: '2:31', date: '2021', views: '948M', category: 'Jubin Nautiyal', description: 'Sony Music — Sidharth, Kiara, Tanishk Bagchi' },
+    { videoId: 'sCbbMZ-q4-I', title: 'Lut Gaye — Emraan Hashmi, Yukti | Jubin Nautiyal', duration: '3:48', date: '2021', views: '1.5B', category: 'Jubin Nautiyal', description: 'T-Series — Tanishk B, Manoj Muntashir' },
+    { videoId: 'Jx310JG_lK4', title: 'Raabta — Official Music Video | Jubin Nautiyal, Adah Sharma', duration: '3:45', date: '2024', views: '50M+', category: 'Jubin Nautiyal', description: 'T-Series — Chirantan Bhatt' },
+    { videoId: '3eD91SzY7Vo', title: 'Humnava Mere — Official Video | Jubin Nautiyal', duration: '3:55', date: '2018', views: '1B+', category: 'Jubin Nautiyal', description: 'Pyaar Records — Manoj Muntashir, Rocky-Shiv' },
+    { videoId: 'VFTSW817JlI', title: 'Tum Hi Aana — Marjaavaan | Jubin Nautiyal', duration: '3:50', date: '2019', views: '300M+', category: 'Jubin Nautiyal', description: 'T-Series — Payal Dev, Sidharth, Tara' },
+    { videoId: 'aLONwnlBB-g', title: 'Humko Tumse — Official Video | Jubin Nautiyal, Rocky Khanna', duration: '3:30', date: '2023', views: '20M+', category: 'Jubin Nautiyal', description: 'Jubin Nautiyal — Shreya Chaudhry, romantic' },
+  ],
+
   raabta: [
     { videoId: 'Jx310JG_lK4', title: 'Raabta — Official Music Video | Jubin Nautiyal, Adah Sharma', duration: '3:45', date: '2024', views: '50M+', category: 'Raabta', description: 'T-Series — Chirantan Bhatt' },
   ],
