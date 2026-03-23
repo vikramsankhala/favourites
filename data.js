@@ -683,6 +683,13 @@ var CONCERT_DATA = {
     { videoId: '4P1vdQcaHaw', title: 'Proper Patola — Diljit Dosanjh', duration: '3:42', date: '2018', views: '300M+', category: 'Punjabi', description: 'Speed Records — Badshah, Aastha' },
   ],
 
+  dosti: [
+    { videoId: '31GLfe4EZT8', title: 'Yaaron — Kota Factory | Ankur Tewari', duration: '3:45', date: '2019', views: '25M+', category: 'Dosti', description: 'TVF — soulful friendship anthem, IIT prep, memorable bond' },
+    { videoId: 'ctJI7pCbxAo', title: 'Koi Kahe Kehta Rahe — Dil Chahta Hai | KK, Shaan, Shankar', duration: '5:26', date: '2001', views: '46M+', category: 'Dosti', description: 'T-Series — Aamir, Akshaye, Saif, iconic friendship anthem' },
+    { videoId: 'lbCRtrrMvSw', title: 'Give Me Some Sunshine — 3 Idiots | Suraj Jagan', duration: '4:15', date: '2009', views: '90M+', category: 'Dosti', description: 'Zee Music — Aamir, Madhavan, Sharman, Shantanu Moitra, friends forever' },
+    { videoId: 'C1CLFK9T028', title: 'Chahunga Main Tujhe — Dosti (1964) | Mohammed Rafi', duration: '4:15', date: '1964', views: '15M+', category: 'Dosti', description: 'Rajshri — Laxmikant-Pyarelal, classic Dosti film, timeless friendship' },
+  ],
+
   soulful: [
     { videoId: 'rMfugUZD2dA', title: 'Dekhha Tenu — Mr. & Mrs. Mahi | Mohd. Faiz', duration: '3:50', date: '2024', views: '167M', category: 'Soulful', description: 'Sony Music — Rajkummar, Janhvi, Jaani' },
     { videoId: 'z-diRlyLGzo', title: 'Channa Mereya — Ae Dil Hai Mushkil | Soulful', duration: '4:05', date: '2016', views: '600M+', category: 'Soulful', description: 'Arijit Singh — Pritam, emotional' },
@@ -741,6 +748,27 @@ var CONCERT_DATA = {
     { videoId: 'F4X-2CwOAPg', title: 'Jagjit Singh — Film Ghazals Nonstop | Jhuki Jhuki, Tumko Dekha', duration: '1:25', date: '2025', views: '35K+', category: 'Ghazal', description: 'Saregama — 15 film ghazals, Jhuki Jhuki Si Nazar, Chithi Na Koi Sandesh, party perfect' },
     { videoId: '75VnN1dLA-Q', title: 'Chupke Chupke Raat Din — Ghulam Ali', duration: '8:00', date: '1976', views: '9M+', category: 'Ghazal', description: 'Saregama — Maulana Hasrat Mohani, Raga Kafi, Nikaah, mehfil classic' },
     { videoId: 'PTXlA6Yx1AY', title: 'Saqi Ki Har Nigah — Pankaj Udhas | Khamoshi Ki Aawaz', duration: '5:30', date: '2018', views: '2M+', category: 'Ghazal', description: 'ArtistAloud — romantic ghazal, wedding favorite' },
+  ],
+
+  mere_rashke_qamar: [
+    { videoId: 'q8gilwzNQEA', title: 'Mere Rashke Qamar — Baadshaho | Rahat Fateh Ali Khan', duration: '5:20', date: '2017', views: '500M+', category: 'Mere Rashke Qamar', description: 'T-Series — Ajay Devgn, Ileana, Nusrat & Rahat Fateh Ali Khan, Tanishk Bagchi, romantic qawwali hit' },
+    { videoId: 'hejXc_FSYb8', title: 'Tere Bin — Simmba | Rahat Fateh Ali Khan, Asees Kaur', duration: '4:28', date: '2018', views: '400M+', category: 'Mere Rashke Qamar', description: 'T-Series — Ranveer, Sara Ali Khan, Tanishk Bagchi, romantic Sufi-style similar vibe' },
+    { videoId: 'oyLVu753XJw', title: 'Tere Mast Mast Do Nain — Dabangg | Rahat Fateh Ali Khan', duration: '4:12', date: '2010', views: '98M+', category: 'Mere Rashke Qamar', description: 'T-Series — Salman Khan, Sajid–Wajid, Shreya Ghoshal, romantic classic' },
+    { videoId: 'kw4tT7SCmaY', title: 'Afreen Afreen — Coke Studio | Rahat & Momina Mustehsan', duration: '6:25', date: '2016', views: '350M+', category: 'Mere Rashke Qamar', description: 'Coke Studio Pakistan — viral romantic Sufi crossover, same soulful feel' },
+  ],
+
+  party_anthems: [
+    { videoId: 'g8bTNID9nPs', title: 'Zingaat (Jhing Jhing Jhingat) — Sairat | Ajay-Atul', duration: '4:27', date: '2016', views: '450M+', category: 'Party Anthems', description: 'Zee Music Marathi — viral rhythm & energy, wedding & party favorite' },
+    { videoId: 'xmCFHqLcZvc', title: 'Kala Chashma — Baar Baar Dekho | Neha Kakkar, Badshah', duration: '4:08', date: '2016', views: '500M+', category: 'Party Anthems', description: 'T-Series — Katrina, Sidharth, dance floor banger' },
+    { videoId: 'NTHz9ephYTw', title: 'Kar Gayi Chull — Kapoor & Sons | Badshah, Neha Kakkar', duration: '3:40', date: '2016', views: '559M+', category: 'Party Anthems', description: 'T-Series — Alia, Sidharth, house party anthem' },
+    { videoId: 'PeYxEd_TG_s', title: 'Dilbar — Satyameva Jayate | Nora Fatehi, Neha Kakkar', duration: '3:04', date: '2018', views: '1B+', category: 'Party Anthems', description: 'T-Series — Dhvani Bhanushali, viral dance club hit' },
+    { videoId: '4P1vdQcaHaw', title: 'Proper Patola — Diljit, Aastha Gill, Badshah', duration: '3:42', date: '2018', views: '300M+', category: 'Party Anthems', description: 'Speed Records — wedding & club dance energy' },
+    { videoId: 'opG3Fdy_esU', title: 'Lamberghini — The Doorbeen, Sartaaj', duration: '3:05', date: '2017', views: '200M+', category: 'Party Anthems', description: 'Speed Records — high-beat Punjabi party banger' },
+    { videoId: 'YKppYND6V9c', title: 'Brown Munde — AP Dhillon, Gurinder Gill', duration: '3:28', date: '2020', views: '400M+', category: 'Party Anthems', description: 'Run-Up — viral club dance anthem' },
+    { videoId: 'Jt5yIFgh6wQ', title: 'Bom Diggy Diggy — Sonu Ke Titu Ki Sweety | Zack Knight', duration: '3:48', date: '2018', views: '177M+', category: 'Party Anthems', description: 'T-Series — Jasmin Walia, party dance energy' },
+    { videoId: 'xmU0s2QtaEY', title: 'Swag Se Swagat — Tiger Zinda Hai | Salman, Katrina', duration: '3:56', date: '2017', views: '600M+', category: 'Party Anthems', description: 'YRF — Vishal-Shekhar, groovy club anthem' },
+    { videoId: 'HgIW7P4dsXU', title: 'Nachde Ne Saare — Baar Baar Dekho | Sidharth, Katrina', duration: '3:22', date: '2016', views: '337M+', category: 'Party Anthems', description: 'Zee Music — Jasleen Royal, wedding celebration energy' },
+    { videoId: '69CEiHfS_mc', title: 'Lungi Dance — Chennai Express | Honey Singh, SRK, Deepika', duration: '3:32', date: '2013', views: '547M+', category: 'Party Anthems', description: 'T-Series — Rajinikanth tribute, party dance' },
   ],
 
   flamenco: [
