@@ -721,6 +721,13 @@ var CONCERT_DATA = {
     { videoId: '4P1vdQcaHaw', title: 'Proper Patola — Diljit Dosanjh | Dance', duration: '3:42', date: '2018', views: '300M+', category: 'Punjabi Dance', description: 'Speed Records — Badshah' },
   ],
 
+  sufi_party: [
+    { videoId: 'T94PHkuydcw', title: 'Kun Faya Kun — Rockstar | A.R. Rahman, Javed Ali, Mohit Chauhan', duration: '6:21', date: '2011', views: '505M', category: 'Sufi', description: 'T-Series — Ranbir Kapoor, Irshaad Kamil, party favorite' },
+    { videoId: 'kw4tT7SCmaY', title: 'Afreen Afreen — Rahat Fateh Ali Khan & Momina Mustehsan', duration: '6:25', date: '2016', views: '350M+', category: 'Sufi', description: 'Coke Studio Pakistan — viral Sufi crossover, celebration' },
+    { videoId: 'T2kwiAC3nkg', title: 'Piya Haji Ali — Fiza | A.R. Rahman Qawwali', duration: '7:15', date: '2000', views: '5M+', category: 'Sufi', description: 'Hrithik, Karisma — Kadar Gulam, divine party qawwali' },
+    { videoId: 'wOAAbY1vTLI', title: 'Dama Dam Mast Qalandar — Yumna Ajin | Sufi Qawwali', duration: '4:30', date: '2018', views: '70M', category: 'Sufi', description: 'Classic Lal Shahbaz Qalandar — party anthem' },
+  ],
+
   ghazal_party: [
     { videoId: 'F4X-2CwOAPg', title: 'Jagjit Singh — Film Ghazals Nonstop | Jhuki Jhuki, Tumko Dekha', duration: '1:25', date: '2025', views: '35K+', category: 'Ghazal', description: 'Saregama — 15 film ghazals, Jhuki Jhuki Si Nazar, Chithi Na Koi Sandesh, party perfect' },
     { videoId: '75VnN1dLA-Q', title: 'Chupke Chupke Raat Din — Ghulam Ali', duration: '8:00', date: '1976', views: '9M+', category: 'Ghazal', description: 'Saregama — Maulana Hasrat Mohani, Raga Kafi, Nikaah, mehfil classic' },
