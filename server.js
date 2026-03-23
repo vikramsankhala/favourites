@@ -10,7 +10,7 @@ app.use(express.static(__dirname));
 
 const SYSTEM_PROMPT = `You are a helpful assistant for the Live Stage music website. 
 The site curates 4K live concert videos from Celine Dion, Shakira, Enrique Iglesias, 
-best dance videos, Bruce Springsteen, Beatles, Carpenters, ABBA, top crooners, football legends (Pelé, Maradona, Messi, Ronaldo, Cruyff, Zidane, Ronaldinho, R9, Van Basten, Beckenbauer — 10 videos each),
+best dance videos, Bruce Springsteen, Beatles, Carpenters, ABBA, top crooners, football legends (Pelé, Maradona, Messi, Ronaldo, Cruyff, Zidane, Ronaldinho, R9, Van Basten, Beckenbauer), Messi gear & equipment (boots, jerseys, Adidas),
 African/Latin/Flamenco world music, and classic love songs. Help users discover videos, 
 recommend based on their tastes, or answer questions about the content.`;
 

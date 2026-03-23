@@ -1,12 +1,12 @@
 (function () {
-  const CATEGORY_KEYS = ['celine', 'shakira', 'enrique', 'dance', 'classics', 'football', 'pele', 'maradona', 'messi', 'ronaldo', 'cruyff', 'zidane', 'ronaldinho', 'r9', 'vanbasten', 'beckenbauer', 'playlist', 'love', 'african', 'latin', 'flamenco'];
+  const CATEGORY_KEYS = ['celine', 'shakira', 'enrique', 'dance', 'classics', 'football', 'pele', 'maradona', 'messi', 'messigear', 'ronaldo', 'cruyff', 'zidane', 'ronaldinho', 'r9', 'vanbasten', 'beckenbauer', 'playlist', 'love', 'african', 'latin', 'flamenco'];
   const BADGE_MAP = {
     celine: 'badge-celine', shakira: 'badge-shakira', enrique: 'badge-enrique', dance: 'badge-dance',
     classics: 'badge-classics', football: 'badge-football', playlist: 'badge-playlist', love: 'badge-love',
     african: 'badge-african', latin: 'badge-latin', flamenco: 'badge-flamenco',
-    pele: 'badge-pele', maradona: 'badge-maradona', messi: 'badge-messi', ronaldo: 'badge-ronaldo',
-    cruyff: 'badge-cruyff', zidane: 'badge-zidane', ronaldinho: 'badge-ronaldinho', r9: 'badge-r9',
-    vanbasten: 'badge-vanbasten', beckenbauer: 'badge-beckenbauer',
+    pele: 'badge-pele', maradona: 'badge-maradona', messi: 'badge-messi', messigear: 'badge-messigear',
+    ronaldo: 'badge-ronaldo', cruyff: 'badge-cruyff', zidane: 'badge-zidane', ronaldinho: 'badge-ronaldinho',
+    r9: 'badge-r9', vanbasten: 'badge-vanbasten', beckenbauer: 'badge-beckenbauer',
   };
 
   function getAllVideos() {

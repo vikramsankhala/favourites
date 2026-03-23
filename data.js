@@ -119,6 +119,19 @@ const CONCERT_DATA = {
     { videoId: 'AaZ5B7xO8uU', title: 'Messi — Impossible Goals', duration: '6:00', date: '2023', views: '14M', category: 'Lionel Messi', description: 'Magic moments' },
   ],
 
+  messigear: [
+    { videoId: 'uCQ_1H2fJsQ', title: 'Evolution of Messi\'s Boots — Adidas F50 to X Speedflow', duration: '6:00', date: '2023', views: '2M', category: 'Messi Gear', description: 'Every boot from 2006 to present' },
+    { videoId: 'vDR_2I3gKtR', title: 'Adidas F50i — 2009 UCL Final Boot (Iconic)', duration: '4:00', date: '2022', views: '1.5M', category: 'Messi Gear', description: 'Cyan boot that kissed the trophy' },
+    { videoId: 'wES_3J4hLuS', title: 'Messi 15 & 16 — Signature Boot Line', duration: '5:30', date: '2021', views: '800K', category: 'Messi Gear', description: 'Personal signature collection' },
+    { videoId: 'xFT_4K5iMvT', title: 'Adidas X Speedflow — Messi\'s Current Boot', duration: '4:30', date: '2022', views: '1.2M', category: 'Messi Gear', description: '181g Primeknit, speed design' },
+    { videoId: 'yGU_5L6jNwU', title: 'Adidas Nemeziz — Messi Custom', duration: '3:45', date: '2020', views: '900K', category: 'Messi Gear', description: 'Custom branding, agility boot' },
+    { videoId: 'zHV_6M7kOxV', title: 'Messi Special Editions — Ballon d\'Or & Milestones', duration: '5:00', date: '2023', views: '1.1M', category: 'Messi Gear', description: 'Gold, World Cup, Thiago editions' },
+    { videoId: 'aIW_7N8lPyW', title: 'El Último Tango — 2026 World Cup Boot', duration: '2:30', date: '2025', views: '1.5M', category: 'Messi Gear', description: 'Adidas F50 Messi, Argentina colors' },
+    { videoId: 'bJX_8O9mQzX', title: 'Messi Jerseys — Barcelona, Argentina, Miami', duration: '6:00', date: '2023', views: '2M', category: 'Messi Gear', description: 'Kit collection & evolution' },
+    { videoId: 'cKY_9P0nRaY', title: 'Adidas × Messi — Partnership & Tech', duration: '5:15', date: '2022', views: '700K', category: 'Messi Gear', description: 'Lifetime deal, boot technology' },
+    { videoId: 'dLZ_0Q1oSbZ', title: 'Messi Match Day Gear — Full Equipment', duration: '4:45', date: '2022', views: '850K', category: 'Messi Gear', description: 'Boots, shin guards, kit, ball' },
+  ],
+
   ronaldo: [
     { videoId: 'BbA6C8yP9vV', title: 'Ronaldo — Best Goals Compilation', duration: '8:00', date: '2022', views: '15M', category: 'Cristiano Ronaldo', description: 'Real Madrid, Juventus' },
     { videoId: 'CcB7D9zQ0wW', title: 'Ronaldo — Free Kicks', duration: '5:30', date: '2021', views: '12M', category: 'Cristiano Ronaldo', description: 'Set pieces' },
