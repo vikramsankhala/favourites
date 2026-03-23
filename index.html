@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Stage — Best Concert Videos & Love Songs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="logo">Live Stage</h1>
+      <p class="tagline">4K Concerts • Love Songs • World Music Jams</p>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <section class="hero">
+      <h2>Curated Live Performances</h2>
+      <p>50+ best 4K live concerts from Celine Dion, Shakira & Enrique Iglesias • African, Latin, Flamenco jams • Classic love songs • Grammy winners</p>
+      <div class="hero-stats">
+        <span class="stat"><strong id="stat-total">0</strong> Videos</span>
+        <span class="stat"><strong>9</strong> Categories</span>
+      </div>
+    </section>
+
+    <section class="controls" id="controls">
+      <div class="search-wrap">
+        <input type="text" id="search" placeholder="Search videos..." autocomplete="off">
+      </div>
+      <div class="filter-sort">
+        <select id="sortBy">
+          <option value="date-desc">Newest First</option>
+          <option value="date-asc">Oldest First</option>
+          <option value="duration-desc">Longest First</option>
+          <option value="duration-asc">Shortest First</option>
+          <option value="title">Title A–Z</option>
+        </select>
+      </div>
+    </section>
+
+    <nav class="category-tabs" role="tablist">
+      <button class="tab active" data-tab="celine">Celine Dion</button>
+      <button class="tab" data-tab="shakira">Shakira</button>
+      <button class="tab" data-tab="enrique">Enrique Iglesias</button>
+      <button class="tab" data-tab="playlist">Shakira 4K Playlist</button>
+      <button class="tab" data-tab="love">Love Songs</button>
+      <button class="tab" data-tab="african">African & Afrobeat</button>
+      <button class="tab" data-tab="latin">Latin & Cuban</button>
+      <button class="tab" data-tab="flamenco">Flamenco & Spanish</button>
+      <button class="tab" data-tab="all">All</button>
+    </nav>
+
+    <section class="playlist-embed" id="playlistSection">
+      <div class="playlist-header">
+        <h3>Shakira Best 4K — Dance, Energy & Live Performances</h3>
+        <a href="https://youtube.com/playlist?list=PLl1nGeQ1UIbw0lAfx8bVlPcF61i_jV5Ec" target="_blank" rel="noopener" class="playlist-link">Open on YouTube →</a>
+      </div>
+      <div class="embed-wrap">
+        <iframe src="https://www.youtube.com/embed/videoseries?list=PLl1nGeQ1UIbw0lAfx8bVlPcF61i_jV5Ec" title="Shakira 4K Playlist" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section class="video-grid" id="videoGrid" aria-live="polite">
+      <!-- Populated by app.js -->
+    </section>
+
+    <section class="data-table-section">
+      <h3>All Videos — Sortable</h3>
+      <div class="table-wrap">
+        <table class="data-table" id="dataTable">
+          <thead>
+            <tr>
+              <th data-sort="title">Title</th>
+              <th data-sort="artist">Artist/Category</th>
+              <th data-sort="date">Date</th>
+              <th data-sort="duration">Duration</th>
+              <th data-sort="views">Views</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-content">
+      <button class="modal-close" data-close aria-label="Close">×</button>
+      <div class="modal-embed-wrap">
+        <iframe id="modalEmbed" title="Video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <div class="modal-info">
+        <h2 id="modalTitle"></h2>
+        <div class="modal-meta" id="modalMeta"></div>
+        <p class="modal-desc" id="modalDesc"></p>
+        <a id="modalYt" href="#" target="_blank" rel="noopener" class="yt-link">Watch on YouTube →</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
