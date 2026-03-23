@@ -3,16 +3,16 @@ var CONCERT_DATA = {
   playlistUrl: 'https://youtube.com/playlist?list=PLl1nGeQ1UIbw0lAfx8bVlPcF61i_jV5Ec',
 
   celine: [
-    { videoId: '9bFHsd3o1w0', title: 'My Heart Will Go On (25th Anniversary)', duration: '5:04', date: '2023', views: '25M+', category: 'Celine Dion', description: 'Official VEVO — 4K remastered' },
-    { videoId: '9bFHsd3o1w0', title: 'My Heart Will Go On (Taking Chances)', duration: '5:04', date: '2023', views: '25M+', category: 'Celine Dion', description: 'Official VEVO — 25th anniversary' },
-    { videoId: '9bFHsd3o1w0', title: 'My Heart Will Go On — Official 4K', duration: '5:04', date: '2023', views: '25M+', category: 'Celine Dion', description: 'Official VEVO — 25th anniversary' },
-    { videoId: 'p4W_Mlk1EO4', title: 'All By Myself (Taking Chances)', duration: '5:26', date: '2008', views: '57M', category: 'Celine Dion', description: 'Official VEVO' },
-    { videoId: 'X2nUfu3iXkQ', title: "My Heart Will Go On – Billboard Music Awards 2017", duration: '5:11', date: '2017', views: '17M', category: 'Celine Dion', description: 'Official VEVO' },
-    { videoId: 'wG2s0fTacP0', title: "It's All Coming Back To Me Now – Live in Las Vegas", duration: '7:11', date: '2007', views: '13M', category: 'Celine Dion', description: 'Official VEVO — A New Day' },
-    { videoId: '5c_BQnTQ6rM', title: "The Power of Love & I'm Alive – Elie Saab Riyadh 2024", duration: '14:31', date: '2024', views: '5M', category: 'Celine Dion', description: '4K comeback performance' },
-    { videoId: 'GBo2e4V5k8I', title: 'Because You Loved Me – Official Live HD', duration: '5:45', date: '2007', views: '6.2M', category: 'Celine Dion', description: 'Official live' },
-    { videoId: 'vKGMxEMjvR8', title: 'Live in Manila 2018 – Full Concert', duration: '1:58:08', date: '2018', views: '2.7M', category: 'Celine Dion', description: 'Full concert HD' },
-    { videoId: 'f5N-Eio1iZE', title: 'A New Day – Live in Las Vegas 2007 Full Concert', duration: '1:33:07', date: '2007', views: '2.2M', category: 'Celine Dion', description: 'Full concert' },
+    { videoId: 'cvu28pKql8g', title: 'Hits Medley — Taking Chances World Tour', duration: '9:00', date: '2008', views: '25M+', category: 'Celine Dion', description: 'It\'s All Coming Back / Because You Loved Me / To Love You More' },
+    { videoId: 'IAuRoAUV19o', title: 'My Heart Will Go On — Taking Chances Tour', duration: '5:15', date: '2008', views: '35M+', category: 'Celine Dion', description: 'Official VEVO — Live concert' },
+    { videoId: 'Q5bX5K76Hag', title: 'The Power of Love — Taking Chances Tour', duration: '4:30', date: '2008', views: '20M+', category: 'Celine Dion', description: 'Official VEVO — Live' },
+    { videoId: 'NGrLb6W5YOM', title: 'All By Myself — Official Remastered HD', duration: '5:26', date: '1996', views: '80M+', category: 'Celine Dion', description: 'Official VEVO' },
+    { videoId: 'j8fHNdrZTSI', title: "It's All Coming Back To Me Now — Extended HD", duration: '8:15', date: '1996', views: '45M+', category: 'Celine Dion', description: 'Official VEVO — Remastered' },
+    { videoId: 'Y8HOfcYWZoo', title: 'The Power of Love — Official Remastered', duration: '5:27', date: '1993', views: '120M+', category: 'Celine Dion', description: 'Official VEVO — HD' },
+    { videoId: 'JDcuRgk-JEI', title: 'Because You Loved Me — Live Las Vegas', duration: '5:45', date: '2007', views: '15M+', category: 'Celine Dion', description: 'A New Day — Official VEVO' },
+    { videoId: 'WNIPqafd4As', title: 'My Heart Will Go On — Live Las Vegas 2007', duration: '5:30', date: '2007', views: '25M+', category: 'Celine Dion', description: 'A New Day — Official VEVO' },
+    { videoId: 'T6wbugWrfLU', title: "That's The Way It Is — Official HD", duration: '4:01', date: '2009', views: '396M', category: 'Celine Dion', description: 'Official VEVO — classic hit' },
+    { videoId: 'Oe9VB8t3m2w', title: "It's All Coming Back To Me Now — Remastered", duration: '7:35', date: '1996', views: '55M+', category: 'Celine Dion', description: 'Official VEVO — HD' },
   ],
 
   shakira: [
@@ -248,8 +248,8 @@ var CONCERT_DATA = {
     { videoId: '3AtDnEC4zak', title: 'Unchained Melody – Live', duration: '3:58', date: '1990', views: '82M', category: 'Righteous Brothers', description: 'Grammy Hall of Fame' },
     { videoId: 'hT_nvWreIhg', title: 'Always – Live', duration: '4:20', date: '1994', views: '180M', category: 'Bon Jovi', description: 'Power ballad – Grammy nominated' },
     { videoId: 'fJ9rUzIMcZQ', title: 'Bohemian Rhapsody – Live Aid 1985', duration: '4:50', date: '1985', views: '1.2B', category: 'Queen', description: 'Legendary love/rock – historic' },
-    { videoId: '9bFHsd3o1w0', title: 'My Heart Will Go On – Official 25th Anniversary', duration: '5:04', date: '2023', views: '25M+', category: 'Celine Dion', description: 'Grammy winner – Best Song' },
-    { videoId: '9bFHsd3o1w0', title: "My Heart Will Go On – Titanic", duration: '5:04', date: '2023', views: '25M+', category: 'Celine Dion', description: 'Grammy Record of the Year' },
+    { videoId: 'WNIPqafd4As', title: 'My Heart Will Go On – Live Las Vegas', duration: '5:30', date: '2007', views: '25M+', category: 'Celine Dion', description: 'Grammy winner – A New Day' },
+    { videoId: 'WNIPqafd4As', title: "My Heart Will Go On – Titanic", duration: '5:30', date: '2007', views: '25M+', category: 'Celine Dion', description: 'Grammy Record of the Year' },
   ],
 
   playlist: [
@@ -299,7 +299,7 @@ var CONCERT_DATA = {
   ],
 
   oscar_songs: [
-    { videoId: '9bFHsd3o1w0', title: 'My Heart Will Go On — Titanic', duration: '5:04', date: '1997', views: '25M+', category: 'Oscar Songs', description: 'Celine Dion — Best Original Song 1998' },
+    { videoId: 'WNIPqafd4As', title: 'My Heart Will Go On — Titanic', duration: '5:30', date: '1997', views: '25M+', category: 'Oscar Songs', description: 'Celine Dion — Best Original Song 1998' },
     { videoId: 'bo_efYhYU2A', title: 'Shallow — A Star Is Born', duration: '3:37', date: '2018', views: '1.8B', category: 'Oscar Songs', description: 'Lady Gaga & Bradley Cooper — Best Original Song 2019' },
     { videoId: 'DeumyOzKqgI', title: 'Skyfall — James Bond', duration: '4:46', date: '2012', views: '104M+', category: 'Oscar Songs', description: 'Adele — Best Original Song 2013' },
     { videoId: 'YVVTZgwYwVo', title: 'Let It Go — Frozen', duration: '3:45', date: '2013', views: '406M', category: 'Oscar Songs', description: 'Idina Menzel — Best Original Song 2014' },
@@ -351,7 +351,7 @@ var CONCERT_DATA = {
   ],
 
   romantic_moments: [
-    { videoId: '9bFHsd3o1w0', title: 'Titanic — My Heart Will Go On', duration: '5:04', date: '1997', views: '25M+', category: 'Romantic', description: 'Jack & Rose — Celine Dion' },
+    { videoId: 'WNIPqafd4As', title: 'Titanic — My Heart Will Go On', duration: '5:30', date: '1997', views: '25M+', category: 'Romantic', description: 'Jack & Rose — Celine Dion' },
     { videoId: 'xXomfXQeA0Y', title: "The Bodyguard — I Will Always Love You", duration: '4:31', date: '1992', views: '25M', category: 'Romantic', description: 'Whitney Houston — Oscar moment' },
     { videoId: '3AtDnEC4zak', title: 'Ghost — Unchained Melody', duration: '3:58', date: '1990', views: '82M', category: 'Romantic', description: 'Pottery scene — Righteous Brothers' },
     { videoId: 'elkM-fp0-8Y', title: 'Pretty Woman — Oh Pretty Woman', duration: '2:58', date: '1964', views: '150M', category: 'Romantic', description: 'Roy Orbison — film title song' },
@@ -433,6 +433,86 @@ var CONCERT_DATA = {
     { videoId: 'qycMVIrlO5s', title: 'Kaathirunnu — Ennu Ninte Moideen (2015)', duration: '4:30', date: '2015', views: '20M+', category: 'Malayalam', description: 'Shreya Ghoshal — M. Jayachandran' },
     { videoId: 'b8O7c-YBc6k', title: 'Vaan — Kumbalangi Nights', duration: '3:50', date: '2019', views: '12M', category: 'Malayalam', description: 'Sushin Shyam — folk fusion' },
     { videoId: 'yVxL0xR7DfM', title: 'Sarvam Saha — Jallikattu (2019)', duration: '3:30', date: '2019', views: '5M+', category: 'Malayalam', description: 'Lijo Jose Pellissery — avant-garde' },
+  ],
+
+  tt_gear: [
+    { videoId: 'GxAqmTLZLh0', title: 'Table Tennis Forehand — Master the Basics', duration: '3:50', date: '2024', views: '311K', category: 'TT Gear', description: 'PingSkills — stroke technique & racket control' },
+    { videoId: 'NnhwWJVLIdY', title: 'Ma Long & Fan Zhendong — Pro Strategy vs Power', duration: '10:00', date: '2023', views: '80K', category: 'TT Gear', description: 'TI LONG CLUB — tactics, positioning, equipment use' },
+    { videoId: 'c-T30NAhJE0', title: 'Lebrun vs Calderano — Pro Equipment in Action', duration: '58:00', date: '2024', views: '150K+', category: 'TT Gear', description: 'WTT China Smash — advanced setups' },
+    { videoId: '8vmcFm4k8Ic', title: 'Calderano vs Felix Lebrun — Carbon Play', duration: '10:44', date: '2026', views: '171K', category: 'TT Gear', description: 'WTT Chongqing — modern blade/rubber combos' },
+    { videoId: 'fsZRzsHOJW0', title: 'Franziska vs Harimoto — Euro vs Asia Gear', duration: '31:06', date: '2026', views: '15K+', category: 'TT Gear', description: 'WTT Singapore — different playing styles' },
+  ],
+
+  tt_players: [
+    { videoId: 'c-T30NAhJE0', title: 'Alexis Lebrun vs Hugo Calderano — Full Match', duration: '58:00', date: '2024', views: '150K+', category: 'TT Players', description: 'WTT China Smash R64 — France vs Brazil' },
+    { videoId: '8vmcFm4k8Ic', title: 'Hugo Calderano vs Felix Lebrun — Quarterfinal', duration: '10:44', date: '2026', views: '171K', category: 'TT Players', description: 'WTT Chongqing — Americas vs Europe clash' },
+    { videoId: 'fsZRzsHOJW0', title: 'Patrick Franziska vs Tomokazu Harimoto', duration: '31:06', date: '2026', views: '15K+', category: 'TT Players', description: 'WTT Singapore R16 — Germany vs Japan' },
+    { videoId: 'NnhwWJVLIdY', title: 'Ma Long & Fan Zhendong — Strategy Breakdown', duration: '10:00', date: '2023', views: '80K', category: 'TT Players', description: 'TI LONG CLUB — beating strong forehand players' },
+    { videoId: 'GxAqmTLZLh0', title: 'Forehand Technique — Pro Fundamentals', duration: '3:50', date: '2024', views: '311K', category: 'TT Players', description: 'PingSkills — basics used by elites' },
+  ],
+
+  tt_legends: [
+    { videoId: 'c-T30NAhJE0', title: 'Calderano — Americas No. 1 in Action', duration: '58:00', date: '2024', views: '150K+', category: 'TT Legends', description: 'WTT — Hugo Calderano vs rising star Lebrun' },
+    { videoId: 'fsZRzsHOJW0', title: 'Harimoto — Japanese Phenom Full Match', duration: '31:06', date: '2026', views: '15K+', category: 'TT Legends', description: 'WTT — Tomokazu Harimoto vs Franziska' },
+    { videoId: 'NnhwWJVLIdY', title: 'Ma Long & Fan Zhendong — Legendary Tactics', duration: '10:00', date: '2023', views: '80K', category: 'TT Legends', description: 'TI LONG CLUB — Grand Slam winners strategy' },
+    { videoId: '8vmcFm4k8Ic', title: 'Felix Lebrun — Next-Gen Star', duration: '10:44', date: '2026', views: '171K', category: 'TT Legends', description: 'WTT Chongqing — young gun vs Calderano' },
+    { videoId: 'GxAqmTLZLh0', title: 'Classic Technique — Timeless Fundamentals', duration: '3:50', date: '2024', views: '311K', category: 'TT Legends', description: 'PingSkills — techniques from legends' },
+  ],
+
+  tt_styles: [
+    { videoId: 'GxAqmTLZLh0', title: 'Forehand Drive — Shakehand Style', duration: '3:50', date: '2024', views: '311K', category: 'TT Styles', description: 'PingSkills — counterhit, position, finish' },
+    { videoId: 'NnhwWJVLIdY', title: 'Two-Wing Power — Ma Long & Fan Zhendong', duration: '10:00', date: '2023', views: '80K', category: 'TT Styles', description: 'TI LONG CLUB — attacking vs forehand players' },
+    { videoId: 'c-T30NAhJE0', title: 'Close-to-Table Aggression — Lebrun', duration: '58:00', date: '2024', views: '150K+', category: 'TT Styles', description: 'WTT — speed, spin, modern meta' },
+    { videoId: '8vmcFm4k8Ic', title: 'Calderano — Looper vs Felix — Attacker', duration: '10:44', date: '2026', views: '171K', category: 'TT Styles', description: 'WTT — contrasting styles in action' },
+    { videoId: 'fsZRzsHOJW0', title: 'Harimoto — Japanese Speed Play', duration: '31:06', date: '2026', views: '15K+', category: 'TT Styles', description: 'WTT Singapore — fast, aggressive rallies' },
+  ],
+
+  tt_matches: [
+    { videoId: 'c-T30NAhJE0', title: 'FULL MATCH — Lebrun vs Calderano | China Smash 2024', duration: '58:00', date: '2024', views: '150K+', category: 'TT Matches', description: 'WTT MS R64 — Alexis Lebrun vs Hugo Calderano' },
+    { videoId: '8vmcFm4k8Ic', title: 'Calderano vs Felix Lebrun | WTT Chongqing 2026 QF', duration: '10:44', date: '2026', views: '171K', category: 'TT Matches', description: 'Men\'s Singles Quarterfinal highlights' },
+    { videoId: 'fsZRzsHOJW0', title: 'FULL MATCH — Franziska vs Harimoto | Singapore 2026', duration: '31:06', date: '2026', views: '15K+', category: 'TT Matches', description: 'WTT MS R16 — Germany vs Japan' },
+    { videoId: 'NnhwWJVLIdY', title: 'Ma Long & Fan Zhendong — Tactical Analysis', duration: '10:00', date: '2023', views: '80K', category: 'TT Matches', description: 'TI LONG CLUB — match strategy breakdown' },
+    { videoId: 'GxAqmTLZLh0', title: 'Forehand Masterclass — Technique Drill', duration: '3:50', date: '2024', views: '311K', category: 'TT Matches', description: 'PingSkills — rally-building fundamentals' },
+  ],
+
+  bike_secondhand: [
+    { videoId: 'S7lCwHflglE', title: '12 Signs a Used Motorcycle Is a Money Pit', duration: '20:00', date: '2023', views: '500K+', category: '2nd Hand', description: 'Spot trash before you get burned — leaks, electrics, chains' },
+    { videoId: 'S7lCwHflglE', title: 'Used Bike Check — Splendor/100cc Buyer Guide', duration: '20:00', date: '2023', views: '500K+', category: '2nd Hand', description: 'Engine, clutch, carburetor — what to inspect' },
+    { videoId: 'aAhgNCdQBPY', title: 'Lightweight Bikes — Why 100–125cc Makes Sense', duration: '12:00', date: '2026', views: '100K+', category: '2nd Hand', description: 'Stability, balance, comfort over power' },
+    { videoId: 'qmFmRZoA3IY', title: 'Tire & Rim Check — Before Buying Used', duration: '7:00', date: '2022', views: '80K', category: '2nd Hand', description: 'Tread, pressure, rims — essential pre-purchase' },
+    { videoId: 'VHVT_JjPWVg', title: 'Chain & Drivetrain Condition — Used Bike', duration: '15:00', date: '2023', views: '200K', category: '2nd Hand', description: 'Worn chain = negotiation leverage' },
+  ],
+
+  bike_customization: [
+    { videoId: 'aAhgNCdQBPY', title: 'Comfort-First Custom — Lightweight Cruiser', duration: '12:00', date: '2026', views: '100K+', category: 'Custom', description: 'Upright stance, ergonomics — Splendor-style mods' },
+    { videoId: 'qmFmRZoA3IY', title: 'Tire Upgrade — Better Grip & Stability', duration: '7:00', date: '2022', views: '80K', category: 'Custom', description: 'Right pressure + rubber = balance & maneuverability' },
+    { videoId: 'S7lCwHflglE', title: 'Avoid Frankenstein Mods — Clean Custom', duration: '20:00', date: '2023', views: '500K+', category: 'Custom', description: 'What NOT to do when customizing' },
+    { videoId: 'VHVT_JjPWVg', title: 'Chain & Sprocket — Smooth Ride Setup', duration: '15:00', date: '2023', views: '200K', category: 'Custom', description: 'Proper tension = comfort & longevity' },
+    { videoId: 'z-JyIDWT5qs', title: 'Helmet & Ergonomics — Rider Comfort', duration: '12:00', date: '2024', views: '150K', category: 'Custom', description: 'Fit impacts stability & fatigue' },
+  ],
+
+  bike_enhancements: [
+    { videoId: 'qmFmRZoA3IY', title: 'Tire Pressure — Stability & Handling', duration: '7:00', date: '2022', views: '80K', category: 'Enhance', description: 'Correct pressure = better balance & maneuverability' },
+    { videoId: 'aAhgNCdQBPY', title: 'Lightweight Bike Enhancements — Comfort Focus', duration: '12:00', date: '2026', views: '100K+', category: 'Enhance', description: 'Splendor 2014 — what to upgrade (not power)' },
+    { videoId: 'VHVT_JjPWVg', title: 'Oil & Chain — Smoother Ride', duration: '15:00', date: '2023', views: '200K', category: 'Enhance', description: 'Regular maintenance = better feel' },
+    { videoId: 'hIhR2o8OtEg', title: 'Budget Gear That Improves Comfort', duration: '18:00', date: '2025', views: '300K+', category: 'Enhance', description: 'Tiger Koul — protective yet comfy gear' },
+    { videoId: 'z-JyIDWT5qs', title: 'Helmet Fit — Reduce Fatigue', duration: '12:00', date: '2024', views: '150K', category: 'Enhance', description: 'ECE-certified — comfort & safety' },
+  ],
+
+  bike_gear: [
+    { videoId: 'hIhR2o8OtEg', title: 'Lowest & Safest Riding Gear 2025 — Budget', duration: '18:00', date: '2025', views: '300K+', category: 'Gear', description: 'Tiger Koul — helmet, jacket, gloves India' },
+    { videoId: 'z-JyIDWT5qs', title: 'ECE Certified Helmet — What to Look For', duration: '12:00', date: '2024', views: '150K', category: 'Gear', description: 'RevZilla — safety standards explained' },
+    { videoId: 'hIhR2o8OtEg', title: 'Comfortable Riding Jacket — Hot Climate', duration: '18:00', date: '2025', views: '300K+', category: 'Gear', description: 'Tiger Koul — mesh, breathable, CE armour' },
+    { videoId: 'hIhR2o8OtEg', title: 'Gloves & Boots — Splendor Commuter', duration: '18:00', date: '2025', views: '300K+', category: 'Gear', description: 'Budget gear for 100–125cc daily use' },
+    { videoId: 'z-JyIDWT5qs', title: 'Helmet Sizing — Stability While Riding', duration: '12:00', date: '2024', views: '150K', category: 'Gear', description: 'Proper fit = less fatigue, better control' },
+  ],
+
+  bike_repairs: [
+    { videoId: 'VHVT_JjPWVg', title: 'Oil Change & Chain Maintenance — DIY', duration: '15:00', date: '2023', views: '200K', category: 'Repairs', description: 'Lightweight bike — same principles as Ninja 400' },
+    { videoId: 'qmFmRZoA3IY', title: 'Tire Pressure Check — Weekly Routine', duration: '7:00', date: '2022', views: '80K', category: 'Repairs', description: 'Stability & safety — Splendor, 100cc' },
+    { videoId: 'VHVT_JjPWVg', title: 'Chain Lube & Adjustment — Commuter', duration: '15:00', date: '2023', views: '200K', category: 'Repairs', description: 'Every 500 km — Hero Splendor schedule' },
+    { videoId: 'S7lCwHflglE', title: 'Spot Hidden Problems — Before Repairs Cost You', duration: '20:00', date: '2023', views: '500K+', category: 'Repairs', description: 'Leaks, electrics — early detection' },
+    { videoId: 'aAhgNCdQBPY', title: 'Lightweight Bike — Low Maintenance Wins', duration: '12:00', date: '2026', views: '100K+', category: 'Repairs', description: '100–125cc = less to fix' },
   ],
 
   flamenco: [
