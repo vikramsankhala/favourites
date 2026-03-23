@@ -84,7 +84,7 @@ const CONCERT_DATA = {
     { videoId: 'bUTRZGCiiFs', title: "Pelé's Top 5 World Cup Goals", duration: '4:00', date: '2022', views: '2M', category: 'Pelé', description: 'FIFA Official' },
     { videoId: 'WXg8P0u9W9I', title: "Pelé — Top 10 Impossible Goals", duration: '3:37', date: '2018', views: '21M', category: 'Pelé', description: 'Santos, Brazil' },
     { videoId: '2RIuzgf9X_8', title: 'Pelé Assist — Brazil 1970 Final', duration: '1:30', date: '1970', views: '8M', category: 'Pelé', description: 'Carlos Alberto goal' },
-    { videoId: '2RIuzgf9X_8', title: 'Pelé — 1970 Brazil Team Goal', duration: '1:30', date: '1970', views: '8M', category: 'Pelé', description: 'Assist to Carlos Alberto' },
+    { videoId: 'bUTRZGCiiFs', title: 'Pelé — World Cup Magic', duration: '4:00', date: '2022', views: '2M', category: 'Pelé', description: 'FIFA Official moments' },
     { videoId: 'mOeR3Vr9tFE', title: 'Pelé — Santos Best Goals', duration: '5:00', date: '2020', views: '2M', category: 'Pelé', description: 'Club highlights' },
     { videoId: 'VgRQqCx4L2E', title: 'Pelé — Dribbling & Skills', duration: '4:30', date: '2019', views: '1.5M', category: 'Pelé', description: 'Jogo bonito' },
     { videoId: 'fKAC9DKF0zw', title: 'Pelé — 1970 World Cup Highlights', duration: '6:00', date: '2020', views: '4M', category: 'Pelé', description: 'Mexico' },
