@@ -141,6 +141,9 @@ body {
   flex-wrap: wrap;
   gap: 0.5rem;
   margin-bottom: 1.5rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
 }
 
 .tab {
@@ -306,6 +309,16 @@ body {
 .badge-dance { background: rgba(255,100,150,0.25); color: #ff6496; }
 .badge-classics { background: rgba(180,140,100,0.25); color: #d4a878; }
 .badge-football { background: rgba(40,160,80,0.25); color: #28a050; }
+.badge-pele { background: rgba(0,100,60,0.25); color: #009c3c; }
+.badge-maradona { background: rgba(110,50,140,0.25); color: #9e7cc4; }
+.badge-messi { background: rgba(120,180,70,0.25); color: #78b446; }
+.badge-ronaldo { background: rgba(200,20,60,0.25); color: #e81e3d; }
+.badge-cruyff { background: rgba(200,50,50,0.25); color: #c83232; }
+.badge-zidane { background: rgba(100,50,150,0.25); color: #8b7ab8; }
+.badge-ronaldinho { background: rgba(200,150,0,0.25); color: #c89600; }
+.badge-r9 { background: rgba(255,100,50,0.25); color: #ff6432; }
+.badge-vanbasten { background: rgba(220,50,80,0.25); color: #dc3250; }
+.badge-beckenbauer { background: rgba(200,0,0,0.25); color: #c80000; }
 
 .data-table-section {
   margin-top: 2rem;
