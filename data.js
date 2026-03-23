@@ -600,6 +600,7 @@ var CONCERT_DATA = {
 
   bike_customization: [
     { videoId: 'y_5R0v8J40k', title: 'Splendour Full Modified — Exhaust, Roots Horn, Owl Light', duration: '10:00', date: '2024', views: '100K+', category: 'Custom', description: 'Yogesh 01 — Splendor makeover & modification cost' },
+    { videoId: 's7O3zFid0ww', title: 'Splendour Wide Tyres Installation — Splendor Modified', duration: '10:00', date: '2024', views: '100K+', category: 'Custom', description: 'b4bullet2.O — Splendor modification' },
     { videoId: 'aAhgNCdQBPY', title: 'Comfort-First Custom — Lightweight Cruiser', duration: '12:00', date: '2026', views: '100K+', category: 'Custom', description: 'Upright stance, ergonomics — Splendor-style mods' },
     { videoId: 'qmFmRZoA3IY', title: 'Tire Upgrade — Better Grip & Stability', duration: '7:00', date: '2022', views: '80K', category: 'Custom', description: 'Right pressure + rubber = balance & maneuverability' },
     { videoId: 'S7lCwHflglE', title: 'Avoid Frankenstein Mods — Clean Custom', duration: '20:00', date: '2023', views: '500K+', category: 'Custom', description: 'What NOT to do when customizing' },
