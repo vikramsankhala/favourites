@@ -690,6 +690,15 @@ var CONCERT_DATA = {
     { videoId: '2IGDsD-dLF8', title: 'Tujhe Kitna Chahne Lage — Kabir Singh', duration: '4:44', date: '2019', views: '233M', category: 'Soulful', description: 'Arijit Singh — Mithoon, heartfelt' },
   ],
 
+  punjabi_dance_ladies: [
+    { videoId: 'xmCFHqLcZvc', title: 'Kala Chashma — Baar Baar Dekho | Neha Kakkar, Katrina', duration: '4:08', date: '2016', views: '500M+', category: 'Punjabi Dance', description: 'Ladies favorite — Sidharth, Badshah, viral dance' },
+    { videoId: '4P1vdQcaHaw', title: 'Proper Patola — Diljit, Aastha Gill, Badshah', duration: '3:42', date: '2018', views: '300M+', category: 'Punjabi Dance', description: 'Speed Records — Aastha Gill ladies dance' },
+    { videoId: 'YKppYND6V9c', title: 'Brown Munde — AP Dhillon | Ladies Dance Hit', duration: '3:28', date: '2020', views: '400M+', category: 'Punjabi Dance', description: 'Run-Up — Gurinder Gill, viral club dance' },
+    { videoId: 'opG3Fdy_esU', title: 'Lamberghini — The Doorbeen | Party Dance', duration: '3:05', date: '2017', views: '200M+', category: 'Punjabi Dance', description: 'Speed Records — Sartaaj, wedding favorite' },
+    { videoId: 'PeYxEd_TG_s', title: 'Dilbar — Satyameva Jayate | Nora Fatehi, Neha Kakkar', duration: '3:04', date: '2018', views: '1B+', category: 'Punjabi Dance', description: 'T-Series — Dhvani Bhanushali, Ikka, ladies classic' },
+    { videoId: 'PhZ2_HCwO4Y', title: 'High Heels — Yo Yo Honey Singh | Ladies Anthem', duration: '3:35', date: '2014', views: '150M+', category: 'Punjabi Dance', description: 'Desi Music — dance floor favorite' },
+  ],
+
   punjabi_dance: [
     { videoId: 'opG3Fdy_esU', title: 'Lamberghini — High Beat Punjabi Dance', duration: '3:05', date: '2017', views: '200M+', category: 'Punjabi Dance', description: 'The Doorbeen — party banger' },
     { videoId: 'YKppYND6V9c', title: 'Brown Munde — AP Dhillon | Dance Beats', duration: '3:28', date: '2020', views: '400M+', category: 'Punjabi Dance', description: 'Run-Up — viral club hit' },
