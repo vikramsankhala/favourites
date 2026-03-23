@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-const CONCERT_DATA = {
+var CONCERT_DATA = {
   playlistUrl: 'https://youtube.com/playlist?list=PLl1nGeQ1UIbw0lAfx8bVlPcF61i_jV5Ec',
 
   celine: [

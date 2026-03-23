@@ -11,8 +11,9 @@
 
   function getAllVideos() {
     const out = [];
+    const data = typeof CONCERT_DATA !== 'undefined' ? CONCERT_DATA : (window.CONCERT_DATA || {});
     CATEGORY_KEYS.forEach((key) => {
-      const arr = CONCERT_DATA[key];
+      const arr = data[key];
       if (Array.isArray(arr)) {
         arr.forEach((v) => out.push({ ...v, _cat: key }));
       }
@@ -83,11 +84,13 @@
 
   function renderCard(v) {
     const badge = BADGE_MAP[v._cat] || 'badge-celine';
+    const ytUrl = `https://www.youtube.com/watch?v=${v.videoId}`;
     return `
       <article class="video-card" data-video-id="${v.videoId}" data-title="${(v.title || '').replace(/"/g, '&quot;')}" data-duration="${v.duration || ''}" data-date="${v.date || ''}" data-views="${v.views || ''}" data-desc="${(v.description || '').replace(/"/g, '&quot;')}" data-category="${v.category || ''}">
         <div class="video-thumb">
           <img src="https://i.ytimg.com/vi/${v.videoId}/mqdefault.jpg" alt="" loading="lazy">
           <span class="video-duration">${v.duration || '—'}</span>
+          <a href="${ytUrl}" target="_blank" rel="noopener" class="video-play-overlay" aria-label="Watch on YouTube">▶</a>
         </div>
         <div class="video-info">
           <h4>${v.title || 'Untitled'}</h4>
@@ -96,6 +99,7 @@
             <span>${v.views || '—'}</span>
           </div>
           <span class="badge ${badge}">${v.category || v._cat}</span>
+          <a href="${ytUrl}" target="_blank" rel="noopener" class="video-yt-link">Watch on YouTube →</a>
         </div>
       </article>
     `;
@@ -114,6 +118,7 @@
   function renderTable(videos) {
     const tbody = document.querySelector('#dataTable tbody');
     if (!tbody) return;
+    const ytBase = 'https://www.youtube.com/watch?v=';
     tbody.innerHTML = videos
       .map(
         (v) => `
@@ -123,6 +128,7 @@
         <td>${v.date || '—'}</td>
         <td>${v.duration || '—'}</td>
         <td>${v.views || '—'}</td>
+        <td><a href="${ytBase}${v.videoId}" target="_blank" rel="noopener" class="yt-link">Watch</a></td>
       </tr>
     `
       )
@@ -173,6 +179,7 @@
 
   function setupCardClicks() {
     document.getElementById('videoGrid')?.addEventListener('click', (e) => {
+      if (e.target.closest('a')) return;
       const card = e.target.closest('.video-card');
       if (!card) return;
       const videoId = card.dataset.videoId;
@@ -191,6 +198,7 @@
 
   function setupTableRowClicks() {
     document.getElementById('dataTable')?.addEventListener('click', (e) => {
+      if (e.target.closest('a')) return;
       const row = e.target.closest('tbody tr');
       if (!row) return;
       const videoId = row.dataset.videoId;
