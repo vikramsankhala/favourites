@@ -194,6 +194,18 @@ body {
   background: rgba(212, 168, 83, 0.15);
 }
 
+.vikram-btn-link {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.vikram-btn-link:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
 @media (max-width: 480px) {
   .vikram-card {
     flex-direction: column;
