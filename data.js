@@ -721,6 +721,15 @@ var CONCERT_DATA = {
     { videoId: '4P1vdQcaHaw', title: 'Proper Patola — Diljit Dosanjh | Dance', duration: '3:42', date: '2018', views: '300M+', category: 'Punjabi Dance', description: 'Speed Records — Badshah' },
   ],
 
+  sher_shayari_party: [
+    { videoId: 'F4X-2CwOAPg', title: 'Jagjit Singh — Film Ghazals | 30+ Sher-o-Shayari in Song', duration: '1:25', date: '2025', views: '35K+', category: 'Sher-o-Shayari', description: 'Saregama — Jhuki Jhuki, Tumko Dekha, Chithi, Woh Kagaz — party sher' },
+    { videoId: '75VnN1dLA-Q', title: 'Chupke Chupke Raat Din — Ghulam Ali | Classic Sher', duration: '8:00', date: '1976', views: '9M+', category: 'Sher-o-Shayari', description: 'Saregama — Maulana Hasrat Mohani, Raga Kafi, mushaira favorite' },
+    { videoId: 'PTXlA6Yx1AY', title: 'Saqi Ki Har Nigah — Pankaj Udhas | Romantic Sher', duration: '5:30', date: '2018', views: '2M+', category: 'Sher-o-Shayari', description: 'ArtistAloud — Khamoshi Ki Aawaz, wedding sher' },
+    { videoId: 'Fd4l9UdF2bA', title: 'Gulzar — Live Shayari | Jashn-e-Rekhta 2025', duration: '45:00', date: '2025', views: '100K+', category: 'Sher-o-Shayari', description: 'Baansera Park Delhi — Gulzar recites classic & new sher' },
+    { videoId: '8BOXaq2iDJ4', title: 'Javed Akhtar — Shayari on Life & Society | Jashn-e-Rekhta', duration: '13:00', date: '2025', views: '200K+', category: 'Sher-o-Shayari', description: 'Death, language, society — nazms & ghazals, party mushaira' },
+    { videoId: 'VvukuNsT3f8', title: 'Wasim Barelvi — Sher-o-Shayari | Famous Shayar', duration: '25:00', date: '2024', views: '2M+', category: 'Sher-o-Shayari', description: 'The Lallantop — Jaun Elia, Shah Rukh, contemporary sher' },
+  ],
+
   sufi_party: [
     { videoId: 'T94PHkuydcw', title: 'Kun Faya Kun — Rockstar | A.R. Rahman, Javed Ali, Mohit Chauhan', duration: '6:21', date: '2011', views: '505M', category: 'Sufi', description: 'T-Series — Ranbir Kapoor, Irshaad Kamil, party favorite' },
     { videoId: 'kw4tT7SCmaY', title: 'Afreen Afreen — Rahat Fateh Ali Khan & Momina Mustehsan', duration: '6:25', date: '2016', views: '350M+', category: 'Sufi', description: 'Coke Studio Pakistan — viral Sufi crossover, celebration' },
