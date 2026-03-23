@@ -637,6 +637,48 @@ var CONCERT_DATA = {
     { videoId: 'aAhgNCdQBPY', title: 'Lightweight Bike — Low Maintenance Wins', duration: '12:00', date: '2026', views: '100K+', category: 'Repairs', description: '100–125cc = less to fix' },
   ],
 
+  raabta: [
+    { videoId: 'Jx310JG_lK4', title: 'Raabta — Official Music Video | Jubin Nautiyal, Adah Sharma', duration: '3:45', date: '2024', views: '50M+', category: 'Raabta', description: 'T-Series — Chirantan Bhatt' },
+  ],
+
+  arijit_singh: [
+    { videoId: 'z-diRlyLGzo', title: 'Channa Mereya — Ae Dil Hai Mushkil | Arijit Singh', duration: '4:05', date: '2016', views: '600M+', category: 'Arijit Singh', description: 'Sony Music — Ranbir, Anushka, Pritam' },
+    { videoId: 'XN1zrRspy7E', title: 'Khamoshiyan — Title Track | Arijit Singh', duration: '5:35', date: '2015', views: '33M+', category: 'Arijit Singh', description: 'Sony Music VEVO — romantic ballad' },
+    { videoId: '2IGDsD-dLF8', title: 'Tujhe Kitna Chahne Lage — Kabir Singh | Arijit Singh', duration: '4:44', date: '2019', views: '233M', category: 'Arijit Singh', description: 'T-Series — Mithoon, Shahid, Kiara' },
+    { videoId: '6RdS6wLu7RY', title: 'Kesariya — Brahmastra | Arijit Singh', duration: '4:28', date: '2022', views: '500M+', category: 'Arijit Singh', description: 'Sony Music — Pritam, Ranbir, Alia' },
+    { videoId: 'dxcXdtZh_QA', title: 'Channa Mereya — 4K | Ae Dil Hai Mushkil | Arijit Singh', duration: '4:05', date: '2016', views: '20M+', category: 'Arijit Singh', description: 'Sony Music 4K — soulful' },
+  ],
+
+  atif_aslam: [
+    { videoId: 'RVJrjZ5h8H4', title: 'Pehli Dafa — Jism 2 | Atif Aslam', duration: '4:33', date: '2012', views: '100M+', category: 'Atif Aslam', description: 'T-Series — romantic hit' },
+    { videoId: 'KWK3s1LL1DA', title: 'Tere Bin — Ek Villain | Atif Aslam', duration: '4:20', date: '2014', views: '200M+', category: 'Atif Aslam', description: 'T-Series — Emraan Hashmi' },
+    { videoId: 'Tu7F-RB7VbE', title: 'Jeena Jeena — Badlapur | Atif Aslam', duration: '3:35', date: '2015', views: '150M+', category: 'Atif Aslam', description: 'T-Series — Varun Dhawan' },
+  ],
+
+  rubaru: [
+    { videoId: 'V4jq9IDpnPQ', title: 'Rubaru — Jamai 2.0 | Ravi Dubey, Nia Sharma', duration: '2:52', date: '2019', views: '50M+', category: 'Rubaru', description: 'Zee Music — Mere rubaru tu hi tu' },
+  ],
+
+  punjabi_songs: [
+    { videoId: 'YKppYND6V9c', title: 'Brown Munde — AP Dhillon, Gurinder Gill', duration: '3:28', date: '2020', views: '400M+', category: 'Punjabi', description: 'Run-Up Records — viral hit' },
+    { videoId: 'opG3Fdy_esU', title: 'Lamberghini — The Doorbeen, Sartaaj', duration: '3:05', date: '2017', views: '200M+', category: 'Punjabi', description: 'Speed Records — party anthem' },
+    { videoId: '4P1vdQcaHaw', title: 'Proper Patola — Diljit Dosanjh', duration: '3:42', date: '2018', views: '300M+', category: 'Punjabi', description: 'Speed Records — Badshah, Aastha' },
+  ],
+
+  soulful: [
+    { videoId: 'rMfugUZD2dA', title: 'Dekhha Tenu — Mr. & Mrs. Mahi | Mohd. Faiz', duration: '3:50', date: '2024', views: '167M', category: 'Soulful', description: 'Sony Music — Rajkummar, Janhvi, Jaani' },
+    { videoId: 'z-diRlyLGzo', title: 'Channa Mereya — Ae Dil Hai Mushkil | Soulful', duration: '4:05', date: '2016', views: '600M+', category: 'Soulful', description: 'Arijit Singh — Pritam, emotional' },
+    { videoId: 'XN1zrRspy7E', title: 'Khamoshiyan — Soulful Romance', duration: '5:35', date: '2015', views: '33M+', category: 'Soulful', description: 'Arijit Singh — Jeet Gannguli' },
+    { videoId: '2IGDsD-dLF8', title: 'Tujhe Kitna Chahne Lage — Kabir Singh', duration: '4:44', date: '2019', views: '233M', category: 'Soulful', description: 'Arijit Singh — Mithoon, heartfelt' },
+  ],
+
+  punjabi_dance: [
+    { videoId: 'opG3Fdy_esU', title: 'Lamberghini — High Beat Punjabi Dance', duration: '3:05', date: '2017', views: '200M+', category: 'Punjabi Dance', description: 'The Doorbeen — party banger' },
+    { videoId: 'YKppYND6V9c', title: 'Brown Munde — AP Dhillon | Dance Beats', duration: '3:28', date: '2020', views: '400M+', category: 'Punjabi Dance', description: 'Run-Up — viral club hit' },
+    { videoId: 'PhZ2_HCwO4Y', title: 'High Heels — Yo Yo Honey Singh | Punjabi Dance', duration: '3:35', date: '2014', views: '150M+', category: 'Punjabi Dance', description: 'Desi Music — dance anthem' },
+    { videoId: '4P1vdQcaHaw', title: 'Proper Patola — Diljit Dosanjh | Dance', duration: '3:42', date: '2018', views: '300M+', category: 'Punjabi Dance', description: 'Speed Records — Badshah' },
+  ],
+
   flamenco: [
     { videoId: 'cFlDf7Ck-N4', title: 'Al Di Meola, McLaughlin, Paco De Lucia – Warfield 1980', duration: '2:24:19', date: '1980', views: '1.5M', category: 'Flamenco', description: 'Flamenco Fusion' },
     { videoId: 'erZZSsjvUmI', title: 'Paco De Lucía – North Sea Jazz 2006', duration: '1:06:30', date: '2006', views: '500K+', category: 'Flamenco', description: 'Full concert' },
