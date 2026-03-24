@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Stage — Best Concert Videos & Love Songs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Favourites Playlist UI inside Vikram-Music */
+    .fav-playlist-section {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .fav-playlist-section h3 {
+      font-size: 1.8rem;
+      color: #E8B923;
+      margin-bottom: 1.5rem;
+    }
+
+    .playlist-container {
+      display: flex;
+      flex-direction: row;
+      gap: 2rem;
+      background: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .video-player-wrapper {
+      flex: 2;
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .video-player-wrapper video {
+      width: 100%;
+      height: 100%;
+      max-height: 600px;
+      outline: none;
+      border-radius: 12px;
+    }
+
+    .playlist-list-wrapper {
+      flex: 1;
+      max-height: 600px;
+      overflow-y: auto;
+      padding-right: 0.5rem;
+    }
+
+    .fav-playlist {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .playlist-item {
+      padding: 1rem 1.25rem;
+      background: #121212;
+      border: 1px solid #333;
+      border-radius: 8px;
+      cursor: pointer;
+      color: #a0a0a0;
+      font-size: 1rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .playlist-item::before {
+      content: '▶';
+      font-size: 0.8rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .playlist-item:hover {
+      background: rgba(232, 185, 35, 0.05);
+      color: #ffffff;
+      border-color: rgba(232, 185, 35, 0.3);
+      transform: translateX(4px);
+    }
+
+    .playlist-item.active {
+      background: rgba(232, 185, 35, 0.15);
+      color: #E8B923;
+      font-weight: 600;
+      border-color: #E8B923;
+      box-shadow: 0 4px 12px rgba(232, 185, 35, 0.1);
+    }
+
+    .playlist-item.active::before {
+      opacity: 1;
+    }
+
+    /* Scrollbar */
+    .playlist-list-wrapper::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .playlist-list-wrapper::-webkit-scrollbar-track {
+      background: #121212;
+      border-radius: 3px;
+    }
+
+    .playlist-list-wrapper::-webkit-scrollbar-thumb {
+      background: #333;
+      border-radius: 3px;
+    }
+
+    .playlist-list-wrapper::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+    @media (max-width: 960px) {
+      .playlist-container {
+        flex-direction: column;
+      }
+
+      .playlist-list-wrapper {
+        max-height: 400px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="logo">Live Stage</h1>
+      <p class="tagline">4K Concerts • Love Songs • World Music Jams</p>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <section class="hero">
+      <h2>Curated Live Performances</h2>
+      <p>Live concerts • Dance • Classics • Football legends • Table Tennis • Tennis (aces, DTL, cross court,
+        single-handed BH) • Lightweight bikes (100–125cc: 2nd hand, custom, gear, repairs — e.g. Hero Splendor) • Movie
+        clips • Web series • Hindi web series • Hindi, Bengali, Malayalam films • Love songs • World music</p>
+      <div class="hero-stats">
+        <span class="stat"><strong id="stat-total">0</strong> Videos</span>
+        <span class="stat"><strong>50</strong> Categories</span>
+      </div>
+    </section>
+
+    <!-- FAVOURITES PLAYLIST SECTION -->
+    <section class="fav-playlist-section" id="favouritesSection">
+      <h3>⭐ My Favourites Playlist</h3>
+      <div class="playlist-container">
+        <div class="video-player-wrapper">
+          <video id="fav-video-player" controls preload="metadata" autoplay>
+            <source
+              src="Akhiyaan Gulaab (Song) Shahid Kapoor, Kriti Sanon  Mitraz  Teri Baaton Mein Aisa Uljha Jiya.mp4"
+              type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <div class="playlist-list-wrapper">
+          <ul id="fav-playlist" class="fav-playlist">
+            <li class="playlist-item active"
+              data-src="Akhiyaan Gulaab (Song) Shahid Kapoor, Kriti Sanon  Mitraz  Teri Baaton Mein Aisa Uljha Jiya.mp4">
+              Akhiyaan Gulaab</li>
+            <li class="playlist-item" data-src="Ghungroo_Song___Shilpa_Rao(0).mp4">Ghungroo Song - Shilpa Rao</li>
+            <li class="playlist-item" data-src="KK - MTV Unplugged Season 3 - 'Yaaron'.mp4">KK - MTV Unplugged 'Yaaron'
+            </li>
+            <li class="playlist-item" data-src="Pankh___Tarana___Official_Music_Video(0).mp4">Pankh Tarana Official
+              Video</li>
+            <li class="playlist-item" data-src="Papon - MTV Unplugged Season 4 - 'Ranjish he sahi'.mp4">Papon - MTV
+              Unplugged 'Ranjish he Sahi'</li>
+            <li class="playlist-item"
+              data-src="Paresh_Pahuja_-_Dooron_Dooron__Live_from_The_Voice_Notes_Concert_(0).mp4">Paresh Pahuja - Dooron
+              Dooron</li>
+            <li class="playlist-item"
+              data-src="Raabta (Kehte Hain Khuda) Full Song With Lyrics  Agent Vinod  Saif Ali Khan, Kareena Kapoor,Pritam.mp4">
+              Raabta (Kehte Hain Khuda)</li>
+            <li class="playlist-item"
+              data-src="Tere Sang Yaara - Rustom  Akshay Kumar & Ileana D'cruz  Arko  Manoj Muntashir.mp4">Tere Sang
+              Yaara</li>
+            <li class="playlist-item"
+              data-src="Tere_Hawaale__Arijit_Singh_-_Shreya_Ghoshal_Duet____Laal_Singh_Chaddha___Aamir,_Kareena___Pritam(360p).mp4">
+              Tere Hawaale - Arijit Singh & Shreya Ghoshal</li>
+            <li class="playlist-item" data-src="Yaad_Piya_ki_aaye____Smt._Kaushiki_Chakraborty_❤️(360p).mp4">Yaad Piya
+              ki aaye - Kaushiki Chakraborty</li>
+            <li class="playlist-item"
+              data-src="_Ambarsariya_Fukrey__Song_By_Sona_Mohapatra___Pulkit_Samrat,_Priya_Anand(0).mp4">Ambarsariya -
+              Sona Mohapatra</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="vikram-featured" aria-label="About Vikram">
+      <div class="vikram-card">
+        <div class="vikram-photo-wrap">
+          <img src="images/vikram.jpg" alt="Vikram Sankhala" class="vikram-photo"
+            onerror="this.src='https://placehold.co/280x360/1a1a1f/d4a853?text=Vikram'">
+        </div>
+        <div class="vikram-content">
+          <h3 class="vikram-name">Vikram Sankhala</h3>
+          <p class="vikram-desc">Lyricist, music enthusiast & Jam Room founder in Pune. Writes for the Home Band —
+            vocalists, instrumentalists & percussionists welcome. <em>Is lamhe ki gehrai mein jiyo.</em></p>
+          <div class="vikram-buttons">
+            <a href="https://solinexta.in/" target="_blank" rel="noopener" class="vikram-btn vikram-btn-jam">Jam Room
+              →</a>
+            <a href="https://www.beautiful.ai/player/-OgSKXkXj3FIhmt8uMrg" target="_blank" rel="noopener"
+              class="vikram-btn vikram-btn-art">Art of Intimacy →</a>
+            <a href="http://pythonmastery.club/" target="_blank" rel="noopener"
+              class="vikram-btn vikram-btn-link">Python Mastery →</a>
+            <a href="https://dashboardmasters.org/" target="_blank" rel="noopener"
+              class="vikram-btn vikram-btn-link">Dashboard Masters →</a>
+            <a href="https://vikramsankhala.org.in/" target="_blank" rel="noopener"
+              class="vikram-btn vikram-btn-link">Vikram Sankhala →</a>
+            <a href="http://vikramsankhala.net.in/" target="_blank" rel="noopener"
+              class="vikram-btn vikram-btn-link">Pari's MBA Coach →</a>
+            <a href="https://cutting-edge.co.in/" target="_blank" rel="noopener"
+              class="vikram-btn vikram-btn-link">Cutting Edge →</a>
+            <a href="https://www.beautiful.ai/player/-OoPA9ljvQ3ARQRgBYZ3" target="_blank" rel="noopener"
+              class="vikram-btn vikram-btn-link">Quantum Computing →</a>
+            <a href="https://cfoailab.com/" target="_blank" rel="noopener" class="vikram-btn vikram-btn-link">CFO AI Lab
+              →</a>
+            <a href="https://rekhasankhala.com/" target="_blank" rel="noopener" class="vikram-btn vikram-btn-link">Rekha
+              Sankhala →</a>
+            <a href="https://gopalsankhala.in/" target="_blank" rel="noopener" class="vikram-btn vikram-btn-link">Gopal
+              Sankhala →</a>
+            <a href="https://vikram-gcc.com/" target="_blank" rel="noopener" class="vikram-btn vikram-btn-link">Vikram
+              GCC →</a>
+            <a href="https://advanceddeeplearning.in/" target="_blank" rel="noopener"
+              class="vikram-btn vikram-btn-link">Advanced Deep Learning →</a>
+            <a href="https://vikrambtpcompanion.co.in/" target="_blank" rel="noopener"
+              class="vikram-btn vikram-btn-link">Vikram BTP Companion →</a>
+            <a href="https://thebodyguards.in/" target="_blank" rel="noopener" class="vikram-btn vikram-btn-link">The
+              Bodyguards →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="controls" id="controls">
+      <div class="search-wrap">
+        <input type="text" id="search" placeholder="Search videos..." autocomplete="off">
+      </div>
+      <div class="filter-sort">
+        <select id="sortBy">
+          <option value="date-desc">Newest First</option>
+          <option value="date-asc">Oldest First</option>
+          <option value="duration-desc">Longest First</option>
+          <option value="duration-asc">Shortest First</option>
+          <option value="title">Title A–Z</option>
+        </select>
+      </div>
+    </section>
+
+    <nav class="category-tabs" role="tablist">
+      <button class="tab active" data-tab="celine">Celine Dion</button>
+      <button class="tab" data-tab="shakira">Shakira</button>
+      <button class="tab" data-tab="enrique">Enrique Iglesias</button>
+      <button class="tab" data-tab="dance">Dance</button>
+      <button class="tab" data-tab="classics">Classics</button>
+      <button class="tab" data-tab="football">Football</button>
+      <button class="tab tab-legend" data-tab="pele">Pelé</button>
+      <button class="tab tab-legend" data-tab="maradona">Maradona</button>
+      <button class="tab tab-legend" data-tab="messi">Messi</button>
+      <button class="tab tab-legend" data-tab="messigear">Messi Gear</button>
+      <button class="tab tab-legend" data-tab="ronaldo">Ronaldo</button>
+      <button class="tab tab-legend" data-tab="cruyff">Cruyff</button>
+      <button class="tab tab-legend" data-tab="zidane">Zidane</button>
+      <button class="tab tab-legend" data-tab="ronaldinho">Ronaldinho</button>
+      <button class="tab tab-legend" data-tab="r9">R9</button>
+      <button class="tab tab-legend" data-tab="vanbasten">Van Basten</button>
+      <button class="tab tab-legend" data-tab="beckenbauer">Beckenbauer</button>
+      <button class="tab tab-tt" data-tab="tt_gear">TT Gear</button>
+      <button class="tab tab-tt" data-tab="tt_players">TT Players</button>
+      <button class="tab tab-tt" data-tab="tt_legends">TT Legends</button>
+      <button class="tab tab-tt" data-tab="tt_styles">TT Styles</button>
+      <button class="tab tab-tt" data-tab="tt_matches">TT Matches</button>
+      <button class="tab tab-tennis" data-tab="tennis_gear">Tennis Gear</button>
+      <button class="tab tab-tennis" data-tab="tennis_aces">Tennis Aces</button>
+      <button class="tab tab-tennis" data-tab="tennis_dtl">Tennis DTL</button>
+      <button class="tab tab-tennis" data-tab="tennis_crosscourt">Tennis Cross</button>
+      <button class="tab tab-tennis" data-tab="tennis_single_dtl">1H BH DTL</button>
+      <button class="tab tab-tennis" data-tab="tennis_single_crosscourt">1H BH Cross</button>
+      <button class="tab tab-bike" data-tab="bike_secondhand">2nd Hand</button>
+      <button class="tab tab-bike" data-tab="bike_customization">Bike Custom</button>
+      <button class="tab tab-bike" data-tab="bike_enhancements">Enhancements</button>
+      <button class="tab tab-bike" data-tab="bike_gear">Bike Gear</button>
+      <button class="tab tab-bike" data-tab="bike_repairs">Repairs</button>
+      <button class="tab" data-tab="playlist">Shakira Playlist</button>
+      <button class="tab tab-web" data-tab="web_series">Web Series</button>
+      <button class="tab tab-web" data-tab="hindi_web_series">Hindi Web</button>
+      <button class="tab tab-indian" data-tab="hindi_movies">Hindi</button>
+      <button class="tab tab-indian" data-tab="bengali_movies">Bengali</button>
+      <button class="tab tab-indian" data-tab="malayalam_dance_ladies">Malayalam Dance</button>
+      <button class="tab tab-indian" data-tab="kannada_party_ladies">Karnataka Party</button>
+      <button class="tab tab-indian" data-tab="malayalam_movies">Malayalam</button>
+      <button class="tab tab-indian" data-tab="jubin_nautiyal">Jubin Nautiyal</button>
+      <button class="tab tab-indian" data-tab="raabta">Raabta</button>
+      <button class="tab tab-indian" data-tab="arijit_singh">Arijit Singh</button>
+      <button class="tab tab-indian" data-tab="kk">KK</button>
+      <button class="tab tab-indian" data-tab="papon">Papon</button>
+      <button class="tab tab-indian" data-tab="atif_aslam">Atif Aslam</button>
+      <button class="tab tab-indian" data-tab="rubaru">Rubaru</button>
+      <button class="tab tab-indian" data-tab="aesthetic_colourful">Aesthetic</button>
+      <button class="tab tab-indian" data-tab="sher_shayari_party">Sher-o-Shayari</button>
+      <button class="tab tab-indian" data-tab="sufi_party">Sufi Party</button>
+      <button class="tab tab-indian" data-tab="ghazal_party">Ghazal Party</button>
+      <button class="tab tab-indian" data-tab="mere_rashke_qamar">Mere Rashke Qamar</button>
+      <button class="tab tab-indian" data-tab="party_anthems">Party Anthems</button>
+      <button class="tab tab-indian" data-tab="acoustic_guitar">Acoustic Guitar</button>
+      <button class="tab tab-indian" data-tab="punjabi_dance_ladies">Punjabi Dance Ladies</button>
+      <button class="tab tab-indian" data-tab="punjabi_songs">Punjabi</button>
+      <button class="tab tab-indian" data-tab="dosti">Dosti</button>
+      <button class="tab tab-indian" data-tab="soulful">Soulful</button>
+      <button class="tab tab-indian" data-tab="punjabi_dance">Punjabi Dance</button>
+      <button class="tab tab-movie" data-tab="oscar_songs">Oscar Songs</button>
+      <button class="tab tab-movie" data-tab="musical_films">Musicals</button>
+      <button class="tab tab-movie" data-tab="classic_themes">Classic Themes</button>
+      <button class="tab tab-movie" data-tab="movie_dance">Movie Dance</button>
+      <button class="tab tab-movie" data-tab="romantic_moments">Romantic</button>
+      <button class="tab" data-tab="love">Love Songs</button>
+      <button class="tab" data-tab="african">African</button>
+      <button class="tab" data-tab="latin">Latin</button>
+      <button class="tab" data-tab="flamenco">Flamenco</button>
+      <button class="tab" data-tab="all">All</button>
+    </nav>
+
+    <section class="playlist-embed" id="playlistSection">
+      <div class="playlist-header">
+        <h3>Shakira Best 4K — Dance, Energy & Live Performances</h3>
+        <a href="https://youtube.com/playlist?list=PLl1nGeQ1UIbw0lAfx8bVlPcF61i_jV5Ec" target="_blank" rel="noopener"
+          class="playlist-link">Open on YouTube →</a>
+      </div>
+      <div class="embed-wrap">
+        <iframe src="https://www.youtube.com/embed/videoseries?list=PLl1nGeQ1UIbw0lAfx8bVlPcF61i_jV5Ec"
+          title="Shakira 4K Playlist"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section class="video-grid-section">
+      <h3 class="video-grid-title">Videos</h3>
+      <div class="video-grid" id="videoGrid" aria-live="polite">
+        <!-- Populated by app.js -->
+      </div>
+    </section>
+
+    <section class="data-table-section">
+      <h3>All Videos — Sortable</h3>
+      <div class="table-wrap">
+        <table class="data-table" id="dataTable">
+          <thead>
+            <tr>
+              <th data-sort="title">Title</th>
+              <th data-sort="artist">Artist/Category</th>
+              <th data-sort="date">Date</th>
+              <th data-sort="duration">Duration</th>
+              <th data-sort="views">Views</th>
+              <th>Link</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-content">
+      <button class="modal-close" data-close aria-label="Close">×</button>
+      <div class="modal-embed-wrap">
+        <iframe id="modalEmbed" title="Video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+      <div class="modal-info">
+        <h2 id="modalTitle"></h2>
+        <div class="modal-meta" id="modalMeta"></div>
+        <p class="modal-desc" id="modalDesc"></p>
+        <a id="modalYt" href="#" target="_blank" rel="noopener" class="yt-link">Watch on YouTube →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="chat-toggle" id="chatToggle" title="AI Assistant">💬</div>
+  <div class="chat-panel" id="chatPanel" hidden>
+    <div class="chat-header">
+      <h4>AI Assistant</h4>
+      <button class="chat-close" id="chatClose" aria-label="Close">×</button>
+    </div>
+    <div class="chat-messages" id="chatMessages"></div>
+    <div class="chat-input-wrap">
+      <input type="text" id="chatInput" placeholder="Ask about videos, get recommendations..." autocomplete="off">
+      <button type="button" id="chatSend">Send</button>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+  <script src="chat.js"></script>
+  <script>
+    // Favs Playlist Logic
+    document.addEventListener('DOMContentLoaded', () => {
+      const favVideoPlayer = document.getElementById('fav-video-player');
+      const playlistItems = document.querySelectorAll('.playlist-item');
+
+      if (favVideoPlayer && playlistItems.length > 0) {
+        let currentVideoIndex = 0;
+
+        const loadVideo = (index) => {
+          playlistItems.forEach(item => item.classList.remove('active'));
+          playlistItems[index].classList.add('active');
+
+          const videoSrc = encodeURI(playlistItems[index].getAttribute('data-src'));
+          favVideoPlayer.src = videoSrc;
+          favVideoPlayer.load();
+          favVideoPlayer.play().catch(e => console.log('Autoplay prevented:', e));
+        };
+
+        playlistItems.forEach((item, index) => {
+          item.addEventListener('click', () => {
+            currentVideoIndex = index;
+            loadVideo(currentVideoIndex);
+          });
+        });
+
+        favVideoPlayer.addEventListener('ended', () => {
+          currentVideoIndex++;
+          if (currentVideoIndex >= playlistItems.length) {
+            currentVideoIndex = 0;
+          }
+          loadVideo(currentVideoIndex);
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>
