@@ -424,7 +424,7 @@
       const favVideoPlayer = document.getElementById('fav-video-player');
       const playlistItems = document.querySelectorAll('.playlist-item');
 
-      if (favVideoPlayer && playlength > 0) {
+      if (favVideoPlayer && playlistItems.length > 0) {
         let currentVideoIndex = 0;
 
         const loadVideo = (index) => {
