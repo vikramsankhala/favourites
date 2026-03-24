@@ -431,8 +431,8 @@
           playlistItems.forEach(item => item.classList.remove('active'));
           playlistItems[index].classList.add('active');
 
-          const videoSrc = playlistItems[index].getAttribute('data-src');
-          favVideoPlayer.setAttribute('src', videoSrc);
+          const videoSrc = encodeURI(playlistItems[index].getAttribute('data-src'));
+          favVideoPlayer.src = videoSrc;
           favVideoPlayer.load();
           favVideoPlayer.play().catch(e => console.log('Autoplay prevented:', e));
         };
