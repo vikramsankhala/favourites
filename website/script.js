@@ -48,4 +48,43 @@ document.addEventListener('DOMContentLoaded', () => {
     el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
     observer.observe(el);
   });
+
+  // Favourites Playlist Logic
+  const favVideoPlayer = document.getElementById('fav-video-player');
+  const playlistItems = document.querySelectorAll('.playlist-item');
+  
+  if (favVideoPlayer && playlistItems.length > 0) {
+    let currentVideoIndex = 0;
+
+    const loadVideo = (index) => {
+      // Remove active class from all
+      playlistItems.forEach(item => item.classList.remove('active'));
+      
+      // Update active class
+      playlistItems[index].classList.add('active');
+      
+      // Update video source
+      const videoSrc = playlistItems[index].getAttribute('data-src');
+      favVideoPlayer.querySelector('source').setAttribute('src', videoSrc);
+      favVideoPlayer.load();
+      favVideoPlayer.play().catch(e => console.log('Autoplay prevented:', e));
+    };
+
+    // Click event for playlist items
+    playlistItems.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        currentVideoIndex = index;
+        loadVideo(currentVideoIndex);
+      });
+    });
+
+    // Auto-play next video when current ends
+    favVideoPlayer.addEventListener('ended', () => {
+      currentVideoIndex++;
+      if (currentVideoIndex >= playlistItems.length) {
+        currentVideoIndex = 0; // Loop back to start
+      }
+      loadVideo(currentVideoIndex);
+    });
+  }
 });
