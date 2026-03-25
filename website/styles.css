@@ -1937,3 +1937,192 @@ body::before {
     padding: 3rem 1rem;
   }
 }
+
+/* ============================================
+   Advanced Deep Learning Table Styles
+   ============================================ */
+
+.deep-learning-table {
+  margin-top: 2rem;
+  overflow-x: auto;
+}
+
+.ai-courses-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.ai-courses-table thead {
+  background: linear-gradient(135deg, var(--accent-dim), var(--accent));
+  color: var(--bg);
+}
+
+.ai-courses-table th {
+  padding: 1.2rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.ai-courses-table tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.ai-courses-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.ai-courses-table tbody tr:hover {
+  background: rgba(232, 185, 35, 0.05);
+  transform: translateY(-2px);
+}
+
+.ai-courses-table td {
+  padding: 1rem;
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+.ai-courses-table td:first-child {
+  font-weight: 600;
+  color: var(--accent);
+  min-width: 180px;
+}
+
+.ai-courses-table td:nth-child(2) {
+  min-width: 300px;
+}
+
+.ai-courses-table td:nth-child(3) {
+  color: var(--muted);
+  font-size: 0.9rem;
+  min-width: 120px;
+}
+
+.ai-courses-table td:nth-child(4) {
+  color: var(--success);
+  font-weight: 600;
+  font-size: 0.85rem;
+  min-width: 80px;
+}
+
+.ai-courses-table a {
+  color: var(--text);
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 0.3rem;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.ai-courses-table a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  transform: translateX(4px);
+}
+
+.table-footer {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: rgba(232, 185, 35, 0.1);
+  border-radius: var(--radius);
+  border: 1px solid rgba(232, 185, 35, 0.2);
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dim));
+  color: var(--bg);
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(232, 185, 35, 0.3);
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(232, 185, 35, 0.4);
+  background: linear-gradient(135deg, var(--accent-dim), var(--accent));
+}
+
+/* Responsive Table Styles */
+@media (max-width: 1024px) {
+  .ai-courses-table {
+    font-size: 0.9rem;
+  }
+  
+  .ai-courses-table th,
+  .ai-courses-table td {
+    padding: 0.8rem 0.6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .deep-learning-table {
+    margin: 1rem -1rem;
+    padding: 0 1rem;
+  }
+  
+  .ai-courses-table {
+    font-size: 0.8rem;
+  }
+  
+  .ai-courses-table th,
+  .ai-courses-table td {
+    padding: 0.6rem 0.4rem;
+  }
+  
+  .ai-courses-table td:first-child {
+    min-width: 120px;
+  }
+  
+  .ai-courses-table td:nth-child(2) {
+    min-width: 200px;
+  }
+  
+  .ai-courses-table td:nth-child(3) {
+    min-width: 80px;
+  }
+  
+  .ai-courses-table td:nth-child(4) {
+    min-width: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ai-courses-table {
+    font-size: 0.75rem;
+  }
+  
+  .ai-courses-table th,
+  .ai-courses-table td {
+    padding: 0.5rem 0.3rem;
+  }
+  
+  .ai-courses-table th {
+    font-size: 0.7rem;
+  }
+  
+  .table-footer {
+    padding: 1rem;
+    margin: 1rem -1rem 0;
+  }
+  
+  .cta-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
