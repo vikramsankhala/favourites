@@ -4,8 +4,11 @@ services:
   - type: web
     name: jam-room
     runtime: static
-    buildCommand: echo "Static site - no build"
+    buildCommand: echo "Static site - no build required"
     staticPublishPath: website
+    envVars:
+      - key: NODE_ENV
+        value: production
     routes:
       - type: rewrite
         source: /*
