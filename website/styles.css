@@ -2379,6 +2379,111 @@ body::before {
 }
 
 /* ============================================
+   Sacred Categories Styling
+   ============================================ */
+
+.sacred-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.sacred-category {
+  background: linear-gradient(135deg, rgba(232, 185, 35, 0.08), rgba(232, 185, 35, 0.12));
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  border: 1px solid rgba(232, 185, 35, 0.2);
+  transition: all 0.3s ease;
+}
+
+.sacred-category:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(232, 185, 35, 0.3);
+}
+
+.sacred-category h4 {
+  color: var(--accent);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  position: relative;
+}
+
+.sacred-category h4::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 1px;
+}
+
+.sacred-category .video-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.sacred-category .video-links a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.65rem;
+  line-height: 1.1;
+  padding: 0.15rem 0.25rem;
+  border-radius: calc(var(--radius) * 0.3);
+  transition: all 0.3s ease;
+  border-left: 2px solid transparent;
+  display: block;
+}
+
+.sacred-category .video-links a:hover {
+  color: var(--accent);
+  background: rgba(232, 185, 35, 0.05);
+  border-left-color: var(--accent);
+  transform: translateX(2px);
+}
+
+/* Responsive Sacred Categories */
+@media (max-width: 768px) {
+  .sacred-categories {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .sacred-category {
+    padding: 1rem;
+  }
+  
+  .sacred-category .video-links a {
+    font-size: 0.6rem;
+    padding: 0.1rem 0.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sacred-categories {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+  
+  .sacred-category {
+    padding: 0.8rem;
+  }
+  
+  .sacred-category .video-links a {
+    font-size: 0.55rem;
+    padding: 0.08rem 0.15rem;
+  }
+}
+
+/* ============================================
    Vedic Chants Categories Styling
    ============================================ */
 
