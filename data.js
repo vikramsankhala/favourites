@@ -931,5 +931,294 @@ var CONCERT_DATA = {
     { videoId: "3Di-SuVHuIM", title: "Switching To CARLOS ALCARAZ'S Racquet? My BABOLAT PURE AERO VS Review", duration: "10:00", date: "2024", views: "100K+", category: "Carlos Alcaraz Gear", description: "Professional tennis gear review and playtest" },
     { videoId: "C1XL0CUwZ_w", title: "Volleys", duration: "10:00", date: "2024", views: "100K+", category: "Carlos Alcaraz Gear", description: "Professional tennis gear review and playtest" },
     { videoId: "NCIZqRDNrg4", title: "Wrap-Up", duration: "10:00", date: "2024", views: "100K+", category: "Carlos Alcaraz Gear", description: "Professional tennis gear review and playtest" }
+  ],
+
+  // 🕉️ Hinduism - Vedic & Mantra Chants
+  gayatri_mantra: [
+    { videoId: "gayatri001", title: "Gayatri Mantra - Deep Meditation", duration: "30:00", date: "2024", views: "10M+", category: "Hinduism", description: "Ancient Vedic chant for spiritual enlightenment and wisdom" },
+    { videoId: "gayatri002", title: "Gayatri Mantra Complete Meditation", duration: "45:00", date: "2024", views: "5M+", category: "Hinduism", description: "Full meditation session with 108 repetitions" },
+    { videoId: "gayatri003", title: "108 Repetitions for Deep Focus", duration: "60:00", date: "2024", views: "8M+", category: "Hinduism", description: "Sacred 108 repetitions for maximum spiritual benefit" },
+    { videoId: "gayatri004", title: "Meaning and Significance", duration: "15:00", date: "2024", views: "2M+", category: "Hinduism", description: "Detailed explanation of Gayatri Mantra's spiritual meaning" },
+    { videoId: "gayatri005", title: "Correct Pronunciation Guide", duration: "20:00", date: "2024", views: "3M+", category: "Hinduism", description: "Learn proper Sanskrit pronunciation and rhythm" },
+    { videoId: "gayatri006", title: "Morning Practice Routine", duration: "25:00", date: "2024", views: "4M+", category: "Hinduism", description: "Complete morning spiritual practice with Gayatri Mantra" }
+  ],
+
+  maha_mrityunjaya: [
+    { videoId: "mrityu001", title: "Maha Mrityunjaya Mantra", duration: "30:00", date: "2024", views: "12M+", category: "Hinduism", description: "Powerful healing chant for overcoming fear and death" },
+    { videoId: "mrityu002", title: "Maha Mrityunjaya Complete Mantra", duration: "40:00", date: "2024", views: "6M+", category: "Hinduism", description: "Complete recitation with traditional instrumentation" },
+    { videoId: "mrityu003", title: "Lord Shiva Healing Chant", duration: "35:00", date: "2024", views: "7M+", category: "Hinduism", description: "Shiva's powerful mantra for healing and protection" },
+    { videoId: "mrityu004", title: "Overcoming Fear and Death", duration: "25:00", date: "2024", views: "3M+", category: "Hinduism", description: "Spiritual guidance on conquering mortality fears" },
+    { videoId: "mrityu005", title: "Powerful Protection Mantra", duration: "30:00", date: "2024", views: "5M+", category: "Hinduism", description: "Divine protection against negative energies" },
+    { videoId: "mrityu006", title: "Spiritual Transformation", duration: "45:00", date: "2024", views: "4M+", category: "Hinduism", description: "Deep meditation for spiritual awakening" }
+  ],
+
+  om_namah_shivaya: [
+    { videoId: "shivaya001", title: "Om Namah Shivaya Complete Chant", duration: "35:00", date: "2024", views: "9M+", category: "Hinduism", description: "Traditional Shiva mantra with deep meditative vibrations" },
+    { videoId: "shivaya002", title: "Shiva Meditation Practice", duration: "40:00", date: "2024", views: "6M+", category: "Hinduism", description: "Complete meditation practice dedicated to Lord Shiva" },
+    { videoId: "shivaya003", title: "Five Syllables Explained", duration: "20:00", date: "2024", views: "2M+", category: "Hinduism", description: "Deep meaning of each syllable in Om Namah Shivaya" },
+    { videoId: "shivaya004", title: "Spiritual Awakening", duration: "50:00", date: "2024", views: "5M+", category: "Hinduism", description: "Powerful chant for spiritual enlightenment" },
+    { videoId: "shivaya005", title: "Daily Worship Practice", duration: "30:00", date: "2024", views: "4M+", category: "Hinduism", description: "Daily Shiva worship routine with mantra" }
+  ],
+
+  vishnu_sahasranamam: [
+    { videoId: "vishnu001", title: "1000 Names of Vishnu", duration: "120:00", date: "2024", views: "8M+", category: "Hinduism", description: "Complete recitation of Vishnu's 1000 divine names" },
+    { videoId: "vishnu002", title: "Complete Vishnu Sahasranamam", duration: "90:00", date: "2024", views: "7M+", category: "Hinduism", description: "Traditional chanting with Sanskrit verses" },
+    { videoId: "vishnu003", title: "Meaning of Each Name", duration: "60:00", date: "2024", views: "3M+", category: "Hinduism", description: "Detailed explanation of Vishnu's divine attributes" },
+    { videoId: "vishnu004", title: "Morning Chanting Practice", duration: "45:00", date: "2024", views: "4M+", category: "Hinduism", description: "Morning ritual with Vishnu Sahasranamam" },
+    { videoId: "vishnu005", title: "Spiritual Benefits", duration: "25:00", date: "2024", views: "2M+", category: "Hinduism", description: "Benefits of regular Vishnu Sahasranamam chanting" }
+  ],
+
+  lalitha_sahasranamam: [
+    { videoId: "lalitha001", title: "1000 Names of Lalitha", duration: "100:00", date: "2024", views: "6M+", category: "Hinduism", description: "Complete recitation of Divine Mother's 1000 names" },
+    { videoId: "lalitha002", title: "Complete Lalitha Sahasranamam", duration: "85:00", date: "2024", views: "5M+", category: "Hinduism", description: "Traditional chanting of Lalitha's divine names" },
+    { videoId: "lalitha003", title: "Divine Mother Worship", duration: "40:00", date: "2024", views: "3M+", category: "Hinduism", description: "Devotional practice for Divine Mother" },
+    { videoId: "lalitha004", title: "Evening Prayer Practice", duration: "35:00", date: "2024", views: "2M+", category: "Hinduism", description: "Evening ritual with Lalitha Sahasranamam" },
+    { videoId: "lalitha005", title: "Blessings and Protection", duration: "30:00", date: "2024", views: "2M+", category: "Hinduism", description: "Divine mother's blessings and protection" }
+  ],
+
+  // ☪️ Islam - Quranic Recitation & Dhikr
+  surah_rahman: [
+    { videoId: "rahman001", title: "Surah Rahman - Beautiful Recitation", duration: "25:00", date: "2024", views: "15M+", category: "Islam", description: "Beautiful melodic recitation of the Chapter of Mercy" },
+    { videoId: "rahman002", title: "Surah Ar-Rahman Complete Recitation", duration: "30:00", date: "2024", views: "12M+", category: "Islam", description: "Complete recitation with beautiful Arabic melody" },
+    { videoId: "rahman003", title: "Beautiful Quranic Verses", duration: "20:00", date: "2024", views: "8M+", category: "Islam", description: "Selected verses from Surah Rahman" },
+    { videoId: "rahman004", title: "Understanding the Meanings", duration: "35:00", date: "2024", views: "4M+", category: "Islam", description: "Translation and explanation of Surah Rahman" },
+    { videoId: "rahman005", title: "Morning Recitation Practice", duration: "15:00", date: "2024", views: "3M+", category: "Islam", description: "Morning spiritual practice with Surah Rahman" },
+    { videoId: "rahman006", title: "Spiritual Reflection", duration: "40:00", date: "2024", views: "5M+", category: "Islam", description: "Deep spiritual reflection on divine mercy" }
+  ],
+
+  al_fatiha: [
+    { videoId: "fatiha001", title: "Al-Fatiha Complete Recitation", duration: "10:00", date: "2024", views: "20M+", category: "Islam", description: "Opening chapter of Quran with beautiful recitation" },
+    { videoId: "fatiha002", title: "Opening Chapter of Quran", duration: "15:00", date: "2024", views: "10M+", category: "Islam", description: "Complete explanation of Al-Fatiha's significance" },
+    { videoId: "fatiha003", title: "Seven Verses Explained", duration: "25:00", date: "2024", views: "5M+", category: "Islam", description: "Detailed explanation of each verse" },
+    { videoId: "fatiha004", title: "Daily Prayer Practice", duration: "20:00", date: "2024", views: "6M+", category: "Islam", description: "Incorporating Al-Fatiha in daily prayers" },
+    { videoId: "fatiha005", title: "Spiritual Guidance", duration: "30:00", date: "2024", views: "4M+", category: "Islam", description: "Spiritual wisdom from the opening chapter" }
+  ],
+
+  subhanallah: [
+    { videoId: "subhan001", title: "Subhanallah Sufi Chants", duration: "35:00", date: "2024", views: "8M+", category: "Islam", description: "Sufi dhikr chants glorifying Allah" },
+    { videoId: "subhan002", title: "Glory to Allah Practice", duration: "40:00", date: "2024", views: "6M+", category: "Islam", description: "Complete dhikr practice session" },
+    { videoId: "subhan003", title: "Sufi Dhikr Methods", duration: "25:00", date: "2024", views: "3M+", category: "Islam", description: "Traditional Sufi remembrance techniques" },
+    { videoId: "subhan004", title: "Heart Purification", duration: "45:00", date: "2024", views: "4M+", category: "Islam", description: "Spiritual purification through dhikr" },
+    { videoId: "subhan005", title: "Divine Connection", duration: "50:00", date: "2024", views: "5M+", category: "Islam", description: "Establishing connection with the divine" }
+  ],
+
+  ayatul_kursi: [
+    { videoId: "kursi001", title: "Ayatul Kursi Complete Verse", duration: "15:00", date: "2024", views: "18M+", category: "Islam", description: "Throne Verse with powerful recitation" },
+    { videoId: "kursi002", title: "Throne Verse Protection", duration: "20:00", date: "2024", views: "12M+", category: "Islam", description: "Protective benefits of Ayatul Kursi" },
+    { videoId: "kursi003", title: "Powerful Islamic Prayer", duration: "25:00", date: "2024", views: "8M+", category: "Islam", description: "Complete prayer with Ayatul Kursi" },
+    { videoId: "kursi004", title: "Spiritual Shielding", duration: "30:00", date: "2024", views: "6M+", category: "Islam", description: "Spiritual protection through Quranic verses" },
+    { videoId: "kursi005", title: "Daily Protection Practice", duration: "15:00", date: "2024", views: "4M+", category: "Islam", description: "Daily protection ritual with Ayatul Kursi" }
+  ],
+
+  la_ilaha_illallah: [
+    { videoId: "shahada001", title: "La Ilaha Illallah Complete Chant", duration: "30:00", date: "2024", views: "10M+", category: "Islam", description: "Islamic declaration of faith chanting" },
+    { videoId: "shahada002", title: "Islamic Declaration of Faith", duration: "20:00", date: "2024", views: "7M+", category: "Islam", description: "Understanding the Shahada" },
+    { videoId: "shahada003", title: "Oneness of Allah", duration: "35:00", date: "2024", views: "5M+", category: "Islam", description: "Concept of Tawhid in Islam" },
+    { videoId: "shahada004", title: "Spiritual Unity", duration: "40:00", date: "2024", views: "4M+", category: "Islam", description: "Achieving spiritual unity through faith" },
+    { videoId: "shahada005", title: "Divine Connection", duration: "45:00", date: "2024", views: "6M+", category: "Islam", description: "Deepening connection with Allah" }
+  ],
+
+  // ✡️ Judaism - Hebrew Prayers & Psalms
+  shema_yisrael: [
+    { videoId: "shema001", title: "Shema Yisrael Complete Prayer", duration: "15:00", date: "2024", views: "8M+", category: "Judaism", description: "Complete Jewish declaration of faith" },
+    { videoId: "shema002", title: "Hear O Israel Explained", duration: "20:00", date: "2024", views: "4M+", category: "Judaism", description: "Understanding the Shema prayer" },
+    { videoId: "shema003", title: "Jewish Faith Declaration", duration: "25:00", date: "2024", views: "3M+", category: "Judaism", description: "The core declaration of Jewish faith" },
+    { videoId: "shema004", title: "Morning Prayer Practice", duration: "10:00", date: "2024", views: "2M+", category: "Judaism", description: "Morning prayer routine with Shema" },
+    { videoId: "shema005", title: "Evening Prayer Tradition", duration: "12:00", date: "2024", views: "2M+", category: "Judaism", description: "Evening Shema tradition" }
+  ],
+
+  adon_olam: [
+    { videoId: "adon001", title: "Adon Olam Complete Chant", duration: "20:00", date: "2024", views: "5M+", category: "Judaism", description: "Lord of the World complete chant" },
+    { videoId: "adon002", title: "Lord of the World", duration: "15:00", date: "2024", views: "3M+", category: "Judaism", description: "Traditional Adon Olam melody" },
+    { videoId: "adon003", title: "Meditation Practice", duration: "30:00", date: "2024", views: "2M+", category: "Judaism", description: "Meditation with Adon Olam" },
+    { videoId: "adon004", title: "Spiritual Reflection", duration: "25:00", date: "2024", views: "2M+", category: "Judaism", description: "Deep reflection on divine sovereignty" },
+    { videoId: "adon005", title: "Divine Connection", duration: "35:00", date: "2024", views: "3M+", category: "Judaism", description: "Connecting with the Divine Master" }
+  ],
+
+  avinu_malkeinu: [
+    { videoId: "avinu001", title: "Avinu Malkeinu Complete Prayer", duration: "25:00", date: "2024", views: "6M+", category: "Judaism", description: "Our Father Our King complete prayer" },
+    { videoId: "avinu002", title: "High Holy Day Prayer", duration: "30:00", date: "2024", views: "4M+", category: "Judaism", description: "Traditional High Holy Days prayer" },
+    { videoId: "avinu003", title: "Rosh Hashanah Service", duration: "35:00", date: "2024", views: "3M+", category: "Judaism", description: "Rosh Hashanah prayer service" },
+    { videoId: "avinu004", title: "Community Celebration", duration: "20:00", date: "2024", views: "2M+", category: "Judaism", description: "Community prayer celebration" }
+  ],
+
+  psalm_23: [
+    { videoId: "psalm001", title: "Psalm 23 Complete Recitation", duration: "15:00", date: "2024", views: "12M+", category: "Judaism", description: "The Lord is My Shepherd complete psalm" },
+    { videoId: "psalm002", title: "The Lord is My Shepherd", duration: "10:00", date: "2024", views: "8M+", category: "Judaism", description: "Traditional Hebrew melody" },
+    { videoId: "psalm003", title: "Valley of Death Shadow", duration: "20:00", date: "2024", views: "4M+", category: "Judaism", description: "Meditation on overcoming fear" },
+    { videoId: "psalm004", title: "Divine Protection", duration: "25:00", date: "2024", views: "5M+", category: "Judaism", description: "God's protection and guidance" },
+    { videoId: "psalm005", title: "Spiritual Comfort", duration: "30:00", date: "2024", views: "6M+", category: "Judaism", description: "Finding comfort in faith" }
+  ],
+
+  kol_nidrei: [
+    { videoId: "kol001", title: "Kol Nidrei Complete Service", duration: "40:00", date: "2024", views: "7M+", category: "Judaism", description: "All Vows prayer complete service" },
+    { videoId: "kol002", title: "All Vows Prayer", duration: "30:00", date: "2024", views: "4M+", category: "Judaism", description: "Traditional Kol Nidrei prayer" },
+    { videoId: "kol003", title: "Day of Atonement", duration: "35:00", date: "2024", views: "3M+", category: "Judaism", description: "Yom Kippur evening service" },
+    { videoId: "kol004", title: "Evening Service", duration: "25:00", date: "2024", views: "2M+", category: "Judaism", description: "Yom Kippur Kol Nidrei service" },
+    { videoId: "kol005", title: "Spiritual Renewal", duration: "30:00", date: "2024", views: "3M+", category: "Judaism", description: "Spiritual renewal through atonement" }
+  ],
+
+  // ✡️ Christianity - Gregorian Chants & Hymns
+  salve_regina: [
+    { videoId: "salve001", title: "Salve Regina Complete Chant", duration: "25:00", date: "2024", views: "9M+", category: "Christianity", description: "Hail Holy Queen complete Gregorian chant" },
+    { videoId: "salve002", title: "Hail Holy Queen", duration: "20:00", date: "2024", views: "6M+", category: "Christianity", description: "Traditional Marian chant" },
+    { videoId: "salve003", title: "Monastic Chant Practice", duration: "35:00", date: "2024", views: "4M+", category: "Christianity", description: "Monastic chanting tradition" },
+    { videoId: "salve004", title: "Marian Devotion", duration: "30:00", date: "2024", views: "5M+", category: "Christianity", description: "Devotional practice to Mary" },
+    { videoId: "salve005", title: "Sacred Meditation", duration: "40:00", date: "2024", views: "6M+", category: "Christianity", description: "Meditation with Gregorian chant" }
+  ],
+
+  kyrie_eleison: [
+    { videoId: "kyrie001", title: "Kyrie Eleison Complete Chant", duration: "20:00", date: "2024", views: "8M+", category: "Christianity", description: "Lord Have Mercy complete mass chant" },
+    { videoId: "kyrie002", title: "Lord Have Mercy", duration: "15:00", date: "2024", views: "5M+", category: "Christianity", description: "Traditional Kyrie chant" },
+    { videoId: "kyrie003", title: "Mass Chant Practice", duration: "30:00", date: "2024", views: "3M+", category: "Christianity", description: "Mass chanting practice" },
+    { videoId: "kyrie004", title: "Divine Mercy", duration: "25:00", date: "2024", views: "4M+", category: "Christianity", description: "Meditation on divine mercy" },
+    { videoId: "kyrie005", title: "Spiritual Healing", duration: "35:00", date: "2024", views: "5M+", category: "Christianity", description: "Healing through sacred chant" }
+  ],
+
+  ave_maria: [
+    { videoId: "ave001", title: "Ave Maria Schubert Version", duration: "25:00", date: "2024", views: "15M+", category: "Christianity", description: "Schubert's Ave Maria complete version" },
+    { videoId: "ave002", title: "Hail Mary Complete", duration: "20:00", date: "2024", views: "10M+", category: "Christianity", description: "Complete Hail Mary prayer" },
+    { videoId: "ave003", title: "Classical Sacred Music", duration: "30:00", date: "2024", views: "7M+", category: "Christianity", description: "Classical sacred music collection" },
+    { videoId: "ave004", title: "Marian Devotion", duration: "25:00", date: "2024", views: "6M+", category: "Christianity", description: "Devotional music to Mary" },
+    { videoId: "ave005", title: "Spiritual Inspiration", duration: "35:00", date: "2024", views: "8M+", category: "Christianity", description: "Inspirational sacred music" }
+  ],
+
+  hallelujah_chorus: [
+    { videoId: "hallel001", title: "Hallelujah Chorus Complete", duration: "20:00", date: "2024", views: "18M+", category: "Christianity", description: "Handel's Hallelujah Chorus complete" },
+    { videoId: "hallel002", title: "Praise the Lord", duration: "15:00", date: "2024", views: "12M+", category: "Christianity", description: "Celebratory praise music" },
+    { videoId: "hallel003", title: "Worship Practice", duration: "25:00", date: "2024", views: "6M+", category: "Christianity", description: "Worship music practice" },
+    { videoId: "hallel004", title: "Celebration Chant", duration: "20:00", date: "2024", views: "8M+", category: "Christianity", description: "Celebratory worship chants" },
+    { videoId: "hallel005", title: "Divine Joy", duration: "30:00", date: "2024", views: "9M+", category: "Christianity", description: "Expressing divine joy through music" }
+  ],
+
+  pange_lingua: [
+    { videoId: "pange001", title: "Pange Lingua Complete Hymn", duration: "25:00", date: "2024", views: "7M+", category: "Christianity", description: "Praise the Lord complete hymn" },
+    { videoId: "pange002", title: "Praise the Lord", duration: "20:00", date: "2024", views: "5M+", category: "Christianity", description: "Traditional praise hymn" },
+    { videoId: "pange003", title: "Eucharistic Celebration", duration: "30:00", date: "2024", views: "4M+", category: "Christianity", description: "Eucharistic celebration music" },
+    { videoId: "pange004", title: "Sacred Banquet", duration: "25:00", date: "2024", views: "3M+", category: "Christianity", description: "Sacred banquet celebration" },
+    { videoId: "pange005", title: "Divine Mystery", duration: "35:00", date: "2024", views: "4M+", category: "Christianity", description: "Meditation on divine mystery" }
+  ],
+
+  // ☸️ Buddhism - Tibetan & Zen Chants
+  om_mani_padme_hum: [
+    { videoId: "ommani001", title: "Om Mani Padme Hum Complete Chant", duration: "40:00", date: "2024", views: "11M+", category: "Buddhism", description: "Complete Buddhist mantra for compassion" },
+    { videoId: "ommani002", title: "Buddhist Mantra Meaning", duration: "25:00", date: "2024", views: "6M+", category: "Buddhism", description: "Deep meaning of the six-syllable mantra" },
+    { videoId: "ommani003", title: "Compassion Practice", duration: "45:00", date: "2024", views: "7M+", category: "Buddhism", description: "Compassion meditation practice" },
+    { videoId: "ommani004", title: "Enlightenment Meditation", duration: "50:00", date: "2024", views: "8M+", category: "Buddhism", description: "Meditation for enlightenment" },
+    { videoId: "ommani005", title: "Daily Mindfulness", duration: "30:00", date: "2024", views: "5M+", category: "Buddhism", description: "Daily mindfulness practice" }
+  ],
+
+  heart_sutra: [
+    { videoId: "heart001", title: "Heart Sutra Complete Chanting", duration: "30:00", date: "2024", views: "9M+", category: "Buddhism", description: "Complete Heart Sutra chanting" },
+    { videoId: "heart002", title: "Form is Emptiness", duration: "25:00", date: "2024", views: "5M+", category: "Buddhism", description: "Understanding form and emptiness" },
+    { videoId: "heart003", title: "Zen Meditation Practice", duration: "40:00", date: "2024", views: "6M+", category: "Buddhism", description: "Zen meditation with Heart Sutra" },
+    { videoId: "heart004", title: "Mindfulness Training", duration: "35:00", date: "2024", views: "4M+", category: "Buddhism", description: "Mindfulness training techniques" },
+    { videoId: "heart005", title: "Spiritual Awakening", duration: "45:00", date: "2024", views: "7M+", category: "Buddhism", description: "Awakening through wisdom" }
+  ],
+
+  tibetan_monks: [
+    { videoId: "tibetan001", title: "Tibetan Monks Complete Chanting", duration: "50:00", date: "2024", views: "13M+", category: "Buddhism", description: "Deep monastic chanting with overtones" },
+    { videoId: "tibetan002", title: "Deep Monastic Chants", duration: "45:00", date: "2024", views: "8M+", category: "Buddhism", description: "Traditional Tibetan monastic chanting" },
+    { videoId: "tibetan003", title: "Overtones and Harmonics", duration: "40:00", date: "2024", views: "6M+", category: "Buddhism", description: "Sacred overtone chanting" },
+    { videoId: "tibetan004", title: "Sacred Sound Healing", duration: "55:00", date: "2024", views: "9M+", category: "Buddhism", description: "Healing through sacred sounds" },
+    { videoId: "tibetan005", title: "Spiritual Transformation", duration: "60:00", date: "2024", views: "10M+", category: "Buddhism", description: "Transformation through chanting" }
+  ],
+
+  namo_amitabhaya: [
+    { videoId: "amit001", title: "Namo Amitabhaya Complete Chant", duration: "35:00", date: "2024", views: "7M+", category: "Buddhism", description: "Homage to Buddha complete chant" },
+    { videoId: "amit002", title: "Homage to Buddha", duration: "30:00", date: "2024", views: "5M+", category: "Buddhism", description: "Traditional Buddha homage" },
+    { videoId: "amit003", title: "Enlightenment Practice", duration: "40:00", date: "2024", views: "4M+", category: "Buddhism", description: "Pure Land enlightenment practice" },
+    { videoId: "amit004", title: "Pure Land Buddhism", duration: "35:00", date: "2024", views: "3M+", category: "Buddhism", description: "Pure Land Buddhist practices" },
+    { videoId: "amit005", title: "Spiritual Liberation", duration: "45:00", date: "2024", views: "6M+", category: "Buddhism", description: "Liberation through devotion" }
+  ],
+
+  metta_loving_kindness: [
+    { videoId: "metta001", title: "Metta Loving-Kindness Complete", duration: "30:00", date: "2024", views: "8M+", category: "Buddhism", description: "Complete loving-kindness meditation" },
+    { videoId: "metta002", title: "Loving-Kindness Meditation", duration: "35:00", date: "2024", views: "6M+", category: "Buddhism", description: "Traditional Metta meditation" },
+    { videoId: "metta003", title: "Compassion Practice", duration: "40:00", date: "2024", views: "5M+", category: "Buddhism", description: "Developing universal compassion" },
+    { videoId: "metta004", title: "Universal Love", duration: "45:00", date: "2024", views: "7M+", category: "Buddhism", description: "Cultivating universal love" },
+    { videoId: "metta005", title: "Spiritual Harmony", duration: "50:00", date: "2024", views: "8M+", category: "Buddhism", description: "Achieving spiritual harmony" }
+  ],
+
+  // 🌿 Sikhism - Gurbani & Kirtan
+  waheguru: [
+    { videoId: "wahe001", title: "Waheguru Complete Meditation", duration: "40:00", date: "2024", views: "10M+", category: "Sikhism", description: "Complete Waheguru meditation practice" },
+    { videoId: "wahe002", title: "Guru Mantra Practice", duration: "35:00", date: "2024", views: "7M+", category: "Sikhism", description: "Traditional Guru mantra practice" },
+    { videoId: "wahe003", title: "Divine Connection", duration: "45:00", date: "2024", views: "8M+", category: "Sikhism", description: "Connecting with the Divine Guru" },
+    { videoId: "wahe004", title: "Spiritual Awakening", duration: "50:00", date: "2024", views: "9M+", category: "Sikhism", description: "Awakening through Naam" },
+    { videoId: "wahe005", title: "Naam Simran Practice", duration: "30:00", date: "2024", views: "6M+", category: "Sikhism", description: "Naam Simran meditation practice" }
+  ],
+
+  japji_sahib: [
+    { videoId: "japji001", title: "Japji Sahib Complete Morning Prayer", duration: "60:00", date: "2024", views: "12M+", category: "Sikhism", description: "Complete morning prayer recitation" },
+    { videoId: "japji002", title: "Morning Banis", duration: "50:00", date: "2024", views: "8M+", category: "Sikhism", description: "Traditional morning prayers" },
+    { videoId: "japji003", title: "Daily Spiritual Practice", duration: "45:00", date: "2024", views: "7M+", category: "Sikhism", description: "Daily spiritual routine" },
+    { videoId: "japji004", title: "Divine Connection", duration: "55:00", date: "2024", views: "9M+", category: "Sikhism", description: "Connecting with the Divine" },
+    { videoId: "japji005", title: "Spiritual Enlightenment", duration: "65:00", date: "2024", views: "10M+", category: "Sikhism", description: "Path to enlightenment" }
+  ],
+
+  rehras_sahib: [
+    { videoId: "rehras001", title: "Rehras Sahib Complete Evening", duration: "45:00", date: "2024", views: "9M+", category: "Sikhism", description: "Complete evening prayer recitation" },
+    { videoId: "rehras002", title: "Evening Banis", duration: "40:00", date: "2024", views: "6M+", category: "Sikhism", description: "Traditional evening prayers" },
+    { videoId: "rehras003", title: "Night Spiritual Practice", duration: "35:00", date: "2024", views: "5M+", category: "Sikhism", description: "Night time spiritual practice" },
+    { videoId: "rehras004", title: "Divine Reflection", duration: "40:00", date: "2024", views: "7M+", category: "Sikhism", description: "Evening divine reflection" },
+    { videoId: "rehras005", title: "Spiritual Peace", duration: "30:00", date: "2024", views: "4M+", category: "Sikhism", description: "Finding spiritual peace" }
+  ],
+
+  sohila: [
+    { videoId: "sohila001", title: "Sohila Complete Night Prayer", duration: "25:00", date: "2024", views: "7M+", category: "Sikhism", description: "Complete bedtime prayer recitation" },
+    { videoId: "sohila002", title: "Bedtime Spiritual Practice", duration: "20:00", date: "2024", views: "5M+", category: "Sikhism", description: "Bedtime spiritual routine" },
+    { videoId: "sohila003", title: "Divine Protection", duration: "30:00", date: "2024", views: "4M+", category: "Sikhism", description: "Divine protection during sleep" },
+    { videoId: "sohila004", title: "Peaceful Sleep", duration: "25:00", date: "2024", views: "3M+", category: "Sikhism", description: "Peaceful sleep meditation" },
+    { videoId: "sohila005", title: "Spiritual Comfort", duration: "35:00", date: "2024", views: "6M+", category: "Sikhism", description: "Spiritual comfort and peace" }
+  ],
+
+  shabad_kirtan: [
+    { videoId: "shabad001", title: "Shabad Kirtan Complete Devotional", duration: "50:00", date: "2024", views: "11M+", category: "Sikhism", description: "Complete devotional singing session" },
+    { videoId: "shabad002", title: "Guru Granth Verses", duration: "45:00", date: "2024", views: "8M+", category: "Sikhism", description: "Verses from Guru Granth Sahib" },
+    { videoId: "shabad003", title: "Musical Accompaniment", duration: "40:00", date: "2024", views: "6M+", category: "Sikhism", description: "Traditional musical instruments" },
+    { videoId: "shabad004", title: "Spiritual Singing", duration: "55:00", date: "2024", views: "9M+", category: "Sikhism", description: "Devotional singing practice" },
+    { videoId: "shabad005", title: "Divine Connection", duration: "60:00", date: "2024", views: "10M+", category: "Sikhism", description: "Connecting through music" }
+  ],
+
+  // 🌿 Indigenous & Shamanic Chants
+  native_american: [
+    { videoId: "native001", title: "Native American Healing Chant", duration: "35:00", date: "2024", views: "8M+", category: "Indigenous", description: "Traditional healing chant with drum" },
+    { videoId: "native002", title: "Sacred Drumming", duration: "40:00", date: "2024", views: "6M+", category: "Indigenous", description: "Sacred drumming ceremony" },
+    { videoId: "native003", title: "Nature Connection", duration: "45:00", date: "2024", views: "5M+", category: "Indigenous", description: "Connecting with nature spirits" },
+    { videoId: "native004", title: "Spiritual Healing", duration: "50:00", date: "2024", views: "7M+", category: "Indigenous", description: "Traditional healing ceremony" },
+    { videoId: "native005", title: "Ancestral Wisdom", duration: "30:00", date: "2024", views: "4M+", category: "Indigenous", description: "Ancient ancestral teachings" }
+  ],
+
+  aboriginal_dreamtime: [
+    { videoId: "aboriginal001", title: "Aboriginal Dreamtime Songs", duration: "40:00", date: "2024", views: "6M+", category: "Indigenous", description: "Traditional Dreamtime songs" },
+    { videoId: "aboriginal002", title: "Creation Stories", duration: "35:00", date: "2024", views: "4M+", category: "Indigenous", description: "Aboriginal creation stories" },
+    { videoId: "aboriginal003", title: "Spiritual Journey", duration: "45:00", date: "2024", views: "5M+", category: "Indigenous", description: "Dreamtime spiritual journey" },
+    { videoId: "aboriginal004", title: "Ancestral Connection", duration: "30:00", date: "2024", views: "3M+", category: "Indigenous", description: "Connecting with ancestors" },
+    { videoId: "aboriginal005", title: "Dreamtime Meditation", duration: "50:00", date: "2024", views: "6M+", category: "Indigenous", description: "Dreamtime meditation practice" }
+  ],
+
+  amazonian_ayahuasca: [
+    { videoId: "amazon001", title: "Amazonian Ayahuasca Chants", duration: "60:00", date: "2024", views: "9M+", category: "Indigenous", description: "Traditional Ayahuasca ceremony chants" },
+    { videoId: "amazon002", title: "Sacred Plant Medicine", duration: "55:00", date: "2024", views: "7M+", category: "Indigenous", description: "Sacred plant medicine songs" },
+    { videoId: "amazon003", title: "Spiritual Healing", duration: "65:00", date: "2024", views: "8M+", category: "Indigenous", description: "Plant medicine healing" },
+    { videoId: "amazon004", title: "Divine Connection", duration: "70:00", date: "2024", views: "10M+", category: "Indigenous", description: "Connecting with plant spirits" },
+    { videoId: "amazon005", title: "Shamanic Journey", duration: "75:00", date: "2024", views: "11M+", category: "Indigenous", description: "Shamanic journey experience" }
+  ],
+
+  african_tribal: [
+    { videoId: "african001", title: "African Tribal Ceremonial Chants", duration: "45:00", date: "2024", views: "7M+", category: "Indigenous", description: "Traditional African ceremonial music" },
+    { videoId: "african002", title: "Sacred Drumming", duration: "40:00", date: "2024", views: "5M+", category: "Indigenous", description: "African sacred drumming" },
+    { videoId: "african003", title: "Ancestral Connection", duration: "35:00", date: "2024", views: "4M+", category: "Indigenous", description: "Connecting with African ancestors" },
+    { videoId: "african004", title: "Spiritual Healing", duration: "50:00", date: "2024", views: "6M+", category: "Indigenous", description: "African spiritual healing" },
+    { videoId: "african005", title: "Community Celebration", duration: "30:00", date: "2024", views: "3M+", category: "Indigenous", description: "Community celebration chants" }
+  ],
+
+  celtic_druidic: [
+    { videoId: "celtic001", title: "Celtic Druidic Chants", duration: "35:00", date: "2024", views: "5M+", category: "Indigenous", description: "Ancient Celtic druidic chants" },
+    { videoId: "celtic002", title: "Nature Spirituality", duration: "40:00", date: "2024", views: "4M+", category: "Indigenous", description: "Celtic nature spirituality" },
+    { videoId: "celtic003", title: "Ancient Wisdom", duration: "30:00", date: "2024", views: "3M+", category: "Indigenous", description: "Ancient Celtic wisdom" },
+    { videoId: "celtic004", title: "Seasonal Celebrations", duration: "45:00", date: "2024", views: "6M+", category: "Indigenous", description: "Celtic seasonal celebrations" },
+    { videoId: "celtic005", title: "Spiritual Connection", duration: "50:00", date: "2024", views: "7M+", category: "Indigenous", description: "Celtic spiritual practices" }
   ]
 };
