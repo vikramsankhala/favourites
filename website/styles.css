@@ -2379,6 +2379,216 @@ body::before {
 }
 
 /* ============================================
+   Philosophy Categories Styling
+   ============================================ */
+
+.philosophy-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.philosophy-category {
+  background: linear-gradient(135deg, rgba(232, 185, 35, 0.08), rgba(232, 185, 35, 0.12));
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  border: 1px solid rgba(232, 185, 35, 0.2);
+  transition: all 0.3s ease;
+}
+
+.philosophy-category:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(232, 185, 35, 0.3);
+}
+
+.philosophy-category h4 {
+  color: var(--accent);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  position: relative;
+}
+
+.philosophy-category h4::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 1px;
+}
+
+.philosophy-category .video-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.08rem;
+}
+
+.philosophy-category .video-links a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.55rem;
+  line-height: 1.1;
+  padding: 0.08rem 0.15rem;
+  border-radius: calc(var(--radius) * 0.3);
+  transition: all 0.3s ease;
+  border-left: 2px solid transparent;
+  display: block;
+}
+
+.philosophy-category .video-links a:hover {
+  color: var(--accent);
+  background: rgba(232, 185, 35, 0.05);
+  border-left-color: var(--accent);
+  transform: translateX(2px);
+}
+
+/* Responsive Philosophy Categories */
+@media (max-width: 768px) {
+  .philosophy-categories {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .philosophy-category {
+    padding: 1rem;
+  }
+  
+  .philosophy-category .video-links a {
+    font-size: 0.5rem;
+    padding: 0.06rem 0.12rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .philosophy-categories {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+  
+  .philosophy-category {
+    padding: 0.8rem;
+  }
+  
+  .philosophy-category .video-links a {
+    font-size: 0.45rem;
+    padding: 0.05rem 0.1rem;
+  }
+}
+
+/* ============================================
+   Mantra Categories Styling
+   ============================================ */
+
+.mantra-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.mantra-category {
+  background: linear-gradient(135deg, rgba(232, 185, 35, 0.08), rgba(232, 185, 35, 0.12));
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  border: 1px solid rgba(232, 185, 35, 0.2);
+  transition: all 0.3s ease;
+}
+
+.mantra-category:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(232, 185, 35, 0.3);
+}
+
+.mantra-category h4 {
+  color: var(--accent);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  position: relative;
+}
+
+.mantra-category h4::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 1px;
+}
+
+.mantra-category .video-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.mantra-category .video-links a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.6rem;
+  line-height: 1.1;
+  padding: 0.1rem 0.2rem;
+  border-radius: calc(var(--radius) * 0.3);
+  transition: all 0.3s ease;
+  border-left: 2px solid transparent;
+  display: block;
+}
+
+.mantra-category .video-links a:hover {
+  color: var(--accent);
+  background: rgba(232, 185, 35, 0.05);
+  border-left-color: var(--accent);
+  transform: translateX(2px);
+}
+
+/* Responsive Mantra Categories */
+@media (max-width: 768px) {
+  .mantra-categories {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .mantra-category {
+    padding: 1rem;
+  }
+  
+  .mantra-category .video-links a {
+    font-size: 0.55rem;
+    padding: 0.08rem 0.15rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .mantra-categories {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+  
+  .mantra-category {
+    padding: 0.8rem;
+  }
+  
+  .mantra-category .video-links a {
+    font-size: 0.5rem;
+    padding: 0.06rem 0.12rem;
+  }
+}
+
+/* ============================================
    Sacred Categories Styling
    ============================================ */
 
