@@ -1945,10 +1945,13 @@ body::before {
 .deep-learning-table {
   margin-top: 2rem;
   overflow-x: auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
 .ai-courses-table {
   width: 100%;
+  min-width: 800px;
   border-collapse: separate;
   border-spacing: 0;
   background: var(--card-bg);
@@ -1970,6 +1973,11 @@ body::before {
   font-size: 0.9rem;
   letter-spacing: 0.5px;
   text-transform: uppercase;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ai-courses-table th:last-child {
+  border-right: none;
 }
 
 .ai-courses-table tbody tr {
@@ -1990,22 +1998,30 @@ body::before {
   padding: 1rem;
   vertical-align: top;
   line-height: 1.5;
+  border-right: 1px solid var(--border);
+}
+
+.ai-courses-table td:last-child {
+  border-right: none;
 }
 
 .ai-courses-table td:first-child {
   font-weight: 600;
   color: var(--accent);
   min-width: 180px;
+  width: 20%;
 }
 
 .ai-courses-table td:nth-child(2) {
   min-width: 300px;
+  width: 45%;
 }
 
 .ai-courses-table td:nth-child(3) {
   color: var(--muted);
   font-size: 0.9rem;
   min-width: 120px;
+  width: 15%;
 }
 
 .ai-courses-table td:nth-child(4) {
@@ -2013,6 +2029,7 @@ body::before {
   font-weight: 600;
   font-size: 0.85rem;
   min-width: 80px;
+  width: 20%;
 }
 
 .ai-courses-table a {
@@ -2062,6 +2079,7 @@ body::before {
 @media (max-width: 1024px) {
   .ai-courses-table {
     font-size: 0.9rem;
+    min-width: 700px;
   }
   
   .ai-courses-table th,
@@ -2078,6 +2096,7 @@ body::before {
   
   .ai-courses-table {
     font-size: 0.8rem;
+    min-width: 600px;
   }
   
   .ai-courses-table th,
@@ -2105,6 +2124,7 @@ body::before {
 @media (max-width: 480px) {
   .ai-courses-table {
     font-size: 0.75rem;
+    min-width: 500px;
   }
   
   .ai-courses-table th,
