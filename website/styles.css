@@ -2247,40 +2247,14 @@ body::before {
 }
 
 /* ============================================
-   Bright Shining White Text for Executive Summary
+   Bold White Text for Executive Summary
    ============================================ */
 
 .summary-text {
   color: #ffffff !important;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
-               0 0 20px rgba(255, 255, 255, 0.6),
-               0 0 30px rgba(255, 255, 255, 0.4),
-               0 0 40px rgba(255, 255, 255, 0.2);
-  font-weight: 500;
+  font-weight: 700;
   line-height: 1.6;
   letter-spacing: 0.3px;
-  animation: shimmer 3s ease-in-out infinite alternate;
-}
-
-@keyframes shimmer {
-  0% {
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
-                 0 0 20px rgba(255, 255, 255, 0.6),
-                 0 0 30px rgba(255, 255, 255, 0.4),
-                 0 0 40px rgba(255, 255, 255, 0.2);
-  }
-  50% {
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.9),
-                 0 0 25px rgba(255, 255, 255, 0.7),
-                 0 0 35px rgba(255, 255, 255, 0.5),
-                 0 0 45px rgba(255, 255, 255, 0.3);
-  }
-  100% {
-    text-shadow: 0 0 20px rgba(255, 255, 255, 1),
-                 0 0 30px rgba(255, 255, 255, 0.8),
-                 0 0 40px rgba(255, 255, 255, 0.6),
-                 0 0 50px rgba(255, 255, 255, 0.4);
-  }
 }
 
 .executive-summary {
@@ -2289,34 +2263,6 @@ body::before {
   padding: 1.5rem;
   margin: 1rem 0;
   border: 1px solid rgba(232, 185, 35, 0.2);
-  position: relative;
-}
-
-.executive-summary::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(45deg, 
-    rgba(255, 255, 255, 0.3), 
-    rgba(232, 185, 35, 0.2), 
-    rgba(255, 255, 255, 0.3));
-  border-radius: var(--radius);
-  z-index: -1;
-  animation: glow 4s ease-in-out infinite alternate;
-}
-
-@keyframes glow {
-  0% {
-    opacity: 0.5;
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-  }
-  100% {
-    opacity: 1;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-  }
 }
 
 .executive-summary h4 {
