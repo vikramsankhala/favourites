@@ -2382,7 +2382,7 @@ body::before {
    Ancient Manuscript Font Styling
    ============================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Crimson+Text:wght@700&family=Libre+Baskerville:wght@700&family=Playfair+Display:wght@700&family=Merriweather:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Crimson+Text:wght@700&family=Libre+Baskerville:wght@700&family=Playfair+Display:ital,wght@1,700&family=Merriweather:wght@700&family=Cormorant+Garamond:ital@0;1,wght@400;700&display=swap');
 
 .ancient-manuscript {
   font-family: 'Cinzel', 'Crimson Text', 'Libre Baskerville', 'Playfair Display', 'Merriweather', serif;
@@ -2415,9 +2415,9 @@ body::before {
 }
 
 .ancient-manuscript-quote {
-  font-family: 'Cinzel', 'Crimson Text', 'Libre Baskerville', 'Playfair Display', 'Merriweather', serif;
+  font-family: 'Playfair Display', 'Cinzel', 'Crimson Text', 'Libre Baskerville', 'Merriweather', serif;
   font-weight: 700;
-  font-style: normal;
+  font-style: italic;
   font-size: 1.2rem;
   line-height: 1.4;
   color: var(--accent);
@@ -2442,6 +2442,52 @@ body::before {
   height: 2px;
   background: var(--accent);
   border-radius: 1px;
+}
+
+.words-of-wisdom-header {
+  font-family: 'Cormorant Garamond', 'Cinzel', 'Crimson Text', 'Libre Baskerville', 'Merriweather', serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.1rem;
+  text-transform: small-caps;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, rgba(232, 185, 35, 0.06), rgba(232, 185, 35, 0.02));
+  padding: 0.8rem 1.2rem;
+  border-radius: calc(var(--radius) * 0.8);
+  border: 1px solid rgba(232, 185, 35, 0.15);
+  margin: 1rem 0;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 3px 6px rgba(232, 185, 35, 0.08);
+}
+
+.quote-attribution {
+  font-family: 'Cormorant Garamond', 'Cinzel', 'Crimson Text', 'Libre Baskerville', 'Merriweather', serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 0.9rem;
+  text-transform: small-caps;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, rgba(232, 185, 35, 0.04), rgba(232, 185, 35, 0.01));
+  padding: 0.6rem 1rem;
+  border-radius: calc(var(--radius) * 0.6);
+  border: 1px solid rgba(232, 185, 35, 0.1);
+  margin: 0.5rem 0;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  box-shadow: 0 2px 4px rgba(232, 185, 35, 0.05);
+}
+
+.quote-attribution::before {
+  content: '—';
+  margin-right: 0.3em;
+  font-size: 1.1em;
+  color: var(--accent);
 }
 
 /* Responsive Ancient Manuscript */
