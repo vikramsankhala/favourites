@@ -2247,6 +2247,75 @@ body::before {
 }
 
 /* ============================================
+   Website Links Styling
+   ============================================ */
+
+.website-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.website-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 1.2rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dim));
+  color: var(--bg);
+  text-decoration: none;
+  border-radius: calc(var(--radius) * 0.8);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  border: 2px solid var(--accent);
+  box-shadow: 0 4px 12px rgba(232, 185, 35, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-height: 44px;
+}
+
+.website-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(232, 185, 35, 0.4);
+  background: linear-gradient(135deg, var(--accent-dim), var(--accent));
+  border-color: var(--accent-dim);
+}
+
+.website-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(232, 185, 35, 0.3);
+}
+
+/* Responsive Website Links */
+@media (max-width: 768px) {
+  .website-links {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+  
+  .website-btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+    min-height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .website-links {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+  
+  .website-btn {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+    min-height: 36px;
+  }
+}
+
+/* ============================================
    Bold White Text for Executive Summary
    ============================================ */
 
