@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Freedom & Social Balance — Liberty, Boundaries & Social Harmony</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --gold-dark: #8B6914;
+    --ivory: #F5F0E8;
+    --cream: #EDE5D0;
+    --parchment: #D4C4A0;
+    --deep: #1A1208;
+    --charcoal: #2C2416;
+    --bronze: #8B5A2B;
+    --liberty: #2E4057;
+    --liberty-light: #4A6580;
+    --vermillion: #C0392B;
+    --forest: #2D6A4F;
+    --ink: #3D2B1F;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Crimson Pro', Georgia, serif;
+    background: var(--deep);
+    color: var(--ivory);
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  /* ─── NOISE TEXTURE OVERLAY ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.5;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 4rem 2rem;
+    background: radial-gradient(ellipse 120% 80% at 50% 0%, #2C1A05 0%, var(--deep) 70%);
+  }
+
+  .hero-bg-lines {
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(201,168,76,0.06) 60px),
+      repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(201,168,76,0.06) 60px);
+    pointer-events: none;
+  }
+
+  .scales-emblem {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 2rem;
+    animation: float 6s ease-in-out infinite;
+    filter: drop-shadow(0 0 30px rgba(201,168,76,0.4));
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    33% { transform: translateY(-8px) rotate(1deg); }
+    66% { transform: translateY(-4px) rotate(-0.5deg); }
+  }
+
+  .hero-eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.3s forwards;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 900;
+    line-height: 0.95;
+    text-align: center;
+    color: var(--ivory);
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.5s forwards;
+  }
+
+  .hero-title span {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .hero-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--parchment);
+    text-align: center;
+    max-width: 700px;
+    line-height: 1.5;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.7s forwards;
+  }
+
+  .hero-divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.9s forwards;
+  }
+
+  .hero-divider-line {
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold));
+  }
+
+  .hero-divider-line:last-child {
+    background: linear-gradient(90deg, var(--gold), transparent);
+  }
+
+  .hero-divider-diamond {
+    width: 8px;
+    height: 8px;
+    background: var(--gold);
+    transform: rotate(45deg);
+  }
+
+  .hero-tagline {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--cream);
+    text-align: center;
+    max-width: 600px;
+    line-height: 1.8;
+    opacity: 0;
+    animation: fadeUp 1s ease 1.1s forwards;
+    letter-spacing: 0.02em;
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0;
+    animation: fadeUp 1s ease 1.5s forwards;
+  }
+
+  .scroll-indicator span {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  .scroll-arrow {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollPulse 2s ease infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 1; transform: scaleY(1); }
+    50% { opacity: 0.4; transform: scaleY(0.7); }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(26,18,8,0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+
+  .nav-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 0.25rem;
+    list-style: none;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .nav-links::-webkit-scrollbar { display: none; }
+
+  .nav-links a {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--parchment);
+    text-decoration: none;
+    padding: 0.4rem 0.6rem;
+    border-radius: 2px;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-links a:hover {
+    color: var(--gold);
+    background: rgba(201,168,76,0.1);
+  }
+
+  /* ─── PHILOSOPHY INTRO ─── */
+  .intro-section {
+    padding: 6rem 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .intro-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+    font-style: italic;
+    line-height: 1.4;
+    color: var(--cream);
+    margin-bottom: 2rem;
+    position: relative;
+    padding: 0 2rem;
+  }
+
+  .intro-quote::before, .intro-quote::after {
+    content: '"';
+    font-size: 6rem;
+    color: rgba(201,168,76,0.15);
+    position: absolute;
+    line-height: 1;
+    font-family: Georgia, serif;
+  }
+
+  .intro-quote::before { top: -1rem; left: 0; }
+  .intro-quote::after { bottom: -3rem; right: 0; content: '"'; }
+
+  .intro-body {
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: var(--parchment);
+    max-width: 720px;
+    margin: 3rem auto 0;
+    font-weight: 300;
+  }
+
+  /* ─── CARDS GRID ─── */
+  .cards-section {
+    padding: 4rem 2rem 6rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .cards-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .cards-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: var(--ivory);
+    line-height: 1.2;
+  }
+
+  .cards-header h2 em {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 2px;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.15);
+  }
+
+  .card {
+    background: var(--charcoal);
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: pointer;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(201,168,76,0.05) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+
+  .card:hover::before { opacity: 1; }
+
+  .card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .card:hover::after { transform: scaleX(1); }
+
+  .card:hover { background: #2F2518; transform: translateY(-3px); z-index: 2; }
+
+  /* Card accent colors */
+  .card[data-theme="liberty"]::after { background: var(--gold); }
+  .card[data-theme="property"]::after { background: var(--bronze); }
+  .card[data-theme="speech"]::after { background: #6B8E9F; }
+  .card[data-theme="economy"]::after { background: var(--forest); }
+  .card[data-theme="education"]::after { background: #9B59B6; }
+  .card[data-theme="health"]::after { background: #E74C3C; }
+  .card[data-theme="religion"]::after { background: #F39C12; }
+  .card[data-theme="culture"]::after { background: #E91E63; }
+  .card[data-theme="digital"]::after { background: #00BCD4; }
+  .card[data-theme="mobility"]::after { background: #4CAF50; }
+
+  .card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+    line-height: 1;
+    transition: transform 0.3s;
+  }
+
+  .card:hover .card-icon { transform: scale(1.15) rotate(5deg); }
+
+  .card-number {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    opacity: 0.6;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--ivory);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+
+  .card-subtitle {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+    opacity: 0.8;
+  }
+
+  .card-divider {
+    width: 40px;
+    height: 1px;
+    background: rgba(201,168,76,0.4);
+    margin-bottom: 1.25rem;
+  }
+
+  .card-body {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: var(--parchment);
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-principles {
+    list-style: none;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-principles li {
+    font-size: 0.88rem;
+    color: var(--cream);
+    padding: 0.4rem 0;
+    border-bottom: 1px solid rgba(201,168,76,0.08);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    line-height: 1.5;
+  }
+
+  .card-principles li::before {
+    content: '◆';
+    color: var(--gold);
+    font-size: 0.5rem;
+    margin-top: 0.35rem;
+    flex-shrink: 0;
+    opacity: 0.7;
+  }
+
+  .card-tension {
+    background: rgba(201,168,76,0.05);
+    border-left: 2px solid rgba(201,168,76,0.3);
+    padding: 0.8rem 1rem;
+    border-radius: 0 4px 4px 0;
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--parchment);
+    line-height: 1.6;
+  }
+
+  .card-tension strong {
+    color: var(--gold);
+    font-style: normal;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  /* ─── BALANCE DIAGRAM SECTION ─── */
+  .diagram-section {
+    padding: 6rem 2rem;
+    background: linear-gradient(180deg, var(--deep) 0%, #14100A 50%, var(--deep) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .diagram-section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(201,168,76,0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .diagram-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .diagram-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--ivory);
+    margin-bottom: 4rem;
+  }
+
+  .balance-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 4rem;
+    flex-wrap: wrap;
+  }
+
+  .balance-column {
+    flex: 1;
+    min-width: 220px;
+    max-width: 320px;
+    padding: 2.5rem;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(201,168,76,0.1);
+  }
+
+  .balance-column h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+
+  .balance-column ul {
+    list-style: none;
+    text-align: left;
+  }
+
+  .balance-column ul li {
+    font-size: 0.9rem;
+    color: var(--parchment);
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .balance-column ul li::before { content: '→'; color: var(--gold); opacity: 0.6; }
+
+  .balance-center {
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    z-index: 1;
+  }
+
+  .balance-scales-icon {
+    font-size: 3.5rem;
+    display: block;
+    margin-bottom: 0.75rem;
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .balance-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  /* ─── PRINCIPLES STRIP ─── */
+  .principles-strip {
+    background: rgba(201,168,76,0.06);
+    border-top: 1px solid rgba(201,168,76,0.15);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    padding: 2rem;
+    overflow: hidden;
+  }
+
+  .strip-inner {
+    display: flex;
+    gap: 3rem;
+    animation: marquee 25s linear infinite;
+    width: max-content;
+  }
+
+  .strip-item {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .strip-item::after {
+    content: '◆';
+    font-size: 0.5rem;
+    opacity: 0.4;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ─── PHILOSOPHICAL FRAMEWORK ─── */
+  .framework-section {
+    padding: 6rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .framework-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2px;
+    margin-top: 3rem;
+    background: rgba(201,168,76,0.1);
+  }
+
+  @media (max-width: 768px) {
+    .framework-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .cards-grid { grid-template-columns: 1fr; }
+  }
+
+  .framework-cell {
+    background: var(--charcoal);
+    padding: 2.5rem;
+    text-align: center;
+    transition: background 0.3s;
+  }
+
+  .framework-cell:hover { background: #2F2518; }
+
+  .framework-cell h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .framework-cell p {
+    font-size: 0.92rem;
+    line-height: 1.75;
+    color: var(--parchment);
+    font-weight: 300;
+  }
+
+  .framework-number {
+    font-family: 'Space Mono', monospace;
+    font-size: 2rem;
+    color: rgba(201,168,76,0.2);
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+  }
+
+  /* ─── QUOTE INTERLUDE ─── */
+  .quote-interlude {
+    padding: 6rem 2rem;
+    background: linear-gradient(135deg, #1A1208 0%, #0F0A04 100%);
+    text-align: center;
+    position: relative;
+    border-top: 1px solid rgba(201,168,76,0.15);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+
+  .quote-interlude blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    font-style: italic;
+    color: var(--cream);
+    max-width: 800px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.6;
+  }
+
+  .quote-interlude cite {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    font-style: normal;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #0D0904;
+    border-top: 1px solid rgba(201,168,76,0.15);
+    padding: 4rem 2rem 3rem;
+    text-align: center;
+  }
+
+  .footer-emblem {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 1.5rem;
+    opacity: 0.6;
+  }
+
+  .footer-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-tagline {
+    font-size: 0.95rem;
+    color: var(--parchment);
+    font-weight: 300;
+    margin-bottom: 2rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+
+  .footer-links a {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--parchment);
+    text-decoration: none;
+    opacity: 0.6;
+    transition: opacity 0.2s, color 0.2s;
+  }
+
+  .footer-links a:hover { opacity: 1; color: var(--gold); }
+
+  .footer-copy {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    color: rgba(201,168,76,0.3);
+    text-transform: uppercase;
+  }
+
+  /* ─── REVEAL ANIMATION ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+
+  /* ─── PROGRESS BAR ─── */
+  .progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-light));
+    z-index: 1000;
+    transition: width 0.1s;
+  }
+
+  /* ─── SECTION SEPARATOR ─── */
+  .sep {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 3rem 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .sep-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.3), transparent);
+  }
+
+  .sep-symbol {
+    color: var(--gold);
+    opacity: 0.5;
+    font-size: 1rem;
+  }
+
+  /* ─── VIKRAM CREDIT ─── */
+  .credit-band {
+    background: rgba(201,168,76,0.05);
+    border-top: 1px solid rgba(201,168,76,0.1);
+    padding: 1.5rem 2rem;
+    text-align: center;
+  }
+
+  .credit-band a {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-decoration: none;
+    text-transform: uppercase;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+
+  .credit-band a:hover { opacity: 1; }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-bg-lines"></div>
+
+  <svg class="scales-emblem" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="60" cy="60" r="58" stroke="rgba(201,168,76,0.2)" stroke-width="1"/>
+    <circle cx="60" cy="60" r="50" stroke="rgba(201,168,76,0.1)" stroke-width="1"/>
+    <line x1="60" y1="20" x2="60" y2="100" stroke="#C9A84C" stroke-width="1.5" opacity="0.8"/>
+    <line x1="60" y1="40" x2="25" y2="55" stroke="#C9A84C" stroke-width="1.5" opacity="0.8"/>
+    <line x1="60" y1="40" x2="95" y2="55" stroke="#C9A84C" stroke-width="1.5" opacity="0.8"/>
+    <circle cx="60" cy="40" r="4" fill="#C9A84C" opacity="0.9"/>
+    <ellipse cx="25" cy="57" rx="14" ry="5" stroke="#C9A84C" stroke-width="1.2" opacity="0.7"/>
+    <ellipse cx="95" cy="57" rx="14" ry="5" stroke="#C9A84C" stroke-width="1.2" opacity="0.7"/>
+    <line x1="40" y1="100" x2="80" y2="100" stroke="#C9A84C" stroke-width="1.5" opacity="0.6"/>
+    <line x1="60" y1="18" x2="60" y2="24" stroke="#C9A84C" stroke-width="2" opacity="0.9"/>
+    <circle cx="60" cy="17" r="3" fill="#C9A84C" opacity="0.9"/>
+  </svg>
+
+  <p class="hero-eyebrow">A Philosophical Exploration</p>
+
+  <h1 class="hero-title">Freedom &<br><span>Social Balance</span></h1>
+
+  <p class="hero-subtitle">Liberty, Boundaries & Social Harmony</p>
+
+  <div class="hero-divider">
+    <div class="hero-divider-line"></div>
+    <div class="hero-divider-diamond"></div>
+    <div class="hero-divider-line"></div>
+  </div>
+
+  <p class="hero-tagline">
+    How does personal freedom coexist with social order? Explore ten dimensions where individual autonomy meets collective responsibility — through voluntary boundaries, mutual respect, and balanced frameworks that honour both the individual and the community.
+  </p>
+
+  <div class="scroll-indicator">
+    <span>Explore</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- ─── NAV ─── -->
+<nav>
+  <span class="nav-brand">⚖ Liberty & Harmony</span>
+  <ul class="nav-links">
+    <li><a href="#responsibility">Responsibility</a></li>
+    <li><a href="#property">Property</a></li>
+    <li><a href="#speech">Speech</a></li>
+    <li><a href="#economy">Economy</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#health">Health</a></li>
+    <li><a href="#religion">Religion</a></li>
+    <li><a href="#culture">Culture</a></li>
+    <li><a href="#digital">Digital</a></li>
+    <li><a href="#mobility">Mobility</a></li>
+  </ul>
+</nav>
+
+<!-- ─── MARQUEE ─── -->
+<div class="principles-strip">
+  <div class="strip-inner">
+    <span class="strip-item">Individual Liberty</span>
+    <span class="strip-item">Social Responsibility</span>
+    <span class="strip-item">Voluntary Boundaries</span>
+    <span class="strip-item">Mutual Respect</span>
+    <span class="strip-item">Civic Harmony</span>
+    <span class="strip-item">Rights & Duties</span>
+    <span class="strip-item">Freedom of Expression</span>
+    <span class="strip-item">Community Stewardship</span>
+    <span class="strip-item">Democratic Values</span>
+    <span class="strip-item">Human Dignity</span>
+    <span class="strip-item">Individual Liberty</span>
+    <span class="strip-item">Social Responsibility</span>
+    <span class="strip-item">Voluntary Boundaries</span>
+    <span class="strip-item">Mutual Respect</span>
+    <span class="strip-item">Civic Harmony</span>
+    <span class="strip-item">Rights & Duties</span>
+    <span class="strip-item">Freedom of Expression</span>
+    <span class="strip-item">Community Stewardship</span>
+    <span class="strip-item">Democratic Values</span>
+    <span class="strip-item">Human Dignity</span>
+  </div>
+</div>
+
+<!-- ─── INTRO ─── -->
+<section class="intro-section">
+  <span class="section-label">The Central Question</span>
+  <div class="intro-quote reveal">
+    The liberty of one ends where the liberty of another begins — yet drawing that line is the eternal work of civilization.
+  </div>
+  <p class="intro-body reveal reveal-delay-2">
+    Every society grapples with a foundational tension: the desire of individuals to live freely, and the need for communal frameworks that make freedom meaningful and sustainable. This exploration charts ten critical domains where personal autonomy intersects with social responsibility — not to resolve the tension, but to illuminate its depth, celebrate its complexity, and propose principles for navigating it wisely.
+  </p>
+</section>
+
+<!-- ─── CARDS ─── -->
+<section class="cards-section" id="cards">
+  <div class="cards-header reveal">
+    <span class="section-label">Ten Dimensions of Liberty</span>
+    <h2>Where <em>Individual Freedom</em><br>Meets Collective Responsibility</h2>
+  </div>
+
+  <div class="cards-grid">
+
+    <!-- 1. Personal Responsibility -->
+    <div class="card reveal" data-theme="liberty" id="responsibility">
+      <span class="card-icon">🗽</span>
+      <span class="card-number">01 / 10</span>
+      <h3 class="card-title">Personal Responsibility</h3>
+      <p class="card-subtitle">Individual Liberty with Social Awareness</p>
+      <div class="card-divider"></div>
+      <p class="card-body">
+        The most fundamental freedom is the freedom to author one's own life — to make choices, bear consequences, and grow through both success and failure. Yet authentic self-determination is not the same as indifference to others. A mature understanding of liberty recognises that individual choices ripple outward, shaping the social fabric from which each person draws strength, support, and meaning.
+      </p>
+      <ul class="card-principles">
+        <li>Autonomy over one's own body, mind, and lifestyle choices</li>
+        <li>Accepting consequences as the natural complement of freedom</li>
+        <li>Civic engagement as the exercise of social responsibility</li>
+        <li>Mutual aid as voluntary solidarity, not coerced obligation</li>
+        <li>Self-reliance cultivated alongside community interdependence</li>
+      </ul>
+      <div class="card-tension">
+        <strong>Core Tension</strong>
+        When does personal freedom become social negligence — and how do communities draw that line without sliding into paternalism?
+      </div>
+    </div>
+
+    <!-- 2. Property Stewardship -->
+    <div class="card reveal reveal-delay-1" data-theme="property" id="property">
+      <span class="card-icon">🏛️</span>
+      <span class="card-number">02 / 10</span>
+      <h3 class="card-title">Property Stewardship</h3>
+      <p class="card-subtitle">Ownership Within Community Frameworks</p>
+      <div class="card-divider"></div>
+      <p class="card-body">
+        Property rights form a cornerstone of personal freedom — the ability to own, use, and benefit from resources gives individuals independence and agency. Yet property is never truly disconnected from community: land has history, infrastructure depends on shared investment, and concentrated ownership can constrain others' opportunities. Stewardship reframes ownership as responsibility, not merely entitlement.
+      </p>
+      <ul class="card-principles">
+        <li>Security of private property as a foundation for individual agency</li>
+        <li>Zoning and land-use frameworks as community co-governance</li>
+        <li>Environmental stewardship as intergenerational obligation</li>
+        <li>Fair taxation as contribution to the commons that makes property viable</li>
+        <li>Intellectual property balanced against knowledge access and public domain</li>
+      </ul>
+      <div class="card-tension">
+        <strong>Core Tension</strong>
+        Property rights protect freedom — but unchecked accumulation can concentrate power in ways that undermine the freedom of others.
+      </div>
+    </div>
+
+    <!-- 3. Respectful Discourse -->
+    <div class="card reveal reveal-delay-2" data-theme="speech" id="speech">
+      <span class="card-icon">🗣️</span>
+      <span class="card-number">03 / 10</span>
+      <h3 class="card-title">Respectful Discourse</h3>
+      <p class="card-subtitle">Free Speech with Civil Boundaries</p>
+      <div class="card-divider"></div>
+      <p class="card-body">
+        Free expression is democracy's oxygen — without the ability to speak, dissent, question, and challenge, self-governance becomes hollow. Yet words carry weight: they can illuminate or deceive, uplift or destroy, build community or fracture it. The challenge is not to choose between speech and civility, but to nurture a culture where both flourish together — where robust debate coexists with human dignity.
+      </p>
+      <ul class="card-principles">
+        <li>Political dissent and criticism of power as protected cornerstones of democracy</li>
+        <li>Platform responsibilities in amplifying or moderating harmful content</li>
+        <li>Hate speech and incitement as categories warranting distinct treatment</li>
+        <li>Good-faith dialogue as the civic virtue that makes free speech generative</li>
+        <li>Context-sensitivity: speech in private vs. institutional vs. public settings</li>
+      </ul>
+      <div class="card-tension">
+        <strong>Core Tension</strong>
+        Who decides where the line falls between protected speech and harmful expression — and who watches the watchers?
+      </div>
+    </div>
+
+    <!-- 4. Economic Freedom -->
+    <div class="card reveal" data-theme="economy" id="economy">
+      <span class="card-icon">🚗</span>
+      <span class="card-number">04 / 10</span>
+      <h3 class="card-title">Economic Freedom</h3>
+      <p class="card-subtitle">Innovation Within Fair Competition</p>
+      <div class="card-divider"></div>
+      <p class="card-body">
+        Markets unleash creativity, reward effort, and allocate resources with a dynamism that centralised systems struggle to match. Economic freedom — the liberty to start businesses, trade, invest, and compete — has proven a powerful engine of prosperity and human flourishing. Yet unregulated markets can generate monopolies, externalise costs onto communities, and produce inequality that undermines the very opportunity they promise to deliver.
+      </p>
+      <ul class="card-principles">
+        <li>Entrepreneurial freedom as a driver of innovation and social mobility</li>
+        <li>Anti-monopoly frameworks to preserve genuine competition</li>
+        <li>Labour rights as counterweights to structural power imbalances</li>
+        <li>Consumer protections as enabling conditions for informed market choice</li>
+        <li>Environmental costs internalised rather than externalised to society</li>
+      </ul>
+      <div class="card-tension">
+        <strong>Core Tension</strong>
+        Markets are mechanisms, not moral arbiters — how much social steering is needed to ensure they serve human flourishing broadly?
+      </div>
+    </div>
+
+    <!-- 5. Educational Choice -->
+    <div class="card reveal reveal-delay-1" data-theme="education" id="education">
+      <span class="card-icon">🎓</span>
+      <span class="card-number">05 / 10</span>
+      <h3 class="card-title">Educational Choice</h3>
+      <p class="card-subtitle">Learning Freedom with Quality Standards</p>
+      <div class="card-divider"></div>
+      <p class="card-body">
+        Education shapes persons and civilisations alike. The freedom to choose how, where, and what children learn — through homeschooling, religious institutions, alternative pedagogies, or diverse school models — honours the primacy of families and communities in forming values. Yet education is also a public good: citizens of a shared democracy need sufficient common knowledge, critical faculties, and social empathy to engage meaningfully with one another.
+      </p>
+      <ul class="card-principles">
+        <li>Parental rights in directing children's moral and intellectual formation</li>
+        <li>Curriculum plurality as healthy resistance to ideological monocultures</li>
+        <li>Baseline standards ensuring literacy, numeracy, and civic knowledge</li>
+        <li>Equitable funding so educational quality doesn't track only with wealth</li>
+        <li>Academic freedom in universities as essential to knowledge generation</li>
+      </ul>
+      <div class="card-tension">
+        <strong>Core Tension</strong>
+        Education simultaneously serves individual development and democratic society — how do we honour both when they pull in different directions?
+      </div>
+    </div>
+
+    <!-- 6. Healthcare Autonomy -->
+    <div class="card reveal reveal-delay-2" data-theme="health" id="health">
+      <span class="card-icon">🏥</span>
+      <span class="card-number">06 / 10</span>
+      <h3 class="card-title">Healthcare Autonomy</h3>
+      <p class="card-subtitle">Medical Choice with Public Health</p>
+      <div class="card-divider"></div>
+      <p class="card-body">
+        The body is the most intimate domain of selfhood — decisions about medical treatment, lifestyle, diet, and reproductive choices touch the core of personal sovereignty. Bodily autonomy is therefore a profound freedom. Yet individual health decisions can carry public consequences: infectious disease, healthcare system capacity, and the allocation of shared resources make medicine irreducibly communal as well as deeply personal.
+      </p>
+      <ul class="card-principles">
+        <li>Informed consent as the bedrock of ethical medical practice</li>
+        <li>Reproductive autonomy as a fundamental dimension of self-determination</li>
+        <li>Vaccination policy navigating individual choice and herd immunity thresholds</li>
+        <li>Universal access as enabling genuine (not merely formal) health freedom</li>
+        <li>Mental health parity and the right to refuse as well as receive treatment</li>
+      </ul>
+      <div class="card-tension">
+        <strong>Core Tension</strong>
+        My health decisions affect your health risks — and yet compelled medical intervention strikes at the heart of personal sovereignty.
+      </div>
+    </div>
+
+    <!-- 7. Religious Liberty -->
+    <div class="card reveal" data-theme="religion" id="religion">
+      <span class="card-icon">🏛️</span>
+      <span class="card-number">07 / 10</span>
+      <h3 class="card-title">Religious Liberty</h3>
+      <p class="card-subtitle">Spiritual Freedom Within Secular Governance</p>
+      <div class="card-divider"></div>
+      <p class="card-body">
+        Freedom of conscience — the liberty to hold, express, and practice religious belief — is among the oldest recognised rights. For billions, faith is not merely private preference but the organising framework of all meaning and morality. Secular governance does not diminish this; it protects it, by ensuring no single tradition can impose its convictions through state power. Pluralism becomes the guardian of genuine spiritual freedom.
+      </p>
+      <ul class="card-principles">
+        <li>Freedom of belief, worship, and religious expression as inviolable</li>
+        <li>State neutrality as protector of religious diversity, not its enemy</li>
+        <li>Accommodation of religious practice in workplaces, schools, and public life</li>
+        <li>Limits when religious practice conflicts with others' fundamental rights</li>
+        <li>Inter-faith dialogue as a practice of democratic pluralism</li>
+      </ul>
+      <div class="card-tension">
+        <strong>Core Tension</strong>
+        Where does religious accommodation end and the establishment of privilege over others begin — and who has standing to decide?
+      </div>
+    </div>
+
+    <!-- 8. Cultural Expression -->
+    <div class="card reveal reveal-delay-1" data-theme="culture" id="culture">
+      <span class="card-icon">🎨</span>
+      <span class="card-number">08 / 10</span>
+      <h3 class="card-title">Cultural Expression</h3>
+      <p class="card-subtitle">Artistic Freedom with Social Responsibility</p>
+      <div class="card-divider"></div>
+      <p class="card-body">
+        Art has always pushed boundaries — it disturbs comfort, challenges convention, gives voice to the marginalised, and holds mirrors to society's contradictions. This capacity to unsettle is precisely what makes art politically important and constitutionally protected. Yet creative freedom is not the same as creative irresponsibility: artists, like all citizens, exist within webs of relationship and consequence that thoughtful creative practice must reckon with.
+      </p>
+      <ul class="card-principles">
+        <li>Artistic freedom as fundamental — including the right to provoke and disturb</li>
+        <li>Public arts funding and its complex relationship to censorship and taste</li>
+        <li>Cultural appropriation debates as questions of credit, context, and respect</li>
+        <li>Representation and diversity in cultural institutions and gatekeeping</li>
+        <li>The difference between artistic critique and targeted harassment</li>
+      </ul>
+      <div class="card-tension">
+        <strong>Core Tension</strong>
+        Art that cannot offend cannot challenge — yet creative freedom without ethical reflection can cause real harm to real communities.
+      </div>
+    </div>
+
+    <!-- 9. Digital Freedom -->
+    <div class="card reveal reveal-delay-2" data-theme="digital" id="digital">
+      <span class="card-icon">🌐</span>
+      <span class="card-number">09 / 10</span>
+      <h3 class="card-title">Digital Freedom</h3>
+      <p class="card-subtitle">Online Liberty with Ethical Frameworks</p>
+      <div class="card-divider"></div>
+      <p class="card-body">
+        The internet extends human freedom into new dimensions — enabling communication, organisation, commerce, and knowledge-sharing at civilisational scale. It also concentrates power in platforms, accelerates misinformation, enables surveillance, and creates novel forms of harassment and manipulation. Digital freedom requires not just the absence of censorship, but the presence of infrastructure, privacy protections, and ethical norms that make genuine online participation possible.
+      </p>
+      <ul class="card-principles">
+        <li>Net neutrality and open internet as preconditions for digital equality</li>
+        <li>Privacy rights in an era of pervasive data collection and surveillance capitalism</li>
+        <li>Platform governance: private moderation decisions with public consequences</li>
+        <li>Algorithmic accountability and the right to understand automated decisions</li>
+        <li>Digital literacy as a civic competency for the information age</li>
+      </ul>
+      <div class="card-tension">
+        <strong>Core Tension</strong>
+        Online freedom concentrated in privately-owned platforms is not quite freedom — yet heavy state regulation of those platforms is not quite safety.
+      </div>
+    </div>
+
+    <!-- 10. Mobility Rights -->
+    <div class="card reveal" data-theme="mobility" id="mobility">
+      <span class="card-icon">🚶</span>
+      <span class="card-number">10 / 10</span>
+      <h3 class="card-title">Mobility Rights</h3>
+      <p class="card-subtitle">Movement Freedom Within Urban Planning</p>
+      <div class="card-divider"></div>
+      <p class="card-body">
+        The freedom to move — to travel, to migrate, to inhabit public space, to commute without undue burden — is both a practical need and a symbolic assertion of personhood in the world. How cities and nations design their streets, transit systems, borders, and public spaces either expands or contracts this freedom. Urban planning is not merely technical; it is a sustained argument about whose movement matters and who belongs.
+      </p>
+      <ul class="card-principles">
+        <li>Freedom of movement as a fundamental right within and across borders</li>
+        <li>Public transit access as an equity issue and a climate response</li>
+        <li>Pedestrian and cyclist infrastructure as democratic mobility design</li>
+        <li>Zoning laws and their role in shaping (and sometimes segregating) urban life</li>
+        <li>Immigration policy balancing national sovereignty with human mobility rights</li>
+      </ul>
+      <div class="card-tension">
+        <strong>Core Tension</strong>
+        Urban space is finite — designing for car freedom restricts pedestrian freedom, and designing for any group restricts others.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── SEPARATOR ─── -->
+<div class="sep">
+  <div class="sep-line"></div>
+  <span class="sep-symbol">⚖</span>
+  <div class="sep-line"></div>
+</div>
+
+<!-- ─── BALANCE DIAGRAM ─── -->
+<section class="diagram-section">
+  <div class="diagram-inner">
+    <span class="section-label reveal">The Eternal Balance</span>
+    <h2 class="diagram-title reveal">Two Imperatives,<br>One Civilisation</h2>
+
+    <div class="balance-visual reveal">
+      <div class="balance-column">
+        <h3>Individual</h3>
+        <ul>
+          <li>Personal sovereignty</li>
+          <li>Self-determination</li>
+          <li>Private conscience</li>
+          <li>Creative freedom</li>
+          <li>Economic initiative</li>
+          <li>Bodily autonomy</li>
+          <li>Spiritual belief</li>
+        </ul>
+      </div>
+
+      <div class="balance-center">
+        <span class="balance-scales-icon">⚖️</span>
+        <span class="balance-label">Harmony<br>Through<br>Dialogue</span>
+      </div>
+
+      <div class="balance-column">
+        <h3>Community</h3>
+        <ul>
+          <li>Shared infrastructure</li>
+          <li>Collective governance</li>
+          <li>Public safety</li>
+          <li>Environmental commons</li>
+          <li>Social equity</li>
+          <li>Democratic norms</li>
+          <li>Cultural continuity</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PHILOSOPHICAL FRAMEWORK ─── -->
+<section class="framework-section">
+  <div style="text-align:center; margin-bottom: 1rem;">
+    <span class="section-label">Navigating the Tension</span>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);color:var(--ivory);">Three Principles for <em style="color:var(--gold);font-style:italic;">Balance</em></h2>
+  </div>
+
+  <div class="framework-grid">
+    <div class="framework-cell reveal">
+      <span class="framework-number">I</span>
+      <h3>Harm Principle</h3>
+      <p>John Stuart Mill's enduring insight: the only legitimate reason to limit individual freedom is to prevent harm to others. Self-regarding actions — those that principally affect only the actor — warrant the widest latitude. Other-regarding actions invite collective deliberation about appropriate limits.</p>
+    </div>
+    <div class="framework-cell reveal reveal-delay-1">
+      <span class="framework-number">II</span>
+      <h3>Subsidiarity</h3>
+      <p>Decisions should be made at the most local level capable of handling them effectively. Individual freedom first; family and community next; local governance after that; national frameworks last. This principle resists the tendency of centralised power to colonise domains better governed closer to those affected.</p>
+    </div>
+    <div class="framework-cell reveal reveal-delay-2">
+      <span class="framework-number">III</span>
+      <h3>Reciprocity</h3>
+      <p>Rights and responsibilities are inseparable twins. Every freedom we claim entails duties we owe. A community that cultivates genuine reciprocity — where citizens see themselves as stakeholders, not merely rights-bearers — creates the social trust that makes expansive freedom sustainable over generations.</p>
+    </div>
+    <div class="framework-cell reveal">
+      <span class="framework-number">IV</span>
+      <h3>Proportionality</h3>
+      <p>Restrictions on freedom should be proportionate to the harm they prevent and should use the least intrusive means available. A society that reflexively reaches for prohibition whenever freedom creates risk will end up with neither safety nor liberty. The burden of proof must rest with restriction, not freedom.</p>
+    </div>
+    <div class="framework-cell reveal reveal-delay-1">
+      <span class="framework-number">V</span>
+      <h3>Procedural Justice</h3>
+      <p>How decisions are made matters as much as what is decided. Legitimate limits on freedom must emerge from transparent, participatory, and accountable processes. Top-down restrictions — even when well-intentioned — lack the democratic legitimacy that makes constraints genuinely binding on free people.</p>
+    </div>
+    <div class="framework-cell reveal reveal-delay-2">
+      <span class="framework-number">VI</span>
+      <h3>Enabling Conditions</h3>
+      <p>Formal freedom without material possibility is hollow. A person who cannot access healthcare, education, or economic opportunity is not truly free, regardless of what rights the law formally guarantees. Genuine liberty requires not just the removal of obstacles, but the creation of enabling conditions for all.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── QUOTE ─── -->
+<div class="quote-interlude">
+  <blockquote>
+    "The price of liberty is eternal vigilance — vigilance not just against tyranny, but against the complacency that mistakes freedom's form for its substance."
+  </blockquote>
+  <cite>— A Synthesis of Enlightenment Thought</cite>
+</div>
+
+<!-- ─── SECOND QUOTE ─── -->
+<div class="quote-interlude" style="background: linear-gradient(135deg, #0D0905 0%, #1A1208 100%);">
+  <blockquote>
+    "In giving freedom to the slave, we assure freedom to the free — honourable alike in what we give and what we preserve."
+  </blockquote>
+  <cite>— Abraham Lincoln, 1862</cite>
+</div>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <span class="footer-emblem">⚖️</span>
+  <h2 class="footer-title">Liberty, Boundaries & Social Harmony</h2>
+  <p class="footer-tagline">
+    A comprehensive philosophical exploration of how personal freedom coexists with social order — through voluntary boundaries, mutual respect, and balanced frameworks that honour both individual autonomy and collective well-being.
+  </p>
+
+  <div class="footer-links">
+    <a href="#responsibility">Personal Responsibility</a>
+    <a href="#property">Property</a>
+    <a href="#speech">Free Speech</a>
+    <a href="#economy">Economy</a>
+    <a href="#education">Education</a>
+    <a href="#health">Healthcare</a>
+    <a href="#religion">Religion</a>
+    <a href="#culture">Culture</a>
+    <a href="#digital">Digital</a>
+    <a href="#mobility">Mobility</a>
+  </div>
+
+  <p class="footer-copy">⚖ Freedom & Social Balance — A Philosophical Reference</p>
+</footer>
+
+<div class="credit-band">
+  <a href="https://vikramsankhala.github.io/Vikram-Music/" target="_blank" rel="noopener">
+    ↗ Visit Vikram Sankhala's Full Site — vikramsankhala.github.io/Vikram-Music
+  </a>
+</div>
+
+<script>
+  // Progress bar
+  const bar = document.getElementById('progressBar');
+  window.addEventListener('scroll', () => {
+    const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+    bar.style.width = pct + '%';
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
