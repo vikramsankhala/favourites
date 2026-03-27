@@ -1,0 +1,1726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vedas & Upanishads — The Eternal Knowledge</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --saffron: #E8701A;
+    --deep-saffron: #C45B0A;
+    --gold: #D4A017;
+    --gold-light: #F0C040;
+    --cream: #FAF3E0;
+    --warm-white: #FDF8EE;
+    --deep-brown: #2C1A0E;
+    --rich-brown: #4A2C17;
+    --medium-brown: #6B3F20;
+    --parchment: #F5E6C8;
+    --dark-ink: #1A0F07;
+    --lotus-pink: #C0506A;
+    --vedic-red: #8B1A1A;
+    --sacred-teal: #1A5C5C;
+    --om-orange: #FF6B1A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'EB Garamond', serif;
+    background-color: var(--dark-ink);
+    color: var(--cream);
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--deep-brown); }
+  ::-webkit-scrollbar-thumb { background: var(--saffron); border-radius: 3px; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: radial-gradient(ellipse at 50% 0%, #3D1C00 0%, #1A0A00 50%, #0D0500 100%);
+  }
+
+  .hero-mandala {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 700px;
+    opacity: 0.08;
+    animation: slowRotate 80s linear infinite;
+  }
+
+  @keyframes slowRotate { from { transform: translate(-50%,-50%) rotate(0deg); } to { transform: translate(-50%,-50%) rotate(360deg); } }
+
+  .hero-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: var(--gold-light);
+    border-radius: 50%;
+    animation: float linear infinite;
+    opacity: 0;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+    10% { opacity: 0.6; }
+    90% { opacity: 0.3; }
+    100% { transform: translateY(-100px) translateX(40px); opacity: 0; }
+  }
+
+  .hero-eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.5em;
+    color: var(--saffron);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 1s 0.3s forwards;
+  }
+
+  .hero-om {
+    font-size: 5rem;
+    line-height: 1;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 1s 0.5s forwards;
+    text-shadow: 0 0 60px rgba(212,160,23,0.5);
+    filter: drop-shadow(0 0 20px rgba(212,160,23,0.4));
+  }
+
+  .hero-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(2.5rem, 7vw, 6rem);
+    font-weight: 900;
+    text-align: center;
+    line-height: 1.1;
+    color: var(--warm-white);
+    opacity: 0;
+    animation: fadeUp 1s 0.7s forwards;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-title span {
+    color: var(--gold);
+    display: block;
+  }
+
+  .hero-subtitle {
+    font-family: 'EB Garamond', serif;
+    font-size: clamp(1rem, 2.5vw, 1.35rem);
+    font-style: italic;
+    color: var(--parchment);
+    opacity: 0;
+    animation: fadeUp 1s 0.9s forwards;
+    margin-top: 1.5rem;
+    text-align: center;
+    max-width: 600px;
+    line-height: 1.7;
+  }
+
+  .hero-sanskrit {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--saffron);
+    margin-top: 1.2rem;
+    letter-spacing: 0.1em;
+    opacity: 0;
+    animation: fadeUp 1s 1.1s forwards;
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0;
+    animation: fadeUp 1s 1.5s forwards;
+    color: var(--gold);
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollPulse 1.5s ease-in-out infinite;
+  }
+
+  @keyframes scrollPulse { 0%,100%{opacity:1;transform:scaleY(1)} 50%{opacity:0.4;transform:scaleY(0.5)} }
+
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(20px); }
+    to { opacity:1; transform:translateY(0); }
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 1.2rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(13,5,0,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(212,160,23,0.15);
+    transition: all 0.3s;
+  }
+
+  .nav-logo {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.1rem;
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: var(--cream);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.3s;
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--saffron);
+    transition: width 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links a:hover::after { width: 100%; }
+
+  /* ── SECTIONS ── */
+  section {
+    padding: 6rem 2rem;
+    position: relative;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.5em;
+    color: var(--saffron);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .section-label::before, .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--saffron), transparent);
+    max-width: 80px;
+  }
+
+  .section-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1.8rem, 4vw, 3.2rem);
+    color: var(--warm-white);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .section-title em {
+    color: var(--gold);
+    font-style: normal;
+  }
+
+  .section-body {
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: var(--parchment);
+    max-width: 760px;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(212,160,23,0.3), transparent);
+    margin: 0;
+  }
+
+  /* ── WHAT ARE VEDAS ── */
+  #what {
+    background: linear-gradient(180deg, #0D0500 0%, #120800 100%);
+  }
+
+  .what-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+    margin-top: 3rem;
+  }
+
+  .timeline-block {
+    position: relative;
+    padding-left: 2rem;
+    border-left: 1px solid rgba(212,160,23,0.25);
+  }
+
+  .timeline-block::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 6px;
+    width: 9px;
+    height: 9px;
+    background: var(--saffron);
+    border-radius: 50%;
+  }
+
+  .timeline-block + .timeline-block {
+    margin-top: 2.5rem;
+  }
+
+  .timeline-date {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    color: var(--saffron);
+    letter-spacing: 0.2em;
+    margin-bottom: 0.4rem;
+  }
+
+  .timeline-text {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--parchment);
+  }
+
+  .info-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(212,160,23,0.15);
+    border-radius: 2px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .info-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--saffron), var(--gold));
+  }
+
+  .info-card h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.05em;
+  }
+
+  .info-card p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--parchment);
+  }
+
+  /* ── FOUR VEDAS ── */
+  #four-vedas {
+    background: #0A0400;
+  }
+
+  .vedas-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5px;
+    margin-top: 3.5rem;
+  }
+
+  .veda-card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(212,160,23,0.12);
+    padding: 2.5rem 1.8rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+    cursor: default;
+  }
+
+  .veda-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--color, var(--saffron));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s;
+  }
+
+  .veda-card:hover {
+    background: rgba(255,255,255,0.05);
+    transform: translateY(-4px);
+  }
+
+  .veda-card:hover::before { transform: scaleX(1); }
+
+  .veda-number {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--color, var(--saffron));
+    opacity: 0.12;
+    position: absolute;
+    top: -0.5rem;
+    right: 1rem;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .veda-symbol {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .veda-name {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.4rem;
+    color: var(--color, var(--gold));
+    margin-bottom: 0.4rem;
+  }
+
+  .veda-meaning {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--saffron);
+    margin-bottom: 1.2rem;
+    text-transform: uppercase;
+  }
+
+  .veda-desc {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #c8b89a;
+  }
+
+  .veda-sub {
+    margin-top: 1.5rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .veda-sub-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    color: var(--saffron);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+
+  .veda-sub-list {
+    list-style: none;
+    font-size: 0.9rem;
+    color: #a89070;
+    line-height: 1.9;
+  }
+
+  .veda-sub-list li::before { content: '◈ '; color: var(--color, var(--saffron)); font-size: 0.7rem; }
+
+  /* ── STRUCTURE ── */
+  #structure {
+    background: linear-gradient(180deg, #0A0400 0%, #0D0600 100%);
+  }
+
+  .structure-layers {
+    margin-top: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .layer {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 2rem;
+    align-items: start;
+    padding: 2rem;
+    border: 1px solid rgba(212,160,23,0.1);
+    position: relative;
+    background: rgba(255,255,255,0.02);
+    transition: background 0.3s;
+  }
+
+  .layer:hover { background: rgba(255,255,255,0.04); }
+
+  .layer-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--badge-color, rgba(212,160,23,0.25));
+    border-radius: 2px;
+  }
+
+  .layer-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+
+  .layer-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 0.9rem;
+    color: var(--badge-color, var(--gold));
+    line-height: 1.3;
+    text-align: center;
+  }
+
+  .layer-sanskrit {
+    font-size: 0.75rem;
+    color: #8a7a65;
+    font-style: italic;
+    margin-top: 0.3rem;
+  }
+
+  .layer-content h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+  }
+
+  .layer-content p {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: #c0a888;
+  }
+
+  .layer-content ul {
+    margin-top: 0.8rem;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .layer-content ul li {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.8rem;
+    background: rgba(212,160,23,0.08);
+    border: 1px solid rgba(212,160,23,0.2);
+    border-radius: 1px;
+    color: var(--gold-light);
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── UPANISHADS ── */
+  #upanishads {
+    background: #080300;
+    position: relative;
+  }
+
+  #upanishads::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 400px;
+    background: radial-gradient(ellipse at 50% 0%, rgba(139,26,26,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .up-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 3rem;
+    margin-bottom: 4rem;
+  }
+
+  .quote-block {
+    background: rgba(139,26,26,0.08);
+    border-left: 3px solid var(--vedic-red);
+    padding: 2rem;
+    font-style: italic;
+    font-size: 1.2rem;
+    line-height: 1.9;
+    color: var(--parchment);
+    position: relative;
+  }
+
+  .quote-block::before {
+    content: '"';
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 5rem;
+    color: rgba(139,26,26,0.3);
+    position: absolute;
+    top: -1rem;
+    left: 1rem;
+    line-height: 1;
+  }
+
+  .quote-source {
+    display: block;
+    font-style: normal;
+    font-size: 0.8rem;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.15em;
+    color: var(--saffron);
+    margin-top: 1rem;
+  }
+
+  .upanishads-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .up-card {
+    border: 1px solid rgba(212,160,23,0.12);
+    padding: 2rem;
+    background: rgba(255,255,255,0.02);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .up-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(212,160,23,0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    transition: all 0.5s;
+  }
+
+  .up-card:hover { border-color: rgba(212,160,23,0.3); background: rgba(255,255,255,0.04); }
+
+  .up-rank {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    color: var(--saffron);
+    text-transform: uppercase;
+    margin-bottom: 0.7rem;
+  }
+
+  .up-name {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.15rem;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+  }
+
+  .up-translation {
+    font-size: 0.8rem;
+    font-style: italic;
+    color: #8a7055;
+    margin-bottom: 1rem;
+  }
+
+  .up-veda {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--saffron);
+    background: rgba(232,112,26,0.1);
+    border: 1px solid rgba(232,112,26,0.25);
+    padding: 0.2rem 0.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .up-desc {
+    font-size: 0.92rem;
+    line-height: 1.8;
+    color: #b0988a;
+  }
+
+  /* ── KEY TEACHINGS ── */
+  #teachings {
+    background: linear-gradient(180deg, #080300 0%, #0A0400 100%);
+  }
+
+  .teachings-flow {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .teaching {
+    padding: 2.5rem;
+    border: 1px solid rgba(255,255,255,0.06);
+    background: rgba(255,255,255,0.02);
+    position: relative;
+    transition: all 0.3s;
+  }
+
+  .teaching:hover {
+    border-color: rgba(212,160,23,0.2);
+    background: rgba(255,255,255,0.035);
+  }
+
+  .teaching-concept {
+    font-family: 'EB Garamond', serif;
+    font-size: 2.5rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+    line-height: 1;
+  }
+
+  .teaching-name {
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    color: var(--warm-white);
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.05em;
+  }
+
+  .teaching-meaning {
+    font-size: 0.75rem;
+    color: var(--saffron);
+    font-style: italic;
+    margin-bottom: 1.2rem;
+  }
+
+  .teaching-desc {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: #b0988a;
+  }
+
+  /* ── HISTORICAL TIMELINE ── */
+  #timeline {
+    background: #060200;
+  }
+
+  .main-timeline {
+    margin-top: 4rem;
+    position: relative;
+    padding-left: 3rem;
+  }
+
+  .main-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, var(--saffron), var(--gold), var(--saffron), transparent);
+  }
+
+  .t-event {
+    position: relative;
+    margin-bottom: 3rem;
+    padding: 2rem 2.5rem;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(212,160,23,0.1);
+    transition: all 0.3s;
+  }
+
+  .t-event:hover {
+    background: rgba(255,255,255,0.04);
+    border-color: rgba(212,160,23,0.25);
+  }
+
+  .t-event::before {
+    content: '';
+    position: absolute;
+    left: -3.35rem;
+    top: 2rem;
+    width: 13px;
+    height: 13px;
+    background: var(--saffron);
+    border-radius: 50%;
+    border: 2px solid var(--dark-ink);
+    box-shadow: 0 0 15px rgba(232,112,26,0.5);
+  }
+
+  .t-event::after {
+    content: '';
+    position: absolute;
+    left: -3rem;
+    top: calc(2rem + 6px);
+    width: 3rem;
+    height: 1px;
+    background: linear-gradient(to right, var(--saffron), transparent);
+  }
+
+  .t-era {
+    font-family: 'Cinzel', serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.35em;
+    color: var(--saffron);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .t-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.2rem;
+    color: var(--warm-white);
+    margin-bottom: 0.8rem;
+  }
+
+  .t-desc {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: #b0988a;
+  }
+
+  /* ── MAHAVAKYAS ── */
+  #mahavakyas {
+    background: radial-gradient(ellipse at 50% 50%, #150800 0%, #080300 100%);
+    text-align: center;
+  }
+
+  .maha-intro {
+    max-width: 700px;
+    margin: 0 auto 4rem;
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: var(--parchment);
+    font-style: italic;
+  }
+
+  .maha-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .maha-card {
+    padding: 3rem 2.5rem;
+    border: 1px solid rgba(212,160,23,0.15);
+    background: rgba(255,255,255,0.02);
+    position: relative;
+    transition: all 0.4s;
+    overflow: hidden;
+  }
+
+  .maha-card:hover {
+    border-color: rgba(212,160,23,0.4);
+    background: rgba(212,160,23,0.04);
+  }
+
+  .maha-sanskrit {
+    font-family: 'EB Garamond', serif;
+    font-size: 2.2rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .maha-transliteration {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    color: var(--saffron);
+    margin-bottom: 0.4rem;
+  }
+
+  .maha-translation {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--warm-white);
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+
+  .maha-source {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: rgba(212,160,23,0.5);
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+  }
+
+  .maha-desc {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #a89878;
+    text-align: left;
+  }
+
+  /* ── INFLUENCE ── */
+  #influence {
+    background: #0A0400;
+  }
+
+  .influence-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3.5rem;
+  }
+
+  .inf-item {
+    padding: 2rem;
+    border-top: 2px solid var(--color, var(--saffron));
+    background: rgba(255,255,255,0.02);
+    transition: all 0.3s;
+  }
+
+  .inf-item:hover { background: rgba(255,255,255,0.04); }
+
+  .inf-number {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 3rem;
+    color: var(--color, var(--saffron));
+    opacity: 0.25;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .inf-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    color: var(--warm-white);
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.05em;
+  }
+
+  .inf-desc {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #a08870;
+  }
+
+  /* ── LEGACY ── */
+  #legacy {
+    background: linear-gradient(180deg, #0A0400 0%, #120800 50%, #0D0500 100%);
+    text-align: center;
+    padding: 8rem 2rem;
+  }
+
+  .legacy-quote {
+    font-family: 'EB Garamond', serif;
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    font-style: italic;
+    color: var(--parchment);
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    line-height: 1.8;
+  }
+
+  .legacy-source {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    color: var(--saffron);
+    text-transform: uppercase;
+  }
+
+  .legacy-stats {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    margin-top: 5rem;
+    flex-wrap: wrap;
+  }
+
+  .stat-item { text-align: center; }
+
+  .stat-number {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 3rem;
+    color: var(--gold);
+    display: block;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    color: #8a7055;
+    text-transform: uppercase;
+    display: block;
+    margin-top: 0.5rem;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #050100;
+    padding: 3rem 2rem;
+    border-top: 1px solid rgba(212,160,23,0.1);
+    text-align: center;
+  }
+
+  .footer-om {
+    font-size: 2rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .footer-text {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    color: #5a4a38;
+    text-transform: uppercase;
+  }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media(max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .what-grid, .up-intro { grid-template-columns: 1fr; gap: 2rem; }
+    .vedas-grid { grid-template-columns: 1fr 1fr; }
+    .upanishads-grid { grid-template-columns: 1fr 1fr; }
+    .teachings-flow { grid-template-columns: 1fr; }
+    .influence-grid { grid-template-columns: 1fr; }
+    .maha-grid { grid-template-columns: 1fr; }
+    .layer { grid-template-columns: 1fr; }
+    .legacy-stats { gap: 2.5rem; }
+  }
+
+  @media(max-width: 600px) {
+    .vedas-grid { grid-template-columns: 1fr; }
+    .upanishads-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">ॐ Vedic Series</a>
+  <ul class="nav-links">
+    <li><a href="#what">Origins</a></li>
+    <li><a href="#four-vedas">The Four Vedas</a></li>
+    <li><a href="#structure">Structure</a></li>
+    <li><a href="#upanishads">Upanishads</a></li>
+    <li><a href="#teachings">Teachings</a></li>
+    <li><a href="#mahavakyas">Mahāvākyas</a></li>
+    <li><a href="#timeline">Timeline</a></li>
+    <li><a href="#influence">Legacy</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-mandala">
+    <svg viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <circle cx="350" cy="350" r="340" stroke="#D4A017" stroke-width="0.5"/>
+      <circle cx="350" cy="350" r="280" stroke="#D4A017" stroke-width="0.5"/>
+      <circle cx="350" cy="350" r="220" stroke="#E8701A" stroke-width="0.5"/>
+      <circle cx="350" cy="350" r="160" stroke="#D4A017" stroke-width="0.5"/>
+      <circle cx="350" cy="350" r="100" stroke="#E8701A" stroke-width="0.5"/>
+      <circle cx="350" cy="350" r="40" stroke="#D4A017" stroke-width="0.5"/>
+      <!-- petals -->
+      <g stroke="#D4A017" stroke-width="0.5">
+        <ellipse cx="350" cy="130" rx="18" ry="50" transform="rotate(0,350,350)"/>
+        <ellipse cx="350" cy="130" rx="18" ry="50" transform="rotate(30,350,350)"/>
+        <ellipse cx="350" cy="130" rx="18" ry="50" transform="rotate(60,350,350)"/>
+        <ellipse cx="350" cy="130" rx="18" ry="50" transform="rotate(90,350,350)"/>
+        <ellipse cx="350" cy="130" rx="18" ry="50" transform="rotate(120,350,350)"/>
+        <ellipse cx="350" cy="130" rx="18" ry="50" transform="rotate(150,350,350)"/>
+        <ellipse cx="350" cy="130" rx="18" ry="50" transform="rotate(180,350,350)"/>
+        <ellipse cx="350" cy="130" rx="18" ry="50" transform="rotate(210,350,350)"/>
+        <ellipse cx="350" cy="130" rx="18" ry="50" transform="rotate(240,350,350)"/>
+        <ellipse cx="350" cy="130" rx="18" ry="50" transform="rotate(270,350,350)"/>
+        <ellipse cx="350" cy="130" rx="18" ry="50" transform="rotate(300,350,350)"/>
+        <ellipse cx="350" cy="130" rx="18" ry="50" transform="rotate(330,350,350)"/>
+      </g>
+      <g stroke="#E8701A" stroke-width="0.3">
+        <line x1="350" y1="10" x2="350" y2="690"/>
+        <line x1="10" y1="350" x2="690" y2="350"/>
+        <line x1="10" y1="350" x2="690" y2="350" transform="rotate(45,350,350)"/>
+        <line x1="10" y1="350" x2="690" y2="350" transform="rotate(90,350,350)"/>
+        <line x1="10" y1="350" x2="690" y2="350" transform="rotate(135,350,350)"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="hero-particles" id="particles"></div>
+
+  <div class="hero-eyebrow">A Detailed Series on Ancient Indian Wisdom</div>
+  <div class="hero-om">ॐ</div>
+  <h1 class="hero-title">Vedas &<span>Upanishads</span></h1>
+  <p class="hero-subtitle">Journey into the oldest scriptures of humanity — the eternal hymns of cosmic truth, the philosophical dialogues that shaped civilization, and the timeless wisdom of the sages.</p>
+  <p class="hero-sanskrit">सत्यमेव जयते — Truth Alone Triumphs</p>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    SCROLL
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHAT ARE THE VEDAS -->
+<section id="what">
+  <div class="container">
+    <p class="section-label">Episode I</p>
+    <h2 class="section-title">What Are the <em>Vedas</em>?</h2>
+    <div class="what-grid">
+      <div>
+        <p class="section-body">The Vedas (Sanskrit: वेद, <em>veda</em>, "knowledge") are the oldest layer of Sanskrit literature and the oldest scriptures of Hinduism. Composed between roughly 1500 BCE and 500 BCE, they represent an oral tradition stretching back thousands of years earlier — hymns, ritual formulas, chants, and philosophical speculation transmitted mouth to ear across generations.</p>
+        <br>
+        <p class="section-body">Considered <strong style="color:var(--gold)">Apauruṣeya</strong> — "not of human origin" — the Vedas are believed to have been directly perceived by ancient sages called <em>Ṛṣis</em> during deep states of meditation. They are therefore called <em>Śruti</em> ("that which is heard"), distinguishing them from <em>Smṛti</em> ("that which is remembered"), the later human-authored texts.</p>
+
+        <div class="info-card" style="margin-top:2rem">
+          <h3>The Language: Vedic Sanskrit</h3>
+          <p>Vedic Sanskrit is distinct from Classical Sanskrit and represents the oldest attested layer of the Indo-European language family. Its linguistic analysis provides crucial dating evidence and helps modern scholars reconstruct Proto-Indo-Iranian and Proto-Indo-European languages.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="timeline-block">
+          <div class="timeline-date">c. 6000–4000 BCE (Oral Roots)</div>
+          <p class="timeline-text">Proto-Vedic oral traditions likely begin among the Indo-Aryan peoples. Astronomical references in the Ṛgveda suggest composition of the oldest hymns during this era, though scholarly debate continues.</p>
+        </div>
+        <div class="timeline-block">
+          <div class="timeline-date">c. 1500–1200 BCE (Early Vedic)</div>
+          <p class="timeline-text">The Ṛgveda is composed in its present form. This period coincides with the later Indus Valley Civilization and the emergence of the Vedic culture in the northwestern Indian subcontinent.</p>
+        </div>
+        <div class="timeline-block">
+          <div class="timeline-date">c. 1200–800 BCE (Late Vedic)</div>
+          <p class="timeline-text">The Sāmaveda, Yajurveda, and Atharvaveda are composed. The Brāhmaṇa prose commentaries develop. Vedic culture spreads across the Gangetic Plain.</p>
+        </div>
+        <div class="timeline-block">
+          <div class="timeline-date">c. 800–200 BCE (Upanishadic)</div>
+          <p class="timeline-text">The Āraṇyakas (forest texts) and early Upanishads are composed. This is the axial age: a period of intense philosophical inquiry that produced both the Upanishads and, simultaneously, Buddhism and Jainism.</p>
+        </div>
+        <div class="timeline-block">
+          <div class="timeline-date">c. 300 CE (Written Record)</div>
+          <p class="timeline-text">Though oral transmission remained primary, Vedic texts begin to be preserved in writing. The Sanskrit manuscript tradition ensures their survival to the present day.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FOUR VEDAS -->
+<section id="four-vedas">
+  <div class="container">
+    <p class="section-label">Episode II</p>
+    <h2 class="section-title">The <em>Four Vedas</em></h2>
+    <p class="section-body">The Vedic corpus is divided into four collections (Saṃhitās), each serving distinct liturgical functions. Together they form the canonical foundation of the entire Vedic tradition.</p>
+
+    <div class="vedas-grid">
+      <!-- Rigveda -->
+      <div class="veda-card" style="--color: #E8701A">
+        <span class="veda-number">I</span>
+        <span class="veda-symbol">🔥</span>
+        <div class="veda-name">Ṛgveda</div>
+        <div class="veda-meaning">Veda of Praise / Hymns</div>
+        <p class="veda-desc">The oldest and most sacred of the four Vedas, containing 1,028 hymns (sūktas) organized into 10 books (Maṇḍalas). These 10,552 verses are addressed primarily to the Devas — Agni (Fire), Indra (Thunder), Varuṇa (Cosmic Order), Sūrya (Sun), and others. The Ṛgveda contains the famous Puruṣa Sūkta (cosmic creation hymn) and the Nāsadīya Sūkta (Hymn of Creation), one of the most profound philosophical poems in world literature.</p>
+        <div class="veda-sub">
+          <div class="veda-sub-label">Notable Hymns</div>
+          <ul class="veda-sub-list">
+            <li>Gāyatrī Mantra (3.62.10)</li>
+            <li>Nāsadīya Sūkta (10.129)</li>
+            <li>Puruṣa Sūkta (10.90)</li>
+            <li>Agni Sūkta (1.1)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Samaveda -->
+      <div class="veda-card" style="--color: #D4A017">
+        <span class="veda-number">II</span>
+        <span class="veda-symbol">🎵</span>
+        <div class="veda-name">Sāmaveda</div>
+        <div class="veda-meaning">Veda of Melodies / Chants</div>
+        <p class="veda-desc">Derived almost entirely from the Ṛgveda (roughly 75 of its 1,875 verses are independent), the Sāmaveda is the liturgical handbook of the Udgātṛ priests who chanted during the Soma sacrifice. Its significance lies not in textual originality but in its elaborate musical notation system — one of the earliest musical traditions in human history. The Sāmaveda is considered the precursor to Indian classical music.</p>
+        <div class="veda-sub">
+          <div class="veda-sub-label">Key Features</div>
+          <ul class="veda-sub-list">
+            <li>Musical svaras (notes) system</li>
+            <li>Soma ritual chants</li>
+            <li>Udgātṛ priest liturgy</li>
+            <li>Root of Gandharva Veda</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Yajurveda -->
+      <div class="veda-card" style="--color: #8B1A1A">
+        <span class="veda-number">III</span>
+        <span class="veda-symbol">⚡</span>
+        <div class="veda-name">Yajurveda</div>
+        <div class="veda-meaning">Veda of Sacrificial Formulas</div>
+        <p class="veda-desc">The Yajurveda contains prose mantras for ritual use and exists in two major recensions: the Kṛṣṇa (Black) Yajurveda, which intermingles mantras and prose commentary, and the Śukla (White) Yajurveda, which separates them. The Adhvaryu priests used this Veda to perform the physical actions of the Vedic sacrifice. It contains important cosmological and philosophical material alongside ritual prescriptions.</p>
+        <div class="veda-sub">
+          <div class="veda-sub-label">Two Recensions</div>
+          <ul class="veda-sub-list">
+            <li>Kṛṣṇa (Black) Yajurveda</li>
+            <li>Śukla (White) Yajurveda</li>
+            <li>Taittirīya Saṃhitā</li>
+            <li>Vājasaneyi Saṃhitā</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Atharvaveda -->
+      <div class="veda-card" style="--color: #1A5C5C">
+        <span class="veda-number">IV</span>
+        <span class="veda-symbol">🌿</span>
+        <div class="veda-name">Atharvaveda</div>
+        <div class="veda-meaning">Veda of the Atharvan Priest</div>
+        <p class="veda-desc">The youngest and most distinctive of the four Vedas, the Atharvaveda stands apart in character. While the first three Vedas are largely concerned with sacrificial ritual and cosmic praise, the Atharvaveda contains hymns for healing, protection against evil, love charms, incantations, and philosophical speculation. It reflects everyday life and popular religion of the Vedic period far more directly than the other Vedas and is a key source for the history of Vedic medicine.</p>
+        <div class="veda-sub">
+          <div class="veda-sub-label">Content Areas</div>
+          <ul class="veda-sub-list">
+            <li>Medical incantations</li>
+            <li>Protective spells</li>
+            <li>Philosophical hymns</li>
+            <li>Royal consecrations</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- STRUCTURE -->
+<section id="structure">
+  <div class="container">
+    <p class="section-label">Episode III</p>
+    <h2 class="section-title">The Vedic <em>Structure</em></h2>
+    <p class="section-body">Each Veda is subdivided into four literary genres, representing a progression from ritual to philosophy — from outer action to inner realization. This four-layer structure is one of the most architecturally sophisticated arrangements in world literature.</p>
+
+    <div class="structure-layers">
+      <div class="layer reveal">
+        <div class="layer-badge" style="--badge-color: #E8701A">
+          <div class="layer-icon">📜</div>
+          <div class="layer-title">Saṃhitās</div>
+          <div class="layer-sanskrit">Hymns & Mantras</div>
+        </div>
+        <div class="layer-content">
+          <h4>The Core Collection — Mantras and Hymns</h4>
+          <p>The oldest and most fundamental layer, the Saṃhitās are collections of metrical hymns (mantras) addressed to the gods. These are the texts most people mean when they refer to "the Vedas." They were composed to be recited aloud and memorized with precise phonetic accuracy, as the sound itself was considered sacred and efficacious. The Ṛgveda Saṃhitā represents the apex of this tradition.</p>
+          <ul><li>Ṛgveda Saṃhitā</li><li>Sāmaveda Saṃhitā</li><li>Yajurveda Saṃhitā</li><li>Atharvaveda Saṃhitā</li></ul>
+        </div>
+      </div>
+
+      <div class="layer reveal">
+        <div class="layer-badge" style="--badge-color: #D4A017">
+          <div class="layer-icon">🕯</div>
+          <div class="layer-title">Brāhmaṇas</div>
+          <div class="layer-sanskrit">Ritual Prose</div>
+        </div>
+        <div class="layer-content">
+          <h4>The Ritual Manuals — Prose Commentaries</h4>
+          <p>Written in Vedic prose, the Brāhmaṇas are elaborate manuals explaining the meaning and correct performance of Vedic rituals. They contain mythological narratives, cosmological speculation, and detailed instructions for sacrifice. The Śatapatha Brāhmaṇa (associated with the Śukla Yajurveda) is the most extensive and philosophically rich, containing early philosophical speculation that anticipates Upanishadic ideas.</p>
+          <ul><li>Aitareya Brāhmaṇa</li><li>Śatapatha Brāhmaṇa</li><li>Taittirīya Brāhmaṇa</li><li>Gopatha Brāhmaṇa</li></ul>
+        </div>
+      </div>
+
+      <div class="layer reveal">
+        <div class="layer-badge" style="--badge-color: #8B6914">
+          <div class="layer-icon">🌲</div>
+          <div class="layer-title">Āraṇyakas</div>
+          <div class="layer-sanskrit">Forest Texts</div>
+        </div>
+        <div class="layer-content">
+          <h4>The Forest Books — Transitional Texts</h4>
+          <p>The Āraṇyakas ("forest books") represent a transitional layer between the ritual-focused Brāhmaṇas and the philosophical Upanishads. Composed for forest-dwelling hermits who had retired from active ritual life, they spiritualize the rituals — turning outer sacrifice into inner contemplation. They explain the inner meanings of rites and introduce the concept of meditation as a substitute for external ritual performance.</p>
+          <ul><li>Aitareya Āraṇyaka</li><li>Taittirīya Āraṇyaka</li><li>Kauṣītaki Āraṇyaka</li><li>Bṛhadāraṇyaka</li></ul>
+        </div>
+      </div>
+
+      <div class="layer reveal">
+        <div class="layer-badge" style="--badge-color: #8B1A1A">
+          <div class="layer-icon">🔮</div>
+          <div class="layer-title">Upaniṣads</div>
+          <div class="layer-sanskrit">End of the Vedas</div>
+        </div>
+        <div class="layer-content">
+          <h4>The Philosophical Crown — Vedānta</h4>
+          <p>The Upanishads ("sitting near a teacher") form the culmination of the Vedic corpus and are collectively called Vedānta (veda + anta = "end of the Vedas") — both the literal end and the philosophical summit. Over 200 Upanishads exist, but 108 are traditionally canonical and 13 are considered the Mukhya ("principal") Upanishads upon which the great philosopher Śaṅkarācārya wrote commentaries. They contain the foundational insights of Hindu philosophy.</p>
+          <ul><li>13 Principal Upanishads</li><li>108 Canonical texts</li><li>200+ total compositions</li><li>Foundation of Vedānta</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- UPANISHADS -->
+<section id="upanishads">
+  <div class="container">
+    <p class="section-label">Episode IV</p>
+    <h2 class="section-title">The <em>Upanishads</em></h2>
+
+    <div class="up-intro">
+      <div>
+        <p class="section-body">The word Upaniṣad (उपनिषद्) is derived from upa (near) + ni (down) + ṣad (to sit) — "sitting down near" a teacher in a spirit of devoted inquiry. This etymology captures the essence of the Upanishadic transmission: intimate philosophical dialogue between guru and disciple.</p>
+        <br>
+        <p class="section-body">The Upanishads shift the Vedic focus dramatically — from external ritual action (karma kāṇḍa) to inward knowledge (jñāna kāṇḍa). Their central preoccupations are the nature of Ātman (the individual self/soul), Brahman (the ultimate reality/cosmos), and crucially, their relationship. Different Upanishads and later philosophical schools answer this question in radically different ways, producing the rich diversity of Hindu philosophy.</p>
+      </div>
+      <div class="quote-block">
+        "Ahaṃ Brahmāsmi — I am Brahman. This is not a statement of ego but the recognition that the deepest self (ātman) is identical with the ultimate ground of all existence (brahman). This is the revolutionary insight of the Upanishads."
+        <span class="quote-source">— Bṛhadāraṇyaka Upanishad 1.4.10</span>
+      </div>
+    </div>
+
+    <p class="section-label" style="margin-top:3rem">The Principal Upanishads</p>
+    <div class="upanishads-grid">
+
+      <div class="up-card reveal">
+        <div class="up-rank">01 — Oldest</div>
+        <div class="up-name">Bṛhadāraṇyaka</div>
+        <div class="up-translation">"The Great Forest Book"</div>
+        <span class="up-veda">Śukla Yajurveda</span>
+        <p class="up-desc">The largest and possibly the oldest Upanishad, containing dialogues of the great philosopher Yājñavalkya with his wife Maitreyī and with King Janaka's court. Home to the "Neti, Neti" (not this, not this) method of defining Brahman through negation, and the doctrine of Ātman as pure consciousness.</p>
+      </div>
+
+      <div class="up-card reveal">
+        <div class="up-rank">02 — Most cited</div>
+        <div class="up-name">Chāndogya</div>
+        <div class="up-translation">"Of the Sāmaveda Singer"</div>
+        <span class="up-veda">Sāmaveda</span>
+        <p class="up-desc">Among the most important Upanishads, containing the famous dialogue of Uddālaka Āruṇi with his son Śvetaketu: "Tat Tvam Asi" (That art thou). Contains rich cosmological imagery, the origin of the teaching on OM, and the parable of salt dissolving in water.</p>
+      </div>
+
+      <div class="up-card reveal">
+        <div class="up-rank">03 — Most philosophical</div>
+        <div class="up-name">Taittirīya</div>
+        <div class="up-translation">"Of the Taittirīya School"</div>
+        <span class="up-veda">Kṛṣṇa Yajurveda</span>
+        <p class="up-desc">Famous for its teaching on the Pañcakośa — five sheaths (kośas) that cover the Ātman: food body (annamaya), vital breath (prāṇamaya), mental (manomaya), intellect (vijñānamaya), and bliss (ānandamaya). A foundational text for understanding the structure of consciousness.</p>
+      </div>
+
+      <div class="up-card reveal">
+        <div class="up-rank">04 — Most poetic</div>
+        <div class="up-name">Kaṭha</div>
+        <div class="up-translation">"Of the Kaṭha School"</div>
+        <span class="up-veda">Kṛṣṇa Yajurveda</span>
+        <p class="up-desc">The gripping dialogue between the boy Naciketa and Yama (Death) himself. Naciketa refuses worldly gifts and demands instead the knowledge of what lies beyond death. Yama's reluctant but profound teaching on the immortal Ātman makes this Upanishad one of the most dramatically compelling philosophical texts in world literature.</p>
+      </div>
+
+      <div class="up-card reveal">
+        <div class="up-rank">05 — Most mystical</div>
+        <div class="up-name">Muṇḍaka</div>
+        <div class="up-translation">"Of the Shaved Head"</div>
+        <span class="up-veda">Atharvaveda</span>
+        <p class="up-desc">Distinguishes between "lower knowledge" (apara vidyā) — all sciences and even the four Vedas — and "higher knowledge" (para vidyā) — knowledge of Brahman by which all is known. Contains the powerful image of two birds on a tree, one eating fruit (the ego), one watching silently (the witness-self).</p>
+      </div>
+
+      <div class="up-card reveal">
+        <div class="up-rank">06 — Most concentrated</div>
+        <div class="up-name">Māṇḍūkya</div>
+        <div class="up-translation">"Of the Frog"</div>
+        <span class="up-veda">Atharvaveda</span>
+        <p class="up-desc">The shortest principal Upanishad — just 12 verses — yet considered by Gauḍapāda and Ādi Śaṅkara to be the most profound. Analyzes the syllable OM and its four quarters (A-U-M + silence) corresponding to the four states of consciousness: waking, dreaming, deep sleep, and Turīya (pure awareness). A masterwork of philosophical compression.</p>
+      </div>
+
+      <div class="up-card reveal">
+        <div class="up-rank">07 — Most devotional</div>
+        <div class="up-name">Śvetāśvatara</div>
+        <div class="up-translation">"White Mule Bearer"</div>
+        <span class="up-veda">Kṛṣṇa Yajurveda</span>
+        <p class="up-desc">Notable for its theistic emphasis, placing a personal god (identified with Rudra/Śiva) at the center of philosophical inquiry. Bridges Sāṃkhya philosophy, Yoga practice, and Vedānta. Contains famous theistic passages about the Lord (Īśvara) as the creator, sustainer, and dissolver of the universe.</p>
+      </div>
+
+      <div class="up-card reveal">
+        <div class="up-rank">08 — Most comprehensive</div>
+        <div class="up-name">Aitareya</div>
+        <div class="up-translation">"Of Aitareya"</div>
+        <span class="up-veda">Ṛgveda</span>
+        <p class="up-desc">Associated with the Ṛgveda, this Upanishad presents a cosmogony — the creation of the universe from the Self (Ātman). Contains the famous statement "Prajñānam Brahma" (Consciousness is Brahman), one of the four Mahāvākyas. Explores three births of the self and the cosmic dimension of individual consciousness.</p>
+      </div>
+
+      <div class="up-card reveal">
+        <div class="up-rank">09 — Most intimate</div>
+        <div class="up-name">Kena</div>
+        <div class="up-translation">"By Whom?"</div>
+        <span class="up-veda">Sāmaveda</span>
+        <p class="up-desc">Opens with the profound question: by whose will does the mind think? By whose command does breath go? By whom is the eye compelled to see? Answers that Brahman is the unseen Seer, the unheard Hearer — the witness-consciousness behind all faculties, which cannot itself be an object of perception.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- KEY TEACHINGS -->
+<section id="teachings">
+  <div class="container">
+    <p class="section-label">Episode V</p>
+    <h2 class="section-title">Core <em>Philosophical</em> Concepts</h2>
+    <p class="section-body">The Vedas and Upanishads introduced concepts that not only shaped Indian philosophy but influenced Western thought through Schopenhauer, Emerson, Thoreau, and Nietzsche — concepts so fundamental they continue to resonate across intellectual traditions worldwide.</p>
+
+    <div class="teachings-flow">
+      <div class="teaching reveal">
+        <div class="teaching-concept">ब्रह्म</div>
+        <div class="teaching-name">Brahman</div>
+        <div class="teaching-meaning">The Ultimate Reality</div>
+        <p class="teaching-desc">Brahman (brahman, neuter) is the impersonal, infinite, ultimate ground of all existence — not a personal god but the very being of being, the consciousness behind all consciousness. It is described as Sat-Chit-Ānanda: Being-Consciousness-Bliss. The Vedāntic tradition asks: what is Brahman? and answers paradoxically: that which cannot be made an object of knowledge because it is the very knower.</p>
+      </div>
+
+      <div class="teaching reveal">
+        <div class="teaching-concept">आत्म</div>
+        <div class="teaching-name">Ātman</div>
+        <div class="teaching-meaning">The True Self</div>
+        <p class="teaching-desc">Ātman is the individual's innermost self — not the body, not the mind, not the ego, but the pure witnessing awareness that is aware of all these. The revolutionary Upanishadic insight is that Ātman and Brahman are ultimately identical. "Ahaṃ Brahmāsmi" — I am Brahman. This non-dualism (Advaita) is the cornerstone of Śaṅkara's philosophy.</p>
+      </div>
+
+      <div class="teaching reveal">
+        <div class="teaching-concept">ॐ</div>
+        <div class="teaching-name">Om / AUM</div>
+        <div class="teaching-meaning">The Sacred Syllable</div>
+        <p class="teaching-desc">OM is described in the Māṇḍūkya Upanishad as the sound-form of Brahman — the primordial vibration from which the entire universe emerges and into which it dissolves. The three phonemes A-U-M correspond to waking, dreaming, and deep sleep states; the silence after OM corresponds to Turīya — pure consciousness, the fourth state transcending all others.</p>
+      </div>
+
+      <div class="teaching reveal">
+        <div class="teaching-concept">ऋत</div>
+        <div class="teaching-name">Ṛta</div>
+        <div class="teaching-meaning">Cosmic Order / Truth</div>
+        <p class="teaching-desc">One of the oldest Vedic concepts, Ṛta is the cosmic principle of order, truth, and righteousness that governs the physical and moral universe. The sun rises because of Ṛta; the seasons change because of Ṛta; truthful speech aligns with Ṛta. Varuṇa is its divine custodian. Ṛta is the predecessor of the later concept of Dharma in Hindu philosophy.</p>
+      </div>
+
+      <div class="teaching reveal">
+        <div class="teaching-concept">माया</div>
+        <div class="teaching-name">Māyā</div>
+        <div class="teaching-meaning">Cosmic Illusion / Magic</div>
+        <p class="teaching-desc">Māyā in the Ṛgveda means the magical creative power of the gods. In the Upanishads and especially in Śaṅkara's Advaita Vedānta, it becomes the cosmic ignorance (avidyā) by which the one Brahman appears as many. The world is neither wholly real nor wholly unreal — it has empirical reality (vyāvahārika sattā) but not absolute reality (pāramārthika sattā).</p>
+      </div>
+
+      <div class="teaching reveal">
+        <div class="teaching-concept">धर्म</div>
+        <div class="teaching-name">Dharma</div>
+        <div class="teaching-meaning">Cosmic Law / Righteousness</div>
+        <p class="teaching-desc">Evolving from the Vedic Ṛta, Dharma becomes the central organizing concept of Hindu ethics and society. It encompasses cosmic law, individual duty, moral righteousness, and correct conduct appropriate to one's stage of life (āśrama), social position (varṇa), and specific circumstances. The tension between universal dharma and situational duty is the central question of the Bhagavad Gītā.</p>
+      </div>
+
+      <div class="teaching reveal">
+        <div class="teaching-concept">कर्म</div>
+        <div class="teaching-name">Karma</div>
+        <div class="teaching-meaning">Action & Consequence</div>
+        <p class="teaching-desc">The law of karma (action, deed) holds that every intentional action generates a corresponding reaction, shaping the actor's future experience across lifetimes. Not a mechanical law of punishment but a principle of moral causation — actions rooted in desire bind the soul; actions performed without attachment to results (niṣkāma karma, the Gītā's teaching) liberate it.</p>
+      </div>
+
+      <div class="teaching reveal">
+        <div class="teaching-concept">मोक्ष</div>
+        <div class="teaching-name">Mokṣa</div>
+        <div class="teaching-meaning">Liberation / Freedom</div>
+        <p class="teaching-desc">Mokṣa is the ultimate goal of Vedic philosophy — liberation from the cycle of birth, death, and rebirth (saṃsāra). Different schools define it differently: Advaita sees it as the realization of one's identity with Brahman; Viśiṣṭādvaita as eternal communion with a personal God; Dvaita as blissful proximity to God while remaining distinct. But all agree: knowledge dissolves bondage.</p>
+      </div>
+
+      <div class="teaching reveal">
+        <div class="teaching-concept">प्राण</div>
+        <div class="teaching-name">Prāṇa</div>
+        <div class="teaching-meaning">Vital Life Force</div>
+        <p class="teaching-desc">Prāṇa is the vital life force that animates all living beings — the bridge between consciousness and the physical body. The Upanishads identify five types of prāṇa (pañcaprāṇas): prāṇa (inward breath), apāna (downward breath), samāna (equalizing breath), udāna (upward breath), and vyāna (pervading breath). Control of prāṇa through prāṇāyāma became central to Yogic practice.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- MAHAVAKYAS -->
+<section id="mahavakyas">
+  <div class="container">
+    <p class="section-label">Episode VI</p>
+    <h2 class="section-title">The Four <em>Mahāvākyas</em></h2>
+    <p class="maha-intro">The Mahāvākyas ("Great Sayings") are four condensed statements from the principal Upanishads that each express the central Vedāntic teaching of the identity of the individual self (Ātman) with the ultimate reality (Brahman). They are considered the very essence of Upanishadic wisdom — entire philosophies compressed into four words.</p>
+
+    <div class="maha-grid">
+      <div class="maha-card reveal">
+        <div class="maha-sanskrit">प्रज्ञानं ब्रह्म</div>
+        <div class="maha-transliteration">Prajñānam Brahma</div>
+        <div class="maha-translation">"Consciousness is Brahman"</div>
+        <div class="maha-source">Aitareya Upanishad 3.3 — Ṛgveda</div>
+        <p class="maha-desc">This Mahāvākya identifies the ultimate reality with pure consciousness itself. Brahman is not merely the creator of consciousness or the substratum of consciousness — Brahman IS consciousness. This points toward the insight that awareness is not produced by matter but is the very ground of all existence.</p>
+      </div>
+
+      <div class="maha-card reveal">
+        <div class="maha-sanskrit">अहं ब्रह्मास्मि</div>
+        <div class="maha-transliteration">Ahaṃ Brahmāsmi</div>
+        <div class="maha-translation">"I am Brahman"</div>
+        <div class="maha-source">Bṛhadāraṇyaka Upanishad 1.4.10 — Yajurveda</div>
+        <p class="maha-desc">Yājñavalkya's most celebrated declaration — not an assertion of ego but its complete dissolution. The "I" that declares "I am Brahman" is not the personal, limited ego-self but the eternal witnessing Ātman, recognizing itself as identical with the infinite. This is the experiential dimension of Vedānta.</p>
+      </div>
+
+      <div class="maha-card reveal">
+        <div class="maha-sanskrit">तत्त्वमसि</div>
+        <div class="maha-transliteration">Tat Tvam Asi</div>
+        <div class="maha-translation">"That art thou"</div>
+        <div class="maha-source">Chāndogya Upanishad 6.8.7 — Sāmaveda</div>
+        <p class="maha-desc">Uddālaka Āruṇi's repeated teaching to his son Śvetaketu, spoken nine times after different analogies. "That" (tat) refers to Brahman, the ultimate ground of all; "thou" (tvam) refers to the individual consciousness, Ātman. The copula "art" (asi) asserts their absolute non-difference. This is the most discussed Mahāvākya in Vedāntic literature.</p>
+      </div>
+
+      <div class="maha-card reveal">
+        <div class="maha-sanskrit">अयमात्मा ब्रह्म</div>
+        <div class="maha-transliteration">Ayam Ātmā Brahma</div>
+        <div class="maha-translation">"This Self is Brahman"</div>
+        <div class="maha-source">Māṇḍūkya Upanishad 1.2 — Atharvaveda</div>
+        <p class="maha-desc">The most direct of the four Mahāvākyas — pointing immediately to the Ātman that is one's own immediate self-awareness and declaring it to be Brahman. Not the body, not the ego, not even the intellect — but the pure aware presence that is reading these words right now. That, says the Māṇḍūkya, is Brahman.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TIMELINE -->
+<section id="timeline">
+  <div class="container">
+    <p class="section-label">Episode VII</p>
+    <h2 class="section-title">Historical <em>Context</em></h2>
+    <p class="section-body">Understanding the Vedas requires situating them in the sweep of world history. Their composition spans a period that saw the rise of civilization in multiple regions — and their influence continues to shape philosophy, religion, and culture to this day.</p>
+
+    <div class="main-timeline">
+      <div class="t-event reveal">
+        <div class="t-era">c. 7000–3300 BCE</div>
+        <div class="t-title">Pre-Vedic Context — The Indus Valley Civilization</div>
+        <p class="t-desc">The Indus Valley (or Harappan) Civilization flourishes across what is now Pakistan and northwestern India — one of the world's earliest urban civilizations. Its writing system remains undeciphered. Archaeological evidence suggests religious practices including ritual bathing (precursor to Hindu purity rites), proto-Śiva seals, and fire altars that may connect to later Vedic religion. The relationship between Harappan and Vedic cultures remains one of archaeology's great debates.</p>
+      </div>
+
+      <div class="t-event reveal">
+        <div class="t-era">c. 2000–1500 BCE</div>
+        <div class="t-title">The Indo-Aryan Migration and Vedic Origins</div>
+        <p class="t-desc">Genetic and linguistic evidence suggests that speakers of Proto-Indo-Iranian languages migrated into the Indian subcontinent from the Central Asian steppes (Sintashta culture, c. 2100–1800 BCE). This is the most widely accepted academic view, though debated. These migrants brought with them the Proto-Vedic language and oral traditions that would develop into the Ṛgveda. This migration theory explains the striking linguistic parallels between Vedic Sanskrit and Avestan (ancient Iranian) and both with Greek, Latin, and other Indo-European languages.</p>
+      </div>
+
+      <div class="t-event reveal">
+        <div class="t-era">c. 1500–1200 BCE</div>
+        <div class="t-title">The Ṛgvedic Period — Composition of the Oldest Hymns</div>
+        <p class="t-desc">The hymns of the Ṛgveda are composed and orally transmitted. This is the period of the early Vedic religion, centered on fire sacrifice (yajña) and the propitiation of natural forces personified as devas. The Vedic tribes settle in the Sapta Sindhu (Seven Rivers) region (modern Punjab and Haryana). Society is organized into warrior-noble (kṣatriya), priestly (brāhmaṇa), and tribal categories. The word "varna" in the Ṛgveda refers to color but later evolves into the social stratification system.</p>
+      </div>
+
+      <div class="t-event reveal">
+        <div class="t-era">c. 1200–900 BCE</div>
+        <div class="t-title">The Later Vedic Period — Eastward Expansion</div>
+        <p class="t-desc">The Yajurveda, Sāmaveda, and Atharvaveda are composed. Vedic culture spreads eastward into the Gangetic Plain (the Kuru-Pañcāla region). Elaborate sacrificial rituals become increasingly important and complex. The priestly class (brāhmaṇas) gains significant social power through their control of ritual knowledge. The Brāhmaṇa prose texts are composed to explain and codify these rituals. Iron technology spreads across Northern India, enabling forest clearance and agricultural expansion.</p>
+      </div>
+
+      <div class="t-event reveal">
+        <div class="t-era">c. 900–600 BCE</div>
+        <div class="t-title">The Brāhmaṇa and Āraṇyaka Period</div>
+        <p class="t-desc">The major Brāhmaṇa texts (Śatapatha, Aitareya, Taittirīya) are composed. The Āraṇyaka "forest texts" mark a crucial transition: growing dissatisfaction with elaborate external ritual and a turn toward internalization of sacrifice. This sets the stage for the philosophical revolution of the Upanishads. The Kuru-Pañcāla kingdom is the cultural center of this development. Yājñavalkya — arguably the greatest philosopher of the Vedic age — is associated with this period.</p>
+      </div>
+
+      <div class="t-event reveal">
+        <div class="t-era">c. 700–300 BCE</div>
+        <div class="t-title">The Upanishadic Period — The Axial Age</div>
+        <p class="t-desc">The great Upanishads are composed — the Bṛhadāraṇyaka and Chāndogya (earliest), followed by the Taittirīya, Aitareya, Kauṣītaki, Kena, Kaṭha, Praśna, Muṇḍaka, Māṇḍūkya, and Śvetāśvatara. This is part of what philosopher Karl Jaspers called the "Axial Age" — a period of extraordinary philosophical flourishing worldwide: in India (Upanishads, early Buddhism, Jainism), China (Confucius, Laozi), Greece (Socrates, Plato), Persia (Zarathustra). The Upanishadic thinkers ask: what is the self? What is the ultimate reality? How are they related?</p>
+      </div>
+
+      <div class="t-event reveal">
+        <div class="t-era">c. 500–200 BCE</div>
+        <div class="t-title">The Heterodox Challenge and Vedic Response</div>
+        <p class="t-desc">Buddhism (founded by Siddhārtha Gautama, c. 480 BCE) and Jainism (Mahāvīra, c. 540 BCE) explicitly reject the authority of the Vedas, Vedic ritual, and the caste system. This "heterodox" challenge energizes Vedic (orthodox) philosophy to articulate itself more rigorously. The six orthodox philosophical schools (ṣaḍ-darśanas) — Sāṃkhya, Yoga, Nyāya, Vaiśeṣika, Mīmāṃsā, and Vedānta — begin to crystallize, all accepting Vedic authority as their shared foundation.</p>
+      </div>
+
+      <div class="t-event reveal">
+        <div class="t-era">c. 788–820 CE</div>
+        <div class="t-title">Ādi Śaṅkarācārya — The Great Synthesis</div>
+        <p class="t-desc">The philosopher-monk Śaṅkara (born in Kerala) travels across India, debates every major school of philosophy, writes commentaries on the ten principal Upanishads, the Brahmasūtras, and the Bhagavad Gītā, and establishes four monastic centers (maṭhas) at the four corners of India. His Advaita Vedānta ("non-dual end-of-the-Vedas") philosophy provides the most rigorous systematic interpretation of the Upanishadic teaching of Ātman-Brahman identity. His work is considered the definitive systematization of Vedānta.</p>
+      </div>
+
+      <div class="t-event reveal">
+        <div class="t-era">19th–20th Century CE</div>
+        <div class="t-title">Global Transmission — Vedānta Meets the West</div>
+        <p class="t-desc">Swami Vivekānanda's electrifying address at the Parliament of the World's Religions in Chicago (1893) introduces Vedānta to the West. Schopenhauer famously keeps the Upanishads beside him always, writing that they have been "the solace of my life." Emerson's Transcendentalism draws heavily from Vedic thought. Sri Aurobindo, Ramana Maharshi, and S. Radhakrishnan interpret Vedānta for modernity. The discovery of Sanskrit's connection to Greek and Latin (1786) creates comparative linguistics as a discipline. UNESCO recognizes the Vedic chanting tradition as an Intangible Cultural Heritage of Humanity (2008).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- INFLUENCE -->
+<section id="influence">
+  <div class="container">
+    <p class="section-label">Episode VIII</p>
+    <h2 class="section-title">Legacy &amp; <em>Global Influence</em></h2>
+    <p class="section-body">The Vedas and Upanishads represent not merely a regional religious tradition but one of humanity's most profound philosophical achievements, whose influence extends far beyond the Indian subcontinent.</p>
+
+    <div class="influence-grid">
+      <div class="inf-item reveal" style="--color: #E8701A">
+        <div class="inf-number">01</div>
+        <div class="inf-title">Hindu Philosophy</div>
+        <p class="inf-desc">All six orthodox Hindu philosophical schools (darśanas) — Sāṃkhya, Yoga, Nyāya, Vaiśeṣika, Mīmāṃsā, and Vedānta — derive their authority from the Vedas. The three main Vedānta schools (Advaita, Viśiṣṭādvaita, Dvaita) are essentially different interpretations of the same Upanishadic texts.</p>
+      </div>
+
+      <div class="inf-item reveal" style="--color: #D4A017">
+        <div class="inf-number">02</div>
+        <div class="inf-title">Buddhism & Jainism</div>
+        <p class="inf-desc">Though rejecting Vedic authority, both Buddhism and Jainism arose within and in response to the Vedic intellectual environment. Many Buddhist concepts (karma, saṃsāra, liberation, meditation) are shared with or adapted from Vedic thought. The Pali Canon shows deep engagement with Upanishadic ideas.</p>
+      </div>
+
+      <div class="inf-item reveal" style="--color: #1A5C5C">
+        <div class="inf-number">03</div>
+        <div class="inf-title">Western Romanticism</div>
+        <p class="inf-desc">The Anquetil-Duperron Latin translation of the Upanishads (1801–1802) profoundly influenced Schopenhauer, Emerson, Thoreau, Whitman, and Nietzsche. Schopenhauer considered them the most rewarding reading possible. Emerson's "Over-Soul" essay directly reflects the Ātman concept. The Transcendentalist movement is substantially Upanishadic.</p>
+      </div>
+
+      <div class="inf-item reveal" style="--color: #8B1A1A">
+        <div class="inf-number">04</div>
+        <div class="inf-title">Linguistics & Philology</div>
+        <p class="inf-desc">Sir William Jones's 1786 discovery of Sanskrit's relationship to Greek, Latin, and Gothic created comparative linguistics as a modern academic discipline. The study of Vedic Sanskrit has been central to reconstructing Proto-Indo-European, the ancestor of nearly half the world's languages, spoken by some 3 billion people today.</p>
+      </div>
+
+      <div class="inf-item reveal" style="--color: #4A8B1A">
+        <div class="inf-number">05</div>
+        <div class="inf-title">Yoga & Meditation</div>
+        <p class="inf-desc">The entire tradition of yoga — from Patañjali's Yoga Sūtras to modern Haṭha yoga — is rooted in Vedic and Upanishadic concepts of consciousness, prāṇa, and mokṣa. The global yoga industry today (valued at over $80 billion) traces its philosophical lineage directly to the Upanishadic understanding of the self and its liberation.</p>
+      </div>
+
+      <div class="inf-item reveal" style="--color: #8B4A1A">
+        <div class="inf-number">06</div>
+        <div class="inf-title">Modern Science & Consciousness</div>
+        <p class="inf-desc">Physicists Erwin Schrödinger and Werner Heisenberg were deeply influenced by Vedantic philosophy. Schrödinger's non-dualist view of consciousness (influenced by his reading of Vedānta) resonates with interpretations of quantum mechanics. Contemporary consciousness studies increasingly engage with Vedic frameworks, particularly the witness-consciousness (sākṣin) concept.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEGACY CLOSER -->
+<section id="legacy">
+  <div class="container">
+    <p class="section-label" style="justify-content:center">Closing Reflection</p>
+    <blockquote class="legacy-quote">
+      "When I read the Upanishads, I find a profound, calm, and steady wisdom which dwarfs our modern attempts at philosophy. No books are so full of the real spirit of religion."
+    </blockquote>
+    <div class="legacy-source">— Annie Besant, Theosophist and Orientalist, 1895</div>
+
+    <div class="legacy-stats">
+      <div class="stat-item">
+        <span class="stat-number">4</span>
+        <span class="stat-label">Vedas</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">108</span>
+        <span class="stat-label">Canonical Upanishads</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">3500+</span>
+        <span class="stat-label">Years of Transmission</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">10,552</span>
+        <span class="stat-label">Ṛgveda Verses</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">1B+</span>
+        <span class="stat-label">Lives Still Shaped</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-om">ॐ</div>
+  <p class="footer-text">Vedic Series · Introduction to Vedas & Upanishads · A Detailed Study</p>
+  <p class="footer-text" style="margin-top:0.5rem;font-size:0.6rem;">सर्वे भवन्तु सुखिनः — May All Be Happy</p>
+</footer>
+
+<script>
+// Particles
+const container = document.getElementById('particles');
+for (let i = 0; i < 60; i++) {
+  const p = document.createElement('div');
+  p.classList.add('particle');
+  p.style.left = Math.random() * 100 + '%';
+  p.style.animationDuration = (8 + Math.random() * 15) + 's';
+  p.style.animationDelay = (Math.random() * 20) + 's';
+  p.style.width = p.style.height = (1 + Math.random() * 3) + 'px';
+  p.style.opacity = 0;
+  container.appendChild(p);
+}
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
