@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>K9K 85PS Engine Swap — Mahindra Verito 2011 Complete Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&family=Barlow:wght@300;400;500;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0c0f;
+    --bg2: #111418;
+    --bg3: #181c22;
+    --panel: #1a1f27;
+    --border: #252c38;
+    --border2: #2e3848;
+    --accent: #e8a020;
+    --accent2: #f0c060;
+    --accent3: #ff6b2b;
+    --blue: #3a8fff;
+    --teal: #1db89a;
+    --red: #e84040;
+    --text: #d8dde8;
+    --text2: #8a95a8;
+    --text3: #5a6478;
+    --green: #3ec97a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ─── HERO ─────────────────────────────────────── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 60px 60px;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 50%, rgba(232,160,32,0.07) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 80% at 20% 80%, rgba(255,107,43,0.05) 0%, transparent 60%);
+  }
+
+  .hero-grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+  }
+
+  .hero-eyebrow {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(52px, 8vw, 110px);
+    line-height: 0.92;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    margin-bottom: 8px;
+    position: relative;
+  }
+  .hero h1 .line1 { color: var(--text); display: block; }
+  .hero h1 .line2 {
+    color: var(--accent);
+    display: block;
+    -webkit-text-stroke: 1px var(--accent);
+  }
+  .hero h1 .line3 {
+    color: transparent;
+    -webkit-text-stroke: 1px var(--border2);
+    display: block;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    margin: 40px 0;
+    flex-wrap: wrap;
+  }
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .stat-val {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 36px;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .stat-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--text3);
+    text-transform: uppercase;
+  }
+
+  .hero-desc {
+    max-width: 540px;
+    font-size: 16px;
+    color: var(--text2);
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+
+  .btn-group {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: #0a0c0f;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  }
+  .btn-primary:hover { background: var(--accent2); transform: translateY(-1px); }
+  .btn-outline {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border2);
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+  .engine-badge {
+    position: absolute;
+    right: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  .badge-ring {
+    width: 280px;
+    height: 280px;
+    border: 1px solid var(--border2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    animation: rotatering 30s linear infinite;
+  }
+  .badge-ring::before {
+    content: '● K9K ENGINE ● 1461cc ● TURBO DIESEL ● 85PS ● COMMON RAIL ●';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--text3);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 10px;
+    text-align: center;
+  }
+  @keyframes rotatering {
+    to { transform: rotate(360deg); }
+  }
+  .badge-inner {
+    width: 200px;
+    height: 200px;
+    background: var(--panel);
+    border-radius: 50%;
+    border: 1px solid var(--border2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+  }
+  .badge-ps {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 72px;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .badge-ps-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--text3);
+    text-transform: uppercase;
+  }
+  .badge-upgrade {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    color: var(--green);
+    margin-top: 4px;
+  }
+
+  /* ─── NAV ───────────────────────────────────────── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(10,12,15,0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .nav-logo span { color: var(--text2); font-weight: 400; }
+  .nav-links {
+    display: flex;
+    gap: 0;
+    list-style: none;
+  }
+  .nav-links a {
+    display: block;
+    padding: 18px 16px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text3);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* ─── SECTION LAYOUT ────────────────────────────── */
+  section {
+    padding: 80px 60px;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    margin-bottom: 50px;
+    display: flex;
+    align-items: flex-end;
+    gap: 24px;
+  }
+  .section-number {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 80px;
+    line-height: 1;
+    color: var(--border2);
+    min-width: 80px;
+  }
+  .section-title-group { flex: 1; }
+  .section-tag {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .section-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: clamp(28px, 4vw, 48px);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text);
+    line-height: 1;
+  }
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--border) 30%, transparent 100%);
+    margin-bottom: 50px;
+  }
+
+  /* ─── ENGINE COMPARISON ─────────────────────────── */
+  #comparison { background: var(--bg2); max-width: 100%; padding: 80px 60px; }
+  #comparison .inner { max-width: 1300px; margin: 0 auto; }
+
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 0;
+    align-items: center;
+  }
+  .engine-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .engine-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .engine-card.stock::before { background: var(--text3); }
+  .engine-card.upgrade::before { background: linear-gradient(90deg, var(--accent), var(--accent3)); }
+
+  .engine-card-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .engine-card.stock .engine-card-label { color: var(--text3); }
+  .engine-card.upgrade .engine-card-label { color: var(--accent); }
+
+  .engine-card h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 28px;
+  }
+
+  .spec-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+  }
+  .spec-row:last-child { border-bottom: none; }
+  .spec-key { color: var(--text3); font-family: 'Share Tech Mono', monospace; font-size: 11px; }
+  .spec-val { color: var(--text); font-weight: 600; }
+  .spec-val.highlight { color: var(--accent); font-weight: 700; }
+  .spec-val.upgraded { color: var(--green); font-weight: 700; }
+
+  .vs-divider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    gap: 8px;
+  }
+  .vs-text {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 28px;
+    color: var(--accent);
+  }
+  .vs-arrow {
+    font-size: 24px;
+    color: var(--accent);
+    animation: bouncearrow 1.5s ease-in-out infinite;
+  }
+  @keyframes bouncearrow { 0%,100%{transform:translateX(0)} 50%{transform:translateX(6px)} }
+
+  /* ─── TOOLKIT ───────────────────────────────────── */
+  .toolkit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2px;
+  }
+  .tool-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 28px;
+    cursor: default;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .tool-card:hover {
+    border-color: var(--accent);
+    background: var(--bg3);
+    transform: translateY(-2px);
+  }
+  .tool-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 60px; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
+    transition: left 0.4s;
+  }
+  .tool-card:hover::after { left: 110%; }
+
+  .tool-category {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .tool-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .tool-model {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    color: var(--blue);
+    margin-bottom: 10px;
+  }
+  .tool-desc {
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+  .tool-spec-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    margin-top: 6px;
+  }
+  .tool-spec-key { color: var(--text3); font-family: 'Share Tech Mono', monospace; font-size: 10px; }
+  .tool-spec-val { color: var(--text2); }
+  .tool-price {
+    display: inline-block;
+    margin-top: 14px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--accent);
+  }
+  .tool-price-suffix {
+    font-size: 12px;
+    color: var(--text3);
+    font-family: 'Share Tech Mono', monospace;
+    font-weight: 400;
+    margin-left: 4px;
+  }
+  .tool-essential {
+    display: inline-block;
+    background: rgba(232,160,32,0.12);
+    border: 1px solid rgba(232,160,32,0.3);
+    color: var(--accent);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    margin-top: 10px;
+  }
+  .tool-critical {
+    background: rgba(232,64,64,0.1);
+    border-color: rgba(232,64,64,0.3);
+    color: var(--red);
+  }
+  .tool-section-header {
+    grid-column: 1 / -1;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text2);
+    padding: 24px 0 10px;
+    border-top: 1px solid var(--border);
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .tool-section-header::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ─── PROCESS STEPS ─────────────────────────────── */
+  .process-container { position: relative; }
+  .process-timeline {
+    position: absolute;
+    left: 28px;
+    top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(180deg, var(--accent) 0%, var(--teal) 50%, var(--blue) 100%);
+  }
+
+  .phase-block {
+    padding-left: 80px;
+    margin-bottom: 56px;
+    position: relative;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.5s, transform 0.5s;
+  }
+  .phase-block.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .phase-dot {
+    position: absolute;
+    left: 20px;
+    top: 4px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--accent);
+    z-index: 1;
+  }
+  .phase-dot::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .phase-number {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .phase-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text);
+    margin-bottom: 16px;
+    line-height: 1;
+  }
+  .phase-body {
+    font-size: 15px;
+    color: var(--text2);
+    line-height: 1.7;
+    margin-bottom: 20px;
+    max-width: 700px;
+  }
+
+  .step-list {
+    list-style: none;
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .step-list li {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    border-top: none;
+    font-size: 14px;
+    color: var(--text2);
+    background: var(--panel);
+    transition: background 0.2s;
+  }
+  .step-list li:first-child { border-top: 1px solid var(--border); }
+  .step-list li:hover { background: var(--bg3); color: var(--text); }
+  .step-num {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    min-width: 24px;
+    padding-top: 1px;
+  }
+
+  .tool-ref-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+  }
+  .tool-tag {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    padding: 4px 10px;
+    border: 1px solid var(--blue);
+    color: var(--blue);
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .tool-tag:hover { background: rgba(58,143,255,0.1); }
+  .tool-tag.warn { border-color: var(--red); color: var(--red); }
+  .tool-tag.warn:hover { background: rgba(232,64,64,0.1); }
+
+  .phase-warning {
+    margin-top: 16px;
+    padding: 14px 18px;
+    border-left: 3px solid var(--red);
+    background: rgba(232,64,64,0.06);
+    font-size: 14px;
+    color: var(--text2);
+    max-width: 700px;
+  }
+  .phase-warning strong { color: var(--red); font-family: 'Share Tech Mono', monospace; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; display: block; margin-bottom: 4px; }
+  .phase-tip {
+    margin-top: 16px;
+    padding: 14px 18px;
+    border-left: 3px solid var(--teal);
+    background: rgba(29,184,154,0.06);
+    font-size: 14px;
+    color: var(--text2);
+    max-width: 700px;
+  }
+  .phase-tip strong { color: var(--teal); font-family: 'Share Tech Mono', monospace; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; display: block; margin-bottom: 4px; }
+
+  /* ─── ECU DECISION MATRIX ───────────────────────── */
+  .decision-matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 20px;
+    max-width: 760px;
+  }
+  .dm-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 24px;
+  }
+  .dm-option {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .dm-card.preferred .dm-option { color: var(--green); }
+  .dm-card.alternative .dm-option { color: var(--text2); }
+  .dm-pros, .dm-cons { font-size: 13px; line-height: 1.6; margin-top: 8px; }
+  .dm-pros { color: var(--green); }
+  .dm-cons { color: var(--red); }
+
+  /* ─── CHECKLIST ─────────────────────────────────── */
+  .checklist-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+  .checklist-section {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 28px;
+  }
+  .checklist-section h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text2);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .checklist-section h4::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--accent);
+  }
+  .check-item {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--text2);
+  }
+  .check-item:last-child { border-bottom: none; }
+  .check-box {
+    width: 14px;
+    height: 14px;
+    min-width: 14px;
+    border: 1px solid var(--border2);
+    margin-top: 1px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.15s;
+  }
+  .check-box.checked {
+    background: var(--green);
+    border-color: var(--green);
+  }
+  .check-box.checked::after {
+    content: '✓';
+    position: absolute;
+    top: -2px;
+    left: 1px;
+    font-size: 10px;
+    color: var(--bg);
+  }
+
+  /* ─── FOOTER ────────────────────────────────────── */
+  footer {
+    background: var(--bg2);
+    border-top: 1px solid var(--border);
+    padding: 40px 60px;
+    max-width: 100%;
+  }
+  .footer-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-note {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    color: var(--text3);
+    line-height: 1.7;
+    max-width: 500px;
+  }
+  .footer-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 32px;
+    text-transform: uppercase;
+    color: var(--border2);
+    letter-spacing: 2px;
+  }
+
+  @media (max-width: 900px) {
+    section, #comparison { padding: 60px 24px; }
+    .hero { padding: 80px 24px 60px; }
+    .engine-badge { display: none; }
+    .comparison-grid { grid-template-columns: 1fr; }
+    .vs-divider { flex-direction: row; padding: 10px 0; }
+    .decision-matrix { grid-template-columns: 1fr; }
+    .checklist-grid { grid-template-columns: 1fr; }
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    footer { padding: 40px 24px; }
+    .footer-inner { flex-direction: column; gap: 20px; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">K9K<span> / Verito Swap</span></div>
+  <ul class="nav-links">
+    <li><a href="#comparison">Specs</a></li>
+    <li><a href="#toolkit">Toolkit</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#checklist">Checklist</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-grid-overlay"></div>
+  <div class="hero-eyebrow">Complete Workshop Manual</div>
+  <h1>
+    <span class="line1">K9K 85PS</span>
+    <span class="line2">Engine</span>
+    <span class="line3">Swap</span>
+  </h1>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-val">+25%</div>
+      <div class="stat-label">Power Gain</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-val">1461cc</div>
+      <div class="stat-label">Same Displacement</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-val">8</div>
+      <div class="stat-label">Phases</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-val">85PS</div>
+      <div class="stat-label">Target Power</div>
+    </div>
+  </div>
+  <p class="hero-desc">
+    A complete, step-by-step guide to fitting the Renault K9K 85PS turbodiesel engine into the Mahindra Verito 2011. Includes the full state-of-the-art toolkit list, sourcing guide, ECU strategy, and a phase-by-phase workshop manual.
+  </p>
+  <div class="btn-group">
+    <a href="#process" class="btn btn-primary">Start the Build ↓</a>
+    <a href="#toolkit" class="btn btn-outline">View Toolkit</a>
+  </div>
+
+  <div class="engine-badge">
+    <div class="badge-ring">
+      <div class="badge-inner">
+        <div class="badge-ps">85</div>
+        <div class="badge-ps-label">Horsepower</div>
+        <div class="badge-upgrade">↑ from 66 PS</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COMPARISON -->
+<div id="comparison">
+  <div class="inner">
+    <div class="section-header" style="margin-bottom:36px">
+      <div class="section-title-group">
+        <div class="section-tag">Engine Comparison</div>
+        <div class="section-title">Stock vs Upgrade</div>
+      </div>
+    </div>
+    <div class="comparison-grid">
+      <div class="engine-card stock">
+        <div class="engine-card-label">Stock Engine — Remove</div>
+        <h3>K9K 1.5D — 66 PS</h3>
+        <div class="spec-row"><span class="spec-key">DISPLACEMENT</span><span class="spec-val">1461 cc</span></div>
+        <div class="spec-row"><span class="spec-key">MAX POWER</span><span class="spec-val highlight">66 PS @ 4000 rpm</span></div>
+        <div class="spec-row"><span class="spec-key">MAX TORQUE</span><span class="spec-val">160 Nm @ 2000 rpm</span></div>
+        <div class="spec-row"><span class="spec-key">FUEL SYSTEM</span><span class="spec-val">Delphi Common Rail</span></div>
+        <div class="spec-row"><span class="spec-key">TURBO</span><span class="spec-val">BorgWarner KP35</span></div>
+        <div class="spec-row"><span class="spec-key">VALVES</span><span class="spec-val">8 valve SOHC</span></div>
+        <div class="spec-row"><span class="spec-key">EMISSION NORM</span><span class="spec-val">BS-IV</span></div>
+        <div class="spec-row"><span class="spec-key">COMPRESSION</span><span class="spec-val">15.2:1</span></div>
+      </div>
+
+      <div class="vs-divider">
+        <div class="vs-text">VS</div>
+        <div class="vs-arrow">→</div>
+      </div>
+
+      <div class="engine-card upgrade">
+        <div class="engine-card-label">Target Engine — Install</div>
+        <h3>K9K 796/884 — 85–86 PS</h3>
+        <div class="spec-row"><span class="spec-key">DISPLACEMENT</span><span class="spec-val">1461 cc</span></div>
+        <div class="spec-row"><span class="spec-key">MAX POWER</span><span class="spec-val upgraded">85–86 PS @ 4000 rpm</span></div>
+        <div class="spec-row"><span class="spec-key">MAX TORQUE</span><span class="spec-val upgraded">200 Nm @ 1750 rpm</span></div>
+        <div class="spec-row"><span class="spec-key">FUEL SYSTEM</span><span class="spec-val">Delphi / Bosch CRDi</span></div>
+        <div class="spec-row"><span class="spec-key">TURBO</span><span class="spec-val upgraded">BorgWarner KP35 (uprated)</span></div>
+        <div class="spec-row"><span class="spec-key">VALVES</span><span class="spec-val">8 valve SOHC</span></div>
+        <div class="spec-row"><span class="spec-key">EMISSION NORM</span><span class="spec-val">Euro 4 / BS-IV–V</span></div>
+        <div class="spec-row"><span class="spec-key">COMPRESSION</span><span class="spec-val">15.2:1</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOOLKIT -->
+<section id="toolkit" style="max-width:100%; background: var(--bg)">
+<div style="max-width:1300px; margin:0 auto;">
+  <div class="section-header">
+    <div class="section-number">01</div>
+    <div class="section-title-group">
+      <div class="section-tag">State of the Art</div>
+      <div class="section-title">Complete Toolkit</div>
+    </div>
+  </div>
+  <div class="section-divider"></div>
+
+  <div class="toolkit-grid">
+
+    <!-- LIFTING & SUPPORT -->
+    <div class="tool-section-header">Lifting &amp; Engine Support</div>
+
+    <div class="tool-card">
+      <div class="tool-category">Engine Crane</div>
+      <div class="tool-name">Hydraulic Engine Hoist</div>
+      <div class="tool-model">Draper Expert 2 Tonne Foldable Crane</div>
+      <div class="tool-desc">Hydraulic folding engine crane with 2-tonne capacity. Essential for safely lifting the K9K unit out of and into the Verito engine bay without damage to cooling components or bay walls.</div>
+      <div class="tool-spec-row"><span class="tool-spec-key">CAPACITY</span><span class="tool-spec-val">2000 kg</span></div>
+      <div class="tool-spec-row"><span class="tool-spec-key">REACH</span><span class="tool-spec-val">Up to 2500 mm</span></div>
+      <div class="tool-price">₹18,000–25,000 <span class="tool-price-suffix">est.</span></div>
+      <div class="tool-essential">Essential</div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-category">Transmission Support</div>
+      <div class="tool-name">Low Profile Transmission Jack</div>
+      <div class="tool-model">Clarke CTJ500 or equivalent</div>
+      <div class="tool-desc">Supports the gearbox independently while separating the engine. Critical for the Verito's transverse layout — gearbox must be supported before engine mounts are released.</div>
+      <div class="tool-spec-row"><span class="tool-spec-key">CAPACITY</span><span class="tool-spec-val">500 kg</span></div>
+      <div class="tool-spec-row"><span class="tool-spec-key">HEIGHT</span><span class="tool-spec-val">110–880 mm</span></div>
+      <div class="tool-price">₹8,000–14,000 <span class="tool-price-suffix">est.</span></div>
+      <div class="tool-essential">Essential</div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-category">Vehicle Support</div>
+      <div class="tool-name">Axle Stands (Set of 4)</div>
+      <div class="tool-model">Sealey AS3000 3-tonne pair</div>
+      <div class="tool-desc">Never work under a car on a jack alone. Two pairs of rated axle stands positioned on sill points. The Verito sills have defined jacking points marked in the OEM workshop manual.</div>
+      <div class="tool-spec-row"><span class="tool-spec-key">CAPACITY</span><span class="tool-spec-val">3 tonne each</span></div>
+      <div class="tool-spec-row"><span class="tool-spec-key">HEIGHT RANGE</span><span class="tool-spec-val">300–460 mm</span></div>
+      <div class="tool-price">₹3,500–6,000 <span class="tool-price-suffix">est.</span></div>
+      <div class="tool-essential">Essential</div>
+    </div>
+
+    <!-- MECHANICAL TOOLS -->
+    <div class="tool-section-header">Mechanical Hand Tools</div>
+
+    <div class="tool-card">
+      <div class="tool-category">Torque Wrench</div>
+      <div class="tool-name">Click-Type Torque Wrench Set</div>
+      <div class="tool-model">Norbar 13018 (20–100 Nm) + 14112 (60–340 Nm)</div>
+      <div class="tool-desc">Engine mount bolts require 60–80 Nm. Head bolts require angle-tightening. A calibrated click-type wrench prevents over-torquing aluminium threads on the K9K head. Two ranges needed.</div>
+      <div class="tool-spec-row"><span class="tool-spec-key">RANGE 1</span><span class="tool-spec-val">20–100 Nm (±3%)</span></div>
+      <div class="tool-spec-row"><span class="tool-spec-key">RANGE 2</span><span class="tool-spec-val">60–340 Nm (±3%)</span></div>
+      <div class="tool-price">₹6,000–12,000 <span class="tool-price-suffix">per wrench</span></div>
+      <div class="tool-essential">Essential</div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-category">Socket Set</div>
+      <div class="tool-name">Metric Impact Socket Set</div>
+      <div class="tool-model">Stahlwille 96/72 or Gedore Red 1/2" set</div>
+      <div class="tool-desc">Full metric set 8–32mm, including 1/4", 3/8" and 1/2" drive sockets. The K9K engine uses M6 through M14 fasteners predominantly. Deep sockets needed for injector access.</div>
+      <div class="tool-spec-row"><span class="tool-spec-key">SIZES</span><span class="tool-spec-val">8–32 mm + E-torx set</span></div>
+      <div class="tool-spec-row"><span class="tool-spec-key">DRIVE</span><span class="tool-spec-val">1/4", 3/8", 1/2"</span></div>
+      <div class="tool-price">₹5,000–9,000 <span class="tool-price-suffix">set</span></div>
+      <div class="tool-essential">Essential</div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-category">Driveshaft Tool</div>
+      <div class="tool-name">CV Joint / Driveshaft Puller</div>
+      <div class="tool-model">JTSE or equivalent slide-hammer type</div>
+      <div class="tool-desc">The Verito's inner CV joints are snap-ring retained into the gearbox. A slide hammer puller extracts them cleanly without damaging the differential housing or the CV boot.</div>
+      <div class="tool-spec-row"><span class="tool-spec-key">TYPE</span><span class="tool-spec-val">Slide hammer, interchangeable heads</span></div>
+      <div class="tool-price">₹1,800–4,500 <span class="tool-price-suffix">set</span></div>
+      <div class="tool-essential">Essential</div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-category">Injector Tools</div>
+      <div class="tool-name">Common Rail Injector Removal Kit</div>
+      <div class="tool-model">Sealey VSE2025 / Draper 64984 CRDi set</div>
+      <div class="tool-desc">K9K injectors are held by a clamp bolt and copper washer. This kit includes the correct extractors, copper seat reamers, and thread chasers to remove and refit injectors without cracking the aluminium head.</div>
+      <div class="tool-spec-row"><span class="tool-spec-key">COMPATIBILITY</span><span class="tool-spec-val">Delphi / Bosch CRDi</span></div>
+      <div class="tool-spec-row"><span class="tool-spec-key">INCLUDES</span><span class="tool-spec-val">Extractor, reamer, seating tool</span></div>
+      <div class="tool-price">₹4,500–8,000 <span class="tool-price-suffix">kit</span></div>
+      <div class="tool-essential">Essential</div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-category">Timing Tool</div>
+      <div class="tool-name">K9K Engine Timing Lock Set</div>
+      <div class="tool-model">Sealey VSE254 / Laser 5756</div>
+      <div class="tool-desc">If you need to remove the timing belt (for engine strip or belt inspection), this set locks the crankshaft and camshaft in TDC position. The K9K uses an interference-engine design — incorrect timing = bent valves.</div>
+      <div class="tool-spec-row"><span class="tool-spec-key">LOCKS</span><span class="tool-spec-val">Crank pin + cam locking plate</span></div>
+      <div class="tool-spec-row"><span class="tool-spec-key">VEHICLES</span><span class="tool-spec-val">All K9K / Renault 1.5 dCi</span></div>
+      <div class="tool-price">₹3,000–6,000 <span class="tool-price-suffix">set</span></div>
+      <div class="tool-essential">Essential</div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-category">Flywheel Tool</div>
+      <div class="tool-name">Flywheel Locking Pin / Tool</div>
+      <div class="tool-model">Sealey or generic K9K flywheel holder</div>
+      <div class="tool-desc">Needed to hold the flywheel stationary while removing the crankshaft bolt or clutch centre bolt. Prevents engine rotation during high-torque unfastening.</div>
+      <div class="tool-spec-row"><span class="tool-spec-key">TYPE</span><span class="tool-spec-val">Ring gear engaging bar</span></div>
+      <div class="tool-price">₹1,200–2,500 <span class="tool-price-suffix">est.</span></div>
+      <div class="tool-essential">Essential</div>
+    </div>
+
+    <!-- DIAGNOSTICS -->
+    <div class="tool-section-header">Diagnostics &amp; Electronics</div>
+
+    <div class="tool-card">
+      <div class="tool-category">Diagnostic Tool — Critical</div>
+      <div class="tool-name">OBD2 / CAN Bus Professional Scanner</div>
+      <div class="tool-model">Launch X431 Pro or Autel MaxiSys MS906BT</div>
+      <div class="tool-desc">Must support the Renault/Mahindra K-Line protocol (ISO 9141-2) in addition to CAN. Required to read live data (rail pressure, MAF, boost), clear adaptive fuel maps, and read injector fault codes after the swap.</div>
+      <div class="tool-spec-row"><span class="tool-spec-key">PROTOCOL</span><span class="tool-spec-val">K-Line + CAN + OBD2</span></div>
+      <div class="tool-spec-row"><span class="tool-spec-key">LIVE DATA</span><span class="tool-spec-val">Rail pressure, MAF, IAT, boost</span></div>
+      <div class="tool-price">₹18,000–45,000 <span class="tool-price-suffix">unit</span></div>
+      <div class="tool-essential tool-critical">Critical Phase — ECU</div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-category">Injector Coding — Critical</div>
+      <div class="tool-name">Renault Clip / DDT2000 Interface</div>
+      <div class="tool-model">Renault Clip Pro USB or OBDSTAR X300 DP</div>
+      <div class="tool-desc">Each K9K Delphi/Bosch injector carries a unique C2I (Correction Injection Individual) code on its body. This code must be entered into the ECU so it calibrates fuel delivery per cylinder. Skipping this causes rough running and excess smoke.</div>
+      <div class="tool-spec-row"><span class="tool-spec-key">FUNCTION</span><span class="tool-spec-val">Injector C2I code programming</span></div>
+      <div class="tool-spec-row"><span class="tool-spec-key">ECU ACCESS</span><span class="tool-spec-val">Full Renault/Mahindra SID305/SID307</span></div>
+      <div class="tool-price">₹4,000–16,000 <span class="tool-price-suffix">interface</span></div>
+      <div class="tool-essential tool-critical">Critical — Cannot Skip</div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-category">Multimeter</div>
+      <div class="tool-name">True RMS Digital Multimeter</div>
+      <div class="tool-model">Fluke 117 or Uni-T UT61E</div>
+      <div class="tool-desc">For verifying sensor wiring integrity during reconnection. Check glow plug resistance (should be ~0.5Ω each), sensor supply voltages (5V ref), and injector solenoid resistance. Essential before first start.</div>
+      <div class="tool-spec-row"><span class="tool-spec-key">RANGES</span><span class="tool-spec-val">AC/DC Voltage, resistance, continuity, diode</span></div>
+      <div class="tool-spec-row"><span class="tool-spec-key">ACCURACY</span><span class="tool-spec-val">±0.5% basic DC</span></div>
+      <div class="tool-price">₹3,500–12,000 <span class="tool-price-suffix">unit</span></div>
+      <div class="tool-essential">Essential</div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-category">Compression Testing</div>
+      <div class="tool-name">Diesel Compression Tester</div>
+      <div class="tool-model">Sealey VSE206 Diesel Compression Kit</div>
+      <div class="tool-desc">Test compression on the donor K9K before installing it. All four cylinders should read 25–35 bar. A low reading on any cylinder indicates worn rings or valve seat issues in the donor engine — catch it before the swap.</div>
+      <div class="tool-spec-row"><span class="tool-spec-key">RANGE</span><span class="tool-spec-val">0–70 bar / 0–1000 psi</span></div>
+      <div class="tool-spec-row"><span class="tool-spec-key">GLOW PLUG THREAD</span><span class="tool-spec-val">M10 adapter for K9K</span></div>
+      <div class="tool-price">₹2,800–5,500 <span class="tool-price-suffix">kit</span></div>
+      <div class="tool-essential">Recommended</div>
+    </div>
+
+    <!-- COOLING & FLUID -->
+    <div class="tool-section-header">Fluid &amp; Cooling Equipment</div>
+
+    <div class="tool-card">
+      <div class="tool-category">Cooling System</div>
+      <div class="tool-name">Cooling System Pressure Tester</div>
+      <div class="tool-model">Sealey VS0030 / Laser 6244</div>
+      <div class="tool-desc">After refilling coolant and running the engine, use a pressure tester to check for leaks at new hose connections, the thermostat housing, and the radiator bleed nipple. Pressurize to 1.4 bar and hold for 10 minutes.</div>
+      <div class="tool-spec-row"><span class="tool-spec-key">TEST PRESSURE</span><span class="tool-spec-val">Up to 2 bar</span></div>
+      <div class="tool-price">₹2,200–4,500 <span class="tool-price-suffix">kit</span></div>
+      <div class="tool-essential">Recommended</div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-category">Oil Management</div>
+      <div class="tool-name">Low-Profile Oil Drain Pan + Fluid Pump</div>
+      <div class="tool-model">Sealey DRP01 + Manual hand pump</div>
+      <div class="tool-desc">Wide-base low-profile oil pan for draining the K9K sump (close to ground). A hand pump for transferring drained oil to disposal containers and also for filling the turbo feed pipe with clean oil before first start.</div>
+      <div class="tool-spec-row"><span class="tool-spec-key">CAPACITY</span><span class="tool-spec-val">12 litre drain pan</span></div>
+      <div class="tool-price">₹1,500–3,000 <span class="tool-price-suffix">set</span></div>
+      <div class="tool-essential">Essential</div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-category">Consumables</div>
+      <div class="tool-name">Gasket, Sealants &amp; Thread Compound Kit</div>
+      <div class="tool-model">Loctite 5188 + 243 + 515 + copper spray</div>
+      <div class="tool-desc">Loctite 243 (blue) for engine mount bolts, Loctite 5188 for the sump gasket if disturbed, copper exhaust spray for manifold studs, and Loctite 515 for the gearbox oil seal carrier. Never re-use old exhaust manifold gaskets.</div>
+      <div class="tool-spec-row"><span class="tool-spec-key">EXHAUST</span><span class="tool-spec-val">Copper anti-seize spray 900°C rated</span></div>
+      <div class="tool-spec-row"><span class="tool-spec-key">SEALANT</span><span class="tool-spec-val">Loctite 5188 flexible gasket maker</span></div>
+      <div class="tool-price">₹1,800–3,500 <span class="tool-price-suffix">kit</span></div>
+      <div class="tool-essential">Essential</div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" style="max-width:100%; background: var(--bg2);">
+<div style="max-width:1300px; margin:0 auto; padding: 80px 0;">
+  <div class="section-header" style="padding: 0 0 0 0;">
+    <div class="section-number">02</div>
+    <div class="section-title-group">
+      <div class="section-tag">Step by Step Workshop Manual</div>
+      <div class="section-title">8-Phase Build Process</div>
+    </div>
+  </div>
+  <div class="section-divider"></div>
+
+  <div class="process-container">
+    <div class="process-timeline"></div>
+
+    <!-- PHASE 1 -->
+    <div class="phase-block" id="phase1">
+      <div class="phase-dot"></div>
+      <div class="phase-number">Phase 01 — Pre-Swap Assessment &amp; Sourcing</div>
+      <div class="phase-title">Know Before<br>You Buy</div>
+      <div class="phase-body">
+        Before spending money on a donor engine, verify your Verito's condition and confirm you're buying the right K9K variant. The K9K family spans 65–115 PS — the engine code stamped on the block is your proof of identity.
+      </div>
+      <ul class="step-list">
+        <li><span class="step-num">01</span>Inspect the Verito subframe and engine bay for rust, bent mounts, or prior accident damage. A bent subframe means the engine will not sit level.</li>
+        <li><span class="step-num">02</span>Source a K9K engine with code 796 (Dacia Logan 86PS) or 884 (Duster 90PS). Both are direct fitments. Physically verify the three-digit code stamped on the block above the starter motor.</li>
+        <li><span class="step-num">03</span>Request a compression test on the donor engine before purchase. All four cylinders must read 25–35 bar. A reading below 22 bar means worn rings — walk away.</li>
+        <li><span class="step-num">04</span>Confirm the injection system type: Delphi (grey injector bodies) or Bosch (black). You will need matching C2I codes and potentially matching ECU for Bosch units.</li>
+        <li><span class="step-num">05</span>In India: notify your RTO. Engine number changes require Form 29/30, RC book endorsement, and insurer notification. Doing this post-swap avoids legal complications during inspection.</li>
+      </ul>
+      <div class="tool-ref-tags">
+        <span class="tool-tag">Compression Tester</span>
+        <span class="tool-tag">Multimeter</span>
+      </div>
+    </div>
+
+    <!-- PHASE 2 -->
+    <div class="phase-block" id="phase2">
+      <div class="phase-dot"></div>
+      <div class="phase-number">Phase 02 — Draining, Disconnecting &amp; Prep</div>
+      <div class="phase-title">Drain, Label<br>&amp; Disconnect</div>
+      <div class="phase-body">
+        Systematic disconnection prevents broken connectors, crossed wires, and missed fasteners. Label every sensor plug, hose, and bracket before removal. Photograph the engine bay from multiple angles.
+      </div>
+      <ul class="step-list">
+        <li><span class="step-num">01</span>Lift the car, support on four axle stands at sill jacking points. Remove engine undertray (4× M8 bolts). Place oil drain pan — remove sump plug (M14, 25 Nm) and drain fully.</li>
+        <li><span class="step-num">02</span>Open the coolant bleed nipple on the thermostat housing. Remove the bottom radiator hose to drain the cooling system into a clean container for reuse.</li>
+        <li><span class="step-num">03</span>Disconnect the battery — negative terminal first, then positive. Tape the terminal so it cannot accidentally touch metalwork during the work.</li>
+        <li><span class="step-num">04</span>Disconnect and label every electrical connector: ECU multi-plug (usually 2 large connectors on the bulkhead), MAF sensor, MAP/boost sensor, coolant temperature sensor, oil pressure switch, crank position sensor, cam position sensor, glow plug relay, and all 4 injector plugs.</li>
+        <li><span class="step-num">05</span>Remove the air intake ducting from the airbox to the turbo inlet. Remove the intercooler-to-throttle pipe (the pressure pipe). Remove the EGR valve hose connections and the EGR cooler coolant hoses (if fitted).</li>
+        <li><span class="step-num">06</span>Disconnect the turbo oil feed pipe (banjo bolt, M12, 20 Nm) and the turbo oil return hose at the sump. Cap both to prevent oil spillage.</li>
+        <li><span class="step-num">07</span>Loosen the exhaust downpipe from the turbo outlet flange (3 or 4 × M8 studs + nuts). Use copper anti-seize spray on the studs before attempting removal — these corrode badly.</li>
+      </ul>
+      <div class="tool-ref-tags">
+        <span class="tool-tag">Axle Stands</span>
+        <span class="tool-tag">Socket Set</span>
+        <span class="tool-tag">Oil Drain Pan</span>
+        <span class="tool-tag warn">Copper Anti-Seize Spray</span>
+      </div>
+      <div class="phase-tip">
+        <strong>Pro Tip</strong>
+        Spray WD-40 or penetrating oil on all exhaust manifold nuts and turbo inlet clamps the night before. Exhaust fasteners are the number one cause of delays.
+      </div>
+    </div>
+
+    <!-- PHASE 3 -->
+    <div class="phase-block" id="phase3">
+      <div class="phase-dot"></div>
+      <div class="phase-number">Phase 03 — Gearbox Separation &amp; Driveshafts</div>
+      <div class="phase-title">Separate the<br>Powertrain</div>
+      <div class="phase-body">
+        The K9K is mated to the JH3 5-speed gearbox. Separate the gearbox from the engine block before hoisting. On the Verito's transverse layout, both driveshafts must come out before the engine/gearbox assembly can be lifted.
+      </div>
+      <ul class="step-list">
+        <li><span class="step-num">01</span>Drain the gearbox oil (M18 plug under the gearbox, 2.0L of GL4 75W-80). Support the gearbox on the transmission jack before removing mounts.</li>
+        <li><span class="step-num">02</span>Remove the gear selector linkage rod and the reverse lamp switch connector from the gearbox.</li>
+        <li><span class="step-num">03</span>Undo the left (driver's side) engine mount bracket. The K9K Verito has three mounts: right-side torque strut, left-side gearbox mount, and a lower rear mount on the subframe.</li>
+        <li><span class="step-num">04</span>Remove the right front driveshaft: undo the hub nut (M24, 230 Nm — use an impact wrench), remove the lower ball joint pinch bolt (M12, 60 Nm), pull the hub carrier outward and slide the driveshaft out of the gearbox using the CV puller/slide hammer.</li>
+        <li><span class="step-num">05</span>Remove the left driveshaft the same way. Note: the left-side intermediate shaft is supported by a bracket bolted to the engine block — remove the bracket (3× M10 bolts) to free it.</li>
+        <li><span class="step-num">06</span>With both shafts clear, disconnect the 6 bell-housing bolts (M10 and M12, various torques). Slide the gearbox away from the engine by ~10cm and lower onto a wooden block or leave supported on the transmission jack.</li>
+      </ul>
+      <div class="tool-ref-tags">
+        <span class="tool-tag">Transmission Jack</span>
+        <span class="tool-tag">CV Joint Puller</span>
+        <span class="tool-tag">Torque Wrench</span>
+        <span class="tool-tag">Socket Set</span>
+      </div>
+    </div>
+
+    <!-- PHASE 4 -->
+    <div class="phase-block" id="phase4">
+      <div class="phase-dot"></div>
+      <div class="phase-number">Phase 04 — Engine Removal &amp; Bench Comparison</div>
+      <div class="phase-title">Hoist Out &amp;<br>Compare Blocks</div>
+      <div class="phase-body">
+        With the gearbox separated, the engine is free on three mounts. Attach the engine crane, remove the final mount bolts, and lift the engine straight up and out. Lay the old and new engine side by side on a bench or clean floor.
+      </div>
+      <ul class="step-list">
+        <li><span class="step-num">01</span>Attach the engine crane chain/sling to the K9K lift brackets (cast into the head and block). Raise the crane until the chain is taut — no slack.</li>
+        <li><span class="step-num">02</span>Remove the final three engine mount bolts (right torque mount, left bracket, subframe lower mount). These will be 2 × M12 and 1 × M14, 60–80 Nm each.</li>
+        <li><span class="step-num">03</span>Slowly raise the crane. Guide the engine upward, checking clearance with the AC compressor line and coolant pipes. The engine comes out vertically on the Verito — it does not tilt.</li>
+        <li><span class="step-num">04</span>Transfer these items from the old engine to the new unit: alternator + bracket, AC compressor + bracket, power steering pump (if bolted to the engine), engine mount rubbers (use new ones if the rubber is cracked), and the starter motor if the replacement unit did not include one.</li>
+        <li><span class="step-num">05</span>Compare the injector bodies: if old is Delphi and new is Bosch, note the difference — the wiring harness connector and ECU strategy will differ. Plan the ECU approach (see Phase 7) before lowering the new engine in.</li>
+      </ul>
+      <div class="tool-ref-tags">
+        <span class="tool-tag">Engine Hoist</span>
+        <span class="tool-tag">Socket Set</span>
+        <span class="tool-tag">Torque Wrench</span>
+      </div>
+    </div>
+
+    <!-- PHASE 5 -->
+    <div class="phase-block" id="phase5">
+      <div class="phase-dot"></div>
+      <div class="phase-number">Phase 05 — New Engine Installation</div>
+      <div class="phase-title">Lower In &amp;<br>Torque Up</div>
+      <div class="phase-body">
+        With the new K9K 85PS engine prepped with all ancillaries transferred, lower it into the Verito bay. Mount alignment is straightforward because the block design is identical. Use new engine mount rubbers for best NVH control.
+      </div>
+      <ul class="step-list">
+        <li><span class="step-num">01</span>Pre-fill the new engine's oil filter with clean 5W-40 and manually fill the turbo oil feed pipe with approximately 10ml of clean oil using a syringe before installation. This pre-lubricates the turbo bearing on first start.</li>
+        <li><span class="step-num">02</span>Lower the engine slowly on the crane. The right-side torque mount bracket locates first — align its rubber mount with the subframe bracket before allowing the engine to settle.</li>
+        <li><span class="step-num">03</span>Hand-thread all three engine mount bolts before torquing any of them. Then torque in sequence: lower subframe mount first (80 Nm), right torque mount (60 Nm), left bracket (60 Nm).</li>
+        <li><span class="step-num">04</span>Re-mate the gearbox. Guide the input shaft into the clutch centre (rotate the gearbox input shaft slightly if it won't seat — it needs to align with the clutch splines). Torque bell-housing bolts to 40–50 Nm.</li>
+        <li><span class="step-num">05</span>Refit both driveshafts. Always fit new inner oil seals on both sides — the old ones will leak oil into the gearbox if reused. Torque the lower ball joint pinch bolt (60 Nm) and hub nut (230 Nm + new split pin).</li>
+        <li><span class="step-num">06</span>Refit all exhaust components with new gaskets and copper anti-seize on the studs. Never reuse old exhaust manifold gaskets.</li>
+      </ul>
+      <div class="tool-ref-tags">
+        <span class="tool-tag">Engine Hoist</span>
+        <span class="tool-tag">Torque Wrench (both ranges)</span>
+        <span class="tool-tag">Loctite 243</span>
+        <span class="tool-tag">Copper Anti-Seize</span>
+      </div>
+      <div class="phase-warning">
+        <strong>Critical Check</strong>
+        Do not torque the engine mount bolts in isolation. All three mount bolts must be hand-threaded before final torquing. If you torque one mount bolt with others not yet in position, the rubber bushing will be installed under stress and will wear prematurely.
+      </div>
+    </div>
+
+    <!-- PHASE 6 -->
+    <div class="phase-block" id="phase6">
+      <div class="phase-dot"></div>
+      <div class="phase-number">Phase 06 — ECU, Wiring &amp; Injector Coding</div>
+      <div class="phase-title">Electronics &amp;<br>ECU Strategy</div>
+      <div class="phase-body">
+        This is the most technically demanding phase. The K9K's common rail system requires each injector's unique correction code to be stored in the ECU. Without this, the engine will start but run rough, produce excess smoke, and set fault codes.
+      </div>
+
+      <div class="decision-matrix">
+        <div class="dm-card preferred">
+          <div class="dm-option">Option A — Donor ECU + Remap</div>
+          <div style="font-size:13px; color:var(--text2); line-height:1.6; margin-bottom:10px;">Bring the entire donor ECU, keep the Verito harness and modify connector if needed. Have it remapped to the Verito's immobiliser code by a specialist.</div>
+          <div class="dm-pros">✓ ECU is pre-matched to donor injectors<br>✓ Cleanest configuration<br>✓ Minimal fault code risk</div>
+          <div class="dm-cons" style="margin-top:8px;">✗ May need immobiliser re-coding<br>✗ Slightly more complex wiring if harness differs</div>
+        </div>
+        <div class="dm-card alternative">
+          <div class="dm-option">Option B — Remap Existing ECU</div>
+          <div style="font-size:13px; color:var(--text2); line-height:1.6; margin-bottom:10px;">Keep the Verito's existing ECU and remap it to 85PS calibration. Then enter new injector C2I codes via diagnostic tool.</div>
+          <div class="dm-pros">✓ No immobiliser complications<br>✓ Simpler if injector types match</div>
+          <div class="dm-cons" style="margin-top:8px;">✗ Requires specialist with Renault Clip<br>✗ C2I coding still mandatory<br>✗ ECU must physically match ECU type</div>
+        </div>
+      </div>
+
+      <ul class="step-list" style="margin-top:20px;">
+        <li><span class="step-num">01</span>Reconnect all sensor plugs referencing your labelled connectors and photographs from Phase 02. The MAF, MAP, crank sensor, cam sensor, and coolant sensor are the most critical for starting.</li>
+        <li><span class="step-num">02</span>Locate the injector C2I codes: each injector has a 16-character alphanumeric code laser-etched on its body. Write down all 4 codes before installing the injectors in the new engine.</li>
+        <li><span class="step-num">03</span>Connect your Renault Clip or DDT2000 interface to the OBD port. Navigate to: Engine ECU → Injection → Injector Coding. Enter each injector's C2I code for cylinders 1–4 in the correct cylinder position.</li>
+        <li><span class="step-num">04</span>Check glow plug resistance with the multimeter: each glow plug should read approximately 0.4–0.6 Ω. A reading of 0 Ω = short circuit. A reading of OL (open circuit) = failed glow plug — replace before first start.</li>
+        <li><span class="step-num">05</span>Reconnect the battery. Cycle the ignition key ON–OFF three times to allow the fuel pump to prime and the ECU to begin self-calibration. Do not crank yet.</li>
+      </ul>
+      <div class="tool-ref-tags">
+        <span class="tool-tag warn">Renault Clip / DDT2000</span>
+        <span class="tool-tag warn">OBD2 Scanner — Launch X431</span>
+        <span class="tool-tag">Multimeter — Fluke</span>
+      </div>
+      <div class="phase-warning">
+        <strong>Do Not Skip Injector Coding</strong>
+        Running the K9K with uncoded injectors causes injector washout, rough idle, white smoke, and potential catalytic damage. The C2I code corrects manufacturing tolerances for each injector's spray pattern. This step cannot be bypassed.
+      </div>
+    </div>
+
+    <!-- PHASE 7 -->
+    <div class="phase-block" id="phase7">
+      <div class="phase-dot"></div>
+      <div class="phase-number">Phase 07 — Fluids, Ancillaries &amp; First Start</div>
+      <div class="phase-title">Fill, Bleed<br>&amp; Fire Up</div>
+      <div class="phase-body">
+        With all connections made and injectors coded, refill all fluids systematically. The cooling system bleed procedure is critical — air pockets in the K9K coolant circuit cause overheating within minutes.
+      </div>
+      <ul class="step-list">
+        <li><span class="step-num">01</span>Fill the engine with 4.2 litres of 5W-40 full synthetic engine oil (e.g. Castrol Edge 5W-40 or Mobil 1 ESP). Check level on the dipstick — must read between min and max.</li>
+        <li><span class="step-num">02</span>Fill the coolant system: use OAT (Organic Acid Technology) coolant mixed 50/50 with distilled water. Fill the expansion tank slowly, leaving the radiator bleed nipple open until coolant appears at the nipple, then close.</li>
+        <li><span class="step-num">03</span>Reconnect the intercooler pipes and air intake. Ensure all clamps are tightened — a loose intercooler pipe means zero boost and a no-power symptom that is frustrating to diagnose.</li>
+        <li><span class="step-num">04</span>Fuel prime procedure: turn ignition ON (no cranking) for 10 seconds, then OFF. Repeat 3 times. This runs the lift pump and fills the fuel rail. On the 4th cycle, crank the engine — it may take 5–8 seconds to start as the rail pressurises for the first time.</li>
+        <li><span class="step-num">05</span>Once running: idle for 10 minutes. Watch the coolant temperature gauge — it should rise to operating temp (90°C) and stabilise. Watch for any oil pressure warning lamp — it must go out within 3 seconds of starting. Check underneath for oil or coolant leaks immediately.</li>
+        <li><span class="step-num">06</span>Connect the OBD scanner and check for live data: fuel rail pressure should be 250–350 bar at idle, MAF should read 12–16 kg/hr at idle, no active fault codes (DTC). Clear any pending/stored codes from the old configuration.</li>
+      </ul>
+      <div class="tool-ref-tags">
+        <span class="tool-tag">Cooling System Pressure Tester</span>
+        <span class="tool-tag warn">OBD2 Scanner — Live Data</span>
+        <span class="tool-tag">Oil Drain Pan</span>
+      </div>
+      <div class="phase-tip">
+        <strong>Cooling Bleed Tip</strong>
+        After initial idle, squeeze the top radiator hose 3–4 times to burp any remaining air pockets. Top up the expansion tank and re-check the coolant level after the engine has fully cooled down (next morning). Coolant typically drops 100–200ml as air purges.
+      </div>
+    </div>
+
+    <!-- PHASE 8 -->
+    <div class="phase-block" id="phase8">
+      <div class="phase-dot"></div>
+      <div class="phase-number">Phase 08 — Break-In, Road Test &amp; Long-Term Care</div>
+      <div class="phase-title">Break In &amp;<br>Commission</div>
+      <div class="phase-body">
+        The K9K is a proven engine with documented longevity exceeding 300,000 km — but this requires disciplined break-in and consistent servicing. The first 1000 km are critical for seating rings and bedding the turbo bearing.
+      </div>
+      <ul class="step-list">
+        <li><span class="step-num">01</span>0–500 km: keep RPM below 3000, avoid sustained full throttle, do not exceed 100 km/h. Vary the engine speed — do not hold one RPM for long stretches. This beds the piston rings.</li>
+        <li><span class="step-num">02</span>Change oil and oil filter at 500 km. This is mandatory — the oil will contain metal particles from the new engine's first seating. Drain hot, refill with 5W-40 full synthetic.</li>
+        <li><span class="step-num">03</span>500–1000 km: gradually extend the RPM range. Try moderate acceleration runs up to 3500 rpm. Check for any developing leaks at the 500 km oil change — turbo oil feed banjo, sump gasket, coolant hoses.</li>
+        <li><span class="step-num">04</span>At 1000 km: scan with the OBD tool again. Check that the ECU has learned adaptive fuel trims (short-term fuel trim should be within ±5%). The ECU takes approximately 800–1000 km to fully relearn the new engine's characteristics.</li>
+        <li><span class="step-num">05</span>Ongoing: change oil every 10,000 km (not 20,000 km as stated for European conditions). Indian roads and fuel quality demand shorter intervals. Change the fuel filter every 20,000 km — the K9K common rail system is sensitive to contaminated fuel.</li>
+        <li><span class="step-num">06</span>Timing belt: replace every 100,000 km. The K9K is an interference engine — a snapped belt bends all 8 valves. Budget for this job and do not defer it.</li>
+      </ul>
+      <div class="tool-ref-tags">
+        <span class="tool-tag">OBD2 Scanner</span>
+        <span class="tool-tag">Torque Wrench</span>
+        <span class="tool-tag warn">Timing Tool Set — at 100,000km</span>
+      </div>
+      <div class="phase-tip">
+        <strong>Turbo Protection</strong>
+        After any long highway run, idle the engine for 2 minutes before switching off. This lets the turbo bearing oil cool and prevents coking. Fit an oil temp gauge if you do regular high-speed highway driving.
+      </div>
+    </div>
+
+  </div><!-- /process-container -->
+</div>
+</section>
+
+<!-- CHECKLIST -->
+<section id="checklist" style="max-width:100%; background: var(--bg);">
+<div style="max-width:1300px; margin:0 auto; padding:80px 0;">
+  <div class="section-header">
+    <div class="section-number">03</div>
+    <div class="section-title-group">
+      <div class="section-tag">Pre &amp; Post Build</div>
+      <div class="section-title">Workshop Checklist</div>
+    </div>
+  </div>
+  <div class="section-divider"></div>
+  <p style="font-size:14px; color:var(--text3); margin-bottom:28px; font-family:'Share Tech Mono',monospace;">Click each item to mark as complete</p>
+
+  <div class="checklist-grid">
+    <div class="checklist-section">
+      <h4>Pre-Swap Checks</h4>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Donor engine compression tested (all 4 cylinders above 25 bar)</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>K9K engine code verified (796 or 884)</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Injector type identified (Delphi or Bosch)</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>All C2I injector codes written down</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>RTO notification / Form 29 filed</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Engine bay photographed (multi-angle)</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>All tools and consumables sourced</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>New engine mount rubbers, driveshaft seals, gaskets ready</span></div>
+    </div>
+
+    <div class="checklist-section">
+      <h4>During Installation</h4>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>All sensor connectors labelled before removal</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Turbo oil feed pre-filled with clean oil before fitment</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>All 3 engine mount bolts hand-threaded before torquing</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Both inner driveshaft oil seals replaced</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Exhaust manifold gasket replaced (new)</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>All 4 injector C2I codes entered into ECU</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Glow plug resistance checked (0.4–0.6 Ω each)</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Intercooler pipe clamps fully tightened</span></div>
+    </div>
+
+    <div class="checklist-section">
+      <h4>First Start Verification</h4>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Oil level on dipstick between min and max</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Coolant expansion tank filled and bled</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Fuel rail primed (3× key-on cycles)</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Oil pressure lamp off within 3 seconds</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Coolant temp reaches 90°C and stabilises</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>No oil or coolant leaks at idle</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>OBD scan: rail pressure 250–350 bar at idle</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>No active fault codes (DTC) after idle</span></div>
+    </div>
+
+    <div class="checklist-section">
+      <h4>Break-In &amp; Long-Term</h4>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Oil change at 500 km (flush run)</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>No leaks detected at 500 km inspection</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>OBD scan at 1000 km — adaptive trims within ±5%</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Oil service every 10,000 km (India conditions)</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Fuel filter at 20,000 km</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Timing belt at 100,000 km (non-negotiable)</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>EGR valve inspection at 60,000 km</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Turbo idle-down habit established</span></div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-note">
+      This guide is for informational and workshop reference purposes. Engine modifications may require regulatory approval in your jurisdiction. Always refer to the OEM workshop manual for torque specifications. Use qualified mechanics for ECU and injector coding if you are unsure. In India, RTO endorsement of engine number changes is a legal requirement.
+    </div>
+    <div class="footer-logo">K9K</div>
+  </div>
+</footer>
+
+<script>
+function toggleCheck(el) {
+  el.classList.toggle('checked');
+}
+
+// Scroll animation for phase blocks
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+document.querySelectorAll('.phase-block').forEach((el, i) => {
+  el.style.transitionDelay = `${i * 0.04}s`;
+  observer.observe(el);
+});
+
+// Nav active state
+const sections = document.querySelectorAll('[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 80) current = s.id;
+  });
+  navLinks.forEach(a => {
+    a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent)' : '';
+    a.style.borderBottomColor = a.getAttribute('href') === '#' + current ? 'var(--accent)' : 'transparent';
+  });
+});
+</script>
+</body>
+</html>
