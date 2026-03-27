@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Upanishads — A Playlist Curriculum</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Tenor+Sans&family=Space+Mono:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1209;
+    --parchment: #f5edd8;
+    --saffron: #e8821a;
+    --deep-saffron: #b85c0a;
+    --terracotta: #c4622d;
+    --ash: #8a7d6b;
+    --lotus: #d4849a;
+    --sky: #5b8fa8;
+    --gold: #c9a84c;
+    --dark-bg: #0e0b07;
+    --panel-bg: #1c160d;
+    --line: rgba(201, 168, 76, 0.25);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--dark-bg);
+    color: var(--parchment);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 30%, rgba(232,130,26,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(91,143,168,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 50% at 80% 70%, rgba(196,98,45,0.07) 0%, transparent 60%);
+  }
+
+  /* Mandala SVG background */
+  .mandala-bg {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px; height: 700px;
+    opacity: 0.04;
+    animation: slowRotate 120s linear infinite;
+  }
+
+  @keyframes slowRotate { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+  .hero-eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.3s forwards;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(3rem, 8vw, 7rem);
+    line-height: 1.0;
+    letter-spacing: -0.01em;
+    color: var(--parchment);
+    opacity: 0;
+    animation: fadeUp 1s ease 0.5s forwards;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--saffron);
+  }
+
+  .hero-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    color: var(--ash);
+    margin-top: 1.5rem;
+    max-width: 600px;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.7s forwards;
+  }
+
+  .hero-meta {
+    margin-top: 3rem;
+    display: flex;
+    gap: 3rem;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.9s forwards;
+  }
+
+  .hero-meta span {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: var(--ash);
+  }
+
+  .hero-meta strong {
+    display: block;
+    font-family: 'Tenor Sans', sans-serif;
+    font-size: 1.3rem;
+    color: var(--gold);
+    letter-spacing: 0;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    color: var(--ash);
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeUp 1s ease 1.2s forwards, pulse 2s ease 2.2s infinite;
+  }
+
+  @keyframes pulse { 0%,100%{opacity:0.4} 50%{opacity:1} }
+  @keyframes fadeUp {
+    from { opacity:0; transform: translateY(24px); }
+    to   { opacity:1; transform: translateY(0); }
+  }
+
+  /* ── INTRO BAND ── */
+  .intro-band {
+    background: var(--panel-bg);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 5rem 2rem;
+    text-align: center;
+  }
+
+  .intro-band p {
+    max-width: 780px;
+    margin: 0 auto 1.5rem;
+    font-size: 1.15rem;
+    color: #c9bda8;
+  }
+
+  .intro-band p:first-child {
+    font-size: 1.4rem;
+    font-style: italic;
+    color: var(--parchment);
+  }
+
+  .contemporary-tags {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+  }
+
+  .tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    padding: 0.3em 0.9em;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    color: var(--gold);
+    background: rgba(201,168,76,0.05);
+    text-transform: uppercase;
+  }
+
+  /* ── MODULES GRID ── */
+  .curriculum {
+    padding: 6rem 2rem;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    color: var(--parchment);
+    margin-bottom: 4rem;
+    line-height: 1.15;
+  }
+
+  .modules-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* ── MODULE CARD ── */
+  .module {
+    border-top: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 80px 1fr 380px;
+    gap: 0;
+    min-height: 280px;
+    transition: background 0.4s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .module:last-child { border-bottom: 1px solid var(--line); }
+
+  .module:hover {
+    background: rgba(255,255,255,0.02);
+  }
+
+  .module:hover .module-illustration svg {
+    opacity: 0.18;
+    transform: scale(1.05);
+  }
+
+  .module-num {
+    padding: 2.5rem 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--ash);
+    letter-spacing: 0.1em;
+    padding-top: 3rem;
+  }
+
+  .module-body {
+    padding: 2.5rem 2.5rem 2.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 1px solid var(--line);
+  }
+
+  .module-header {}
+
+  .module-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.22em;
+    color: var(--saffron);
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+
+  .module-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    color: var(--parchment);
+    line-height: 1.2;
+    margin-bottom: 0.4rem;
+  }
+
+  .module-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .module-meta {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--ash);
+    letter-spacing: 0.08em;
+    margin-bottom: 1.2rem;
+  }
+
+  .module-story {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: #b0a090;
+    margin-bottom: 1.2rem;
+  }
+
+  .module-contemporary {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.05em;
+    color: var(--sky);
+    border-left: 2px solid var(--sky);
+    padding-left: 0.8rem;
+    line-height: 1.6;
+    opacity: 0.85;
+  }
+
+  .module-lessons {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0;
+  }
+
+  .lesson {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .lesson:last-child { border-bottom: none; }
+
+  .lesson-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.55rem;
+    color: var(--ash);
+    padding-top: 0.15rem;
+    min-width: 1.5rem;
+  }
+
+  .lesson-name {
+    font-size: 0.88rem;
+    color: #c9bda8;
+    line-height: 1.4;
+  }
+
+  .module-illustration {
+    position: absolute;
+    right: 390px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.6s, transform 0.6s;
+  }
+
+  /* Color accents per module */
+  .module[data-mod="1"] .module-tag { color: #e8821a; }
+  .module[data-mod="2"] .module-tag { color: #c9a84c; }
+  .module[data-mod="3"] .module-tag { color: #5b8fa8; }
+  .module[data-mod="4"] .module-tag { color: #d4849a; }
+  .module[data-mod="5"] .module-tag { color: #8a9e6a; }
+  .module[data-mod="6"] .module-tag { color: #c4622d; }
+  .module[data-mod="7"] .module-tag { color: #7a6da8; }
+  .module[data-mod="8"] .module-tag { color: #5b8fa8; }
+  .module[data-mod="9"] .module-tag { color: #d4849a; }
+  .module[data-mod="10"] .module-tag { color: #c9a84c; }
+  .module[data-mod="11"] .module-tag { color: #8a9e6a; }
+  .module[data-mod="12"] .module-tag { color: #e8821a; }
+
+  /* ── INTERSTITIAL QUOTE ── */
+  .quote-band {
+    background: var(--panel-bg);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 6rem 2rem;
+    text-align: center;
+  }
+
+  .quote-band blockquote {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+    font-style: italic;
+    font-weight: 300;
+    color: var(--parchment);
+    line-height: 1.5;
+  }
+
+  .quote-band cite {
+    display: block;
+    margin-top: 1.5rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    color: var(--ash);
+    font-style: normal;
+    text-transform: uppercase;
+  }
+
+  /* ── CONTEMPORARY CONNECTIONS ── */
+  .connections {
+    padding: 6rem 2rem;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  .connections-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 3rem;
+  }
+
+  .conn-card {
+    background: var(--panel-bg);
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+
+  .conn-card:hover { background: rgba(255,255,255,0.04); }
+
+  .conn-icon {
+    width: 40px; height: 40px;
+    margin-bottom: 1.5rem;
+    opacity: 0.7;
+  }
+
+  .conn-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 1.25rem;
+    color: var(--parchment);
+    margin-bottom: 0.8rem;
+  }
+
+  .conn-card p {
+    font-size: 0.88rem;
+    color: #9a8e7d;
+    line-height: 1.7;
+  }
+
+  .conn-card .conn-ref {
+    margin-top: 1rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 4rem 2rem;
+    text-align: center;
+    background: var(--panel-bg);
+  }
+
+  footer p {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    color: var(--ash);
+    text-transform: uppercase;
+  }
+
+  footer .footer-mantra {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.4rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 960px) {
+    .module {
+      grid-template-columns: 50px 1fr;
+      grid-template-rows: auto auto;
+    }
+    .module-lessons {
+      grid-column: 1 / -1;
+      border-top: 1px solid var(--line);
+      padding: 1.5rem 2rem;
+    }
+    .module-body { border-right: none; }
+    .connections-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 640px) {
+    .module { grid-template-columns: 40px 1fr; }
+    .hero-meta { flex-direction: column; gap: 1.5rem; }
+    .connections-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── PROGRESS BAR (decorative) ── */
+  .progress-track {
+    width: 100%;
+    height: 2px;
+    background: rgba(255,255,255,0.04);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--saffron), var(--gold));
+    animation: progressGrow 2s ease 1.5s both;
+    transform-origin: left;
+  }
+
+  @keyframes progressGrow {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+
+  <!-- Mandala -->
+  <svg class="mandala-bg" viewBox="0 0 700 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="350" cy="350" r="340" stroke="#c9a84c" stroke-width="0.5"/>
+    <circle cx="350" cy="350" r="280" stroke="#c9a84c" stroke-width="0.5"/>
+    <circle cx="350" cy="350" r="220" stroke="#c9a84c" stroke-width="0.5"/>
+    <circle cx="350" cy="350" r="160" stroke="#c9a84c" stroke-width="0.5"/>
+    <circle cx="350" cy="350" r="100" stroke="#c9a84c" stroke-width="0.5"/>
+    <circle cx="350" cy="350" r="50" stroke="#c9a84c" stroke-width="0.5"/>
+    <!-- 8 petals -->
+    <path d="M350 10 Q380 180 350 350 Q320 180 350 10Z" stroke="#c9a84c" stroke-width="0.5" fill="none"/>
+    <path d="M690 350 Q520 380 350 350 Q520 320 690 350Z" stroke="#c9a84c" stroke-width="0.5" fill="none"/>
+    <path d="M350 690 Q320 520 350 350 Q380 520 350 690Z" stroke="#c9a84c" stroke-width="0.5" fill="none"/>
+    <path d="M10 350 Q180 320 350 350 Q180 380 10 350Z" stroke="#c9a84c" stroke-width="0.5" fill="none"/>
+    <path d="M591 109 Q440 280 350 350 Q420 200 591 109Z" stroke="#c9a84c" stroke-width="0.5" fill="none"/>
+    <path d="M591 591 Q420 440 350 350 Q480 420 591 591Z" stroke="#c9a84c" stroke-width="0.5" fill="none"/>
+    <path d="M109 591 Q260 420 350 350 Q280 480 109 591Z" stroke="#c9a84c" stroke-width="0.5" fill="none"/>
+    <path d="M109 109 Q280 260 350 350 Q200 280 109 109Z" stroke="#c9a84c" stroke-width="0.5" fill="none"/>
+  </svg>
+
+  <p class="hero-eyebrow">Playlist Curriculum · Twelve Modules</p>
+  <h1>The <em>Upanishads</em></h1>
+  <p class="hero-sub">From the forests of ancient India to the questions that haunt the twenty-first century — a journey through the oldest continuous inquiry into the nature of consciousness.</p>
+
+  <div class="hero-meta">
+    <div><span>Total Lessons</span><strong>64</strong></div>
+    <div><span>Total Duration</span><strong>~17 hrs</strong></div>
+    <div><span>Modules</span><strong>12</strong></div>
+  </div>
+
+  <div class="scroll-hint">↓ Begin the inquiry</div>
+</section>
+
+<div class="progress-track"><div class="progress-fill"></div></div>
+
+<!-- INTRO -->
+<section class="intro-band">
+  <p>"The Upanishads are not answers. They are the most refined questions humanity has ever learned to ask — and they are being asked again."</p>
+  <p>Three thousand years ago, in the forests and royal courts of the Gangetic plain, thinkers began dismantling every comfortable assumption about identity, reality, and death. What they found — or what found them — would become the bedrock of Hindu philosophy, shape Buddhism and Jainism, astonish Schopenhauer, electrify Thoreau, ignite the Indian independence movement, and now pulse quietly inside debates about consciousness, AI sentience, climate ethics, and the search for meaning in a secular age.</p>
+  <p>This curriculum moves through twelve progressively deepening modules, from the archaeological world of the Vedas to the subtlest reaches of Advaita metaphysics — always keeping one eye on the contemporary horizon.</p>
+  <div class="contemporary-tags">
+    <span class="tag">Consciousness Science</span>
+    <span class="tag">Integrated Information Theory</span>
+    <span class="tag">Climate Ethics</span>
+    <span class="tag">AI Sentience</span>
+    <span class="tag">Decolonial Thought</span>
+    <span class="tag">Effective Altruism</span>
+    <span class="tag">Quantum Foundations</span>
+    <span class="tag">Hard Problem</span>
+    <span class="tag">Psychedelic Research</span>
+    <span class="tag">Buddhist Modernism</span>
+    <span class="tag">Non-dualism</span>
+    <span class="tag">Systems Thinking</span>
+  </div>
+</section>
+
+<!-- MODULES -->
+<section class="curriculum">
+  <p class="section-label">The Twelve Modules</p>
+  <h2 class="section-title">From origins to integration —<br><em>a complete arc of inquiry</em></h2>
+
+  <div class="modules-list">
+
+    <!-- MODULE 01 -->
+    <div class="module" data-mod="1">
+      <div class="module-num">01</div>
+      <div class="module-body">
+        <div class="module-header">
+          <div class="module-tag">Foundations · History · Archaeology</div>
+          <h3 class="module-title">Origins — <em>The World of the Vedas</em></h3>
+          <div class="module-meta">5 lessons · 72 min</div>
+          <p class="module-story">
+            Picture the Indus Valley, circa 1500 BCE: pastoral settlements on the banks of the Saraswati and Gangā, where wandering poet-priests — the <em>ṛṣis</em> — composed hymns to fire, sky, and soma in a language so precise it still governs Sanskrit grammar. They did not claim to invent these hymns; they said they <em>heard</em> them. The Vedas are <em>śruti</em> — "that which is heard" — as if the cosmos itself were dictating to an attentive ear. The Rigveda's famous Nasadiya Sukta (Creation Hymn) ends not with an answer but with a question: "Who really knows? Who will here proclaim it? Whence was it produced? … Perhaps it formed itself, or perhaps it did not — the one who looks down on it, in the highest heaven, only he knows — or perhaps he does not know."
+          </p>
+          <p class="module-story">
+            This opening module places you inside that living oral culture — the <em>yajña</em> (ritual fire sacrifice), the gurukula (forest learning community), the tension between Vedic orthodoxy and the radical questionings that would produce the Upanishads. Archaeologically, we draw on recent findings from the Rakhigarhi DNA study (2019) and the ongoing debates about the Aryan Migration Theory to understand who these people actually were.
+          </p>
+          <div class="module-contemporary">
+            ↳ Contemporary resonance: The search for origins parallels today's ancient DNA genomics (David Reich's <em>Who We Are and How We Got Here</em>, 2018) and the political battles over India's Hindutva historiography. The oral tradition speaks directly to debates about embodied cognition and non-textual knowledge in education theory.
+          </div>
+        </div>
+      </div>
+      <div class="module-lessons">
+        <div class="lesson"><span class="lesson-num">1.1</span><span class="lesson-name">The Vedic World — Geography, Society & Ritual Life</span></div>
+        <div class="lesson"><span class="lesson-num">1.2</span><span class="lesson-name">The Four Vedas — Samhitā, Brāhmaṇa, Āraṇyaka</span></div>
+        <div class="lesson"><span class="lesson-num">1.3</span><span class="lesson-name">The Ṛṣis & the Oral Tradition — Hearing the Cosmos</span></div>
+        <div class="lesson"><span class="lesson-num">1.4</span><span class="lesson-name">The Nasadiya Sūkta — Creation's Unanswerable Question</span></div>
+        <div class="lesson"><span class="lesson-num">1.5</span><span class="lesson-name">Bridge to the Upanishads — Why the Vedas Were Not Enough</span></div>
+      </div>
+    </div>
+
+    <!-- MODULE 02 -->
+    <div class="module" data-mod="2">
+      <div class="module-num">02</div>
+      <div class="module-body">
+        <div class="module-header">
+          <div class="module-tag">Metaphysics · Cosmology · Ontology</div>
+          <h3 class="module-title"><em>Brahman</em> — The Ground of All Being</h3>
+          <div class="module-meta">6 lessons · 90 min</div>
+          <p class="module-story">
+            The Taittirīya Upanishad describes a young student, Bhṛgu, returning to his father Varuṇa three times after meditation, each time believing he has found Brahman — first in food (matter), then in life-force, then in mind, then in consciousness — only to be sent back to meditate again. The final answer, which the text withholds, is <em>ānanda</em>: bliss. Not pleasure, but the unconditional okayness that underlies existence itself. Brahman is not a God who speaks from a burning bush. It is the hum that was already there before any bush, any voice, any ear.
+          </p>
+          <p class="module-story">
+            This module builds the philosophical architecture of Brahman — as <em>sat-cit-ānanda</em> (being-consciousness-bliss), as the ineffable ground that cannot be made into an object, as the target of the famous Neti Neti ("not this, not this") negation. We contrast it with the Abrahamic personal God and Spinoza's <em>deus sive natura</em>, and we examine why modern physicists like Carlo Rovelli and Julian Barbour keep accidentally writing Upanishadic cosmology.
+          </p>
+          <div class="module-contemporary">
+            ↳ Contemporary resonance: Sean Carroll's "poetic naturalism," Max Tegmark's Mathematical Universe Hypothesis, and the debate in quantum gravity over whether spacetime is fundamental or emergent — all echo the Brahman-as-ground thesis. Ecological philosopher Andreas Weber's "Enlivenment" invokes a biological version of sat-cit-ānanda.
+          </div>
+        </div>
+      </div>
+      <div class="module-lessons">
+        <div class="lesson"><span class="lesson-num">2.1</span><span class="lesson-name">What Is Brahman? — The Unspeakable Made Speakable</span></div>
+        <div class="lesson"><span class="lesson-num">2.2</span><span class="lesson-name">Sat-Cit-Ānanda — Being, Consciousness, Bliss</span></div>
+        <div class="lesson"><span class="lesson-num">2.3</span><span class="lesson-name">Neti Neti — The Apophatic Method</span></div>
+        <div class="lesson"><span class="lesson-num">2.4</span><span class="lesson-name">Saguṇa vs Nirguṇa — With and Without Qualities</span></div>
+        <div class="lesson"><span class="lesson-num">2.5</span><span class="lesson-name">Brahman & the Cosmos — Cosmogony in the Upanishads</span></div>
+        <div class="lesson"><span class="lesson-num">2.6</span><span class="lesson-name">Brahman vs God — Comparative Theology</span></div>
+      </div>
+    </div>
+
+    <!-- MODULE 03 -->
+    <div class="module" data-mod="3">
+      <div class="module-num">03</div>
+      <div class="module-body">
+        <div class="module-header">
+          <div class="module-tag">Philosophy of Mind · Identity · Self</div>
+          <h3 class="module-title"><em>Ātman</em> — The Nature of the Self</h3>
+          <div class="module-meta">6 lessons · 86 min</div>
+          <p class="module-story">
+            Yājñavalkya's wife Maitreyī asks him a question that would stop any philosopher cold: "If the whole earth, full of wealth, were mine, would I be immortal through it?" He says: no. She says: then tell me what will make me immortal. What follows, the teaching of Ātman, is one of the most extraordinary dialogues in human intellectual history — a husband dismantling every object his wife might mistake for a self: the beloved, the children, the gods, the cosmos, until only the witnessing awareness remains, which cannot be witnessed from outside itself.
+          </p>
+          <p class="module-story">
+            Ātman is not the ego, not the personality, not the individual soul in the Christian sense. It is pure witnessing awareness — the "seer that cannot be seen, the hearer that cannot be heard." This module maps the five sheaths (<em>pañcakośa</em>), the nature of the witness, and the famous paradox: Ātman = Brahman. The individual awareness and the ground of all being are, upon investigation, the same thing.
+          </p>
+          <div class="module-contemporary">
+            ↳ Contemporary resonance: David Chalmers' "hard problem of consciousness," Thomas Nagel's "What is it like to be a bat?", and Annaka Harris's <em>Conscious</em> all circle the Ātman question. AI consciousness debates — can GPT-4 or Claude have an "inner witness"? — make this the most practically urgent module in the curriculum.
+          </div>
+        </div>
+      </div>
+      <div class="module-lessons">
+        <div class="lesson"><span class="lesson-num">3.1</span><span class="lesson-name">Maitreyī's Question — The Inquiry Begins</span></div>
+        <div class="lesson"><span class="lesson-num">3.2</span><span class="lesson-name">The Five Sheaths — Pañcakośa Viveka</span></div>
+        <div class="lesson"><span class="lesson-num">3.3</span><span class="lesson-name">The Witness — Sākṣī Consciousness</span></div>
+        <div class="lesson"><span class="lesson-num">3.4</span><span class="lesson-name">Ātman is Not the Ego — Unpacking Identity</span></div>
+        <div class="lesson"><span class="lesson-num">3.5</span><span class="lesson-name">Ātman = Brahman — The Radical Equation</span></div>
+        <div class="lesson"><span class="lesson-num">3.6</span><span class="lesson-name">Ātman & Modern Neuroscience — Self Illusion or Self Real?</span></div>
+      </div>
+    </div>
+
+    <!-- MODULE 04 -->
+    <div class="module" data-mod="4">
+      <div class="module-num">04</div>
+      <div class="module-body">
+        <div class="module-header">
+          <div class="module-tag">Language · Linguistics · Semiotics</div>
+          <h3 class="module-title">The Four <em>Mahāvākyas</em> — Great Sayings</h3>
+          <div class="module-meta">5 lessons · 70 min</div>
+          <p class="module-story">
+            Four sentences. The entire Vedanta can be distilled into four sentences, one from each of the four Vedas, each functioning less like a proposition and more like a koan — a statement so dense it requires a lifetime of return visits. <em>Prajñānam Brahma</em> (Consciousness is Brahman). <em>Aham Brahmāsmi</em> (I am Brahman). <em>Tat tvam asi</em> (That thou art). <em>Ayam Ātmā Brahma</em> (This Self is Brahman). They say the same thing from four angles, like four climbers approaching a summit from different ridges.
+          </p>
+          <p class="module-story">
+            <em>Tat tvam asi</em> — "That thou art" — is perhaps the most philosophically explosive sentence in world literature. When Uddālaka tells his son Śvetaketu "you are that," he is saying: the same source from which the universe arises is the same source from which you arise. You are not a fragment of the whole. You are the whole, appearing as a fragment. Schopenhauer called this the "key to all wisdom."
+          </p>
+          <div class="module-contemporary">
+            ↳ Contemporary resonance: Wittgenstein's limits of language, Derrida's critique of presence, and the way large language models force us to ask whether meaning lives in words or in something prior to them — all orbit the Mahāvākyas' claim that the deepest truth cannot be stated but only <em>indicated</em>. Also: Barack Obama's "We are the ones we've been waiting for" as an unconscious echo of Aham Brahmāsmi.
+          </div>
+        </div>
+      </div>
+      <div class="module-lessons">
+        <div class="lesson"><span class="lesson-num">4.1</span><span class="lesson-name">Prajñānam Brahma — Consciousness as Brahman (Aitareya)</span></div>
+        <div class="lesson"><span class="lesson-num">4.2</span><span class="lesson-name">Aham Brahmāsmi — I am Brahman (Bṛhadāraṇyaka)</span></div>
+        <div class="lesson"><span class="lesson-num">4.3</span><span class="lesson-name">Tat Tvam Asi — That Thou Art (Chāndogya)</span></div>
+        <div class="lesson"><span class="lesson-num">4.4</span><span class="lesson-name">Ayam Ātmā Brahma — This Self is Brahman (Māṇḍūkya)</span></div>
+        <div class="lesson"><span class="lesson-num">4.5</span><span class="lesson-name">Language, Silence & the Unsayable</span></div>
+      </div>
+    </div>
+
+    <!-- MODULE 05 -->
+    <div class="module" data-mod="5">
+      <div class="module-num">05</div>
+      <div class="module-body">
+        <div class="module-header">
+          <div class="module-tag">Text Study · Gender · Power · Dialogue</div>
+          <h3 class="module-title">The <em>Bṛhadāraṇyaka</em> Upanishad</h3>
+          <div class="module-meta">7 lessons · 105 min</div>
+          <p class="module-story">
+            The largest and arguably the oldest of the Upanishads, the Bṛhadāraṇyaka ("Great Forest Text") is also the strangest — part liturgical manual, part royal court drama, part philosophical thriller. The philosopher Yājñavalkya dominates it like a comet, speaking in koans, winning debates by terrifying the questioner into silence, and then, in a scene of remarkable intimacy, teaching his wife Maitreyī the nature of the self before walking into the forest alone.
+          </p>
+          <p class="module-story">
+            But we also meet Gārgī Vācaknavī — a female philosopher who challenges Yājñavalkya twice in the royal debate hall, pushing him past cosmology into the ground of being itself. When he finally tells her she will "lose her head" if she asks one more question, you feel the electric charge of a mind meeting its limit. Gārgī is one of the earliest named women intellectuals in any literary tradition. Her presence here — questioning, fearless, precise — is a standing challenge to any narrative that makes Indian philosophy monolithically patriarchal.
+          </p>
+          <div class="module-contemporary">
+            ↳ Contemporary resonance: The Bṛhadāraṇyaka's dream analysis (dreams as a middle world between waking and deep sleep) anticipates Freud and is now being revisited in light of Anil Seth's predictive processing theory of consciousness. Gārgī's sidelining after the debate mirrors contemporary #MeToo dynamics in academic philosophy departments.
+          </div>
+        </div>
+      </div>
+      <div class="module-lessons">
+        <div class="lesson"><span class="lesson-num">5.1</span><span class="lesson-name">Entering the Great Forest Text — Structure & Context</span></div>
+        <div class="lesson"><span class="lesson-num">5.2</span><span class="lesson-name">Yājñavalkya's Cosmology — Threading the Worlds</span></div>
+        <div class="lesson"><span class="lesson-num">5.3</span><span class="lesson-name">Gārgī's Challenge — A Woman at the Limits</span></div>
+        <div class="lesson"><span class="lesson-num">5.4</span><span class="lesson-name">Maitreyī & Yājñavalkya — Love and Ultimacy</span></div>
+        <div class="lesson"><span class="lesson-num">5.5</span><span class="lesson-name">The Honey Doctrine — The World Tasting Itself</span></div>
+        <div class="lesson"><span class="lesson-num">5.6</span><span class="lesson-name">Death, Dream & Deep Sleep — Three Modes of Being</span></div>
+        <div class="lesson"><span class="lesson-num">5.7</span><span class="lesson-name">The Final Teaching — Dā Dā Dā (Restrain, Give, Have Compassion)</span></div>
+      </div>
+    </div>
+
+    <!-- MODULE 06 -->
+    <div class="module" data-mod="6">
+      <div class="module-num">06</div>
+      <div class="module-body">
+        <div class="module-header">
+          <div class="module-tag">Cosmology · Music · The Subtle Body</div>
+          <h3 class="module-title">The <em>Chāndogya</em> Upanishad</h3>
+          <div class="module-meta">6 lessons · 92 min</div>
+          <p class="module-story">
+            The Chāndogya begins with Om — not as a religious symbol but as a philosophical problem. What is the primordial sound? Not a sound made by a mouth, but the sound that makes mouths possible. From this sonic cosmology, the text unfolds through a dazzling series of stories: Satyakāma, a boy of unknown parentage who is accepted into the gurukula on the basis of his honesty alone (a subtle blow against caste purity); Uddālaka teaching Śvetaketu the unity of all existence through the example of salt dissolved in water; the story of the young Brahmin who is sent away by his father, learns everything about the external world, and returns smug — only to be told he does not know the one thing worth knowing.
+          </p>
+          <p class="module-story">
+            The Chāndogya also contains the Pañcāgni Vidyā — the "Five-Fire Doctrine" — which maps the journey of the soul through five cosmic fires (sky, rain, earth, man, woman), a teaching about the cycle of existence that is both ecological and eschatological. The cosmos is not a machine but a metabolism.
+          </p>
+          <div class="module-contemporary">
+            ↳ Contemporary resonance: Satyakāma's story is the ancient India version of debates around affirmative action and "merit" (cf. Michael Sandel's <em>The Tyranny of Merit</em>, 2020). The Five-Fire Doctrine resonates with systems ecology and the Gaia hypothesis. Rupert Sheldrake's morphic resonance is an unwitting version of the Chāndogya's field theory of consciousness.
+          </div>
+        </div>
+      </div>
+      <div class="module-lessons">
+        <div class="lesson"><span class="lesson-num">6.1</span><span class="lesson-name">The Power of Om — Sonic Cosmology</span></div>
+        <div class="lesson"><span class="lesson-num">6.2</span><span class="lesson-name">Satyakāma — Truthfulness, Caste & the Guru</span></div>
+        <div class="lesson"><span class="lesson-num">6.3</span><span class="lesson-name">Salt in Water — The Dissolution of Separateness</span></div>
+        <div class="lesson"><span class="lesson-num">6.4</span><span class="lesson-name">The Five-Fire Doctrine — A Cosmic Ecology</span></div>
+        <div class="lesson"><span class="lesson-num">6.5</span><span class="lesson-name">Tat Tvam Asi — Its Full Context in the Chāndogya</span></div>
+        <div class="lesson"><span class="lesson-num">6.6</span><span class="lesson-name">The Chāndogya's Ethics — Satya, Tapas, Dāna</span></div>
+      </div>
+    </div>
+
+    <!-- MODULE 07 -->
+    <div class="module" data-mod="7">
+      <div class="module-num">07</div>
+      <div class="module-body">
+        <div class="module-header">
+          <div class="module-tag">Death · Desire · The Heroic Path</div>
+          <h3 class="module-title">The <em>Kaṭha</em> Upanishad — Death as Teacher</h3>
+          <div class="module-meta">5 lessons · 78 min</div>
+          <p class="module-story">
+            A young boy named Naciketas is sent — half accidentally, half in anger — to the house of Yama, the god of death. Death is away for three days. When he returns and finds a Brahmin boy waiting, he is alarmed — a guest left unhoused is a fire that burns the householder. He offers Naciketas three boons. The boy's first two boons are practical. His third is the secret of what lies beyond death. Yama tries everything to dissuade him: piles of wealth, kingdoms, the most beautiful women in the three worlds. Naciketas refuses each in turn. "All these things perish. What does not?"
+          </p>
+          <p class="module-story">
+            What Yama finally teaches is the doctrine of the Ātman as <em>aṇor aṇīyān mahato mahīyān</em> — "smaller than the smallest, larger than the largest" — the famous image of the self as the rider of the chariot of the body, with intellect as charioteer, mind as reins, and the senses as horses. This chariot allegory will echo in Plato's Phaedrus, the Bhagavad Gita's battlefield, and — startlingly — in the neural architecture metaphors of contemporary cognitive science.
+          </p>
+          <div class="module-contemporary">
+            ↳ Contemporary resonance: Ernest Becker's <em>Denial of Death</em>, Terror Management Theory (Greenberg, Solomon, Pyszczynski), and the modern death-awareness movement (<em>The Death Positive Movement</em>, Caitlin Doughty) are all incomplete approaches to the question Naciketas had the audacity to ask directly. Also: palliative care ethics, MAID (Medical Assistance in Dying) debates.
+          </div>
+        </div>
+      </div>
+      <div class="module-lessons">
+        <div class="lesson"><span class="lesson-num">7.1</span><span class="lesson-name">Naciketas at Death's Door — The Story & Its Stakes</span></div>
+        <div class="lesson"><span class="lesson-num">7.2</span><span class="lesson-name">The Shreyas vs Preyas — What is Good vs What is Pleasant</span></div>
+        <div class="lesson"><span class="lesson-num">7.3</span><span class="lesson-name">The Chariot Allegory — Body, Mind, Self</span></div>
+        <div class="lesson"><span class="lesson-num">7.4</span><span class="lesson-name">Smaller Than the Smallest — The Paradox of Ātman</span></div>
+        <div class="lesson"><span class="lesson-num">7.5</span><span class="lesson-name">Death as Teacher — Mortality & the Examined Life</span></div>
+      </div>
+    </div>
+
+    <!-- MODULE 08 -->
+    <div class="module" data-mod="8">
+      <div class="module-num">08</div>
+      <div class="module-body">
+        <div class="module-header">
+          <div class="module-tag">Consciousness · Sleep · Non-duality</div>
+          <h3 class="module-title"><em>Māṇḍūkya</em> Upanishad — Four States of Consciousness</h3>
+          <div class="module-meta">5 lessons · 80 min</div>
+          <p class="module-story">
+            The shortest of the major Upanishads — twelve verses — and according to Gauḍapāda (the teacher of Śaṅkarācārya's teacher), sufficient alone for liberation. The Māṇḍūkya maps four states of consciousness through the syllable AUM: waking (A), dreaming (U), deep sleep (M), and the fourth — <em>Turīya</em> — which is not a state at all but the witnessing awareness that underlies and transcends the other three, like the screen that remains constant while waking, dream, and dreamless sleep play out upon it.
+          </p>
+          <p class="module-story">
+            Gauḍapāda's commentary, the Māṇḍūkya Kārikā, takes this further into <em>ajātivāda</em> — the doctrine of non-origination: nothing has ever truly come into existence. The universe as we know it is like a dream. This is not nihilism — it is the most radical non-dualism ever formulated. Śaṅkara would build his Advaita Vedānta on this, and modern philosophers from Schopenhauer to Timothy Sprigge to Bernardo Kastrup keep rediscovering it from the inside.
+          </p>
+          <div class="module-contemporary">
+            ↳ Contemporary resonance: The neuroscience of sleep stages (NREM, REM) and the emerging research on "default mode network" as possibly the neural substrate of self — Judson Brewer's work on self-referential processing, and Andrew Huberman's sleep protocols — all lead back to the Māṇḍūkya's question: what exactly is consciousness doing when the ego is offline?
+          </div>
+        </div>
+      </div>
+      <div class="module-lessons">
+        <div class="lesson"><span class="lesson-num">8.1</span><span class="lesson-name">AUM — The Cosmic Syllable as Map</span></div>
+        <div class="lesson"><span class="lesson-num">8.2</span><span class="lesson-name">Waking & Dreaming — Viśva and Taijasa</span></div>
+        <div class="lesson"><span class="lesson-num">8.3</span><span class="lesson-name">Deep Sleep — Prājña and the Causal Body</span></div>
+        <div class="lesson"><span class="lesson-num">8.4</span><span class="lesson-name">Turīya — The Fourth That Is Not a State</span></div>
+        <div class="lesson"><span class="lesson-num">8.5</span><span class="lesson-name">Ajātivāda — The Doctrine of Non-Origination</span></div>
+      </div>
+    </div>
+
+    <!-- MODULE 09 -->
+    <div class="module" data-mod="9">
+      <div class="module-num">09</div>
+      <div class="module-body">
+        <div class="module-header">
+          <div class="module-tag">Ethics · Time · Causality · Freedom</div>
+          <h3 class="module-title">Karma, Rebirth & Liberation</h3>
+          <div class="module-meta">6 lessons · 88 min</div>
+          <p class="module-story">
+            Karma is not punishment. It is not destiny. It is the most rigorous causal law in any philosophical tradition: every action (including mental action) produces a tendency (<em>saṃskāra</em>) that shapes future experience. No divine forgiveness can cancel it. No social status exempts you from it. And yet — here is the twist — the very awareness that witnesses karma is beyond karma. The Ātman, pure witnessing consciousness, does not accrue karma, any more than a mirror accrues the images that pass through it.
+          </p>
+          <p class="module-story">
+            Rebirth (<em>saṃsāra</em>) in the Upanishads is not a consoling doctrine about reunion in heaven. It is a grim analysis of the human condition: we keep being reborn because we keep confusing the ego for the self, keep grasping at objects for the peace that only pure being provides. Liberation (<em>mokṣa</em>) is not escape to somewhere else. It is the recognition — right here, right now — that you were never bound. <em>Videhamukti</em> (liberation at death) and <em>jīvanmukti</em> (liberation while alive) are both possible. The latter is the richer teaching.
+          </p>
+          <div class="module-contemporary">
+            ↳ Contemporary resonance: The neuroscience of habit formation (Charles Duhigg's <em>The Power of Habit</em>) is a secular karma theory. Climate change ethics requires karmic thinking across generations. Thomas Piketty's intergenerational wealth analysis is an economic saṃsāra. And the reparations debate — who bears responsibility for ancestral actions — is karma theory applied to nations.
+          </div>
+        </div>
+      </div>
+      <div class="module-lessons">
+        <div class="lesson"><span class="lesson-num">9.1</span><span class="lesson-name">What Karma Actually Means — Beyond Pop Philosophy</span></div>
+        <div class="lesson"><span class="lesson-num">9.2</span><span class="lesson-name">Saṃskāras — Mental Grooves and Habits</span></div>
+        <div class="lesson"><span class="lesson-num">9.3</span><span class="lesson-name">Rebirth — The Evidence and the Philosophy</span></div>
+        <div class="lesson"><span class="lesson-num">9.4</span><span class="lesson-name">Mokṣa — Liberation's Many Meanings</span></div>
+        <div class="lesson"><span class="lesson-num">9.5</span><span class="lesson-name">Jīvanmukti — The Living Free</span></div>
+        <div class="lesson"><span class="lesson-num">9.6</span><span class="lesson-name">Karma, Free Will & Determinism — The Philosophical Problem</span></div>
+      </div>
+    </div>
+
+    <!-- MODULE 10 -->
+    <div class="module" data-mod="10">
+      <div class="module-num">10</div>
+      <div class="module-body">
+        <div class="module-header">
+          <div class="module-tag">Hermeneutics · Comparative Philosophy · Schools</div>
+          <h3 class="module-title">Vedānta Schools — Interpreting the Upanishads</h3>
+          <div class="module-meta">5 lessons · 75 min</div>
+          <p class="module-story">
+            The same texts. Radically different conclusions. Śaṅkara (8th c. CE), the most formidable intellect in Indian philosophy, reads the Upanishads and concludes: <em>Advaita</em> — there is only one, undivided, non-dual reality. Brahman alone is real. The world is <em>māyā</em> — not illusion exactly, but appearance, like a rope mistaken for a snake in dim light. Three centuries later, Rāmānuja reads the same texts and says: no, the world and individual souls are real — they are the body of Brahman. This is <em>Viśiṣṭādvaita</em>, qualified non-dualism. Then Madhva says: God, souls, and world are eternally distinct. <em>Dvaita</em> — pure dualism.
+          </p>
+          <p class="module-story">
+            This is not merely academic. These three interpretations generate entirely different ethics, different paths of practice, and different answers to the question "why does suffering exist?" They also correspond, with uncanny precision, to the three major positions in contemporary philosophy of mind: eliminative materialism, property dualism, and substance dualism.
+          </p>
+          <div class="module-contemporary">
+            ↳ Contemporary resonance: The Advaita-Dvaita debate maps onto the realism vs anti-realism debate in physics (is the wave-function real?). Rāmānuja's theology resembles process philosophy (Whitehead, Hartshorne) and has been invoked in ecotheology and deep ecology. Madhva's strict dualism resonates with the theistic traditions that dominate global religion.
+          </div>
+        </div>
+      </div>
+      <div class="module-lessons">
+        <div class="lesson"><span class="lesson-num">10.1</span><span class="lesson-name">Śaṅkara & Advaita — The Non-Dual Reading</span></div>
+        <div class="lesson"><span class="lesson-num">10.2</span><span class="lesson-name">Māyā — Not Illusion, But This</span></div>
+        <div class="lesson"><span class="lesson-num">10.3</span><span class="lesson-name">Rāmānuja & Viśiṣṭādvaita — God Has a Body</span></div>
+        <div class="lesson"><span class="lesson-num">10.4</span><span class="lesson-name">Madhva & Dvaita — The Case for Eternal Distinction</span></div>
+        <div class="lesson"><span class="lesson-num">10.5</span><span class="lesson-name">Comparing the Schools — What is Actually at Stake</span></div>
+      </div>
+    </div>
+
+    <!-- MODULE 11 -->
+    <div class="module" data-mod="11">
+      <div class="module-num">11</div>
+      <div class="module-body">
+        <div class="module-header">
+          <div class="module-tag">Modernity · Science · Social Justice · Global Thought</div>
+          <h3 class="module-title">Upanishads in the Modern World</h3>
+          <div class="module-meta">4 lessons · 60 min</div>
+          <p class="module-story">
+            In 1893, a young monk from Bengal walked onto a stage at the Parliament of World Religions in Chicago, addressed the audience as "Sisters and brothers of America," and was met with a two-minute standing ovation before he had said another word. Swami Vivekananda — trained in the Advaita Vedanta of Ramakrishna — would spend the next decade planting Upanishadic ideas in the soil of Western intellectual culture. Thoreau had already been there. Emerson. Later, Aldous Huxley's <em>Perennial Philosophy</em>. J. Robert Oppenheimer, watching the Trinity test, whispered a line from the Bhagavad Gita: "Now I am become Death, the destroyer of worlds." The Upanishads have been present at the birth of modernity, at its horrors, and at its most searching self-questionings.
+          </p>
+          <p class="module-story">
+            But the encounter has not been innocent. Orientalism (Said), romanticization, and the extraction of "wisdom" divorced from its social context — including the caste system the Upanishads were partially used to justify — require honest reckoning. B.R. Ambedkar, the Dalit leader and author of the Indian Constitution, rejected the Vedas and Upanishads precisely for their complicity in Brahminical supremacy. Any contemporary engagement with these texts must hold both possibilities: liberation and oppression, simultaneously real.
+          </p>
+          <div class="module-contemporary">
+            ↳ Contemporary resonance: Mindfulness-Based Stress Reduction (Jon Kabat-Zinn) as a secular Upanishadic practice. Sam Harris's <em>Waking Up</em>. Yuval Noah Harari's Buddhism-inflected techno-pessimism. Decolonial critiques (Frantz Fanon, Audre Lorde) applied to spiritual traditions. The commodification of yoga and meditation in wellness capitalism.
+          </div>
+        </div>
+      </div>
+      <div class="module-lessons">
+        <div class="lesson"><span class="lesson-num">11.1</span><span class="lesson-name">Vivekananda, Emerson & the Western Reception</span></div>
+        <div class="lesson"><span class="lesson-num">11.2</span><span class="lesson-name">Ambedkar's Critique — Caste, Scripture & Liberation</span></div>
+        <div class="lesson"><span class="lesson-num">11.3</span><span class="lesson-name">Upanishads & Science — Consciousness, Quantum Mechanics & AI</span></div>
+        <div class="lesson"><span class="lesson-num">11.4</span><span class="lesson-name">Secular Vedanta — Practising Without Belief</span></div>
+      </div>
+    </div>
+
+    <!-- MODULE 12 -->
+    <div class="module" data-mod="12">
+      <div class="module-num">12</div>
+      <div class="module-body">
+        <div class="module-header">
+          <div class="module-tag">Practice · Integration · Living Philosophy</div>
+          <h3 class="module-title">Integration & Continuing Practice</h3>
+          <div class="module-meta">4 lessons · 55 min</div>
+          <p class="module-story">
+            The Upanishads do not end. They loop. Yājñavalkya's teaching to Maitreyī does not conclude; it opens outward into everything — into every act of noticing that the one who is noticing is not itself noticeable, into every moment of recognizing that the hunger for permanence is seeking what is already the case. The curriculum closes not with a summary but with a practice architecture: how to carry these ideas into daily life, how to create the conditions for genuine inquiry, and how to stay honest about the difference between intellectual understanding (which the Sanskrit tradition calls <em>parokṣa jñāna</em>) and direct recognition (<em>aparokṣānubhūti</em>).
+          </p>
+          <p class="module-story">
+            The Mundaka Upanishad distinguishes between <em>parā vidyā</em> (higher knowledge — the knowledge of Brahman) and <em>aparā vidyā</em> (lower knowledge — all the sciences, arts, and conventional learning). The point is not that the sciences are worthless. It is that they do not answer the question that matters most: who is the one doing the learning? That question — alive in you, right now — is the beginning and the end of the inquiry.
+          </p>
+          <div class="module-contemporary">
+            ↳ Contemporary resonance: Contemplative science (Richard Davidson, Clifford Saron), the emerging field of "second-person neuroscience," psychedelic-assisted therapy's non-dual states (Robin Carhart-Harris's REBUS model), and the growing movement toward contemplative education in universities (Brown's Contemplative Studies, Naropa University) — all represent institutionalized forms of this final integration.
+          </div>
+        </div>
+      </div>
+      <div class="module-lessons">
+        <div class="lesson"><span class="lesson-num">12.1</span><span class="lesson-name">Parā & Aparā Vidyā — Two Kinds of Knowing</span></div>
+        <div class="lesson"><span class="lesson-num">12.2</span><span class="lesson-name">Daily Practice — Śravaṇa, Manana, Nididhyāsana</span></div>
+        <div class="lesson"><span class="lesson-num">12.3</span><span class="lesson-name">The Inquiry — Who Am I? (Ramana Maharshi's Method)</span></div>
+        <div class="lesson"><span class="lesson-num">12.4</span><span class="lesson-name">Continuing the Journey — Resources, Communities, Lineages</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- QUOTE BAND -->
+<div class="quote-band">
+  <blockquote>
+    "From joy all beings are born, by joy they are all sustained, and into joy they all return."
+  </blockquote>
+  <cite>— Taittirīya Upanishad 3.6.1</cite>
+</div>
+
+<!-- CONTEMPORARY CONNECTIONS -->
+<section class="connections">
+  <p class="section-label">Bridges to the Contemporary</p>
+  <h2 class="section-title">Where ancient inquiry<br><em>meets the present moment</em></h2>
+
+  <div class="connections-grid">
+
+    <div class="conn-card">
+      <svg class="conn-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="18" stroke="#5b8fa8" stroke-width="1.5"/>
+        <circle cx="20" cy="20" r="8" stroke="#5b8fa8" stroke-width="1.5"/>
+        <line x1="20" y1="2" x2="20" y2="12" stroke="#5b8fa8" stroke-width="1.5"/>
+        <line x1="20" y1="28" x2="20" y2="38" stroke="#5b8fa8" stroke-width="1.5"/>
+        <line x1="2" y1="20" x2="12" y2="20" stroke="#5b8fa8" stroke-width="1.5"/>
+        <line x1="28" y1="20" x2="38" y2="20" stroke="#5b8fa8" stroke-width="1.5"/>
+      </svg>
+      <h3>Consciousness Science</h3>
+      <p>David Chalmers' "hard problem," Integrated Information Theory (Tononi), Global Workspace Theory (Baars/Dehaene), and Anil Seth's "controlled hallucination" model of perception all approach what the Upanishads called the witness from the outside. The inside view may be the missing variable.</p>
+      <div class="conn-ref">↳ Modules 3, 8, 11</div>
+    </div>
+
+    <div class="conn-card">
+      <svg class="conn-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="4" y="10" width="32" height="22" rx="2" stroke="#c9a84c" stroke-width="1.5"/>
+        <line x1="4" y1="16" x2="36" y2="16" stroke="#c9a84c" stroke-width="1.5"/>
+        <line x1="14" y1="10" x2="14" y2="32" stroke="#c9a84c" stroke-width="1.5"/>
+        <circle cx="9" cy="24" r="2" stroke="#c9a84c" stroke-width="1.2"/>
+        <line x1="19" y1="22" x2="30" y2="22" stroke="#c9a84c" stroke-width="1.2"/>
+        <line x1="19" y1="26" x2="27" y2="26" stroke="#c9a84c" stroke-width="1.2"/>
+      </svg>
+      <h3>AI & Machine Minds</h3>
+      <p>If Ātman is pure witnessing awareness — the "that by which everything is known, which cannot itself be known as an object" — can a large language model be an Ātman? The Upanishadic answer is more nuanced than either Silicon Valley optimism or dismissive materialism. This is now the most pressing philosophical question of our era.</p>
+      <div class="conn-ref">↳ Modules 3, 4, 11</div>
+    </div>
+
+    <div class="conn-card">
+      <svg class="conn-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 4 C10 4 4 12 4 20 C4 30 12 38 20 36 C28 38 36 30 36 20 C36 12 30 4 20 4Z" stroke="#8a9e6a" stroke-width="1.5"/>
+        <path d="M20 4 C20 4 14 12 14 20 C14 28 20 36 20 36" stroke="#8a9e6a" stroke-width="1.2"/>
+        <path d="M4 20 Q20 14 36 20" stroke="#8a9e6a" stroke-width="1.2"/>
+      </svg>
+      <h3>Climate Ethics</h3>
+      <p>The Upanishadic claim that all of existence shares a single consciousness ground — <em>sarvam khalv idam brahma</em>, "all this indeed is Brahman" — provides an ancient philosophical foundation for ecological ethics that runs deeper than utilitarian calculation or rights-based frameworks. Kate Raworth's Doughnut Economics and Robin Wall Kimmerer's braiding of indigenous and botanical knowledge are secular expressions of the same intuition.</p>
+      <div class="conn-ref">↳ Modules 2, 6, 9</div>
+    </div>
+
+    <div class="conn-card">
+      <svg class="conn-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="14" r="8" stroke="#d4849a" stroke-width="1.5"/>
+        <path d="M8 36 C8 28 12 24 20 24 C28 24 32 28 32 36" stroke="#d4849a" stroke-width="1.5"/>
+        <line x1="20" y1="22" x2="20" y2="26" stroke="#d4849a" stroke-width="1.2"/>
+      </svg>
+      <h3>Identity & Social Justice</h3>
+      <p>Ambedkar's critique, intersectionality theory (Kimberlé Crenshaw), and debates around caste discrimination in the Indian diaspora force a reckoning: the same texts that point beyond identity also historically were used to police it. Any serious engagement with the Upanishads in 2024 requires holding both the liberating and the oppressive potentials of this tradition simultaneously.</p>
+      <div class="conn-ref">↳ Modules 5, 6, 11</div>
+    </div>
+
+    <div class="conn-card">
+      <svg class="conn-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 32 L8 20 L16 14 L24 20 L32 12 L32 32Z" stroke="#e8821a" stroke-width="1.5" fill="none"/>
+        <line x1="8" y1="32" x2="32" y2="32" stroke="#e8821a" stroke-width="1.5"/>
+        <circle cx="16" cy="14" r="2" fill="#e8821a"/>
+        <circle cx="24" cy="20" r="2" fill="#e8821a"/>
+      </svg>
+      <h3>Physics & Cosmology</h3>
+      <p>Carlo Rovelli's relational quantum mechanics, Lee Smolin's loop quantum gravity, and the "it from bit" proposals of John Archibald Wheeler all raise the possibility that information or experience — not matter — is the fundamental category of reality. The Brahman hypothesis was there first, and by a margin of three millennia.</p>
+      <div class="conn-ref">↳ Modules 2, 8, 10</div>
+    </div>
+
+    <div class="conn-card">
+      <svg class="conn-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 28 Q10 10 20 8 Q30 10 30 28" stroke="#7a6da8" stroke-width="1.5" fill="none"/>
+        <line x1="10" y1="28" x2="30" y2="28" stroke="#7a6da8" stroke-width="1.5"/>
+        <path d="M16 28 Q16 20 20 18 Q24 20 24 28" stroke="#7a6da8" stroke-width="1.2" fill="none"/>
+        <line x1="20" y1="8" x2="20" y2="4" stroke="#7a6da8" stroke-width="1.5"/>
+        <line x1="20" y1="4" x2="16" y2="2" stroke="#7a6da8" stroke-width="1.2"/>
+        <line x1="20" y1="4" x2="24" y2="2" stroke="#7a6da8" stroke-width="1.2"/>
+      </svg>
+      <h3>Contemplative Science & Psychedelics</h3>
+      <p>Robin Carhart-Harris's REBUS model (Relaxed Beliefs Under Psychedelics) proposes that classical psychedelics — psilocybin, DMT, LSD — temporarily dissolve the predictive processing hierarchy of the self, producing ego dissolution and sometimes non-dual states. This is Turīya induced pharmacologically, and the data is making hard-nosed neuroscientists sound increasingly like the Māṇḍūkya Upanishad.</p>
+      <div class="conn-ref">↳ Modules 8, 12</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-mantra">सर्वं खल्विदं ब्रह्म</div>
+  <p>Sarvam khalv idam brahma — "All this, indeed, is Brahman" — Chāndogya Upanishad 3.14.1</p>
+  <br>
+  <p>Playlist Curriculum · Twelve Modules · 64 Lessons · ~17 Hours</p>
+</footer>
+
+</body>
+</html>
