@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Six Schools – Indian Philosophy Adventure</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --saffron: #FF6B2B;
+    --gold: #F5A623;
+    --deep: #1A0A2E;
+    --lotus: #E91E8C;
+    --sky: #00C4CC;
+    --leaf: #4CAF50;
+    --cream: #FFF8EF;
+    --text: #2D1B4E;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family: 'Crimson Pro', Georgia, serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1A0A2E 0%, #2D0E5A 50%, #3D1A6E 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    overflow: hidden;
+  }
+  .hero::before {
+    content:'';
+    position:absolute; inset:0;
+    background: radial-gradient(circle at 20% 50%, rgba(255,107,43,.15) 0%, transparent 60%),
+                radial-gradient(circle at 80% 30%, rgba(0,196,204,.12) 0%, transparent 50%);
+    pointer-events:none;
+  }
+  .stars {
+    position:absolute; inset:0; pointer-events:none;
+  }
+  .star {
+    position:absolute; width:3px; height:3px;
+    background:#fff; border-radius:50%;
+    animation: twinkle 3s infinite alternate;
+  }
+  @keyframes twinkle { from{opacity:.2} to{opacity:1} }
+
+  .om-symbol {
+    font-size: clamp(4rem, 12vw, 8rem);
+    animation: float 4s ease-in-out infinite;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 30px rgba(245,166,35,.6));
+  }
+  @keyframes float {
+    0%,100%{transform:translateY(0)} 50%{transform:translateY(-20px)}
+  }
+  .hero h1 {
+    font-family:'Baloo 2', cursive;
+    font-size: clamp(2rem, 7vw, 5rem);
+    font-weight:800;
+    color:#fff;
+    line-height:1.1;
+    text-shadow: 0 0 40px rgba(255,107,43,.5);
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero .tagline {
+    margin-top:1rem;
+    font-size: clamp(1rem,2.5vw,1.4rem);
+    color:rgba(255,255,255,.75);
+    font-style:italic;
+    max-width:600px;
+  }
+  .scroll-hint {
+    position:absolute; bottom:2rem;
+    color:rgba(255,255,255,.5);
+    font-size:.9rem;
+    animation: bounce 2s infinite;
+  }
+  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(8px)} }
+
+  /* ── INTRO STRIP ── */
+  .intro-strip {
+    background: linear-gradient(90deg, var(--saffron), var(--gold));
+    padding: 1.5rem 2rem;
+    text-align:center;
+    font-family:'Baloo 2',cursive;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color:#fff;
+    font-weight:600;
+  }
+
+  /* ── SECTION TITLES ── */
+  .section-header {
+    text-align:center;
+    padding: 4rem 2rem 2rem;
+  }
+  .section-header h2 {
+    font-family:'Baloo 2',cursive;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-weight:800;
+    color: var(--deep);
+  }
+  .section-header p {
+    max-width:650px;
+    margin:.8rem auto 0;
+    font-size:1.1rem;
+    color:#555;
+    line-height:1.6;
+  }
+
+  /* ── DARSANA GRID ── */
+  .schools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .school-card {
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0,0,0,.12);
+    transition: transform .3s, box-shadow .3s;
+    cursor:pointer;
+    position:relative;
+  }
+  .school-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0,0,0,.2);
+  }
+
+  .card-header {
+    padding: 2rem 1.8rem 1.2rem;
+    position:relative;
+    overflow:hidden;
+  }
+  .card-header::after {
+    content:'';
+    position:absolute;
+    top:-40px; right:-40px;
+    width:130px; height:130px;
+    border-radius:50%;
+    background:rgba(255,255,255,.12);
+  }
+  .school-emoji {
+    font-size:3rem;
+    margin-bottom:.5rem;
+    display:block;
+  }
+  .card-number {
+    font-family:'Baloo 2',cursive;
+    font-size:.8rem;
+    font-weight:600;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    opacity:.7;
+    color:#fff;
+  }
+  .card-title {
+    font-family:'Baloo 2',cursive;
+    font-size:1.8rem;
+    font-weight:800;
+    color:#fff;
+    margin:.2rem 0;
+  }
+  .card-subtitle {
+    font-size:1rem;
+    color:rgba(255,255,255,.85);
+    font-style:italic;
+  }
+
+  .card-body {
+    background:#fff;
+    padding:1.6rem 1.8rem;
+  }
+  .card-body .founder {
+    display:inline-flex;
+    align-items:center;
+    gap:.5rem;
+    background: #f5f0ff;
+    padding:.3rem .9rem;
+    border-radius:50px;
+    font-size:.9rem;
+    font-weight:600;
+    margin-bottom:1rem;
+    color: var(--deep);
+  }
+  .card-body .big-idea {
+    font-size:1.05rem;
+    line-height:1.65;
+    color:#333;
+    margin-bottom:1.2rem;
+  }
+  .modern-tag {
+    display:inline-block;
+    background: var(--cream);
+    border:2px solid;
+    border-radius:8px;
+    padding:.4rem .8rem;
+    font-size:.85rem;
+    font-weight:600;
+    margin:.2rem .2rem 0 0;
+  }
+  .story-box {
+    margin-top:1.2rem;
+    background: linear-gradient(135deg, #fff8ef, #fff0fa);
+    border-left:4px solid;
+    border-radius:0 12px 12px 0;
+    padding:1rem 1.2rem;
+  }
+  .story-box .story-label {
+    font-family:'Baloo 2',cursive;
+    font-size:.8rem;
+    font-weight:800;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:.4rem;
+  }
+  .story-box p {
+    font-size:.97rem;
+    line-height:1.6;
+    color:#444;
+  }
+  .kids-box {
+    margin-top:1rem;
+    background:#e8f8f5;
+    border-radius:12px;
+    padding:.9rem 1.1rem;
+    display:flex;
+    gap:.6rem;
+    align-items:flex-start;
+  }
+  .kids-box .kid-icon { font-size:1.5rem; flex-shrink:0; }
+  .kids-box p { font-size:.92rem; color:#2d7a5e; line-height:1.5; font-weight:600; }
+
+  /* colours per school */
+  .s1 .card-header { background: linear-gradient(135deg,#FF6B2B,#F5A623); }
+  .s1 .modern-tag { border-color:#FF6B2B; color:#FF6B2B; }
+  .s1 .story-box { border-color:#F5A623; }
+  .s1 .story-box .story-label { color:#FF6B2B; }
+
+  .s2 .card-header { background: linear-gradient(135deg,#9B59B6,#6C3483); }
+  .s2 .modern-tag { border-color:#9B59B6; color:#9B59B6; }
+  .s2 .story-box { border-color:#9B59B6; }
+  .s2 .story-box .story-label { color:#9B59B6; }
+
+  .s3 .card-header { background: linear-gradient(135deg,#E91E8C,#C2185B); }
+  .s3 .modern-tag { border-color:#E91E8C; color:#E91E8C; }
+  .s3 .story-box { border-color:#E91E8C; }
+  .s3 .story-box .story-label { color:#E91E8C; }
+
+  .s4 .card-header { background: linear-gradient(135deg,#00BCD4,#006064); }
+  .s4 .modern-tag { border-color:#00BCD4; color:#00979a; }
+  .s4 .story-box { border-color:#00BCD4; }
+  .s4 .story-box .story-label { color:#009da1; }
+
+  .s5 .card-header { background: linear-gradient(135deg,#4CAF50,#1B5E20); }
+  .s5 .modern-tag { border-color:#4CAF50; color:#2e7d32; }
+  .s5 .story-box { border-color:#4CAF50; }
+  .s5 .story-box .story-label { color:#2e7d32; }
+
+  .s6 .card-header { background: linear-gradient(135deg,#FF5252,#B71C1C); }
+  .s6 .modern-tag { border-color:#FF5252; color:#c62828; }
+  .s6 .story-box { border-color:#FF5252; }
+  .s6 .story-box .story-label { color:#c62828; }
+
+  /* ── COMPARISON TABLE ── */
+  .table-section {
+    background: var(--deep);
+    padding: 4rem 2rem;
+    overflow-x: auto;
+  }
+  .table-section h2 {
+    font-family:'Baloo 2',cursive;
+    font-size: clamp(1.6rem,4vw,2.5rem);
+    font-weight:800;
+    color:#fff;
+    text-align:center;
+    margin-bottom:2rem;
+  }
+  table {
+    border-collapse:collapse;
+    width:100%;
+    max-width:1100px;
+    margin:0 auto;
+    font-size:.95rem;
+  }
+  th {
+    background: rgba(255,255,255,.1);
+    color: var(--gold);
+    font-family:'Baloo 2',cursive;
+    font-weight:700;
+    padding:.9rem 1rem;
+    text-align:left;
+    border-bottom:2px solid rgba(255,255,255,.15);
+  }
+  td {
+    color:rgba(255,255,255,.85);
+    padding:.8rem 1rem;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    vertical-align:top;
+    line-height:1.5;
+  }
+  tr:hover td { background:rgba(255,255,255,.05); }
+
+  /* ── PAIRING SECTION ── */
+  .pairs-section {
+    padding: 4rem 2rem;
+    max-width:1000px;
+    margin:0 auto;
+  }
+  .pairs-grid {
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap:1.5rem;
+    margin-top:2rem;
+  }
+  .pair-card {
+    background:#fff;
+    border-radius:16px;
+    padding:1.6rem;
+    box-shadow:0 4px 20px rgba(0,0,0,.08);
+    border-top:5px solid var(--gold);
+    transition:transform .3s;
+  }
+  .pair-card:hover { transform:translateY(-4px); }
+  .pair-card h3 { font-family:'Baloo 2',cursive; font-size:1.2rem; margin-bottom:.6rem; color:var(--deep); }
+  .pair-card p { font-size:.95rem; line-height:1.6; color:#555; }
+
+  /* ── QUIZ SECTION ── */
+  .quiz-section {
+    background: linear-gradient(135deg, #fff8ef, #fce4ff);
+    padding: 4rem 2rem;
+    text-align:center;
+  }
+  .quiz-box {
+    max-width:700px;
+    margin:2rem auto 0;
+    background:#fff;
+    border-radius:20px;
+    padding:2rem;
+    box-shadow:0 6px 30px rgba(0,0,0,.1);
+  }
+  .quiz-q {
+    font-family:'Baloo 2',cursive;
+    font-size:1.2rem;
+    font-weight:700;
+    color:var(--deep);
+    margin-bottom:1rem;
+  }
+  .quiz-options {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:.8rem;
+    margin-bottom:1rem;
+  }
+  .quiz-btn {
+    background:var(--cream);
+    border:2px solid #ddd;
+    border-radius:12px;
+    padding:.8rem;
+    font-family:'Baloo 2',cursive;
+    font-size:1rem;
+    cursor:pointer;
+    transition:all .2s;
+  }
+  .quiz-btn:hover { border-color:var(--saffron); background:#fff3ea; }
+  .quiz-btn.correct { background:#d4edda; border-color:#4CAF50; color:#1B5E20; }
+  .quiz-btn.wrong   { background:#fde; border-color:#E91E8C; color:#880E4F; }
+  .quiz-feedback { font-size:1rem; min-height:2rem; color:#555; font-style:italic; }
+  .next-btn {
+    margin-top:1rem;
+    background:var(--saffron);
+    color:#fff;
+    border:none;
+    border-radius:12px;
+    padding:.7rem 2rem;
+    font-family:'Baloo 2',cursive;
+    font-size:1.1rem;
+    font-weight:700;
+    cursor:pointer;
+    display:none;
+    transition:background .2s;
+  }
+  .next-btn:hover { background:#e55a1f; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--deep);
+    color:rgba(255,255,255,.5);
+    text-align:center;
+    padding:2rem;
+    font-size:.9rem;
+  }
+  footer span { color:var(--gold); }
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:600px){
+    .quiz-options { grid-template-columns:1fr; }
+    table { font-size:.8rem; }
+    th,td { padding:.6rem .7rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- STARS -->
+<div class="hero">
+  <div class="stars" id="stars"></div>
+  <div class="om-symbol">🕉️</div>
+  <h1>The Six Schools of<br><span>Indian Philosophy</span></h1>
+  <p class="tagline">Six brilliant thinkers. Six epic quests. One incredible journey through the oldest wisdom on Earth.</p>
+  <div class="scroll-hint">↓ Scroll to explore ↓</div>
+</div>
+
+<div class="intro-strip">
+  🌍 These ideas are 3,000+ years old — and they're still shaping science, yoga, meditation & modern life today! 🧘
+</div>
+
+<!-- INTRO -->
+<div class="section-header">
+  <h2>What are the Ṣaḍ-Darśanas?</h2>
+  <p><em>Darśana</em> means "to see" or "a way of seeing reality." Long before smartphones and science labs, six groups of Indian sages sat under trees and asked the biggest questions imaginable — <em>Who am I? What is real? How do I find lasting happiness?</em> Their six answers became six schools that still influence millions of lives.</p>
+</div>
+
+<!-- SIX CARDS -->
+<div class="schools-grid">
+
+  <!-- 1. NYAYA -->
+  <div class="school-card s1">
+    <div class="card-header">
+      <span class="school-emoji">🔍</span>
+      <div class="card-number">School 01</div>
+      <div class="card-title">Nyāya</div>
+      <div class="card-subtitle">"The Logic Detectives"</div>
+    </div>
+    <div class="card-body">
+      <div class="founder">👤 Founded by Sage Gautama</div>
+      <p class="big-idea">Nyāya is all about <strong>right reasoning & valid proof</strong>. These philosophers were like ancient lawyers and scientists — they believed you can only know something is true if you can prove it through perception, inference, comparison, or reliable testimony.</p>
+      <span class="modern-tag">🧠 Critical Thinking</span>
+      <span class="modern-tag">⚖️ Debate Club</span>
+      <span class="modern-tag">🔬 Scientific Method</span>
+      <div class="story-box">
+        <div class="story-label">📖 The Story</div>
+        <p>Imagine you smell smoke but can't see fire. A Nyāya thinker says: <em>"There MUST be fire, because smoke never exists without it."</em> This is called <strong>Anumāna</strong> (inference). Sound familiar? It's exactly how Sherlock Holmes thinks — and how scientists form hypotheses! Sage Gautama wrote the <em>Nyāya Sūtra</em>, essentially the world's first textbook on logic.</p>
+      </div>
+      <div class="kids-box">
+        <span class="kid-icon">🧒</span>
+        <p>Hey kids! Nyāya says: "Don't just believe — ask for PROOF!" Just like a good detective, always ask "How do you know that?"</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. VAISHESHIKA -->
+  <div class="school-card s2">
+    <div class="card-header">
+      <span class="school-emoji">⚛️</span>
+      <div class="card-number">School 02</div>
+      <div class="card-title">Vaiśeṣika</div>
+      <div class="card-subtitle">"The Atom Explorers"</div>
+    </div>
+    <div class="card-body">
+      <div class="founder">👤 Founded by Sage Kaṇāda</div>
+      <p class="big-idea">Vaiśeṣika asks: <strong>what is everything made of?</strong> Sage Kaṇāda proposed that all matter is made of tiny, indestructible particles called <em>paramāṇu</em> — atoms! He said this 2,600 years before modern science confirmed it.</p>
+      <span class="modern-tag">⚛️ Atomic Theory</span>
+      <span class="modern-tag">🌌 Physics</span>
+      <span class="modern-tag">🔭 Classification</span>
+      <div class="story-box">
+        <div class="story-label">📖 The Story</div>
+        <p>Kaṇāda's name literally means "atom eater" — legend says he was so obsessed with tiny particles that he'd pick up grain-sized bits of food to study them. He said reality has <strong>9 substances</strong>: earth, water, fire, air, ether, time, space, mind, and soul. Modern physics has "fields and particles." Different words — remarkably similar obsession!</p>
+      </div>
+      <div class="kids-box">
+        <span class="kid-icon">🧒</span>
+        <p>Did you know LEGO bricks are basically Vaiśeṣika philosophy? Everything in the universe is built from tiny pieces that combine in different ways!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. SAMKHYA -->
+  <div class="school-card s3">
+    <div class="card-header">
+      <span class="school-emoji">🌊</span>
+      <div class="card-number">School 03</div>
+      <div class="card-title">Sāṃkhya</div>
+      <div class="card-subtitle">"The Great Mapper"</div>
+    </div>
+    <div class="card-body">
+      <div class="founder">👤 Founded by Sage Kapila</div>
+      <p class="big-idea">Sāṃkhya is the oldest Indian philosophy and perhaps its most daring. It says reality has exactly <strong>two ingredients</strong>: <em>Puruṣa</em> (pure consciousness, the witness) and <em>Prakṛti</em> (nature, the performer). Suffering comes from confusing the two.</p>
+      <span class="modern-tag">🧬 Evolution Theory</span>
+      <span class="modern-tag">🎭 Mind-Body Split</span>
+      <span class="modern-tag">🧘 Yoga Foundation</span>
+      <div class="story-box">
+        <div class="story-label">📖 The Story</div>
+        <p>Think of watching a movie. <strong>The screen</strong> (Puruṣa) never changes — it just lights up. <strong>The movie</strong> (Prakṛti) has drama, action, tears. We suffer when we forget we're the screen and think we ARE the movie. Modern mindfulness teachers say almost the same thing: "You are not your thoughts — you are the one who watches them." Sāṃkhya said it first!</p>
+      </div>
+      <div class="kids-box">
+        <span class="kid-icon">🧒</span>
+        <p>Next time you feel angry or sad, try being the "camera operator" watching the feeling rather than being inside it. That's Sāṃkhya in action!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. YOGA -->
+  <div class="school-card s4">
+    <div class="card-header">
+      <span class="school-emoji">🧘</span>
+      <div class="card-number">School 04</div>
+      <div class="card-title">Yoga</div>
+      <div class="card-subtitle">"The Practice Masters"</div>
+    </div>
+    <div class="card-body">
+      <div class="founder">👤 Systematised by Sage Patañjali</div>
+      <p class="big-idea">While Sāṃkhya made the map, <strong>Yoga gave the GPS and the vehicle.</strong> Patañjali's <em>Yoga Sūtras</em> is a 196-verse practical manual for training the mind — the world's oldest self-help book, and it still works perfectly today.</p>
+      <span class="modern-tag">🏋️ Mental Training</span>
+      <span class="modern-tag">🌍 300M+ practitioners</span>
+      <span class="modern-tag">🧠 Neuroscience link</span>
+      <div class="story-box">
+        <div class="story-label">📖 The Story</div>
+        <p>Patañjali's opening line: <em>"Yogaś-citta-vṛtti-nirodhaḥ"</em> — Yoga is the stilling of the fluctuations of the mind. Modern neuroscientists at Harvard found that 8 weeks of meditation literally <strong>shrinks the amygdala</strong> (your brain's panic button) and thickens the prefrontal cortex (decision-making HQ). Patañjali described the same result 2,000 years ago — just without the brain scanner!</p>
+      </div>
+      <div class="kids-box">
+        <span class="kid-icon">🧒</span>
+        <p>Try this: breathe in for 4 counts, hold 4, out for 4. Do it 3 times. Your mind just got a little more Yogic! 🌬️</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. MIMAMSA -->
+  <div class="school-card s5">
+    <div class="card-header">
+      <span class="school-emoji">📜</span>
+      <div class="card-number">School 05</div>
+      <div class="card-title">Mīmāṃsā</div>
+      <div class="card-subtitle">"The Duty Champions"</div>
+    </div>
+    <div class="card-body">
+      <div class="founder">👤 Founded by Sage Jaimini</div>
+      <p class="big-idea">Mīmāṃsā asks: <strong>"What should we DO?"</strong> It says the Vedas are eternal, authorless truth and our highest purpose is to perform our duties (<em>dharma</em>) perfectly — without expecting rewards. It's the philosophy of commitment, ritual, and righteous action.</p>
+      <span class="modern-tag">⚖️ Ethics & Law</span>
+      <span class="modern-tag">🫡 Duty over Reward</span>
+      <span class="modern-tag">📋 Constitutional Law</span>
+      <div class="story-box">
+        <div class="story-label">📖 The Story</div>
+        <p>Imagine a doctor who treats patients brilliantly whether they get famous or not — <em>because it's the right thing to do.</em> Or a soldier who protects citizens even when nobody is watching. That's Mīmāṃsā ethics. Remarkably, India's Supreme Court still references concepts from Mīmāṃsā in legal interpretation — this ancient school literally shaped modern Indian law!</p>
+      </div>
+      <div class="kids-box">
+        <span class="kid-icon">🧒</span>
+        <p>Mīmāṃsā challenge: Do one kind thing today without telling ANYONE about it. That's the purest form of dharmic action! 🌟</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. VEDANTA -->
+  <div class="school-card s6">
+    <div class="card-header">
+      <span class="school-emoji">✨</span>
+      <div class="card-number">School 06</div>
+      <div class="card-title">Vedānta</div>
+      <div class="card-subtitle">"The Grand Unifiers"</div>
+    </div>
+    <div class="card-body">
+      <div class="founder">👤 Rooted in Bādarāyaṇa; perfected by Śaṅkara, Rāmānuja & Madhva</div>
+      <p class="big-idea">Vedānta — meaning "end of the Vedas" — is the crown jewel, exploring the deepest question: <strong>What is the ultimate nature of reality?</strong> Adi Śaṅkara's answer: <em>Brahman alone is real; the world is appearance (māyā); you ARE Brahman.</em></p>
+      <span class="modern-tag">🌌 Non-duality</span>
+      <span class="modern-tag">🔬 Quantum parallels</span>
+      <span class="modern-tag">🌍 Swami Vivekananda</span>
+      <div class="story-box">
+        <div class="story-label">📖 The Story</div>
+        <p>When Steve Jobs died, his last gift to attendees at his memorial was Paramahansa Yogananda's <em>Autobiography of a Yogi</em> — a pure Vedānta text. Erwin Schrödinger (quantum physics pioneer) kept the Upanishads on his desk and wrote that Vedānta's non-duality helped him conceive the idea of a universal wave function. "The total number of minds in the universe is one," he wrote. Śaṅkara smiled from 800 CE.</p>
+      </div>
+      <div class="kids-box">
+        <span class="kid-icon">🧒</span>
+        <p>Vedānta's biggest idea: the same light shines through different coloured windows. The light is ONE — the colours are many. You and the stars are made of the same thing! ⭐</p>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /schools-grid -->
+
+<!-- COMPARISON TABLE -->
+<div class="table-section">
+  <h2>⚡ Quick-Compare All Six Schools</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>School</th>
+        <th>Core Question</th>
+        <th>Key Concept</th>
+        <th>Modern Parallel</th>
+        <th>Accepts Vedas?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>🔍 <strong>Nyāya</strong></td>
+        <td>How do we KNOW anything?</td>
+        <td>4 valid means of knowledge (Pramāṇas)</td>
+        <td>Scientific method, logic, law courts</td>
+        <td>✅ Yes</td>
+      </tr>
+      <tr>
+        <td>⚛️ <strong>Vaiśeṣika</strong></td>
+        <td>What is everything made of?</td>
+        <td>Atoms (Paramāṇu) & 9 substances</td>
+        <td>Atomic theory, particle physics</td>
+        <td>✅ Yes</td>
+      </tr>
+      <tr>
+        <td>🌊 <strong>Sāṃkhya</strong></td>
+        <td>Who am I vs. what is Nature?</td>
+        <td>Puruṣa (soul) + Prakṛti (matter)</td>
+        <td>Mindfulness, observer effect in QM</td>
+        <td>⚠️ Indirectly</td>
+      </tr>
+      <tr>
+        <td>🧘 <strong>Yoga</strong></td>
+        <td>How do I master my mind?</td>
+        <td>Citta-vṛtti-nirodha (still the mind)</td>
+        <td>Neuroscience, therapy, athletics</td>
+        <td>✅ Yes</td>
+      </tr>
+      <tr>
+        <td>📜 <strong>Mīmāṃsā</strong></td>
+        <td>What is my duty?</td>
+        <td>Dharma through correct ritual action</td>
+        <td>Ethics, law, duty-based morality</td>
+        <td>✅ Strongly</td>
+      </tr>
+      <tr>
+        <td>✨ <strong>Vedānta</strong></td>
+        <td>What is the ultimate reality?</td>
+        <td>Brahman = Ātman; Māyā (illusion)</td>
+        <td>Quantum non-duality, consciousness studies</td>
+        <td>✅ Foundation</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- PAIRED SCHOOLS -->
+<div class="pairs-section">
+  <div class="section-header" style="padding-top:0">
+    <h2>The Three Famous Pairs 👯</h2>
+    <p>Indian tradition groups the six schools into three pairs — each pair shares common roots and complements each other perfectly.</p>
+  </div>
+  <div class="pairs-grid">
+    <div class="pair-card">
+      <h3>🔍⚛️ Nyāya + Vaiśeṣika</h3>
+      <p><strong>The Scientists.</strong> Nyāya provides the logical tools (HOW to know), while Vaiśeṣika provides the content (WHAT to know about the universe). Together they form ancient India's philosophy of natural science. They eventually merged into <em>Nyāya-Vaiśeṣika</em> — the world's first unified theory of epistemology and physics.</p>
+    </div>
+    <div class="pair-card">
+      <h3>🌊🧘 Sāṃkhya + Yoga</h3>
+      <p><strong>The Theorist + The Practitioner.</strong> Sāṃkhya is the map — a precise analysis of consciousness and matter. Yoga is the journey — practical techniques to experience what Sāṃkhya describes. You can't really do one without the other. The <em>Bhagavad Gītā</em> beautifully weaves them together.</p>
+    </div>
+    <div class="pair-card">
+      <h3>📜✨ Mīmāṃsā + Vedānta</h3>
+      <p><strong>The Early Vedas + The Later Vedas.</strong> Mīmāṃsā focuses on the karma-kāṇḍa (action portion — rituals and duties). Vedānta focuses on the jñāna-kāṇḍa (knowledge portion — ultimate truth). In a beautiful arc, you begin with Mīmāṃsā (doing right action) and graduate to Vedānta (knowing your true nature).</p>
+    </div>
+  </div>
+</div>
+
+<!-- QUIZ -->
+<div class="quiz-section">
+  <div class="section-header" style="padding-top:0">
+    <h2>🎮 Test Your Knowledge!</h2>
+    <p>Can you match the idea to its school? Try the quiz!</p>
+  </div>
+  <div class="quiz-box">
+    <div class="quiz-q" id="qText"></div>
+    <div class="quiz-options" id="qOptions"></div>
+    <div class="quiz-feedback" id="qFeedback"></div>
+    <button class="next-btn" id="nextBtn" onclick="nextQ()">Next Question →</button>
+    <div id="scoreBox" style="display:none; font-family:'Baloo 2',cursive; font-size:1.3rem; color:var(--deep); margin-top:1rem;"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>Based on the <span>Ṣaḍ-Darśana</span> overview lecture by <span>S-VYASA University</span> 🕉️</p>
+  <p style="margin-top:.5rem;">The oldest questions are still the most important ones. Keep exploring! ✨</p>
+</footer>
+
+<script>
+// Stars
+const starsEl = document.getElementById('stars');
+for(let i=0;i<80;i++){
+  const s=document.createElement('div');
+  s.className='star';
+  s.style.left=Math.random()*100+'%';
+  s.style.top=Math.random()*100+'%';
+  s.style.animationDelay=Math.random()*3+'s';
+  s.style.animationDuration=(2+Math.random()*3)+'s';
+  if(Math.random()>.7){s.style.width='4px';s.style.height='4px';}
+  starsEl.appendChild(s);
+}
+
+// Quiz
+const questions = [
+  { q:"Which school was the FIRST to describe atoms (paramāṇu)?", opts:["Nyāya","Vaiśeṣika","Vedānta","Yoga"], ans:1, fb:"Correct! Sage Kaṇāda of Vaiśeṣika described atomic theory ~2,600 years before modern science confirmed it! 🤯" },
+  { q:"Patañjali's Yoga Sūtras begin with the famous line about stilling what?", opts:["The body","The breath","The fluctuations of the mind","The universe"], ans:2, fb:"Yes! 'Yogaś citta-vṛtti-nirodhaḥ' — Yoga is the stilling of the fluctuations (vṛtti) of the mind (citta)." },
+  { q:"Which school focuses on DUTY and correct action — and still influences Indian law today?", opts:["Sāṃkhya","Mīmāṃsā","Nyāya","Vedānta"], ans:1, fb:"Mīmāṃsā! Sage Jaimini taught that dharmic duty matters more than personal reward. Indian courts still cite Mīmāṃsā principles!" },
+  { q:"'Brahman alone is real; all else is Māyā (appearance)' — which school?", opts:["Yoga","Vaiśeṣika","Vedānta","Nyāya"], ans:2, fb:"Vedānta! Adi Śaṅkara's Advaita (non-dual) Vedānta is one of the most influential philosophical systems in the world." },
+  { q:"Sāṃkhya says reality has two ingredients. Prakṛti is Nature — what is the other?", opts:["Ātman","Brahman","Puruṣa","Pramāṇa"], ans:2, fb:"Puruṣa! Pure consciousness, the eternal witness. Suffering happens when we confuse the witness (Puruṣa) with nature (Prakṛti)." },
+  { q:"Which school is most focused on how we PROVE that knowledge is valid?", opts:["Nyāya","Yoga","Mīmāṃsā","Sāṃkhya"], ans:0, fb:"Nyāya! The school of logic identified 4 Pramāṇas (valid means of knowledge): perception, inference, comparison, and testimony." },
+];
+
+let curr=0, score=0, answered=false;
+
+function loadQ(){
+  answered=false;
+  const q=questions[curr];
+  document.getElementById('qText').textContent=`Q${curr+1}. ${q.q}`;
+  document.getElementById('qFeedback').textContent='';
+  document.getElementById('nextBtn').style.display='none';
+  const opts=document.getElementById('qOptions');
+  opts.innerHTML='';
+  q.opts.forEach((o,i)=>{
+    const b=document.createElement('button');
+    b.className='quiz-btn'; b.textContent=o;
+    b.onclick=()=>answer(i,b);
+    opts.appendChild(b);
+  });
+}
+
+function answer(i,btn){
+  if(answered) return;
+  answered=true;
+  const q=questions[curr];
+  const all=document.querySelectorAll('.quiz-btn');
+  all.forEach((b,idx)=>{
+    if(idx===q.ans) b.classList.add('correct');
+    else if(idx===i) b.classList.add('wrong');
+    b.disabled=true;
+  });
+  document.getElementById('qFeedback').textContent = i===q.ans ? '✅ '+q.fb : '❌ Not quite. '+q.fb;
+  if(i===q.ans) score++;
+  if(curr<questions.length-1) document.getElementById('nextBtn').style.display='inline-block';
+  else showScore();
+}
+
+function nextQ(){ curr++; loadQ(); }
+
+function showScore(){
+  document.getElementById('nextBtn').style.display='none';
+  const box=document.getElementById('scoreBox');
+  box.style.display='block';
+  const emojis=['😅','🙂','😊','👍','🌟','🏆'];
+  box.innerHTML=`Your score: ${score}/${questions.length} ${emojis[score]}<br><button class="next-btn" style="display:inline-block;margin-top:.5rem" onclick="restart()">Try Again 🔄</button>`;
+}
+
+function restart(){ curr=0; score=0; document.getElementById('scoreBox').style.display='none'; loadQ(); }
+
+loadQ();
+</script>
+</body>
+</html>

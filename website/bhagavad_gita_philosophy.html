@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gita Stories – Ancient Wisdom for Modern Times</title>
+<link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Baloo+2:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --saffron: #FF6B00;
+    --gold: #FFB300;
+    --lotus-pink: #E84393;
+    --sky: #1A237E;
+    --deep: #0D0A2E;
+    --cream: #FFF8E7;
+    --mint: #00BFA5;
+    --purple: #7C3AED;
+    --text: #1a1a2e;
+    --card-bg: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Baloo 2', cursive;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0D0A2E 0%, #1A237E 40%, #4A148C 70%, #880E4F 100%);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    overflow: hidden;
+  }
+
+  .stars {
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.9) 0%, transparent 100%),
+      radial-gradient(1px 1px at 30% 60%, rgba(255,179,0,0.7) 0%, transparent 100%),
+      radial-gradient(2px 2px at 50% 10%, rgba(255,255,255,0.8) 0%, transparent 100%),
+      radial-gradient(1px 1px at 70% 40%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(2px 2px at 90% 80%, rgba(255,179,0,0.8) 0%, transparent 100%),
+      radial-gradient(1px 1px at 20% 90%, rgba(255,255,255,0.7) 0%, transparent 100%),
+      radial-gradient(1px 1px at 60% 70%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 80% 15%, rgba(255,179,0,0.6) 0%, transparent 100%);
+    animation: twinkle 4s ease-in-out infinite alternate;
+  }
+
+  @keyframes twinkle {
+    from { opacity: 0.7; }
+    to { opacity: 1; }
+  }
+
+  .mandala-bg {
+    position: absolute;
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,179,0,0.15);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    animation: rotateSlow 60s linear infinite;
+  }
+  .mandala-bg::before {
+    content: '';
+    position: absolute; inset: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,107,0,0.2);
+  }
+  .mandala-bg::after {
+    content: '';
+    position: absolute; inset: 100px;
+    border-radius: 50%;
+    border: 2px solid rgba(232,67,147,0.15);
+  }
+
+  @keyframes rotateSlow {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to   { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+
+  .hero-badge {
+    background: rgba(255,179,0,0.2);
+    border: 1px solid rgba(255,179,0,0.5);
+    color: var(--gold);
+    padding: 0.4rem 1.2rem;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    backdrop-filter: blur(10px);
+    animation: fadeDown 1s ease forwards;
+    opacity: 0;
+  }
+
+  .hero h1 {
+    font-family: 'Yatra One', cursive;
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    color: white;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    animation: fadeDown 1s 0.2s ease forwards;
+    opacity: 0;
+  }
+
+  .hero h1 span {
+    background: linear-gradient(90deg, var(--gold), var(--saffron), var(--lotus-pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.75);
+    max-width: 600px;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    animation: fadeDown 1s 0.4s ease forwards;
+    opacity: 0;
+  }
+
+  .hero-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50px;
+    padding: 0.6rem 1.5rem;
+    backdrop-filter: blur(10px);
+    animation: fadeDown 1s 0.6s ease forwards;
+    opacity: 0;
+  }
+
+  .author-avatar {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--saffron), var(--gold));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
+  }
+
+  .hero-author p { color: rgba(255,255,255,0.9); font-size: 0.95rem; }
+  .hero-author strong { color: var(--gold); }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255,255,255,0.5);
+    font-size: 0.85rem;
+    animation: bounce 2s infinite;
+    letter-spacing: 1px;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===== NAV ===== */
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(13,10,46,0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,179,0,0.2);
+    padding: 0.8rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-logo {
+    font-family: 'Yatra One', cursive;
+    color: var(--gold);
+    font-size: 1.3rem;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    padding: 0.4rem 0.9rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s;
+  }
+
+  .nav-links a:hover {
+    color: white;
+    background: rgba(255,179,0,0.2);
+  }
+
+  /* ===== SECTIONS ===== */
+  section {
+    padding: 5rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--saffron);
+    margin-bottom: 1rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px; height: 2px;
+    background: var(--saffron);
+  }
+
+  h2.section-title {
+    font-family: 'Yatra One', cursive;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--sky);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ===== INTRO BANNER ===== */
+  .intro-banner {
+    background: linear-gradient(135deg, #0D0A2E, #1A237E);
+    padding: 4rem 2rem;
+  }
+
+  .intro-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .intro-inner h2 {
+    font-family: 'Yatra One', cursive;
+    font-size: 2.2rem;
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .intro-inner p {
+    color: rgba(255,255,255,0.75);
+    line-height: 1.8;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .stat-row {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1.5rem;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'Yatra One', cursive;
+    font-size: 2rem;
+    color: var(--gold);
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .gita-visual {
+    background: linear-gradient(135deg, rgba(255,107,0,0.2), rgba(255,179,0,0.15));
+    border: 1px solid rgba(255,179,0,0.3);
+    border-radius: 20px;
+    padding: 2.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .gita-symbol {
+    font-size: 6rem;
+    animation: floatUp 4s ease-in-out infinite alternate;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  @keyframes floatUp {
+    from { transform: translateY(0px); }
+    to   { transform: translateY(-12px); }
+  }
+
+  .gita-visual p {
+    color: var(--gold);
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+  }
+
+  .gita-visual cite {
+    display: block;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+  }
+
+  /* ===== STORY CARDS ===== */
+  .stories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 2.5rem;
+  }
+
+  .story-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .story-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+  }
+
+  .card-color-bar {
+    height: 6px;
+    width: 100%;
+  }
+
+  .card-emoji-top {
+    font-size: 2.5rem;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+  }
+
+  .card-body {
+    padding: 1.8rem;
+  }
+
+  .card-tag {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.8rem;
+  }
+
+  .card-title {
+    font-family: 'Lora', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.7rem;
+    line-height: 1.4;
+  }
+
+  .card-text {
+    font-size: 0.92rem;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .card-lesson {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    background: #f8f8f8;
+    border-radius: 10px;
+    padding: 0.8rem;
+    font-size: 0.85rem;
+    color: #444;
+  }
+
+  .card-lesson .icon { font-size: 1rem; flex-shrink: 0; }
+
+  .card-read-more {
+    margin-top: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: gap 0.2s;
+  }
+
+  .card-read-more:hover { gap: 0.7rem; }
+
+  /* ===== CHARACTERS ===== */
+  .characters-bg {
+    background: linear-gradient(180deg, #fff8e7 0%, #fff3d4 100%);
+    padding: 5rem 2rem;
+  }
+
+  .characters-inner { max-width: 1100px; margin: 0 auto; }
+
+  .chars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .char-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    transition: transform 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .char-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+  }
+
+  .char-card:hover { transform: translateY(-6px); }
+
+  .char-emoji {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .char-name {
+    font-family: 'Yatra One', cursive;
+    font-size: 1.3rem;
+    color: var(--sky);
+    margin-bottom: 0.3rem;
+  }
+
+  .char-role {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.8rem;
+  }
+
+  .char-desc {
+    font-size: 0.88rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .char-superpower {
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    display: inline-block;
+  }
+
+  /* ===== TEACHINGS ===== */
+  .teachings-section {
+    background: var(--deep);
+    padding: 5rem 2rem;
+  }
+
+  .teachings-inner { max-width: 1100px; margin: 0 auto; }
+
+  .teachings-inner .section-title { color: white; }
+
+  .teachings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .teaching-card {
+    border-radius: 16px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .teaching-card::after {
+    content: attr(data-num);
+    position: absolute;
+    top: -10px; right: 15px;
+    font-family: 'Yatra One', cursive;
+    font-size: 5rem;
+    color: rgba(255,255,255,0.05);
+    pointer-events: none;
+  }
+
+  .t-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+  .t-title {
+    font-family: 'Lora', serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: white;
+    margin-bottom: 0.7rem;
+  }
+  .t-body { font-size: 0.88rem; color: rgba(255,255,255,0.7); line-height: 1.7; }
+  .t-modern {
+    margin-top: 1rem;
+    padding: 0.7rem;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.08);
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.6);
+  }
+
+  /* ===== KIDS ZONE ===== */
+  .kids-zone {
+    background: linear-gradient(135deg, #E3F2FD 0%, #F3E5F5 50%, #FFF8E1 100%);
+    padding: 5rem 2rem;
+  }
+
+  .kids-inner { max-width: 1100px; margin: 0 auto; }
+
+  .kids-banner {
+    background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+    border-radius: 24px;
+    padding: 2.5rem;
+    color: white;
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .kids-banner h2 {
+    font-family: 'Yatra One', cursive;
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .kids-banner p { opacity: 0.9; font-size: 1rem; }
+
+  .floating-emoji {
+    position: absolute;
+    font-size: 2.5rem;
+    animation: floatRandom 5s ease-in-out infinite alternate;
+    pointer-events: none;
+  }
+
+  .fe1 { top: 10%; left: 5%; animation-delay: 0s; }
+  .fe2 { top: 20%; right: 8%; animation-delay: 1s; }
+  .fe3 { bottom: 10%; left: 15%; animation-delay: 2s; }
+  .fe4 { bottom: 20%; right: 5%; animation-delay: 0.5s; }
+
+  @keyframes floatRandom {
+    from { transform: translateY(0) rotate(0deg); }
+    to   { transform: translateY(-15px) rotate(10deg); }
+  }
+
+  .riddles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .riddle-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    cursor: pointer;
+  }
+
+  .riddle-q {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 1rem;
+  }
+
+  .riddle-emoji-big { font-size: 3rem; margin-bottom: 1rem; display: block; }
+
+  .riddle-answer {
+    display: none;
+    background: #f0fff4;
+    border-radius: 10px;
+    padding: 0.8rem;
+    font-size: 0.88rem;
+    color: #2d6a4f;
+    font-weight: 600;
+    margin-top: 1rem;
+  }
+
+  .riddle-btn {
+    background: linear-gradient(135deg, var(--saffron), var(--gold));
+    color: white;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 20px;
+    font-family: 'Baloo 2', cursive;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  .riddle-btn:hover { transform: scale(1.05); }
+
+  /* ===== QUOTE STRIP ===== */
+  .quote-strip {
+    background: linear-gradient(135deg, var(--saffron), #FF4081, var(--purple));
+    padding: 4rem 2rem;
+    text-align: center;
+    color: white;
+  }
+
+  .quote-strip blockquote {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: clamp(1.3rem, 3vw, 2rem);
+    max-width: 800px;
+    margin: 0 auto 1rem;
+    line-height: 1.6;
+  }
+
+  .quote-strip cite {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    font-style: normal;
+    letter-spacing: 1px;
+  }
+
+  /* ===== MODERN COMPARISONS ===== */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 2.5rem;
+  }
+
+  .compare-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.8rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+  }
+
+  .compare-icon-box {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .compare-content h4 {
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .compare-content p {
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.6;
+  }
+
+  /* ===== PROFESSOR SECTION ===== */
+  .prof-section {
+    background: var(--deep);
+    padding: 5rem 2rem;
+  }
+
+  .prof-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .prof-card {
+    background: linear-gradient(135deg, rgba(255,107,0,0.2), rgba(255,179,0,0.1));
+    border: 1px solid rgba(255,179,0,0.3);
+    border-radius: 24px;
+    padding: 2.5rem;
+    text-align: center;
+    position: sticky;
+    top: 80px;
+  }
+
+  .prof-avatar {
+    width: 100px; height: 100px;
+    background: linear-gradient(135deg, var(--saffron), var(--gold));
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5rem;
+  }
+
+  .prof-name {
+    font-family: 'Yatra One', cursive;
+    font-size: 1.4rem;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+  }
+
+  .prof-title {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .prof-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+
+  .prof-tag {
+    background: rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.7);
+  }
+
+  .prof-content .section-title { color: white; }
+
+  .lecture-list { margin-top: 2rem; }
+
+  .lecture-item {
+    display: flex;
+    gap: 1.2rem;
+    padding: 1.2rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .lecture-item:hover { background: rgba(255,255,255,0.1); }
+
+  .lec-num {
+    font-family: 'Yatra One', cursive;
+    font-size: 1.5rem;
+    color: var(--gold);
+    width: 40px;
+    flex-shrink: 0;
+    text-align: center;
+    line-height: 1;
+  }
+
+  .lec-info h4 { color: white; font-size: 0.95rem; margin-bottom: 0.3rem; }
+  .lec-info p { color: rgba(255,255,255,0.5); font-size: 0.82rem; }
+
+  .lec-arrow { color: rgba(255,255,255,0.3); margin-left: auto; align-self: center; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: #05030F;
+    padding: 3rem 2rem;
+    text-align: center;
+    color: rgba(255,255,255,0.4);
+    font-size: 0.85rem;
+  }
+
+  footer .footer-logo {
+    font-family: 'Yatra One', cursive;
+    font-size: 2rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .intro-inner { grid-template-columns: 1fr; }
+    .compare-grid { grid-template-columns: 1fr; }
+    .prof-inner { grid-template-columns: 1fr; }
+    .prof-card { position: static; }
+    .gita-visual { display: none; }
+    .nav-links { display: none; }
+  }
+
+  /* ===== SCROLL ANIMATIONS ===== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ===== PULSE DOT ===== */
+  .live-dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #00E676;
+    animation: pulse 2s infinite;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.5; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="stars"></div>
+  <div class="mandala-bg"></div>
+  <div class="hero-badge">🕉 Ancient Wisdom · Modern Lives</div>
+  <h1>The <span>Bhagavad Gita</span><br>for Everyone</h1>
+  <p class="hero-sub">700 verses. 18 chapters. Infinite wisdom. Discover how a battlefield conversation 5,000 years ago answers your biggest questions today — even if you're 8 years old!</p>
+  <div class="hero-author">
+    <div class="author-avatar">📚</div>
+    <p>Based on the lecture series by<br><strong>Prof. Ithamar Theodor</strong> · Recent Philosophy Series</p>
+  </div>
+  <div class="scroll-hint">▼ scroll to explore ▼</div>
+</div>
+
+<!-- STICKY NAV -->
+<nav class="sticky-nav">
+  <div class="nav-logo">🕉 GitaWisdom</div>
+  <div class="nav-links">
+    <a href="#stories">Stories</a>
+    <a href="#characters">Characters</a>
+    <a href="#teachings">Teachings</a>
+    <a href="#kids">Kids Zone</a>
+    <a href="#professor">Professor</a>
+  </div>
+</nav>
+
+<!-- INTRO BANNER -->
+<div class="intro-banner">
+  <div class="intro-inner">
+    <div>
+      <div class="section-label">What is the Bhagavad Gita?</div>
+      <h2>A Conversation That<br>Changed the World</h2>
+      <p>Imagine standing at the biggest crossroads of your life, paralysed by doubt. That's exactly where Arjuna — a great warrior — found himself. His charioteer Krishna gave him the most profound pep talk in history. That conversation became the Bhagavad Gita.</p>
+      <p>Prof. Ithamar Theodor of Haifa University argues this text is not just religion — it's a philosophy for navigating identity, duty, love, and freedom in modern life.</p>
+      <div class="stat-row">
+        <div class="stat"><div class="stat-num">700</div><div class="stat-label">Verses</div></div>
+        <div class="stat"><div class="stat-num">18</div><div class="stat-label">Chapters</div></div>
+        <div class="stat"><div class="stat-num">5000+</div><div class="stat-label">Years of wisdom</div></div>
+        <div class="stat"><div class="stat-num">∞</div><div class="stat-label">Life lessons</div></div>
+      </div>
+    </div>
+    <div class="gita-visual">
+      <span class="gita-symbol">🪷</span>
+      <p>"You have a right to perform your actions, but you are not entitled to the fruits of those actions."</p>
+      <cite>— Bhagavad Gita 2.47</cite>
+    </div>
+  </div>
+</div>
+
+<!-- STORIES SECTION -->
+<section id="stories">
+  <div class="section-label">Modern Stories</div>
+  <h2 class="section-title">Ancient Wisdom in Modern Settings</h2>
+  <p style="max-width:650px; color:#555; line-height:1.8;">Each Gita teaching comes alive through a story you'll recognise from today's world. From sports stars to tech CEOs — the Gita's wisdom is everywhere once you know where to look.</p>
+
+  <div class="stories-grid">
+
+    <div class="story-card reveal">
+      <div class="card-color-bar" style="background: linear-gradient(90deg, #FF6B00, #FFB300);"></div>
+      <div class="card-emoji-top">⚽</div>
+      <div class="card-body">
+        <span class="card-tag" style="background:#FFF3E0; color:#E65100;">Dharma / Duty</span>
+        <h3 class="card-title">The Footballer Who Froze at the World Cup Final</h3>
+        <p class="card-text">Imagine Marcus, the star striker. It's the World Cup penalty shootout. His teammates are counting on him. His legs tremble. He remembers his injured brother back home — the one who dreamed of playing in his place. Sound familiar? That's exactly Arjuna's crisis at Kurukshetra.</p>
+        <div class="card-lesson">
+          <span class="icon">💡</span>
+          <span>Krishna's lesson: Do your duty with full commitment, but release attachment to the outcome. Play your best shot — then let go.</span>
+        </div>
+        <a class="card-read-more" style="color: var(--saffron);" href="#">Explore this lesson →</a>
+      </div>
+    </div>
+
+    <div class="story-card reveal">
+      <div class="card-color-bar" style="background: linear-gradient(90deg, #7C3AED, #EC4899);"></div>
+      <div class="card-emoji-top">💻</div>
+      <div class="card-body">
+        <span class="card-tag" style="background:#F3E8FF; color:#6D28D9;">Nishkama Karma</span>
+        <h3 class="card-title">The Tech Founder Who Burned Out</h3>
+        <p class="card-text">Priya built a startup, obsessing over stock prices and investor reactions. Every morning she checked if she was "winning." Then her mentor showed her a chapter from the Gita. "Work for work's sake," he said. "Let the mission drive you, not the metrics." She rebuilt the company — and herself.</p>
+        <div class="card-lesson">
+          <span class="icon">💡</span>
+          <span>Nishkama Karma: Act without attachment to results. Give your best work as an offering, not a transaction.</span>
+        </div>
+        <a class="card-read-more" style="color: var(--purple);" href="#">Explore this lesson →</a>
+      </div>
+    </div>
+
+    <div class="story-card reveal">
+      <div class="card-color-bar" style="background: linear-gradient(90deg, #00BFA5, #0288D1);"></div>
+      <div class="card-emoji-top">🎓</div>
+      <div class="card-body">
+        <span class="card-tag" style="background:#E0F7FA; color:#006064;">Atma / The Self</span>
+        <h3 class="card-title">The Student Who Lost Herself in Social Media</h3>
+        <p class="card-text">Lena had 50,000 followers but felt completely empty. Was she the girl with the aesthetic feed? Or the quiet person who loved reading science papers? Prof. Theodor uses this exact dilemma to explain Krishna's concept of the eternal Atma — the real "you" beneath all your roles and likes.</p>
+        <div class="card-lesson">
+          <span class="icon">💡</span>
+          <span>The Atma is eternal and unchanging. Your follower count, grades, and appearance are not your true self.</span>
+        </div>
+        <a class="card-read-more" style="color: var(--mint);" href="#">Explore this lesson →</a>
+      </div>
+    </div>
+
+    <div class="story-card reveal">
+      <div class="card-color-bar" style="background: linear-gradient(90deg, #E84393, #FF6B00);"></div>
+      <div class="card-emoji-top">🏥</div>
+      <div class="card-body">
+        <span class="card-tag" style="background:#FDE8F0; color:#9C0046;">Equanimity</span>
+        <h3 class="card-title">The Doctor in the Emergency Room</h3>
+        <p class="card-text">Dr. Rajan had to choose which patient to treat first. Two lives, one decision. Afterwards, he was consumed by guilt. His philosophy professor introduced him to Sthitaprajna — the "person of steady wisdom" from Chapter 2. Not cold, not detached — but grounded even in chaos.</p>
+        <div class="card-lesson">
+          <span class="icon">💡</span>
+          <span>Sthitaprajna: One who is not disturbed in mind even amidst misery, nor elated in happiness. The calm centre of a storm.</span>
+        </div>
+        <a class="card-read-more" style="color: var(--lotus-pink);" href="#">Explore this lesson →</a>
+      </div>
+    </div>
+
+    <div class="story-card reveal">
+      <div class="card-color-bar" style="background: linear-gradient(90deg, #F59E0B, #10B981);"></div>
+      <div class="card-emoji-top">🌿</div>
+      <div class="card-body">
+        <span class="card-tag" style="background:#ECFDF5; color:#065F46;">Bhakti / Devotion</span>
+        <h3 class="card-title">The Grandmother Who Never Read a Book</h3>
+        <p class="card-text">Meera couldn't read. She never attended a philosophy lecture. But every dawn she offered water to the tulsi plant and sang quietly to herself. Prof. Theodor says this is Bhakti Yoga at its purest — and the Gita says it is equally as valid as any intellectual path to wisdom.</p>
+        <div class="card-lesson">
+          <span class="icon">💡</span>
+          <span>Bhakti Yoga — the path of devotion — needs no university degree. Love, sincerity, and daily practice are the only qualifications.</span>
+        </div>
+        <a class="card-read-more" style="color: #10B981;" href="#">Explore this lesson →</a>
+      </div>
+    </div>
+
+    <div class="story-card reveal">
+      <div class="card-color-bar" style="background: linear-gradient(90deg, #3B82F6, #8B5CF6);"></div>
+      <div class="card-emoji-top">🌍</div>
+      <div class="card-body">
+        <span class="card-tag" style="background:#EFF6FF; color:#1E40AF;">Lokasamgraha</span>
+        <h3 class="card-title">The Climate Activist Who Wanted to Quit</h3>
+        <p class="card-text">Amara had marched, protested, and written a hundred articles. Nothing seemed to change. She was ready to give up. Then a friend read her Chapter 3, verse 25 — about acting for the welfare of all beings (Lokasamgraha). It wasn't about her personal victory. It was bigger than that.</p>
+        <div class="card-lesson">
+          <span class="icon">💡</span>
+          <span>Act for the welfare of the world, not for personal reward. Every action for others is its own kind of sacred.</span>
+        </div>
+        <a class="card-read-more" style="color: #3B82F6;" href="#">Explore this lesson →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CHARACTERS -->
+<div class="characters-bg" id="characters">
+  <div class="characters-inner">
+    <div class="section-label">Meet the Characters</div>
+    <h2 class="section-title">Heroes of the Bhagavad Gita</h2>
+    <p style="max-width: 650px; color: #666; line-height: 1.8;">These aren't just ancient figures — they represent types of people you meet every day, including yourself.</p>
+
+    <div class="chars-grid">
+      <div class="char-card reveal">
+        <div style="background: linear-gradient(135deg, var(--saffron), var(--gold));" class="char-card::before"></div>
+        <style>.char-card:nth-child(1)::before { background: linear-gradient(135deg, var(--saffron), var(--gold)); }</style>
+        <span class="char-emoji">🏹</span>
+        <div class="char-name">Arjuna</div>
+        <div class="char-role" style="color: var(--saffron);">The Seeker</div>
+        <p class="char-desc">The greatest archer of his age — yet gripped by doubt, grief, and moral confusion at the most critical moment. He is every student before an exam, every parent at a crossroads.</p>
+        <span class="char-superpower" style="background: #FFF3E0; color: #E65100;">Superpower: Asks the right questions</span>
+      </div>
+
+      <div class="char-card reveal">
+        <span class="char-emoji">🪷</span>
+        <div class="char-name">Krishna</div>
+        <div class="char-role" style="color: #7C3AED;">The Guide</div>
+        <p class="char-desc">Arjuna's chariot driver and best friend — who turns out to be the universe itself in human form. The perfect coach: wise, patient, and brutally honest.</p>
+        <span class="char-superpower" style="background: #F3E8FF; color: #6D28D9;">Superpower: Sees the full picture</span>
+      </div>
+
+      <div class="char-card reveal">
+        <span class="char-emoji">👁️</span>
+        <div class="char-name">Sanjaya</div>
+        <div class="char-role" style="color: #0288D1;">The Narrator</div>
+        <p class="char-desc">Blessed with divine sight, he narrates the entire battle and Krishna's teachings to the blind King Dhritarashtra. Think of him as the world's first live news reporter!</p>
+        <span class="char-superpower" style="background: #E0F7FA; color: #006064;">Superpower: Remote viewing — sees all</span>
+      </div>
+
+      <div class="char-card reveal">
+        <span class="char-emoji">👑</span>
+        <div class="char-name">Dhritarashtra</div>
+        <div class="char-role" style="color: #C62828;">The Blind King</div>
+        <p class="char-desc">Physically and morally blind, he represents the danger of favouring our own desires over truth. His attachment to his sons leads to catastrophe — a timeless warning.</p>
+        <span class="char-superpower" style="background: #FFEBEE; color: #C62828;">Lesson: Blind attachment destroys</span>
+      </div>
+
+      <div class="char-card reveal">
+        <span class="char-emoji">⚔️</span>
+        <div class="char-name">Duryodhana</div>
+        <div class="char-role" style="color: #37474F;">The Rival</div>
+        <p class="char-desc">Brilliantly talented, but driven by ego and envy. He knew the right path but refused to take it. The Gita uses him to explore why intelligent people sometimes choose darkness.</p>
+        <span class="char-superpower" style="background: #ECEFF1; color: #37474F;">Lesson: Knowledge without humility fails</span>
+      </div>
+
+      <div class="char-card reveal">
+        <span class="char-emoji">🎓</span>
+        <div class="char-name">Dronacharya</div>
+        <div class="char-role" style="color: #2E7D32;">The Teacher</div>
+        <p class="char-desc">The greatest martial arts teacher of his era who finds himself on the wrong side of a righteous war. He represents the painful complexity of loyalty — a dilemma every professional faces.</p>
+        <span class="char-superpower" style="background: #E8F5E9; color: #1B5E20;">Superpower: Unmatched mastery</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TEACHINGS -->
+<div class="teachings-section" id="teachings">
+  <div class="teachings-inner">
+    <div class="section-label" style="color: var(--gold);">Core Teachings</div>
+    <h2 class="section-title">The Gita's 6 Big Ideas — Made Simple</h2>
+    <p style="color: rgba(255,255,255,0.6); max-width: 600px; line-height:1.8; margin-bottom: 0.5rem;">Prof. Theodor distills the Gita's philosophy into themes that resonate deeply with modern thinkers, psychologists, and everyday people.</p>
+
+    <div class="teachings-grid">
+
+      <div class="teaching-card" data-num="1" style="background: rgba(255,107,0,0.15); border: 1px solid rgba(255,107,0,0.3);">
+        <span class="t-icon">🔥</span>
+        <div class="t-title">Nishkama Karma — Action without Attachment</div>
+        <p class="t-body">Do the work. Give it your all. Then release it. This isn't apathy — it's the highest form of engagement, freed from anxiety about results.</p>
+        <div class="t-modern">🌍 Modern parallel: Athletes call it "being in flow." Psychologists call it intrinsic motivation. The Gita called it 5,000 years ago.</div>
+      </div>
+
+      <div class="teaching-card" data-num="2" style="background: rgba(124,58,237,0.15); border: 1px solid rgba(124,58,237,0.3);">
+        <span class="t-icon">✨</span>
+        <div class="t-title">Atma — The Eternal Self</div>
+        <p class="t-body">You are not your body, your name, your job title, or your Instagram bio. The real you is eternal, unborn, and indestructible. Fear fades when you know this.</p>
+        <div class="t-modern">🌍 Modern parallel: "You are not your thoughts" — a core idea in cognitive therapy and mindfulness. The Gita taught it first.</div>
+      </div>
+
+      <div class="teaching-card" data-num="3" style="background: rgba(0,191,165,0.15); border: 1px solid rgba(0,191,165,0.3);">
+        <span class="t-icon">🧘</span>
+        <div class="t-title">Yoga — Union, Not Exercise</div>
+        <p class="t-body">The Gita presents four Yogas: Jnana (wisdom), Bhakti (devotion), Karma (action), and Raja (meditation). Every personality type has a path. None is superior to another.</p>
+        <div class="t-modern">🌍 Modern parallel: Multiple intelligences theory. Different people learn and connect differently — the Gita honoured this first.</div>
+      </div>
+
+      <div class="teaching-card" data-num="4" style="background: rgba(232,67,147,0.15); border: 1px solid rgba(232,67,147,0.3);">
+        <span class="t-icon">⚖️</span>
+        <div class="t-title">Dharma — Righteous Duty</div>
+        <p class="t-body">Dharma is your unique purpose, the role only you can fulfil. It's not a rigid list of rules — it's a living responsibility to be yourself fully and ethically in every situation.</p>
+        <div class="t-modern">🌍 Modern parallel: Viktor Frankl's "meaning-centred therapy." Purpose is not found — it is responded to, just as the Gita teaches.</div>
+      </div>
+
+      <div class="teaching-card" data-num="5" style="background: rgba(255,179,0,0.15); border: 1px solid rgba(255,179,0,0.3);">
+        <span class="t-icon">🌸</span>
+        <div class="t-title">Bhakti — Unconditional Love</div>
+        <p class="t-body">Krishna says: whatever you offer me — a leaf, a flower, a fruit, or even just water given with love — I accept it. The medium matters less than the sincerity behind it.</p>
+        <div class="t-modern">🌍 Modern parallel: Unconditional positive regard in psychology. Love that requires no conditions to be valid or real.</div>
+      </div>
+
+      <div class="teaching-card" data-num="6" style="background: rgba(59,130,246,0.15); border: 1px solid rgba(59,130,246,0.3);">
+        <span class="t-icon">🌊</span>
+        <div class="t-title">Sattva, Rajas, Tamas — The Three Qualities</div>
+        <p class="t-body">Everything — food, actions, people, even time — has a mix of clarity (sattva), passion (rajas), and inertia (tamas). Understanding your own mixture is the start of self-mastery.</p>
+        <div class="t-modern">🌍 Modern parallel: The Big Five personality traits, or Ayurvedic body types. The Gita's model of human temperament was millennia ahead.</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- QUOTE STRIP -->
+<div class="quote-strip">
+  <blockquote>"The soul is never born nor dies at any time. It has not come into being, does not come into being, and will not come into being. It is unborn, eternal, ever-existing, and primeval."</blockquote>
+  <cite>BHAGAVAD GITA — CHAPTER 2, VERSE 20</cite>
+</div>
+
+<!-- MODERN COMPARISONS -->
+<section>
+  <div class="section-label">Then & Now</div>
+  <h2 class="section-title">The Gita Meets the 21st Century</h2>
+  <p style="max-width: 650px; color: #555; line-height: 1.8;">Professor Theodor's key insight: the Gita is not a relic. Its problems — identity, purpose, anxiety, moral conflict — are identical to ours.</p>
+
+  <div class="compare-grid">
+    <div class="compare-card reveal">
+      <div class="compare-icon-box" style="background: #FFF3E0;">🤖</div>
+      <div class="compare-content">
+        <h4>AI Anxiety & The Fear of Obsolescence</h4>
+        <p>Just as Arjuna feared his role would be meaningless after the battle, we fear AI will make us redundant. The Gita's answer: your Atma — your consciousness and creativity — cannot be automated.</p>
+      </div>
+    </div>
+    <div class="compare-card reveal">
+      <div class="compare-icon-box" style="background: #EDE9FE;">🧠</div>
+      <div class="compare-content">
+        <h4>Mindfulness & Meditation Apps</h4>
+        <p>Headspace and Calm teach breath-focus and present-moment awareness. Chapter 6 of the Gita is a complete meditation manual — yogasanas for the mind, thousands of years earlier.</p>
+      </div>
+    </div>
+    <div class="compare-card reveal">
+      <div class="compare-icon-box" style="background: #E0F2FE;">💔</div>
+      <div class="compare-content">
+        <h4>Grief & Mental Health</h4>
+        <p>Chapter 1 begins with Arjuna collapsing in depression — and the entire Gita is Krishna's therapeutic response. Modern psychotherapists recognise it as one of history's most profound grief-to-growth narratives.</p>
+      </div>
+    </div>
+    <div class="compare-card reveal">
+      <div class="compare-icon-box" style="background: #ECFDF5;">🌱</div>
+      <div class="compare-content">
+        <h4>Climate Ethics & Duty to Earth</h4>
+        <p>The Gita's vision of interconnected creation, where all beings are fragments of the divine, is the deepest philosophical foundation for environmental responsibility. Lokasamgraha — welfare of all worlds.</p>
+      </div>
+    </div>
+    <div class="compare-card reveal">
+      <div class="compare-icon-box" style="background: #FDF2F8;">📱</div>
+      <div class="compare-content">
+        <h4>Social Media & Identity Crisis</h4>
+        <p>The Gita's concept of the Atma — a stable identity beneath all changing roles — is the perfect antidote to the performed, approval-seeking self we construct online.</p>
+      </div>
+    </div>
+    <div class="compare-card reveal">
+      <div class="compare-icon-box" style="background: #FFFBEB;">🏆</div>
+      <div class="compare-content">
+        <h4>High-Performance Sports Psychology</h4>
+        <p>Every elite sports coach teaches "process over outcome." Athletes are told to control what they can and accept the rest. This is Nishkama Karma — word for word — from Chapter 2.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KIDS ZONE -->
+<div class="kids-zone" id="kids">
+  <div class="kids-inner">
+    <div class="kids-banner">
+      <div class="floating-emoji fe1">🌟</div>
+      <div class="floating-emoji fe2">🎯</div>
+      <div class="floating-emoji fe3">🦋</div>
+      <div class="floating-emoji fe4">🌈</div>
+      <h2>🎉 Kids' Wisdom Corner!</h2>
+      <p>Are you 8, 10, or 12 years old? The Gita has wisdom just for YOU! Can you answer these riddles?</p>
+    </div>
+
+    <div class="riddles-grid">
+      <div class="riddle-card reveal" onclick="toggleRiddle(this)">
+        <span class="riddle-emoji-big">🌱</span>
+        <p class="riddle-q">A farmer plants seeds in the morning. Can he eat the fruit that same evening?</p>
+        <button class="riddle-btn">Show the Gita Lesson! 🕉</button>
+        <div class="riddle-answer">✅ No! He has to care for the plant, water it, and be patient. The Gita teaches: Do your work well today — don't demand the reward immediately! This is Nishkama Karma.</div>
+      </div>
+
+      <div class="riddle-card reveal" onclick="toggleRiddle(this)">
+        <span class="riddle-emoji-big">🪞</span>
+        <p class="riddle-q">You wake up one day and all your toys are gone, your marks are forgotten, and your hair is messy. Are YOU still you?</p>
+        <button class="riddle-btn">Show the Gita Lesson! 🕉</button>
+        <div class="riddle-answer">✅ YES! The Gita says your real self — the Atma — is NOT your things, your marks, or your looks. The real you cannot be lost, hurt, or taken away. You are eternal! 🌟</div>
+      </div>
+
+      <div class="riddle-card reveal" onclick="toggleRiddle(this)">
+        <span class="riddle-emoji-big">🌊</span>
+        <p class="riddle-q">A river keeps flowing even when it rains AND when there's a drought. What kind of person is like this river?</p>
+        <button class="riddle-btn">Show the Gita Lesson! 🕉</button>
+        <div class="riddle-answer">✅ Someone with a steady, calm mind! The Gita calls this person Sthitaprajna — they don't jump for joy when something good happens, or cry forever when something bad happens. They stay centred like a river. 🧘</div>
+      </div>
+
+      <div class="riddle-card reveal" onclick="toggleRiddle(this)">
+        <span class="riddle-emoji-big">🤝</span>
+        <p class="riddle-q">Your friend is better at drawing than you. You help them improve even more. Are you being silly?</p>
+        <button class="riddle-btn">Show the Gita Lesson! 🕉</button>
+        <div class="riddle-answer">✅ Not at all! The Gita calls this Lokasamgraha — caring for everyone's wellbeing, not just your own. When you help others shine, the whole world gets brighter. That's the wisest thing you can do! 🌍</div>
+      </div>
+
+      <div class="riddle-card reveal" onclick="toggleRiddle(this)">
+        <span class="riddle-emoji-big">🦁</span>
+        <p class="riddle-q">Arjuna was the bravest warrior in the world — but he cried and sat down before the battle. Was he being a coward?</p>
+        <button class="riddle-btn">Show the Gita Lesson! 🕉</button>
+        <div class="riddle-answer">✅ No! He was being HUMAN. He felt love for his family and was confused about what was right. The Gita says it's okay to feel confused — asking deep questions is where wisdom begins! Being brave means asking hard questions. 💪</div>
+      </div>
+
+      <div class="riddle-card reveal" onclick="toggleRiddle(this)">
+        <span class="riddle-emoji-big">🎨</span>
+        <p class="riddle-q">Grandma prays by lighting a diya 🪔. Your uncle meditates. Your cousin reads philosophy books. Who is doing it "right"?</p>
+        <button class="riddle-btn">Show the Gita Lesson! 🕉</button>
+        <div class="riddle-answer">✅ ALL of them! The Gita teaches there are MANY paths to wisdom — Bhakti (devotion), Jnana (learning), and more. Every person finds their own path. What matters is sincerity, not the method! 🌈</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROFESSOR SECTION -->
+<div class="prof-section" id="professor">
+  <div class="prof-inner">
+    <div class="prof-card">
+      <div class="prof-avatar">👨‍🏫</div>
+      <div class="prof-name">Prof. Ithamar Theodor</div>
+      <div class="prof-title">Department of Asian Studies<br>University of Haifa, Israel</div>
+      <div class="prof-tags">
+        <span class="prof-tag">Indian Philosophy</span>
+        <span class="prof-tag">Vaishnava Theology</span>
+        <span class="prof-tag">Bhagavad Gita</span>
+        <span class="prof-tag">Sanskrit</span>
+        <span class="prof-tag">Comparative Religion</span>
+      </div>
+    </div>
+
+    <div class="prof-content">
+      <div class="section-label" style="color: var(--gold);">Lecture Series</div>
+      <h2 class="section-title">The Recent Philosophy Series</h2>
+      <p style="color: rgba(255,255,255,0.6); line-height: 1.8;">Prof. Theodor's breakthrough contribution is reading the Bhagavad Gita through the lens of contemporary Western philosophy — showing that what Plato, Kant, and Heidegger grappled with, the Gita had already addressed, in a richer and more personal way.</p>
+
+      <div class="lecture-list">
+
+        <div class="lecture-item reveal">
+          <div class="lec-num">01</div>
+          <div class="lec-info">
+            <h4>Introduction: The Gita as Contemporary Philosophy</h4>
+            <p>Why a 5,000-year-old text speaks to the most pressing questions of our age. Identity, purpose, and the search for meaning.</p>
+          </div>
+          <div class="lec-arrow">›</div>
+        </div>
+
+        <div class="lecture-item reveal">
+          <div class="lec-num">02</div>
+          <div class="lec-info">
+            <h4>The Crisis of Arjuna — The Human Condition</h4>
+            <p>Arjuna's breakdown as a model for existential crisis. Comparisons with Kierkegaard, Sartre, and modern psychology's "dark night of the soul."</p>
+          </div>
+          <div class="lec-arrow">›</div>
+        </div>
+
+        <div class="lecture-item reveal">
+          <div class="lec-num">03</div>
+          <div class="lec-info">
+            <h4>Atman and Identity — Beyond the Body and Mind</h4>
+            <p>What is the Self? The Gita's answer compared to Descartes' cogito, Buddhist anatta, and neuroscience's "predictive self."</p>
+          </div>
+          <div class="lec-arrow">›</div>
+        </div>
+
+        <div class="lecture-item reveal">
+          <div class="lec-num">04</div>
+          <div class="lec-info">
+            <h4>Karma Yoga — Ethics of Action Without Attachment</h4>
+            <p>A philosophical analysis of detachment. How Nishkama Karma relates to Kant's categorical imperative and modern virtue ethics.</p>
+          </div>
+          <div class="lec-arrow">›</div>
+        </div>
+
+        <div class="lecture-item reveal">
+          <div class="lec-num">05</div>
+          <div class="lec-info">
+            <h4>The Pluralism of Yoga — Many Paths, One Truth</h4>
+            <p>Jnana, Bhakti, Karma, and Raja Yoga as a philosophically coherent pluralism. Inclusive spirituality for a diverse world.</p>
+          </div>
+          <div class="lec-arrow">›</div>
+        </div>
+
+        <div class="lecture-item reveal">
+          <div class="lec-num">06</div>
+          <div class="lec-info">
+            <h4>The Visvarupa — God as Everything</h4>
+            <p>Krishna's cosmic revelation in Chapter 11. Theodor reads it through Heidegger's Being, eco-philosophy, and the sublime in Kant.</p>
+          </div>
+          <div class="lec-arrow">›</div>
+        </div>
+
+        <div class="lecture-item reveal">
+          <div class="lec-num">07</div>
+          <div class="lec-info">
+            <h4>Bhakti — The Philosophy of Love as Liberation</h4>
+            <p>How devotional love transcends religion and becomes a philosophical category. Plato's Symposium meets the Gita's Chapter 12.</p>
+          </div>
+          <div class="lec-arrow">›</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">🕉 GitaWisdom</div>
+  <p>Inspired by <strong style="color: rgba(255,255,255,0.6);">Prof. Ithamar Theodor's</strong> Recent Philosophy Series on the Bhagavad Gita</p>
+  <p style="margin-top: 0.5rem;">Made with 🪷 for curious minds of all ages · Content is educational and non-commercial</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Kids riddles toggle
+  function toggleRiddle(card) {
+    const answer = card.querySelector('.riddle-answer');
+    const btn = card.querySelector('.riddle-btn');
+    if (answer.style.display === 'block') {
+      answer.style.display = 'none';
+      btn.textContent = 'Show the Gita Lesson! 🕉';
+    } else {
+      answer.style.display = 'block';
+      btn.textContent = 'Hide Answer 🙈';
+    }
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Bhagavad-Gita — A Comprehensive Guide · H.D. Goswami, PhD Harvard</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=Noto+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   DESIGN SYSTEM — Dual audience: Scholar + Child
+   Palette: Deep Indigo / Burnished Gold / Ivory / Terracotta
+   Aesthetic: Illuminated manuscript meets Harvard Review
+   ============================================================ */
+:root {
+  --indigo:       #1C2B5E;
+  --indigo-deep:  #0F1A3D;
+  --indigo-mid:   #2E3F7A;
+  --gold:         #C8941A;
+  --gold-lt:      #E8B84B;
+  --gold-pale:    #F9EDD0;
+  --terracotta:   #B85C38;
+  --teal:         #1A6B6B;
+  --teal-lt:      #24A0A0;
+  --ivory:        #FDFAF4;
+  --parchment:    #F5EDD8;
+  --ink:          #1A1208;
+  --ink-mid:      #3D2E1A;
+  --ink-lt:       #6B5A42;
+  --crimson:      #8B1A1A;
+  --sage:         #4A6741;
+
+  --serif:        'Playfair Display', Georgia, serif;
+  --sans:         'DM Sans', sans-serif;
+  --body:         'Noto Serif', serif;
+
+  --shadow-sm:    0 2px 12px rgba(28,43,94,0.10);
+  --shadow-md:    0 6px 28px rgba(28,43,94,0.14);
+  --shadow-lg:    0 16px 56px rgba(28,43,94,0.18);
+  --radius:       16px;
+  --radius-lg:    28px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--ivory);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* ─── HERO ───────────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  background: var(--indigo-deep);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 6rem 2rem 4rem;
+}
+
+/* Ornate geometric background */
+.hero-geo {
+  position: absolute; inset: 0; overflow: hidden; pointer-events: none;
+}
+.hero-geo svg {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: max(110vw, 110vh);
+  opacity: 0.06;
+  animation: rotateGeo 90s linear infinite;
+}
+@keyframes rotateGeo { to { transform: translate(-50%,-50%) rotate(360deg); } }
+
+/* Radial glows */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -20%; right: -10%;
+  width: 700px; height: 700px;
+  background: radial-gradient(ellipse, rgba(200,148,26,0.18) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -20%; left: -10%;
+  width: 600px; height: 600px;
+  background: radial-gradient(ellipse, rgba(26,107,107,0.20) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative; z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 4rem;
+  align-items: center;
+}
+
+.hero-eyebrow {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 1.8rem;
+}
+.eyebrow-line {
+  width: 48px; height: 2px;
+  background: var(--gold);
+}
+.eyebrow-text {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold-lt);
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.8rem, 5.5vw, 5rem);
+  font-weight: 900;
+  line-height: 1.06;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--gold-lt);
+}
+
+.hero-subtitle {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: rgba(255,255,255,0.60);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  max-width: 520px;
+}
+
+.hero-author {
+  display: flex; align-items: center; gap: 16px;
+  padding: 1.2rem 1.6rem;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(200,148,26,0.30);
+  border-radius: var(--radius);
+  backdrop-filter: blur(4px);
+  max-width: 440px;
+}
+.author-monogram {
+  width: 56px; height: 56px; flex-shrink: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--terracotta));
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #fff;
+}
+.author-info strong {
+  display: block;
+  color: #fff;
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-weight: 700;
+}
+.author-info span {
+  color: var(--gold-lt);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Hero right — Sanskrit panel */
+.hero-panel {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(200,148,26,0.25);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  backdrop-filter: blur(8px);
+}
+.panel-om {
+  font-family: var(--serif);
+  font-size: 5rem;
+  color: var(--gold-lt);
+  text-align: center;
+  line-height: 1;
+  margin-bottom: 1rem;
+  opacity: 0.85;
+}
+.panel-verse {
+  font-family: var(--body);
+  font-style: italic;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.70);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.panel-verse strong {
+  display: block;
+  color: var(--gold-lt);
+  font-style: normal;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  margin-bottom: 0.4rem;
+}
+.panel-stats {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.8rem; margin-top: 1.5rem;
+}
+.pstat {
+  text-align: center;
+  padding: 0.9rem 0.5rem;
+  background: rgba(200,148,26,0.10);
+  border-radius: 12px;
+}
+.pstat-num {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--gold-lt);
+  line-height: 1;
+}
+.pstat-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-top: 4px;
+}
+
+@media (max-width: 860px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-panel { display: none; }
+}
+
+/* ─── STICKY NAV ─────────────────────────────────────── */
+.navbar {
+  position: sticky; top: 0; z-index: 200;
+  background: rgba(15,26,61,0.96);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(200,148,26,0.20);
+  padding: 0 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 58px;
+}
+.nav-brand {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--gold-lt);
+  letter-spacing: 0.5px;
+}
+.nav-links {
+  display: flex; gap: 2rem; list-style: none;
+}
+.nav-links a {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--gold-lt); }
+@media (max-width: 700px) { .nav-links { display: none; } }
+
+/* ─── SHARED LAYOUT HELPERS ──────────────────────────── */
+.section { padding: 6rem 2rem; }
+.section--alt { background: var(--parchment); }
+.section--dark {
+  background: var(--indigo);
+  color: #fff;
+}
+.wrap { max-width: 1100px; margin: 0 auto; }
+
+.section-eyebrow {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 1.4rem;
+}
+.eyebrow-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+.eyebrow-label {
+  font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold);
+}
+
+h2.section-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+.section--dark h2.section-title { color: #fff; }
+
+.section-lead {
+  font-family: var(--body);
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--ink-lt);
+  max-width: 680px;
+}
+.section--dark .section-lead { color: rgba(255,255,255,0.65); }
+
+/* ─── ABOUT GOSWAMI ──────────────────────────────────── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 4rem;
+  margin-top: 3.5rem;
+  align-items: start;
+}
+@media (max-width: 800px) { .about-grid { grid-template-columns: 1fr; } }
+
+.profile-card {
+  background: var(--indigo-deep);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  position: sticky; top: 80px;
+}
+.profile-top {
+  background: linear-gradient(135deg, var(--indigo-mid), var(--indigo-deep));
+  padding: 2.5rem 2rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(200,148,26,0.25);
+}
+.profile-avatar {
+  width: 100px; height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--terracotta));
+  margin: 0 auto 1.2rem;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif);
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: #fff;
+  border: 3px solid rgba(200,148,26,0.40);
+}
+.profile-name {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+}
+.profile-title {
+  font-size: 0.78rem; font-weight: 600;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--gold-lt);
+}
+.profile-bottom { padding: 1.8rem; }
+.profile-fact {
+  display: flex; gap: 12px;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.profile-fact:last-child { border-bottom: none; }
+.fact-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 1px; }
+.fact-label {
+  font-size: 0.72rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1px;
+  color: var(--gold-lt);
+  margin-bottom: 2px;
+}
+.fact-value {
+  font-family: var(--body);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.70);
+}
+
+.about-content { display: flex; flex-direction: column; gap: 1.5rem; }
+.about-block {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 1.8rem 2rem;
+  box-shadow: var(--shadow-sm);
+  border-left: 4px solid var(--gold);
+}
+.about-block h4 {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--indigo);
+  margin-bottom: 0.6rem;
+}
+.about-block p {
+  font-family: var(--body);
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: var(--ink-lt);
+}
+.about-block.highlight { border-left-color: var(--teal); }
+.about-block.highlight h4 { color: var(--teal); }
+
+/* ─── PHILOSOPHY TABS ─────────────────────────────────── */
+.tab-bar {
+  display: flex; gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: 2.5rem 0 2rem;
+  border-bottom: 2px solid rgba(28,43,94,0.12);
+  padding-bottom: 0;
+}
+.tab-btn {
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0.75rem 1.4rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--ink-lt);
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: all 0.2s;
+  border-radius: 8px 8px 0 0;
+}
+.tab-btn:hover { color: var(--indigo); background: rgba(28,43,94,0.04); }
+.tab-btn.active {
+  color: var(--indigo);
+  border-bottom-color: var(--gold);
+  background: rgba(200,148,26,0.06);
+}
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* ─── STORY CARDS — Dual Layer ────────────────────────── */
+.story-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.story-card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  display: flex; flex-direction: column;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid rgba(28,43,94,0.07);
+}
+.story-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.card-top {
+  padding: 1.8rem 1.8rem 1.2rem;
+}
+.card-chapter {
+  font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.card-title {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--indigo);
+  margin-bottom: 0.8rem;
+}
+.card-sanskrit {
+  font-family: var(--body);
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--ink-lt);
+  padding: 0.5rem 0.9rem;
+  background: var(--gold-pale);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+/* Scholar layer */
+.scholar-layer {
+  padding: 0 1.8rem 1rem;
+}
+.layer-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 50px;
+  margin-bottom: 0.7rem;
+}
+.badge-scholar { background: rgba(28,43,94,0.10); color: var(--indigo); }
+.badge-child   { background: rgba(200,148,26,0.12); color: var(--terracotta); }
+.badge-modern  { background: rgba(26,107,107,0.10); color: var(--teal); }
+
+.scholar-layer p,
+.child-layer p,
+.modern-layer p {
+  font-family: var(--body);
+  font-size: 0.9rem;
+  line-height: 1.72;
+  color: var(--ink-lt);
+}
+
+.divider-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(28,43,94,0.12), transparent);
+  margin: 0.8rem 1.8rem;
+}
+
+/* Child layer */
+.child-layer {
+  padding: 0 1.8rem 1rem;
+  background: rgba(249,237,208,0.35);
+  margin: 0 0.8rem;
+  border-radius: 12px;
+}
+.child-layer { padding: 1rem 1.2rem; }
+
+.modern-layer {
+  padding: 1rem 1.8rem;
+  background: rgba(26,107,107,0.05);
+  border-top: 1px solid rgba(26,107,107,0.12);
+  margin-top: auto;
+}
+.modern-layer .context-label {
+  font-size: 0.68rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 2px;
+  color: var(--teal);
+  margin-bottom: 4px;
+}
+
+/* Card accent colors */
+.accent-gold .card-chapter { color: var(--gold); }
+.accent-teal .card-chapter { color: var(--teal); }
+.accent-crimson .card-chapter { color: var(--crimson); }
+.accent-sage .card-chapter { color: var(--sage); }
+.accent-terra .card-chapter { color: var(--terracotta); }
+.accent-indigo .card-chapter { color: var(--indigo-mid); }
+
+.accent-gold  { border-top: 4px solid var(--gold); }
+.accent-teal  { border-top: 4px solid var(--teal-lt); }
+.accent-crimson { border-top: 4px solid var(--crimson); }
+.accent-sage  { border-top: 4px solid var(--sage); }
+.accent-terra { border-top: 4px solid var(--terracotta); }
+.accent-indigo { border-top: 4px solid var(--indigo-mid); }
+
+/* ─── CHARACTERS ─────────────────────────────────────── */
+.char-scroll {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+.char-card {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  background: #fff;
+  transition: transform 0.25s, box-shadow 0.25s;
+  cursor: default;
+  border: 1px solid rgba(28,43,94,0.08);
+}
+.char-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+.char-top {
+  height: 90px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 3.2rem;
+}
+.char-body { padding: 1rem 1.2rem; }
+.char-name {
+  font-family: var(--serif);
+  font-weight: 700; font-size: 1.05rem;
+  color: var(--indigo);
+}
+.char-role {
+  font-size: 0.7rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 2px;
+  margin: 3px 0 8px;
+}
+.char-scholar {
+  font-family: var(--body);
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: var(--ink-lt);
+  margin-bottom: 0.6rem;
+}
+.char-child {
+  font-size: 0.78rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  line-height: 1.4;
+  background: var(--gold-pale);
+  color: var(--terracotta);
+  font-weight: 500;
+}
+.char-child::before { content: '🌟 '; }
+
+/* ─── THREE YOGAS COMPARISON ─────────────────────────── */
+.yogas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+@media (max-width: 700px) { .yogas-grid { grid-template-columns: 1fr; } }
+
+.yoga-card {
+  border-radius: var(--radius);
+  padding: 2rem 1.6rem;
+  position: relative;
+  overflow: hidden;
+}
+.yoga-card::before {
+  content: attr(data-sanskrit);
+  position: absolute;
+  bottom: -10px; right: -5px;
+  font-family: var(--serif);
+  font-size: 4.5rem;
+  font-weight: 900;
+  opacity: 0.05;
+  line-height: 1;
+  pointer-events: none;
+}
+.yoga-karma { background: linear-gradient(135deg, #FFF5E6, #FDE8C4); }
+.yoga-jnana { background: linear-gradient(135deg, #E8EFF8, #D0DCEF); }
+.yoga-bhakti { background: linear-gradient(135deg, #E8F4F4, #CBE8E8); }
+
+.yoga-icon { font-size: 2.5rem; margin-bottom: 0.8rem; }
+.yoga-name {
+  font-family: var(--serif);
+  font-size: 1.3rem; font-weight: 900;
+  margin-bottom: 2px;
+}
+.yoga-karma .yoga-name { color: var(--terracotta); }
+.yoga-jnana .yoga-name { color: var(--indigo); }
+.yoga-bhakti .yoga-name { color: var(--teal); }
+
+.yoga-sanskrit-name {
+  font-size: 0.7rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 2px;
+  margin-bottom: 0.8rem;
+  opacity: 0.6;
+}
+.yoga-def {
+  font-family: var(--body);
+  font-style: italic;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--ink-mid);
+  margin-bottom: 0.8rem;
+}
+.yoga-modern {
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 0.6rem 0.9rem;
+  background: rgba(255,255,255,0.65);
+  border-radius: 8px;
+  line-height: 1.5;
+  color: var(--ink-mid);
+}
+.yoga-modern strong { display: block; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 1.5px; opacity: 0.6; margin-bottom: 2px; }
+.yoga-child {
+  font-size: 0.8rem;
+  margin-top: 0.7rem;
+  padding: 0.5rem 0.9rem;
+  background: rgba(255,255,255,0.50);
+  border-radius: 8px;
+  line-height: 1.45;
+}
+
+/* ─── VERSE SPOTLIGHT ─────────────────────────────────── */
+.verse-spotlight {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+@media (max-width: 720px) { .verse-spotlight { grid-template-columns: 1fr; } }
+
+.verse-card {
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(200,148,26,0.25);
+}
+.verse-ref {
+  font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold-lt);
+  margin-bottom: 0.8rem;
+}
+.verse-sanskrit {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--gold-pale);
+  margin-bottom: 1rem;
+}
+.verse-translation {
+  font-family: var(--body);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 1rem;
+}
+.verse-goswami {
+  font-size: 0.82rem;
+  padding: 0.9rem 1.1rem;
+  background: rgba(200,148,26,0.12);
+  border-radius: 10px;
+  border-left: 3px solid var(--gold);
+  color: rgba(255,255,255,0.80);
+  line-height: 1.6;
+}
+.verse-goswami strong {
+  display: block;
+  font-size: 0.65rem; letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold-lt);
+  margin-bottom: 4px;
+}
+.verse-child-note {
+  margin-top: 0.8rem;
+  font-size: 0.8rem;
+  padding: 0.7rem 1rem;
+  background: rgba(255,255,255,0.06);
+  border-radius: 8px;
+  color: rgba(255,255,255,0.55);
+}
+.verse-child-note::before { content: '🌱 For Young Readers: '; color: var(--gold-lt); font-weight: 600; }
+
+/* ─── MODERN CONTEXT TIMELINE ────────────────────────── */
+.timeline {
+  position: relative;
+  margin-top: 3rem;
+  padding-left: 2rem;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--gold), var(--teal-lt), var(--gold));
+  border-radius: 2px;
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+  padding-left: 2rem;
+}
+.timeline-dot {
+  position: absolute;
+  left: -2.6rem;
+  top: 0.5rem;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 3px solid var(--ivory);
+  box-shadow: 0 0 0 2px var(--gold);
+}
+.timeline-era {
+  font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+.timeline-event {
+  font-family: var(--serif);
+  font-size: 1.1rem; font-weight: 700;
+  color: var(--indigo);
+  margin-bottom: 0.5rem;
+}
+.timeline-body {
+  font-family: var(--body);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--ink-lt);
+}
+.timeline-child {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  padding: 0.4rem 0.9rem;
+  background: var(--gold-pale);
+  border-radius: 50px;
+  color: var(--terracotta);
+  font-weight: 600;
+}
+
+/* ─── GOSWAMI METHOD ─────────────────────────────────── */
+.method-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+.method-card {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(200,148,26,0.20);
+  border-radius: var(--radius);
+  padding: 1.8rem;
+  transition: background 0.25s;
+}
+.method-card:hover { background: rgba(255,255,255,0.11); }
+.method-num {
+  font-family: var(--serif);
+  font-size: 2.5rem; font-weight: 900;
+  color: rgba(200,148,26,0.25);
+  line-height: 1;
+  margin-bottom: 0.6rem;
+}
+.method-title {
+  font-family: var(--serif);
+  font-size: 1.05rem; font-weight: 700;
+  color: var(--gold-lt);
+  margin-bottom: 0.5rem;
+}
+.method-desc {
+  font-family: var(--body);
+  font-size: 0.87rem;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.60);
+}
+.method-child {
+  margin-top: 0.7rem;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.40);
+  font-style: italic;
+}
+
+/* ─── INTERACTIVE QUIZ ──────────────────────────────── */
+.quiz-wrapper {
+  max-width: 740px;
+  margin: 2.5rem auto 0;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 3rem;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(28,43,94,0.10);
+}
+.quiz-progress {
+  display: flex; gap: 6px; margin-bottom: 2rem;
+}
+.qpip {
+  height: 4px; border-radius: 2px; flex: 1;
+  background: rgba(28,43,94,0.10);
+  transition: background 0.3s;
+}
+.qpip.done { background: var(--gold); }
+.qpip.active { background: var(--indigo); }
+
+.quiz-level-toggle {
+  display: flex; gap: 0.5rem; margin-bottom: 1.8rem;
+}
+.qlevel {
+  font-size: 0.75rem; font-weight: 700;
+  letter-spacing: 1px; text-transform: uppercase;
+  padding: 5px 14px; border-radius: 50px;
+  border: 2px solid transparent;
+  cursor: pointer; background: none;
+  transition: all 0.2s;
+  font-family: var(--sans);
+}
+.qlevel.scholar-active { border-color: var(--indigo); color: var(--indigo); background: rgba(28,43,94,0.07); }
+.qlevel.child-active   { border-color: var(--gold);   color: var(--terracotta); background: rgba(200,148,26,0.08); }
+
+#quiz-q {
+  font-family: var(--serif);
+  font-size: 1.2rem; font-weight: 700;
+  color: var(--indigo);
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+}
+.quiz-opts { display: flex; flex-direction: column; gap: 0.7rem; }
+.qopt {
+  width: 100%;
+  text-align: left;
+  padding: 1rem 1.4rem;
+  border-radius: 12px;
+  border: 2px solid rgba(28,43,94,0.15);
+  background: #fff;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: var(--ink);
+}
+.qopt:hover { border-color: var(--indigo); background: rgba(28,43,94,0.04); }
+.qopt.correct { background: rgba(74,167,74,0.08); border-color: #3A8C3A; color: #1f6b1f; }
+.qopt.wrong   { background: rgba(184,92,56,0.08); border-color: var(--terracotta); color: var(--terracotta); }
+
+.quiz-feedback {
+  margin-top: 1.2rem;
+  padding: 1.1rem 1.4rem;
+  border-radius: 12px;
+  font-family: var(--body);
+  font-size: 0.92rem;
+  line-height: 1.65;
+  display: none;
+}
+.quiz-feedback.show { display: block; }
+.quiz-feedback.good { background: rgba(74,167,74,0.08); color: #1f6b1f; border-left: 4px solid #3A8C3A; }
+.quiz-feedback.bad  { background: rgba(184,92,56,0.07); color: #8B3000; border-left: 4px solid var(--terracotta); }
+.quiz-feedback .goswami-note {
+  margin-top: 0.6rem; font-size: 0.83rem; font-style: italic;
+  color: var(--indigo); opacity: 0.8;
+}
+.quiz-feedback .goswami-note::before { content: '📚 Goswami's insight: '; font-style: normal; font-weight: 700; }
+
+.quiz-nav {
+  display: flex; gap: 1rem; margin-top: 1.2rem; align-items: center;
+}
+.btn-next {
+  padding: 0.75rem 2rem; border-radius: 50px;
+  background: var(--indigo); color: #fff;
+  border: none; cursor: pointer;
+  font-family: var(--sans); font-size: 0.9rem; font-weight: 700;
+  transition: background 0.2s; display: none;
+}
+.btn-next.show { display: inline-block; }
+.btn-next:hover { background: var(--indigo-mid); }
+.quiz-score-display {
+  font-size: 0.82rem; color: var(--ink-lt); font-weight: 500;
+}
+
+/* ─── PULLQUOTE ──────────────────────────────────────── */
+.pullquote {
+  border-left: 5px solid var(--gold);
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+  background: var(--gold-pale);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+.pullquote p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--indigo);
+}
+.pullquote cite {
+  display: block;
+  margin-top: 0.8rem;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-style: normal;
+}
+
+/* ─── FOOTER ─────────────────────────────────────────── */
+footer {
+  background: var(--indigo-deep);
+  color: rgba(255,255,255,0.55);
+  padding: 4rem 2rem;
+  text-align: center;
+  border-top: 1px solid rgba(200,148,26,0.20);
+}
+footer .footer-om {
+  font-family: var(--serif);
+  font-size: 2.5rem;
+  color: var(--gold-lt);
+  display: block;
+  margin-bottom: 0.8rem;
+}
+footer .footer-title {
+  font-family: var(--serif);
+  font-size: 1.1rem; font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+footer .footer-sub {
+  font-family: var(--body);
+  font-style: italic;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 1.5rem;
+}
+footer .footer-credits {
+  font-size: 0.78rem;
+  opacity: 0.40;
+  line-height: 1.9;
+}
+
+/* ─── ANIMATIONS ─────────────────────────────────────── */
+@keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+.hero h1        { animation: fadeUp 0.9s ease both; }
+.hero-subtitle  { animation: fadeUp 0.9s ease 0.15s both; }
+.hero-eyebrow   { animation: fadeUp 0.9s ease 0.05s both; }
+.hero-author    { animation: fadeUp 0.9s ease 0.25s both; }
+
+/* ─── SCROLL INDICATOR ───────────────────────────────── */
+.scroll-cue {
+  position: absolute; bottom: 2.5rem; left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  z-index: 3;
+  animation: bounce 2.5s ease-in-out infinite;
+  color: rgba(255,255,255,0.4);
+  font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase;
+}
+.scroll-cue::after { content: '↓'; font-size: 1.2rem; }
+@keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(9px)} }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════════════ -->
+<header class="hero">
+  <!-- Geometric mandala SVG background -->
+  <div class="hero-geo">
+    <svg viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="400" cy="400" r="360" stroke="white" stroke-width="1"/>
+      <circle cx="400" cy="400" r="280" stroke="white" stroke-width="0.7"/>
+      <circle cx="400" cy="400" r="200" stroke="white" stroke-width="0.5"/>
+      <circle cx="400" cy="400" r="120" stroke="white" stroke-width="0.4"/>
+      <!-- 12-petal lotus -->
+      <g opacity="0.6">
+        <ellipse cx="400" cy="250" rx="28" ry="70" fill="white" opacity="0.15"/>
+        <ellipse cx="400" cy="250" rx="28" ry="70" fill="white" opacity="0.15" transform="rotate(30 400 400)"/>
+        <ellipse cx="400" cy="250" rx="28" ry="70" fill="white" opacity="0.15" transform="rotate(60 400 400)"/>
+        <ellipse cx="400" cy="250" rx="28" ry="70" fill="white" opacity="0.15" transform="rotate(90 400 400)"/>
+        <ellipse cx="400" cy="250" rx="28" ry="70" fill="white" opacity="0.15" transform="rotate(120 400 400)"/>
+        <ellipse cx="400" cy="250" rx="28" ry="70" fill="white" opacity="0.15" transform="rotate(150 400 400)"/>
+        <ellipse cx="400" cy="250" rx="28" ry="70" fill="white" opacity="0.15" transform="rotate(180 400 400)"/>
+        <ellipse cx="400" cy="250" rx="28" ry="70" fill="white" opacity="0.15" transform="rotate(210 400 400)"/>
+        <ellipse cx="400" cy="250" rx="28" ry="70" fill="white" opacity="0.15" transform="rotate(240 400 400)"/>
+        <ellipse cx="400" cy="250" rx="28" ry="70" fill="white" opacity="0.15" transform="rotate(270 400 400)"/>
+        <ellipse cx="400" cy="250" rx="28" ry="70" fill="white" opacity="0.15" transform="rotate(300 400 400)"/>
+        <ellipse cx="400" cy="250" rx="28" ry="70" fill="white" opacity="0.15" transform="rotate(330 400 400)"/>
+      </g>
+      <!-- radial lines -->
+      <line x1="400" y1="40" x2="400" y2="760" stroke="white" stroke-width="0.3"/>
+      <line x1="40" y1="400" x2="760" y2="400" stroke="white" stroke-width="0.3"/>
+      <line x1="128" y1="128" x2="672" y2="672" stroke="white" stroke-width="0.3"/>
+      <line x1="672" y1="128" x2="128" y2="672" stroke="white" stroke-width="0.3"/>
+    </svg>
+  </div>
+
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">
+        <div class="eyebrow-line"></div>
+        <span class="eyebrow-text">A Comprehensive Guide · India Studies</span>
+      </div>
+
+      <h1>The <em>Bhagavad‑Gita</em><br>Illuminated</h1>
+
+      <p class="hero-subtitle">
+        Ancient Sanskrit philosophy decoded through rigorous scholarship — making the Gita's timeless wisdom accessible to seekers of every age, from the classroom to the academy.
+      </p>
+
+      <div class="hero-author">
+        <div class="author-monogram">G</div>
+        <div class="author-info">
+          <strong>H.D. Goswami (Howard Resnick)</strong>
+          <span>PhD Sanskrit & Indian Studies · Harvard University</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-panel">
+      <div class="panel-om">ॐ</div>
+      <div class="panel-verse">
+        <strong>Bhagavad-gītā 2.47</strong>
+        <em>karmaṇy evādhikāras te mā phaleṣu kadācana<br>
+        mā karma-phala-hetur bhūr mā te saṅgo 'stv akarmaṇi</em>
+        <br><br>
+        "You have a right to perform your prescribed duties, but you are not entitled to the fruits of your actions."
+      </div>
+      <div class="panel-stats">
+        <div class="pstat"><div class="pstat-num">18</div><div class="pstat-label">Chapters</div></div>
+        <div class="pstat"><div class="pstat-num">700</div><div class="pstat-label">Verses</div></div>
+        <div class="pstat"><div class="pstat-num">3</div><div class="pstat-label">Core Yogas</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-cue">Scroll</div>
+</header>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-brand">The Gita · Scholarly Explorer</div>
+  <ul class="nav-links">
+    <li><a href="#scholar">The Scholar</a></li>
+    <li><a href="#philosophy">Philosophy</a></li>
+    <li><a href="#stories">Stories</a></li>
+    <li><a href="#verses">Key Verses</a></li>
+    <li><a href="#modern">Modern Life</a></li>
+    <li><a href="#quiz">Quiz</a></li>
+  </ul>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════
+     ABOUT H.D. GOSWAMI
+════════════════════════════════════════════════════ -->
+<section class="section" id="scholar">
+  <div class="wrap">
+    <div class="section-eyebrow"><div class="eyebrow-dot"></div><span class="eyebrow-label">The Author & Scholar</span></div>
+    <h2 class="section-title">Who is H.D. Goswami?</h2>
+    <p class="section-lead">A Harvard-trained scholar who crossed the bridge between rigorous Western academia and the living tradition of Vedic India — and wrote one of the most acclaimed academic commentaries on the Gita.</p>
+
+    <div class="about-grid">
+      <div class="profile-card">
+        <div class="profile-top">
+          <div class="profile-avatar">G</div>
+          <div class="profile-name">H.D. Goswami</div>
+          <div class="profile-title">Howard Resnick, PhD Harvard</div>
+        </div>
+        <div class="profile-bottom">
+          <div class="profile-fact">
+            <span class="fact-icon">🎓</span>
+            <div><div class="fact-label">Education</div><div class="fact-value">PhD, Sanskrit & Indian Studies, Harvard University</div></div>
+          </div>
+          <div class="profile-fact">
+            <span class="fact-icon">📖</span>
+            <div><div class="fact-label">Tradition</div><div class="fact-value">Vaishnava scholar in the Gaudiya tradition; initiated name Hridayananda Das Goswami</div></div>
+          </div>
+          <div class="profile-fact">
+            <span class="fact-icon">🌍</span>
+            <div><div class="fact-label">Work</div><div class="fact-value">Author, teacher, and translator; taught at University of Florida; worked on completing Srimad-Bhagavatam translation</div></div>
+          </div>
+          <div class="profile-fact">
+            <span class="fact-icon">🔬</span>
+            <div><div class="fact-label">Method</div><div class="fact-value">Combines historical-critical philology with living philosophical tradition — a rare dual expertise</div></div>
+          </div>
+          <div class="profile-fact">
+            <span class="fact-icon">🌱</span>
+            <div><div class="fact-label">For Young Readers</div><div class="fact-value">Think of him as a detective who studied both the clues (Sanskrit language) and the mystery (ancient wisdom) to help us understand a 5,000-year-old text!</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-content">
+        <div class="about-block">
+          <h4>🏛️ The Harvard Lens</h4>
+          <p>Goswami's Harvard training gave him mastery in Sanskrit philology — the science of language, textual history, and critical interpretation. Unlike popular commentaries written from purely devotional standpoints, his approach situates the Gita within its broader Vedic, philosophical, and historical context. He examines variant manuscripts, grammatical nuances, and competing interpretive traditions with academic precision.</p>
+        </div>
+
+        <div class="pullquote">
+          <p>"The Bhagavad-gita is not merely an ancient poem — it is a systematic philosophy of consciousness, ethics, and liberation that rivals any Western philosophical tradition in depth and sophistication."</p>
+          <cite>H.D. Goswami — Comprehensive Guide to the Bhagavad-gita</cite>
+        </div>
+
+        <div class="about-block highlight">
+          <h4>🌉 The Bridge Builder</h4>
+          <p>What makes Goswami unique is that he is both an insider (initiated into the Vaishnava tradition, given the title Goswami by his guru Prabhupada) and an outsider trained in Western critical methods. This rare position allows him to honour the Gita as a living scripture while also interrogating it with the tools of modern scholarship — textual analysis, comparative philosophy, and cross-cultural hermeneutics.</p>
+        </div>
+
+        <div class="about-block">
+          <h4>📚 His Commentary's Key Contributions</h4>
+          <p>Goswami's Comprehensive Guide is celebrated for: (1) presenting each verse in Devanagari, transliteration, and translation; (2) offering word-by-word Sanskrit analysis; (3) contextualising each chapter's argument logically; (4) drawing parallels with Western philosophy — Plato, Aristotle, Kant, and modern ethics; and (5) making the text approachable for students encountering it for the first time, regardless of religious background.</p>
+        </div>
+
+        <div class="about-block highlight">
+          <h4>🧒 For Young Learners</h4>
+          <p>Imagine you found a letter written in a secret code, 5,000 years ago, that had answers to life's biggest questions. H.D. Goswami spent years learning the code (Sanskrit), then decades understanding what the letter truly means — so that you don't have to start from scratch! His book is like a brilliant treasure map into the Gita's wisdom.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     PHILOSOPHY TABS
+════════════════════════════════════════════════════ -->
+<section class="section section--alt" id="philosophy">
+  <div class="wrap">
+    <div class="section-eyebrow"><div class="eyebrow-dot"></div><span class="eyebrow-label">Core Philosophy</span></div>
+    <h2 class="section-title">The Gita's Philosophical Architecture</h2>
+    <p class="section-lead">Goswami identifies the Gita not as a miscellaneous collection of wisdom but as a rigorously structured argument — one that builds from crisis to clarity across 18 interlocking chapters.</p>
+
+    <div class="tab-bar">
+      <button class="tab-btn active" onclick="showTab('ontology', this)">Ontology</button>
+      <button class="tab-btn" onclick="showTab('ethics', this)">Ethics & Dharma</button>
+      <button class="tab-btn" onclick="showTab('epistemology', this)">Epistemology</button>
+      <button class="tab-btn" onclick="showTab('soteriology', this)">Liberation</button>
+      <button class="tab-btn" onclick="showTab('psychology', this)">Psychology</button>
+    </div>
+
+    <div id="tab-ontology" class="tab-panel active">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:start;">
+        <div>
+          <div class="about-block">
+            <h4>🔬 The Nature of Reality (Sat-Chit-Ananda)</h4>
+            <p>Goswami emphasises that the Gita operates within the Vedic ontological framework of three categories: Brahman (the Absolute, impersonal divine reality), Paramātmā (the localised divine presence within all living things), and Bhagavān (the Supreme Personal God — Krishna). These are not contradictions but three ways of perceiving the same Ultimate Reality, at increasing levels of clarity.</p>
+          </div>
+          <div class="about-block highlight">
+            <h4>⚛️ Ātman — The Self That Cannot Be Destroyed</h4>
+            <p>The Gita's most radical ontological claim (2.17–25) is that the self (ātman) is eternal, indestructible, and distinct from the body. Goswami notes this aligns surprisingly with certain interpretations in modern philosophy of mind — the "hard problem of consciousness" (Chalmers) asks why subjective experience exists at all, a question the Gita addresses directly by positing consciousness as fundamental, not emergent.</p>
+          </div>
+        </div>
+        <div>
+          <div class="about-block">
+            <h4>🌳 Prakrti and Purusa — Matter and Spirit</h4>
+            <p>Chapter 13 presents a sophisticated metaphysics: Prakrti (material nature, the "field") and Purusa (the knower of the field, consciousness). Goswami draws parallels with Descartes' mind-body dualism, but argues the Gita's framework is more sophisticated — it is not substance dualism but a hierarchy within a single divine reality.</p>
+          </div>
+          <div style="background:var(--gold-pale); padding:1.5rem; border-radius:var(--radius); margin-top:1rem;">
+            <strong style="color:var(--terracotta); font-size:0.72rem; letter-spacing:2px; text-transform:uppercase;">🌟 For Young Readers</strong>
+            <p style="font-family:var(--body); font-size:0.88rem; margin-top:0.5rem; color:var(--ink-mid); line-height:1.6;">Think of it this way: your phone has hardware (the body) and software (the soul/ātman). When the phone breaks, the software — who you truly are — doesn't vanish. The Gita says you are the software of the universe, not the hardware!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="tab-ethics" class="tab-panel">
+      <div class="about-block">
+        <h4>⚖️ Dharma — The Ethics of Duty</h4>
+        <p>For Goswami, the Gita's ethics are neither purely deontological (Kant's categorical imperative — duty for duty's sake) nor purely consequentialist (utilitarianism — best outcome for most). Instead, it presents a virtue-ethics framework closer to Aristotle's eudaimonia — acting according to one's essential nature (svabhāva) and position (svadharma), cultivating character virtues (Sattva), and ultimately transcending ego-driven motivation entirely through Nishkāma Karma (desireless action).</p>
+      </div>
+      <div class="about-block highlight" style="margin-top:1rem;">
+        <h4>🎯 The Paradox of Duty — Arjuna's Dilemma</h4>
+        <p>Goswami gives sustained attention to what he calls the Gita's "ethical paradox": Arjuna is told to fight (Kshatriya duty) while simultaneously being told to transcend the fruits of action. This tension between role-based ethics and universal compassion is not dissolved but resolved at a higher level — one acts from duty and devotion, not from desire for reward or fear of loss. This is sophisticated moral philosophy equivalent to Kant's idea that the moral worth of an act lies in the will behind it, not its consequences.</p>
+      </div>
+      <div style="background:var(--gold-pale); padding:1.5rem; border-radius:var(--radius); margin-top:1rem;">
+        <strong style="color:var(--terracotta); font-size:0.72rem; letter-spacing:2px; text-transform:uppercase;">🌟 For Young Readers</strong>
+        <p style="font-family:var(--body); font-size:0.88rem; margin-top:0.5rem; color:var(--ink-mid); line-height:1.6;">Imagine you have homework to do, but you also want to play outside. The Gita says: do your homework completely and well, not because you want a reward (gold stars), but because it's the right thing to do. Your job matters — do it with your whole heart, and forget the rest!</p>
+      </div>
+    </div>
+
+    <div id="tab-epistemology" class="tab-panel">
+      <div class="about-block">
+        <h4>🧠 How Do We Know What We Know?</h4>
+        <p>The Gita presents three valid sources of knowledge (pramāṇas): pratyaksha (direct sensory perception), anumāna (logical inference), and śabda (authoritative testimony — sacred scripture and the words of a realised teacher). Goswami, using his philological training, examines how the Gita itself positions Krishna as a source of knowledge (the ultimate śabda-pramāṇa) and how this creates an epistemological hierarchy that places experiential spiritual knowledge at the summit.</p>
+      </div>
+      <div class="about-block highlight" style="margin-top:1rem;">
+        <h4>🔭 Jñāna and Vijñāna — Knowledge and Realisation</h4>
+        <p>Chapter 7 distinguishes between jñāna (theoretical knowledge about the divine) and vijñāna (direct experiential realisation). Goswami draws an analogy to the difference between reading a book about swimming and actually swimming. The Gita is, ultimately, not asking for intellectual assent but for transformative practice — and this makes it more pragmatic than most Western philosophical traditions.</p>
+      </div>
+    </div>
+
+    <div id="tab-soteriology" class="tab-panel">
+      <div class="about-block">
+        <h4>🕊️ Moksha — What Does Liberation Mean?</h4>
+        <p>Goswami notes the Gita presents liberation not as annihilation of self (as in Advaita Vedanta) but as the full flowering of the self in loving relationship with the Divine (the Vaishnava interpretation). Chapter 18 verse 66 — the charamaśloka or "ultimate verse" — offers total surrender (sarva-dharmān parityajya) to Krishna as the culminating path. Goswami's Harvard training gives him the tools to compare this with Western mystical traditions: Christian "kenosis" (self-emptying), Sufi "fana" (annihilation in the divine), and Plotinus' "flight of the alone to the Alone."</p>
+      </div>
+    </div>
+
+    <div id="tab-psychology" class="tab-panel">
+      <div class="about-block">
+        <h4>🧘 The Gita's Model of the Mind</h4>
+        <p>The Gita describes the mind (manas), intellect (buddhi), ego (ahamkāra), and consciousness (chitta) as distinct faculties. Goswami maps these onto modern psychological frameworks: the manas resembles the Freudian id (reactive, pleasure-seeking), the buddhi resembles the superego/rational faculty, and the ātman (true self) is distinct from all psychological constructs — resembling transpersonal psychology's concept of a "witness self" beyond personality.</p>
+      </div>
+      <div class="about-block highlight" style="margin-top:1rem;">
+        <h4>🐒 The "Monkey Mind" — Arjuna's Anxiety</h4>
+        <p>Modern neuroscience calls it the "default mode network" — the part of the brain that generates constant, often anxious self-referential thought. Krishna calls it the "monkey mind" (chapter 6) and prescribes meditation, devotion, and disciplined action as remedies. Goswami's commentary connects this with contemporary mindfulness research (Jon Kabat-Zinn) and the neuroscience of contemplative practice.</p>
+      </div>
+      <div style="background:var(--gold-pale); padding:1.5rem; border-radius:var(--radius); margin-top:1rem;">
+        <strong style="color:var(--terracotta); font-size:0.72rem; letter-spacing:2px; text-transform:uppercase;">🌟 For Young Readers</strong>
+        <p style="font-family:var(--body); font-size:0.88rem; margin-top:0.5rem; color:var(--ink-mid); line-height:1.6;">Your brain loves to jump around — "Did I pack my lunch? What if it rains? I want ice cream!" — like a super energetic monkey swinging from tree to tree. Krishna says: practise sitting quietly and focusing on just one thing, for a little while each day. That's meditation — and science now AGREES it makes your brain stronger!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     THREE YOGAS
+════════════════════════════════════════════════════ -->
+<section class="section" id="yogas">
+  <div class="wrap">
+    <div class="section-eyebrow"><div class="eyebrow-dot"></div><span class="eyebrow-label">The Three Paths</span></div>
+    <h2 class="section-title">The Three Great Yogas</h2>
+    <p class="section-lead">Goswami argues the Gita's genius lies in offering not one but three complete paths to liberation — so that every personality type, culture, and era can find its entry point into wisdom.</p>
+
+    <div class="yogas-grid">
+      <div class="yoga-card yoga-karma" data-sanskrit="Karma">
+        <div class="yoga-icon">⚡</div>
+        <div class="yoga-name">Karma Yoga</div>
+        <div class="yoga-sanskrit-name">Path of Action</div>
+        <p class="yoga-def">Performing one's duties with full energy and excellence, but releasing attachment to outcomes. The fruit of action is offered to the Divine — purifying the ego and generating spiritual merit without binding karma.</p>
+        <div class="yoga-modern">
+          <strong>Modern Parallel</strong>
+          A surgeon who operates with total skill and care, regardless of whether the patient survives — serving the action itself, not the outcome. Or Malala Yousafzai advocating for education knowing she might be silenced.
+        </div>
+        <div class="yoga-child">🧒 Like giving your best drawing to a friend — not because they said "thanks", but because creating it was the joy!</div>
+      </div>
+
+      <div class="yoga-card yoga-jnana" data-sanskrit="Jnana">
+        <div class="yoga-icon">🔬</div>
+        <div class="yoga-name">Jñāna Yoga</div>
+        <div class="yoga-sanskrit-name">Path of Knowledge</div>
+        <p class="yoga-def">Systematic inquiry into the nature of the self, the world, and ultimate reality. Through discrimination (viveka) between the real and unreal, the permanent and impermanent, the seeker transcends illusion (māyā) and realises the Absolute.</p>
+        <div class="yoga-modern">
+          <strong>Modern Parallel</strong>
+          Philosophical and scientific inquiry pursued with dispassion and honesty — not to acquire status, but to understand truth. Think: Einstein's "holy curiosity" or Socrates' lifelong philosophical questioning.
+        </div>
+        <div class="yoga-child">🧒 Like asking "Why? Why? Why?" until you reach the biggest answer — not for a school project, but just because you NEED to know!</div>
+      </div>
+
+      <div class="yoga-card yoga-bhakti" data-sanskrit="Bhakti">
+        <div class="yoga-icon">💛</div>
+        <div class="yoga-name">Bhakti Yoga</div>
+        <div class="yoga-sanskrit-name">Path of Devotion</div>
+        <p class="yoga-def">Cultivation of loving, unconditional devotion to the personal Divine (Bhagavān/Krishna). Goswami, following Rūpa Gosvāmī, identifies 64 limbs of Bhakti — from hearing and chanting to full surrender. This is the Gita's culminating teaching (Chapter 18.66) and is described as the most accessible for those in the modern age.</p>
+        <div class="yoga-modern">
+          <strong>Modern Parallel</strong>
+          The unconditional love of a parent for a child — asking nothing in return. Or a musician who plays not for applause but from a place of deep joy. Pure relationship, not transaction.
+        </div>
+        <div class="yoga-child">🧒 Like the way you love your dog or your best friend — not because they give you things, but just because of who they are!</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     STORY CARDS
+════════════════════════════════════════════════════ -->
+<section class="section section--alt" id="stories">
+  <div class="wrap">
+    <div class="section-eyebrow"><div class="eyebrow-dot"></div><span class="eyebrow-label">Stories & Anecdotes</span></div>
+    <h2 class="section-title">Teachings Through Story</h2>
+    <p class="section-lead">Each card carries three layers: the scholarly reading Goswami provides, a child-friendly story, and a contemporary real-world parallel.</p>
+
+    <div class="story-grid">
+
+      <!-- Card 1 -->
+      <div class="story-card accent-gold">
+        <div class="card-top">
+          <div class="card-chapter">Ch. 1–2 · Arjuna's Crisis</div>
+          <div class="card-title">The Philosopher's Paralysis</div>
+          <span class="card-sanskrit">Vishāda Yoga — The Yoga of Grief</span>
+        </div>
+        <div class="scholar-layer">
+          <span class="layer-badge badge-scholar">📚 Scholar's View</span>
+          <p>Goswami notes that Chapter 1 is unique — it is the only "Yoga" named after a negative state (despair). He argues this is philosophically strategic: the Gita presents the condition of the inquirer honestly before offering the cure. Arjuna's crisis is not weakness; it is the philosophical honesty of a man who refuses to act without understanding why. This is the Socratic starting point — aporeia (perplexity) is the beginning of wisdom.</p>
+        </div>
+        <div class="divider-line"></div>
+        <div class="child-layer">
+          <span class="layer-badge badge-child">🌟 Story for Kids</span>
+          <p>On the morning of the biggest cricket final, star player Arjun sees his cousins, his old coach, and his grandfather on the opposing team. He drops his bat and says "I can't do this." His best friend Krish — who happens to also be the wisest person alive — sits beside him and says: "Good. A person who never asks 'why should I do this?' is not really thinking at all. Now — let's think properly."</p>
+        </div>
+        <div class="modern-layer">
+          <div class="context-label">🌐 Today's World</div>
+          <p>Nelson Mandela spent 27 years in prison before leading South Africa out of apartheid. He described his imprisonment as a "philosophical education" — a forced pause that deepened his resolve. Arjuna's paralysis is the necessary darkness before clarity.</p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="story-card accent-teal">
+        <div class="card-top">
+          <div class="card-chapter">Ch. 2 · Verse 47 · Most Cited</div>
+          <div class="card-title">The Paradox of Detached Action</div>
+          <span class="card-sanskrit">Nishkāma Karma — Desireless Action</span>
+        </div>
+        <div class="scholar-layer">
+          <span class="layer-badge badge-scholar">📚 Scholar's View</span>
+          <p>Goswami identifies 2.47 as the Gita's most frequently cited verse and unpacks a common mistranslation: "you have no right to the fruits" is NOT fatalism or passivity. It is a sophisticated argument about motivational psychology: when action is performed from ego-desire for reward, that very desire distorts and corrupts the action. Detachment purifies agency — the actor performs better, not worse.</p>
+        </div>
+        <div class="divider-line"></div>
+        <div class="child-layer">
+          <span class="layer-badge badge-child">🌟 Story for Kids</span>
+          <p>Priya practised her painting every day — not to win the school art prize, but because mixing colours made her heart sing. On the day of the competition, she was so relaxed and joyful that she painted her best work ever. She won — but the funny thing was, she had forgotten there was a prize at all.</p>
+        </div>
+        <div class="modern-layer">
+          <div class="context-label">🌐 Today's World</div>
+          <p>Flow state research (Csikszentmihalyi) shows that peak human performance occurs when intrinsic motivation replaces reward-seeking — exactly what 2.47 prescribes. Athletes like Novak Djokovic credit this mental framework for their resilience.</p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="story-card accent-crimson">
+        <div class="card-top">
+          <div class="card-chapter">Ch. 11 · Vishvarūpa</div>
+          <div class="card-title">The Cosmic Vision — Beyond Human Comprehension</div>
+          <span class="card-sanskrit">Vishvarūpa Darshana — Seeing the Universal Form</span>
+        </div>
+        <div class="scholar-layer">
+          <span class="layer-badge badge-scholar">📚 Scholar's View</span>
+          <p>Chapter 11 records Arjuna's terrifying vision of Krishna's universal form — infinite, multi-armed, consuming all creation. Goswami analyses this as the Gita's "limit experience" — the moment when philosophical argument gives way to direct encounter with the Absolute. He compares it to Kant's concept of the "Sublime" — the experience that overwhelms human cognitive categories — and to Rudolf Otto's "mysterium tremendum et fascinans."</p>
+        </div>
+        <div class="divider-line"></div>
+        <div class="child-layer">
+          <span class="layer-badge badge-child">🌟 Story for Kids</span>
+          <p>Imagine your friend suddenly revealed they were simultaneously every superhero, every planet, every star, every river, and all of time itself — past, present, and future — happening all at once. You'd be so amazed and a tiny bit scared that you'd say "Please — go back to looking like my friend!" That's exactly what Arjuna said!</p>
+        </div>
+        <div class="modern-layer">
+          <div class="context-label">🌐 Today's World</div>
+          <p>The "Overview Effect" — the cognitive shift reported by astronauts seeing Earth from space for the first time — is perhaps the closest modern parallel: an overwhelming experience of cosmic interconnectedness that permanently alters one's priorities and values.</p>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="story-card accent-sage">
+        <div class="card-top">
+          <div class="card-chapter">Ch. 6 · Dhyāna Yoga</div>
+          <div class="card-title">Taming the Elephant Mind</div>
+          <span class="card-sanskrit">Dhyāna — Meditation as Technology</span>
+        </div>
+        <div class="scholar-layer">
+          <span class="layer-badge badge-scholar">📚 Scholar's View</span>
+          <p>Goswami gives Chapter 6 particular attention for its detailed prescriptions on contemplative practice — posture, diet, time of day, mental objects of focus. He contextualises this within the broader Yoga tradition (Patañjali's Yoga Sutras) and notes the Gita's distinctive contribution: for the Gita, dhyāna is not an end in itself but a preparation for Bhakti — meditation trains the mind so that love can flow freely. He cites neuroscience research on neuroplasticity to validate the Gita's therapeutic model of mind-training.</p>
+        </div>
+        <div class="divider-line"></div>
+        <div class="child-layer">
+          <span class="layer-badge badge-child">🌟 Story for Kids</span>
+          <p>Rishi's mind was like a puppy that never stopped running: "I'm bored! I want a snack! Did someone say my name? SQUIRREL!" His grandmother taught him to sit quietly, watch his breath, and when the puppy-mind ran away — gently bring it back. After three weeks, the puppy had become a calm, wise dog. Rishi could finally think clearly in his exams.</p>
+        </div>
+        <div class="modern-layer">
+          <div class="context-label">🌐 Today's World</div>
+          <p>A 2023 Harvard Medical School study found 8-week mindfulness programmes measurably changed grey matter density in the amygdala and prefrontal cortex — exactly the regions governing anxiety and rational decision-making. The Gita prescribed this 5,000 years ago.</p>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="story-card accent-terra">
+        <div class="card-top">
+          <div class="card-chapter">Ch. 14 · Guna-Traya</div>
+          <div class="card-title">The Three Forces of Nature</div>
+          <span class="card-sanskrit">Tamas · Rajas · Sattva — The Cosmic Energies</span>
+        </div>
+        <div class="scholar-layer">
+          <span class="layer-badge badge-scholar">📚 Scholar's View</span>
+          <p>Goswami's analysis of the three Gunas is among his most praised contributions. He presents Tamas (inertia/darkness), Rajas (passion/activity), and Sattva (clarity/virtue) not as moral categories but as physical-psychological forces present in all of nature. Drawing on the Sāṃkhya system, he explains how the interplay of Gunas determines the quality of all matter, thought, action, and character — essentially an ancient systems theory of nature's behaviour.</p>
+        </div>
+        <div class="divider-line"></div>
+        <div class="child-layer">
+          <span class="layer-badge badge-child">🌟 Story for Kids</span>
+          <p>Think of three types of energy in your classroom: 😴 Tamas kids who can't wake up and want everything to be someone else's problem; 😤 Rajas kids who work super hard but only to beat everyone else; and 😊 Sattva kids who love learning, help others, and stay calm. We ALL have all three inside us — the question is which one we choose to turn up!</p>
+        </div>
+        <div class="modern-layer">
+          <div class="context-label">🌐 Today's World</div>
+          <p>Positive psychology (Seligman) and character-strength research maps remarkably onto Sattvic qualities — curiosity, kindness, courage, justice. The VIA Character Strengths survey used in schools globally is essentially a Western operationalisation of Sattva cultivation.</p>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="story-card accent-indigo">
+        <div class="card-top">
+          <div class="card-chapter">Ch. 18 · The Final Teaching</div>
+          <div class="card-title">Total Surrender — The Culminating Verse</div>
+          <span class="card-sanskrit">Sarva-dharmān parityajya — Abandon All Duties to Me</span>
+        </div>
+        <div class="scholar-layer">
+          <span class="layer-badge badge-scholar">📚 Scholar's View</span>
+          <p>Goswami's reading of 18.66 is nuanced and resists simplistic interpretations. He argues "abandon all dharmas" does not mean ethical nihilism but the transcendence of ego-driven duty in favour of a higher relational dharma — loving surrender to the Divine. He compares this to Meister Eckhart's "Gelassenheit" (releasement), the Sufi concept of tawakkul (trust in God), and Gandhi's "trusteeship" model — acting as an instrument of a higher will rather than as an autonomous self pursuing private goals.</p>
+        </div>
+        <div class="divider-line"></div>
+        <div class="child-layer">
+          <span class="layer-badge badge-child">🌟 Story for Kids</span>
+          <p>After all Krishna's teachings, Arjuna was still worried about "Am I doing the right thing? What will happen? What if I fail?" Finally Krishna said: "Stop worrying. Trust me. I've got you. Do your best — and I'll handle the rest." Arjuna smiled, picked up his bow, and felt completely free. That's what surrender means — not giving up, but letting go of fear!</p>
+        </div>
+        <div class="modern-layer">
+          <div class="context-label">🌐 Today's World</div>
+          <p>In palliative care research, patients who experience "surrender" — releasing the need to control outcomes — consistently report lower anxiety and higher peace. This paradoxical freedom through surrender is the Gita's deepest practical gift to modern psychology.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     KEY VERSES
+════════════════════════════════════════════════════ -->
+<section class="section section--dark" id="verses">
+  <div class="wrap">
+    <div class="section-eyebrow"><div class="eyebrow-dot"></div><span class="eyebrow-label">Key Verses</span></div>
+    <h2 class="section-title">Verses That Changed the World</h2>
+    <p class="section-lead">Goswami's scholarship recovers the precise meaning of verses that have been mistranslated, over-simplified, or misappropriated across centuries.</p>
+
+    <div class="verse-spotlight">
+      <div class="verse-card">
+        <div class="verse-ref">Bhagavad-gītā 2.47</div>
+        <div class="verse-sanskrit">karmaṇy evādhikāras te<br>mā phaleṣu kadācana</div>
+        <div class="verse-translation">"You have a right to perform your prescribed duties, but you are never entitled to the fruits of your actions."</div>
+        <div class="verse-goswami">
+          <strong>Goswami's Scholarly Note</strong>
+          The word adhikāra means "rightful occupation" or "entitlement within one's sphere." The verse does not deny agency but clarifies the proper scope of human will — effort, yes; entitlement to outcomes, no. This is not fatalism but a sophisticated theory of non-ego-based agency.
+        </div>
+        <div class="verse-child-note">You can control how hard you try and how kind you are — but not whether you win. Give it everything you have, then smile whatever happens!</div>
+      </div>
+
+      <div class="verse-card">
+        <div class="verse-ref">Bhagavad-gītā 4.7–8</div>
+        <div class="verse-sanskrit">yadā yadā hi dharmasya<br>glānir bhavati bhārata</div>
+        <div class="verse-translation">"Whenever righteousness declines and unrighteousness rises, O Arjuna, I manifest Myself. To protect the good, to destroy evil, and to re-establish dharma, I appear in every age."</div>
+        <div class="verse-goswami">
+          <strong>Goswami's Scholarly Note</strong>
+          Goswami examines the concept of Avatāra (divine descent) comparatively — with Christian Incarnation theology, Shia Islam's Imam concept, and the Bodhisattva doctrine in Buddhism. He argues the Gita's unique contribution is the cyclical, multiple-incarnation model that responds to specific historical crises.
+        </div>
+        <div class="verse-child-note">Whenever the world gets really unfair, something — or someone — great appears to fix it. That's what happened with people like Gandhi, Martin Luther King Jr., and Malala!</div>
+      </div>
+
+      <div class="verse-card">
+        <div class="verse-ref">Bhagavad-gītā 9.22</div>
+        <div class="verse-sanskrit">ananyāś cintayanto māṁ<br>ye janāḥ paryupāsate</div>
+        <div class="verse-translation">"For those who worship Me with devotion, meditating on My transcendental form, I carry what they lack and preserve what they have."</div>
+        <div class="verse-goswami">
+          <strong>Goswami's Scholarly Note</strong>
+          This verse — Yoga-kshema — is central to Goswami's reading of the Gita's theology of grace. The Divine actively participates in the welfare of sincere devotees. This is not transactional religion but responsive love — analogous to the unconditional parental love described in developmental attachment theory (Bowlby).
+        </div>
+        <div class="verse-child-note">If you truly love someone and they truly love you back, they notice when you're struggling and help before you even ask. That's what Krishna promises here — like the best parent ever.</div>
+      </div>
+
+      <div class="verse-card">
+        <div class="verse-ref">Bhagavad-gītā 18.66</div>
+        <div class="verse-sanskrit">sarva-dharmān parityajya<br>mām ekaṁ śaraṇaṁ vraja</div>
+        <div class="verse-translation">"Abandon all varieties of dharma and simply surrender unto Me. I shall deliver you from all sinful reaction. Do not fear."</div>
+        <div class="verse-goswami">
+          <strong>Goswami's Scholarly Note</strong>
+          Called the charamaśloka (ultimate verse), Goswami resists the antinomian (anti-law) reading. "Abandon dharma" means abandon dharma as ego-identity and as a transactional system — surrender is itself the supreme dharma. The phrase "do not fear" (mā śucaḥ) is, for Goswami, the Gita's most pastoral moment — a divine promise, not a command.
+        </div>
+        <div class="verse-child-note">Krishna's last, most important words aren't "try harder" — they're "don't be afraid." Whatever happens, you're loved. That's the whole Gita in three words.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     CHARACTERS
+════════════════════════════════════════════════════ -->
+<section class="section" id="characters">
+  <div class="wrap">
+    <div class="section-eyebrow"><div class="eyebrow-dot"></div><span class="eyebrow-label">The Dramatis Personae</span></div>
+    <h2 class="section-title">Characters & What They Represent</h2>
+    <p class="section-lead">Goswami's commentary treats the Gita's characters as both historical figures and philosophical archetypes — each embodying a position in the text's ethical argument.</p>
+
+    <div class="char-scroll">
+      <div class="char-card">
+        <div class="char-top" style="background:linear-gradient(135deg,#FFF3E0,#FFE0B0);">🏹</div>
+        <div class="char-body">
+          <div class="char-name">Arjuna</div>
+          <div class="char-role" style="color:var(--terracotta);">The Seeker</div>
+          <p class="char-scholar">Represents the sincere human inquirer. His crisis is philosophically authentic: he will not act without understanding why. Goswami calls him the "ideal student" — perplexed, humble, and genuinely seeking truth rather than confirmation.</p>
+          <div class="char-child">The best student in any class is the one who's brave enough to say "I'm confused" and ask the real questions.</div>
+        </div>
+      </div>
+
+      <div class="char-card">
+        <div class="char-top" style="background:linear-gradient(135deg,#E8F4E8,#C8E8C0);">🦚</div>
+        <div class="char-body">
+          <div class="char-name">Krishna</div>
+          <div class="char-role" style="color:var(--teal);">Bhagavān — The Absolute</div>
+          <p class="char-scholar">Goswami examines Krishna's paradoxical identity: simultaneously friend, charioteer, and Supreme Divinity. As "Sārathi" (charioteer), he guides without forcing — the divine accompanies human action without overriding free will, a sophisticated theology of grace and agency.</p>
+          <div class="char-child">The best teacher doesn't fight your battles for you — they sit beside you, drive your chariot, and whisper the truest wisdom right when you need it most.</div>
+        </div>
+      </div>
+
+      <div class="char-card">
+        <div class="char-top" style="background:linear-gradient(135deg,#E8ECF8,#C8D0EC);">👑</div>
+        <div class="char-body">
+          <div class="char-name">Yudhishthira</div>
+          <div class="char-role" style="color:var(--indigo-mid);">The Just King</div>
+          <p class="char-scholar">Embodies the principle of Sattva in political life — rule by dharma rather than power. Goswami draws parallels with Plato's philosopher-king and the Stoic emperor Marcus Aurelius, who governed from philosophical principle rather than appetite.</p>
+          <div class="char-child">The kind of leader who does the right thing even when it's really hard — like choosing to share fairly even when you could take everything for yourself.</div>
+        </div>
+      </div>
+
+      <div class="char-card">
+        <div class="char-top" style="background:linear-gradient(135deg,#F8E8E8,#ECCCC0);">😤</div>
+        <div class="char-body">
+          <div class="char-name">Duryodhana</div>
+          <div class="char-role" style="color:var(--crimson);">The Shadow Archetype</div>
+          <p class="char-scholar">Goswami resists demonising Duryodhana. He is a tragic figure — gifted, brave, and loyal to his friends — but fatally consumed by ahamkāra (ego) and īrshyā (envy). His failure is psychological, not supernatural: knowing dharma intellectually but choosing adharma because ego-driven desire overrides reason.</p>
+          <div class="char-child">Duryodhana isn't a monster — he's a warning. He knew what was right but chose jealousy instead. That choice, day after day, changed who he became.</div>
+        </div>
+      </div>
+
+      <div class="char-card">
+        <div class="char-top" style="background:linear-gradient(135deg,#F8F4E8,#EDE4C4);">📜</div>
+        <div class="char-body">
+          <div class="char-name">Sanjaya</div>
+          <div class="char-role" style="color:#8a6000);">The Witness</div>
+          <p class="char-scholar">The narrating figure granted "divine vision" (divya-drishti) by Vyasa to witness and transmit the battlefield dialogue. Goswami sees Sanjaya as a model of the contemplative witness — the one who observes without reactivity — an epistemological figure as much as a narrator.</p>
+          <div class="char-child">Like a journalist with magical super-powers who can see and hear everything happening on the battlefield — then report it all perfectly so we can read it today!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     MODERN CONTEXT TIMELINE
+════════════════════════════════════════════════════ -->
+<section class="section section--alt" id="modern">
+  <div class="wrap">
+    <div class="section-eyebrow"><div class="eyebrow-dot"></div><span class="eyebrow-label">Contemporary Relevance</span></div>
+    <h2 class="section-title">The Gita Through History<br>& Into Today</h2>
+    <p class="section-lead">Goswami traces the Gita's reception across centuries, showing how each age has found in it the mirror of its own most pressing questions.</p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-era">c. 400–200 BCE · The Origin</div>
+        <div class="timeline-event">The Battlefield of Kurukshetra</div>
+        <p class="timeline-body">Composed within or shortly after the Mahabharata epic, the Gita addressed a warrior aristocracy wrestling with the collapse of the old Vedic order and the rise of new philosophical movements (Buddhism, Jainism). Krishna's synthesis — affirming action over renunciation, personal devotion over sacrificial ritual — was a revolutionary answer to its age.</p>
+        <span class="timeline-child">It was written when a whole civilisation was asking: "How should we live? What really matters?"</span>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot" style="background:var(--teal-lt); box-shadow:0 0 0 2px var(--teal-lt);"></div>
+        <div class="timeline-era">9th Century CE · Adi Shankaracharya</div>
+        <div class="timeline-event">The Advaita Reading — All is One</div>
+        <p class="timeline-body">Shankaracharya's famous commentary argued the Gita's ultimate teaching is Advaita (non-duality): the individual self (ātman) is identical to universal Brahman. Goswami respectfully critiques this reading, arguing it sidelines the Gita's extensive Bhakti teachings (chapters 9, 12, 18) and its personal theology of Krishna.</p>
+        <span class="timeline-child">Like reading the same book and seeing a completely different story — philosophy is fascinating because great thinkers can respectfully disagree!</span>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot" style="background:var(--terracotta); box-shadow:0 0 0 2px var(--terracotta);"></div>
+        <div class="timeline-era">1785 CE · The West Discovers the Gita</div>
+        <div class="timeline-event">Charles Wilkins — First English Translation</div>
+        <p class="timeline-body">The first English translation sparked intellectual revolution across Europe. Schopenhauer, Emerson, Thoreau, Hegel, and Huxley all engaged with the Gita. Schopenhauer declared: "In the whole world there is no study so beneficial and elevating as that of the Upanishads." The Gita became part of Western philosophy's conversation about consciousness, ethics, and the self.</p>
+        <span class="timeline-child">Imagine an amazing book from India being translated so that kids in England, Germany, and America could read it for the first time — and it blowing their minds completely!</span>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot" style="background:var(--gold); box-shadow:0 0 0 2px var(--gold);"></div>
+        <div class="timeline-era">1948 · Gandhi's Assassination</div>
+        <div class="timeline-event">The Gita as Gandhi's "Eternal Mother"</div>
+        <p class="timeline-body">Gandhi called the Bhagavad Gita his "eternal mother" and drew from it his twin doctrines of Ahimsa (non-violence) and Satyagraha (truth-force). Goswami examines this carefully: Gandhi's pacifist reading inverted the text's surface argument (fight the war!) to extract its deeper principle — Krishna's advocacy is for dharma, not violence. The Gita, Gandhi showed, can legitimately be read as a manual for non-violent resistance.</p>
+        <span class="timeline-child">Gandhi used the Gita's wisdom to change an entire empire without firing a single bullet. Words and truth turned out to be more powerful than weapons.</span>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot" style="background:var(--sage); box-shadow:0 0 0 2px var(--sage);"></div>
+        <div class="timeline-era">1945 · Oppenheimer's "Now I am Death"</div>
+        <div class="timeline-event">The Gita Witnesses the Atomic Age</div>
+        <p class="timeline-body">J. Robert Oppenheimer, watching the first nuclear test at Trinity Site, quoted Chapter 11 of the Gita: "Now I am become Death, the destroyer of worlds." A Sanskrit scholar who read the original text, he found in the Gita's cosmic vision the only language adequate to what he had witnessed. Goswami uses this to show the Gita's philosophical range — it speaks to humanity's most extreme experiences, not just daily life.</p>
+        <span class="timeline-child">Even the scientists who built the most powerful bomb in history turned to an ancient Indian poem to describe what they felt. Philosophy matters in the most serious moments of history.</span>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot" style="background:var(--teal-lt); box-shadow:0 0 0 2px var(--teal-lt);"></div>
+        <div class="timeline-era">2024–2026 · The AI & Consciousness Age</div>
+        <div class="timeline-event">The Gita's Hardest Questions Return</div>
+        <p class="timeline-body">As artificial intelligence raises questions about the nature of consciousness, the boundaries of the self, and the ethics of action without a human agent, the Gita's ontology (ātman distinct from matter) and its ethics (action divorced from ego) have never been more urgently relevant. Tech leaders including Google's Sundar Pichai have cited Gita principles in public discourse about AI ethics.</p>
+        <span class="timeline-child">When people ask "can an AI be alive? does it have a soul?" — these are exactly the questions the Gita thought about 5,000 years ago. Your generation will need this wisdom more than any before!</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     GOSWAMI'S METHODOLOGY
+════════════════════════════════════════════════════ -->
+<section class="section section--dark" id="method">
+  <div class="wrap">
+    <div class="section-eyebrow"><div class="eyebrow-dot"></div><span class="eyebrow-label">Scholarly Method</span></div>
+    <h2 class="section-title">How Goswami Reads<br>the Gita</h2>
+    <p class="section-lead">His Harvard training gave him a distinctive methodology — combining the rigour of Western philology with the depth of lived Vaishnava tradition.</p>
+
+    <div class="method-grid">
+      <div class="method-card">
+        <div class="method-num">01</div>
+        <div class="method-title">Philological Precision</div>
+        <p class="method-desc">Every verse is examined in the original Sanskrit — root words (dhātu), grammatical forms, and variant readings across manuscript traditions. Meaning is never assumed; it is excavated.</p>
+        <p class="method-child">Like a detective using a magnifying glass on every single word to make sure we haven't missed anything.</p>
+      </div>
+      <div class="method-card">
+        <div class="method-num">02</div>
+        <div class="method-title">Contextual Reading</div>
+        <p class="method-desc">Each verse is placed within the Gita's larger argument — no verse is read in isolation. Goswami traces the logical development across all 18 chapters as a coherent philosophical system.</p>
+        <p class="method-child">Reading one sentence of a book tells you very little. Reading the whole book — and then reading it again — shows you the full picture.</p>
+      </div>
+      <div class="method-card">
+        <div class="method-num">03</div>
+        <div class="method-title">Comparative Philosophy</div>
+        <p class="method-desc">Gita concepts are placed in dialogue with Western philosophy (Plato, Aristotle, Kant, Hegel, Husserl) — not to reduce one to the other, but to illuminate both through contrast and resonance.</p>
+        <p class="method-child">Comparing how different great thinkers from different cultures arrived at similar ideas — like finding the same truth from different starting points!</p>
+      </div>
+      <div class="method-card">
+        <div class="method-num">04</div>
+        <div class="method-title">Traditional Commentary</div>
+        <p class="method-desc">Goswami draws on the great ācāryas — Rāmānuja, Madhva, Baladeva, and especially Rūpa Gosvāmī — situating his own reading within the living lineage of Vaishnava interpretation.</p>
+        <p class="method-child">Standing on the shoulders of giants — great scholars and teachers who spent their whole lives understanding these same verses before us.</p>
+      </div>
+      <div class="method-card">
+        <div class="method-num">05</div>
+        <div class="method-title">Modern Application</div>
+        <p class="method-desc">Each philosophical teaching is tested against contemporary life — psychology, science, ethics, politics, and culture — showing the Gita's living relevance rather than treating it as a museum artefact.</p>
+        <p class="method-child">Ancient wisdom that actually works in your life TODAY — that's the real test of whether an idea is truly great.</p>
+      </div>
+      <div class="method-card">
+        <div class="method-num">06</div>
+        <div class="method-title">Accessibility Without Dilution</div>
+        <p class="method-desc">Goswami's gift is presenting profound Sanskrit philosophy in clear, modern English — without sacrificing depth. His commentary is used in university courses, temple classes, and by independent seekers worldwide.</p>
+        <p class="method-child">Making hard things easy to understand — without making them less true. That takes more skill than making easy things sound complicated!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     INTERACTIVE QUIZ
+════════════════════════════════════════════════════ -->
+<section class="section" id="quiz">
+  <div class="wrap" style="text-align:center;">
+    <div class="section-eyebrow" style="justify-content:center;"><div class="eyebrow-dot"></div><span class="eyebrow-label">Test Your Understanding</span></div>
+    <h2 class="section-title">Scholar & Seeker Quiz</h2>
+    <p class="section-lead" style="margin:0 auto 0.5rem;">Two levels: choose Scholarly for rigorous questions, or Young Seeker for friendly ones!</p>
+
+    <div class="quiz-wrapper">
+      <div class="quiz-progress" id="qprogress"></div>
+
+      <div class="quiz-level-toggle">
+        <button class="qlevel scholar-active" id="btn-scholar" onclick="setLevel('scholar')">📚 Scholar Level</button>
+        <button class="qlevel" id="btn-child" onclick="setLevel('child')">🌟 Young Seeker</button>
+      </div>
+
+      <div id="quiz-q"></div>
+      <div class="quiz-opts" id="quiz-opts"></div>
+      <div class="quiz-feedback" id="quiz-feedback"></div>
+      <div class="quiz-nav">
+        <button class="btn-next" id="btn-next" onclick="nextQ()">Continue →</button>
+        <span class="quiz-score-display" id="quiz-score"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-om">ॐ</span>
+  <div class="footer-title">The Bhagavad-Gita · A Comprehensive Guide</div>
+  <div class="footer-sub">Based on the scholarship of H.D. Goswami (Howard Resnick), PhD Harvard University</div>
+  <div class="footer-credits">
+    An India Studies educational resource · Designed for all ages from classroom to academy<br>
+    "The Gita is not a dead scripture but a living call to action, understanding, and love." — H.D. Goswami<br><br>
+    All philosophical summaries are educational interpretations. Original scholarship: H.D. Goswami's Comprehensive Guide to Bhagavad-gita.
+  </div>
+</footer>
+
+<script>
+/* ── Tab System ───────────────────────────────────── */
+function showTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+/* ── Quiz System ─────────────────────────────────── */
+const data = {
+  scholar: [
+    { q: "Goswami identifies the Gita's philosophical structure as primarily:", opts:["A devotional hymn without systematic argument","A rigorously structured philosophical argument building across 18 chapters","A historical chronicle of the Mahabharata war","A collection of independent proverbs"], ans:1, explain:"Goswami's key scholarly contribution is demonstrating the Gita's internal logical coherence — each chapter advances a sustained philosophical argument from crisis (Ch.1) to liberation (Ch.18).", insight:"This resists popular readings that cherry-pick verses — Goswami insists the Gita must be read as a whole." },
+    { q: "The Sanskrit term 'adhikāra' in verse 2.47 (karmaṇy evādhikāras te) is best translated as:", opts:["Right to reward","Rightful occupation / entitlement within one's sphere","Permission to act","Natural ability"], ans:1, explain:"Goswami's philological work shows 'adhikāra' denotes 'rightful jurisdiction' or 'proper sphere of engagement' — you are authorised to act, but not to determine outcomes.", insight:"This prevents the fatalist reading — you have a positive duty to act; you simply cannot own the results." },
+    { q: "Goswami compares Arjuna's philosophical crisis to which Western tradition?", opts:["Nietzschean nihilism","Socratic aporeia — perplexity as the beginning of wisdom","Cartesian scepticism — doubting everything","Kantian duty ethics"], ans:1, explain:"Goswami identifies Chapter 1 as strategically naming itself the 'Yoga of Grief' — presenting the inquirer's honest confusion (aporeia) as the necessary starting point for genuine philosophical inquiry.", insight:"The Gita, like Socrates, insists you cannot find truth if you begin by pretending you already have it." },
+    { q: "The three pramāṇas (valid sources of knowledge) the Gita accepts include:", opts:["Perception, inference, and authoritative testimony (śabda)","Reason, faith, and revelation","Science, tradition, and intuition","Experience, logic, and scripture only"], ans:0, explain:"Pratyaksha (perception), anumāna (inference), and śabda (authoritative testimony) form the Gita's epistemological foundation. Goswami notes śabda from a realised teacher is the highest pramāṇa.", insight:"The Gita doesn't dismiss reason — it places it within a hierarchy where direct spiritual transmission from a lineage of realised teachers (guru-paramparā) completes what logic alone cannot reach." },
+    { q: "Goswami's reading of the charmaśloka (18.66) argues 'abandon all dharmas' means:", opts:["Ethical nihilism — morality is irrelevant","Abandon dharma as ego-identity and transactional obligation; surrender itself is the supreme dharma","All religious duties are equally invalid","Act without any moral framework"], ans:1, explain:"This is Goswami's most sophisticated hermeneutical move. 'Abandon dharma' is not antinomian but the transcendence of dharma-as-transaction in favour of loving surrender — which is itself the highest dharma.", insight:"Goswami compares this to Meister Eckhart's Gelassenheit and Sufi tawakkul — freedom through surrender, not from ethics." },
+    { q: "Goswami distinguishes jñāna from vijñāna as:", opts:["Ancient vs. modern knowledge","Theoretical knowledge vs. direct experiential realisation","Sacred vs. secular learning","Eastern vs. Western philosophy"], ans:1, explain:"Chapter 7 makes this crucial distinction. Goswami uses the analogy: jñāna is reading about swimming; vijñāna is actually swimming. The Gita ultimately calls for transformative practice, not mere intellectual assent.", insight:"This is why the Gita cannot be reduced to philosophy alone — it is a call to practice, relationship, and lived transformation." },
+    { q: "When comparing the three Gunas to modern psychology, Sattva most closely resembles:", opts:["The Freudian id (pleasure principle)","Positive psychology's 'character strengths' — curiosity, courage, kindness, justice","The neurotic superego","Pure cognitive intelligence (IQ)"], ans:1, explain:"Goswami draws this parallel explicitly — Seligman's VIA Character Strengths research operationalises in psychological terms what the Gita calls Sattvic qualities.", insight:"This is one of the most exciting cross-cultural convergences in the book — ancient Vedic analysis predicting findings of 21st century positive psychology." },
+    { q: "Goswami's 'bridge builder' identity refers to his ability to:", opts:["Translate between Sanskrit and English only","Operate simultaneously as both an insider (Vaishnava tradition) and a Western-trained critical scholar","Mediate between Hindu and Christian theology","Reconcile Advaita and Dvaita Vedanta interpretations"], ans:1, explain:"Goswami's Harvard doctorate and his initiation into the Vaishnava tradition give him a rare dual vantage point — he can apply Western critical methods while also understanding the Gita as a living scripture from within.", insight:"This is what makes his commentary unlike either purely academic translations (which miss the tradition's depth) or purely devotional ones (which resist critical scrutiny)." }
+  ],
+  child: [
+    { q: "What does 'Bhagavad Gita' mean?", opts:["The Book of Battle","The Song of God","The Path of Wisdom","The Story of India"], ans:1, explain:"'Bhagavad' means 'of God' and 'Gita' means 'song' — so Bhagavad Gita is literally 'The Song of God.' It's a conversation between Krishna and his friend Arjuna!", insight:"It's called a 'song' because in ancient times, important wisdom was sung or chanted so people could memorise it easily!" },
+    { q: "Why was Arjuna upset at the beginning of the Gita?", opts:["He lost his favourite bow","He saw his family and friends on the enemy team and didn't want to fight them","He was hungry and tired","He couldn't remember his training"], ans:1, explain:"Arjuna saw his cousins, teachers, and grandfather on the other side. He felt it was wrong to fight people he loved. His confusion and sadness started the whole conversation!", insight:"His sadness was actually a GOOD thing — it showed he was thinking deeply about right and wrong, not just fighting blindly." },
+    { q: "What does Krishna mean by 'do your duty without worrying about the result'?", opts:["Don't bother trying hard","Do your best job possible — not just to get a prize, but because it's the right thing to do","Only work when someone is watching","Always expect a reward for good work"], ans:1, explain:"Krishna's big lesson is: put all your effort into doing what's right, but don't be obsessed with winning or losing. Like a great chef who cooks beautifully because they love cooking — not just to win a competition!", insight:"Scientists call this 'intrinsic motivation' — doing something because you love it, not just for a reward. Research shows this actually makes you perform BETTER!" },
+    { q: "What is the 'monkey mind' that Krishna talks about?", opts:["A pet monkey that Arjuna kept","The way your thoughts jump around from one thing to another without stopping","Krishna's animal companion","A type of meditation posture"], ans:1, explain:"Krishna noticed that Arjuna's mind — like most of our minds! — keeps jumping around restlessly: 'What if I fail? I'm hungry. Did my friend say something mean? What's for dinner?' Krishna called this the 'monkey mind' and taught meditation to calm it.", insight:"Modern brain scientists have discovered the 'Default Mode Network' — the part of the brain that chatters constantly. Meditation actually changes this part of the brain! The Gita was right!" },
+    { q: "What are the THREE types of energy (Gunas) in everything?", opts:["Fire, water, and earth","Tamas (lazy/dark), Rajas (passionate/restless), Sattva (clear/good)","Past, present, and future","Body, mind, and soul"], ans:1, explain:"Everything — food, people, actions, even time of day — has these three energies. Tamas = heavy, sleepy, confused. Rajas = excited, ambitious, restless. Sattva = clear, kind, joyful. We have all three — the Gita says grow your Sattva!", insight:"What you EAT affects your Gunas! The Gita even has advice on Sattvic foods — fresh fruits, vegetables, and grains keep your mind clearer than heavy, processed food. Ancient nutrition science!" },
+    { q: "Why does H.D. Goswami understand the Gita so well?", opts:["He memorised all 700 verses as a child","He studied Sanskrit at Harvard University AND lived as a dedicated student of the Vaishnava tradition — combining academic training with real practice","He invented a new computer programme to analyse it","He found a secret ancient library"], ans:1, explain:"H.D. Goswami (Howard Resnick) studied Sanskrit and Indian Philosophy at Harvard — one of the world's greatest universities — AND also lived as a dedicated spiritual student. Both together give him a very special understanding!", insight:"It's like having a scientist who is ALSO a great artist explain how music works — they can tell you both the physics of sound AND why it moves your heart!" },
+    { q: "What did Gandhi say the Bhagavad Gita was to him?", opts:["His battle strategy manual","His 'eternal mother' — a source of guidance and comfort","Just an interesting history book","A book he disagreed with"], ans:1, explain:"Gandhi called the Gita his 'eternal mother' and read it every day. He used it to develop his ideas about non-violent resistance (Satyagraha) and peaceful courage (Ahimsa).", insight:"Gandhi showed that the Gita's deepest message is about COURAGE and TRUTH — not violence. He changed an entire empire without fighting, using Gita wisdom!" },
+    { q: "What is the LAST and most important teaching Krishna gives in Chapter 18?", opts:["Keep fighting no matter what","Surrender your worries to me — I've got you — do not be afraid","Always obey your parents","Study harder every day"], ans:1, explain:"The very last words Krishna gives Arjuna are: 'Abandon fear. Surrender to me. I will take care of you.' It's the most personal, loving moment in the whole Gita — a divine promise of protection and love.", insight:"The whole Gita — 700 verses of deep philosophy — ends not with a complex teaching but with three simple words: 'Do not fear.' That's beautiful, isn't it?" }
+  ]
+};
+
+let level = 'scholar', qIdx = 0, score = 0, answered = false;
+
+function setLevel(l) {
+  level = l; qIdx = 0; score = 0; answered = false;
+  document.getElementById('btn-scholar').className = 'qlevel' + (l === 'scholar' ? ' scholar-active' : '');
+  document.getElementById('btn-child').className = 'qlevel' + (l === 'child' ? ' child-active' : '');
+  loadQ();
+}
+
+function buildProgress() {
+  const qs = data[level];
+  let html = '';
+  qs.forEach((_, i) => {
+    let cls = i < qIdx ? 'done' : i === qIdx ? 'active' : '';
+    html += `<div class="qpip ${cls}"></div>`;
+  });
+  document.getElementById('qprogress').innerHTML = html;
+}
+
+function loadQ() {
+  const qs = data[level];
+  if (qIdx >= qs.length) { showResult(); return; }
+  const q = qs[qIdx];
+  buildProgress();
+  document.getElementById('quiz-q').textContent = `Q${qIdx+1}. ${q.q}`;
+  let html = '';
+  q.opts.forEach((o, i) => {
+    html += `<button class="qopt" onclick="answer(${i})">${o}</button>`;
+  });
+  document.getElementById('quiz-opts').innerHTML = html;
+  document.getElementById('quiz-feedback').className = 'quiz-feedback';
+  document.getElementById('quiz-feedback').innerHTML = '';
+  document.getElementById('btn-next').className = 'btn-next';
+  document.getElementById('quiz-score').textContent = `Score: ${score}/${qIdx}`;
+  answered = false;
+}
+
+function answer(i) {
+  if (answered) return;
+  answered = true;
+  const q = data[level][qIdx];
+  const opts = document.querySelectorAll('.qopt');
+  opts.forEach((b, idx) => {
+    if (idx === q.ans) b.classList.add('correct');
+    else if (idx === i && i !== q.ans) b.classList.add('wrong');
+    b.disabled = true;
+  });
+  const correct = i === q.ans;
+  if (correct) score++;
+  const fb = document.getElementById('quiz-feedback');
+  fb.innerHTML = (correct ? '✅ ' : '❌ ') + q.explain +
+    `<div class="goswami-note">${q.insight}</div>`;
+  fb.className = `quiz-feedback show ${correct ? 'good' : 'bad'}`;
+  document.getElementById('btn-next').className = 'btn-next show';
+  document.getElementById('quiz-score').textContent = `Score: ${score}/${qIdx+1}`;
+}
+
+function nextQ() {
+  qIdx++;
+  if (qIdx >= data[level].length) { showResult(); return; }
+  loadQ();
+}
+
+function showResult() {
+  const total = data[level].length;
+  const pct = Math.round(score / total * 100);
+  let msg = pct >= 80
+    ? (level === 'scholar' ? `Outstanding! ${score}/${total} — Goswami would be impressed. You clearly grasped the philosophical depth of the Gita.` : `Wonderful! ${score}/${total} — You have the heart of a true seeker! 🌟`)
+    : pct >= 50
+    ? (level === 'scholar' ? `Good foundation — ${score}/${total}. Revisit the commentary sections and try again.` : `Well done! ${score}/${total} — Go back, read the stories again, and give it another try! 📖`)
+    : (level === 'scholar' ? `${score}/${total} — The Gita rewards patient, repeated study. Return to the philosophical sections.` : `${score}/${total} — Don't worry! Even Arjuna needed Krishna's help. Read the stories again and try! 💛`);
+  buildProgress();
+  document.getElementById('quiz-q').textContent = `Quiz Complete! ${msg}`;
+  document.getElementById('quiz-opts').innerHTML = '';
+  document.getElementById('quiz-feedback').className = 'quiz-feedback show good';
+  document.getElementById('quiz-feedback').innerHTML = `Final Score: <strong>${score}/${total} (${pct}%)</strong>`;
+  document.getElementById('btn-next').className = 'btn-next show';
+  document.getElementById('btn-next').textContent = '↺ Try Again';
+  document.getElementById('btn-next').onclick = () => {
+    qIdx = 0; score = 0; answered = false;
+    document.getElementById('btn-next').textContent = 'Continue →';
+    document.getElementById('btn-next').onclick = nextQ;
+    loadQ();
+  };
+}
+
+// Init
+loadQ();
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>

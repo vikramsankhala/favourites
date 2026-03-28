@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gita Stories – Wisdom for Everyone</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --saffron: #FF6B1A;
+    --deep-orange: #E84E0F;
+    --gold: #F5B800;
+    --lotus-pink: #FF6B8A;
+    --sky: #4AABDB;
+    --deep-blue: #1A3A6B;
+    --peacock-green: #1D7A5F;
+    --cream: #FFF8ED;
+    --warm-white: #FFFDF8;
+    --dark-text: #2C1810;
+    --card-shadow: 0 8px 32px rgba(44,24,16,0.13);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Baloo 2', cursive;
+    background: var(--warm-white);
+    color: var(--dark-text);
+    overflow-x: hidden;
+  }
+
+  /* ---- HERO ---- */
+  .hero {
+    background: linear-gradient(135deg, #1A3A6B 0%, #0D2247 40%, #1D7A5F 100%);
+    min-height: 100vh;
+    display: flex;flex-direction:column;align-items:center;justify-content:center;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .hero::before {
+    content:'';
+    position:absolute;inset:0;
+    background: radial-gradient(ellipse at 70% 30%, rgba(245,184,0,0.18) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(255,107,26,0.15) 0%, transparent 55%);
+  }
+
+  .mandala-bg {
+    position:absolute;
+    width:700px;height:700px;
+    border-radius:50%;
+    border: 2px solid rgba(245,184,0,0.12);
+    top:50%;left:50%;
+    transform:translate(-50%,-50%);
+    animation: spinSlow 60s linear infinite;
+  }
+  .mandala-bg::before {
+    content:'';position:absolute;inset:40px;
+    border-radius:50%;
+    border: 2px solid rgba(255,107,138,0.10);
+  }
+  .mandala-bg::after {
+    content:'';position:absolute;inset:100px;
+    border-radius:50%;
+    border: 2px solid rgba(74,171,219,0.10);
+  }
+  @keyframes spinSlow { to { transform:translate(-50%,-50%) rotate(360deg); } }
+
+  .hero-badge {
+    background: rgba(245,184,0,0.18);
+    border: 1px solid rgba(245,184,0,0.4);
+    border-radius: 50px;
+    padding: 6px 20px;
+    font-size: 0.85rem;
+    color: var(--gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    position:relative;z-index:2;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.1;
+    position:relative;z-index:2;
+    animation: fadeUp 0.9s ease 0.1s both;
+  }
+  .hero h1 span { color: var(--gold); }
+
+  .hero-sub {
+    font-family: 'Noto Serif', serif;
+    font-style: italic;
+    color: rgba(255,255,255,0.75);
+    font-size: clamp(1rem, 2.5vw, 1.35rem);
+    max-width: 600px;
+    margin: 1.2rem auto 2.5rem;
+    position:relative;z-index:2;
+    animation: fadeUp 1s ease 0.2s both;
+  }
+
+  .hero-sanskrit {
+    font-family: 'Noto Serif', serif;
+    color: var(--gold);
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+    opacity: 0.8;
+    position:relative;z-index:2;
+    animation: fadeUp 1.1s ease 0.3s both;
+  }
+
+  .scroll-hint {
+    position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);
+    color:rgba(255,255,255,0.5);font-size:0.85rem;
+    display:flex;flex-direction:column;align-items:center;gap:8px;
+    z-index:2;animation: bounce 2s infinite;
+  }
+  .scroll-hint::after{content:'↓';font-size:1.4rem;}
+
+  @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+
+  /* ---- NAV ---- */
+  .nav {
+    background: var(--deep-blue);
+    position: sticky;top:0;z-index:100;
+    display:flex;align-items:center;justify-content:space-between;
+    padding: 0.9rem 2rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  }
+  .nav-logo{color:var(--gold);font-weight:800;font-size:1.2rem;letter-spacing:1px;}
+  .nav-links{display:flex;gap:1.5rem;}
+  .nav-links a{
+    color:rgba(255,255,255,0.8);text-decoration:none;font-size:0.9rem;font-weight:600;
+    transition:color 0.2s;
+  }
+  .nav-links a:hover{color:var(--gold);}
+
+  /* ---- SECTIONS ---- */
+  .section {padding:5rem 1.5rem;}
+  .section-inner{max-width:1100px;margin:0 auto;}
+
+  .section-tag {
+    display:inline-block;
+    background: var(--saffron);
+    color:#fff;
+    font-size:0.78rem;letter-spacing:2px;text-transform:uppercase;
+    padding:4px 14px;border-radius:50px;
+    font-weight:700;margin-bottom:1rem;
+  }
+  .section-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;line-height:1.2;margin-bottom:0.8rem;}
+  .section-desc{color:#5a4033;font-family:'Noto Serif',serif;font-size:1.05rem;line-height:1.7;max-width:700px;}
+
+  /* ---- WHAT IS GITA ---- */
+  .what-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;margin-top:3rem;}
+  @media(max-width:700px){.what-grid{grid-template-columns:1fr;}}
+  .what-visual{
+    background: linear-gradient(135deg, var(--saffron), var(--gold));
+    border-radius:24px;padding:3rem 2rem;text-align:center;
+    color:#fff;font-size:4rem;
+    box-shadow: var(--card-shadow);
+    position:relative;overflow:hidden;
+  }
+  .what-visual::before{
+    content:'ॐ';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    font-size:12rem;opacity:0.08;font-family:'Noto Serif',serif;
+  }
+  .what-visual .emoji-big{font-size:5rem;display:block;margin-bottom:1rem;position:relative;z-index:1;}
+  .what-visual p{font-size:1.1rem;font-family:'Noto Serif',serif;font-style:italic;position:relative;z-index:1;}
+
+  .what-points{display:flex;flex-direction:column;gap:1rem;}
+  .what-point{
+    background:var(--cream);border-radius:16px;padding:1.2rem 1.5rem;
+    border-left:4px solid var(--saffron);
+    transition:transform 0.2s;cursor:default;
+  }
+  .what-point:hover{transform:translateX(6px);}
+  .what-point h4{font-size:1rem;font-weight:700;color:var(--deep-orange);margin-bottom:4px;}
+  .what-point p{font-size:0.9rem;color:#5a4033;line-height:1.5;}
+
+  /* ---- STORY CARDS ---- */
+  .bg-cream{background:var(--cream);}
+
+  .stories-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap:1.8rem;margin-top:2.5rem;
+  }
+
+  .story-card{
+    background:#fff;
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:var(--card-shadow);
+    transition:transform 0.3s, box-shadow 0.3s;
+    cursor:pointer;
+    border: 1px solid rgba(255,107,26,0.1);
+  }
+  .story-card:hover{transform:translateY(-8px);box-shadow:0 16px 48px rgba(44,24,16,0.18);}
+
+  .card-header{
+    padding:2rem 1.8rem 1rem;
+    display:flex;align-items:flex-start;gap:1rem;
+  }
+  .card-emoji{font-size:2.8rem;flex-shrink:0;}
+  .card-label{
+    font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;
+    font-weight:700;
+    margin-bottom:4px;
+  }
+  .card-title{font-size:1.2rem;font-weight:800;line-height:1.3;}
+
+  .card-body{padding:0 1.8rem 1.5rem;}
+  .card-body p{font-size:0.9rem;line-height:1.6;color:#5a4033;font-family:'Noto Serif',serif;}
+
+  .card-lesson{
+    margin:1rem 1.8rem 1.8rem;
+    border-radius:12px;
+    padding:0.9rem 1.2rem;
+    font-size:0.88rem;font-weight:700;
+    display:flex;gap:0.6rem;align-items:flex-start;
+  }
+  .card-lesson .lesson-icon{font-size:1.2rem;flex-shrink:0;}
+
+  /* Card color themes */
+  .theme-orange .card-label{color:var(--saffron);}
+  .theme-orange .card-lesson{background:rgba(255,107,26,0.1);color:var(--deep-orange);}
+
+  .theme-blue .card-label{color:var(--sky);}
+  .theme-blue .card-lesson{background:rgba(74,171,219,0.12);color:#1a6a9a;}
+
+  .theme-green .card-label{color:var(--peacock-green);}
+  .theme-green .card-lesson{background:rgba(29,122,95,0.1);color:var(--peacock-green);}
+
+  .theme-pink .card-label{color:var(--lotus-pink);}
+  .theme-pink .card-lesson{background:rgba(255,107,138,0.1);color:#c0365c;}
+
+  .theme-gold .card-label{color:#c89000;}
+  .theme-gold .card-lesson{background:rgba(245,184,0,0.12);color:#8a6000;}
+
+  /* ---- TEACH BAND ---- */
+  .teach-band{
+    background:linear-gradient(135deg,var(--deep-blue),#0f2245);
+    padding:4rem 2rem;text-align:center;color:#fff;
+  }
+  .teach-band h2{font-size:clamp(1.5rem,4vw,2.5rem);font-weight:800;margin-bottom:0.8rem;}
+  .teach-band p{color:rgba(255,255,255,0.7);font-family:'Noto Serif',serif;font-style:italic;font-size:1.05rem;max-width:600px;margin:0 auto;}
+  .teach-pills{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:2rem;}
+  .teach-pill{
+    background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);
+    border-radius:50px;padding:8px 22px;font-size:0.9rem;font-weight:600;
+    transition:background 0.2s;cursor:default;
+  }
+  .teach-pill:hover{background:rgba(245,184,0,0.2);border-color:var(--gold);color:var(--gold);}
+
+  /* ---- CHARACTERS ---- */
+  .characters-row{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(200px, 1fr));
+    gap:1.5rem;margin-top:2.5rem;
+  }
+  .char-card{
+    text-align:center;padding:2rem 1rem;
+    background:#fff;border-radius:20px;
+    box-shadow:var(--card-shadow);
+    border-top:4px solid var(--saffron);
+    transition:transform 0.25s;cursor:default;
+  }
+  .char-card:hover{transform:translateY(-6px);}
+  .char-emoji{font-size:3.5rem;display:block;margin-bottom:0.8rem;}
+  .char-name{font-weight:800;font-size:1.1rem;color:var(--deep-blue);}
+  .char-role{font-size:0.82rem;color:var(--saffron);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin:4px 0 8px;}
+  .char-desc{font-size:0.85rem;color:#5a4033;line-height:1.5;font-family:'Noto Serif',serif;font-style:italic;}
+
+  /* ---- MODERN ANECDOTES ---- */
+  .anecdotes-list{display:flex;flex-direction:column;gap:1.8rem;margin-top:2.5rem;}
+  .anecdote{
+    display:grid;grid-template-columns:80px 1fr;gap:1.5rem;
+    background:#fff;border-radius:20px;padding:1.8rem;
+    box-shadow:var(--card-shadow);
+    border:1px solid rgba(255,107,26,0.08);
+    transition:transform 0.2s;
+  }
+  .anecdote:hover{transform:translateX(6px);}
+  .anecdote-icon{
+    width:70px;height:70px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:2.2rem;flex-shrink:0;
+  }
+  .anecdote h4{font-size:1.05rem;font-weight:700;color:var(--deep-blue);margin-bottom:6px;}
+  .anecdote .tag{font-size:0.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;display:block;}
+  .anecdote p{font-size:0.9rem;line-height:1.6;color:#5a4033;font-family:'Noto Serif',serif;}
+
+  /* ---- 18 CHAPTERS ---- */
+  .chapters-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(160px,1fr));
+    gap:1rem;margin-top:2rem;
+  }
+  .chapter-chip{
+    background:#fff;border-radius:16px;padding:1rem;
+    border:2px solid rgba(255,107,26,0.15);
+    text-align:center;transition:all 0.2s;cursor:default;
+    box-shadow:0 2px 12px rgba(0,0,0,0.06);
+  }
+  .chapter-chip:hover{border-color:var(--saffron);transform:translateY(-4px);box-shadow:var(--card-shadow);}
+  .chapter-num{font-size:0.75rem;font-weight:700;letter-spacing:1px;color:var(--saffron);text-transform:uppercase;}
+  .chapter-name{font-size:0.88rem;font-weight:700;color:var(--deep-blue);margin:4px 0;}
+  .chapter-meaning{font-size:0.78rem;color:#8a6040;font-style:italic;}
+
+  /* ---- QUIZ ---- */
+  .quiz-section{background:linear-gradient(135deg,#fff8f0,var(--cream));}
+  .quiz-box{
+    background:#fff;border-radius:24px;padding:2.5rem;
+    box-shadow:var(--card-shadow);max-width:700px;margin:2rem auto 0;
+    border:2px solid rgba(255,107,26,0.12);
+  }
+  .quiz-q{font-size:1.1rem;font-weight:700;color:var(--deep-blue);margin-bottom:1.5rem;}
+  .quiz-options{display:flex;flex-direction:column;gap:0.8rem;}
+  .quiz-opt{
+    padding:0.9rem 1.4rem;border-radius:12px;border:2px solid rgba(255,107,26,0.2);
+    background:#fff;cursor:pointer;font-size:0.95rem;font-weight:600;
+    text-align:left;transition:all 0.2s;font-family:'Baloo 2',cursive;
+    color:var(--dark-text);
+  }
+  .quiz-opt:hover{border-color:var(--saffron);background:rgba(255,107,26,0.06);}
+  .quiz-opt.correct{background:rgba(29,122,95,0.1);border-color:var(--peacock-green);color:var(--peacock-green);}
+  .quiz-opt.wrong{background:rgba(232,78,15,0.08);border-color:var(--deep-orange);color:var(--deep-orange);}
+  .quiz-result{
+    margin-top:1.2rem;padding:1rem 1.4rem;border-radius:12px;
+    font-size:0.95rem;font-weight:600;display:none;
+  }
+  .quiz-result.show{display:block;}
+  .quiz-result.good{background:rgba(29,122,95,0.1);color:var(--peacock-green);}
+  .quiz-result.bad{background:rgba(232,78,15,0.08);color:var(--deep-orange);}
+  .quiz-next{
+    margin-top:1rem;padding:0.8rem 2rem;border-radius:50px;
+    background:var(--saffron);color:#fff;border:none;cursor:pointer;
+    font-size:1rem;font-weight:700;font-family:'Baloo 2',cursive;
+    display:none;transition:background 0.2s;
+  }
+  .quiz-next.show{display:inline-block;}
+  .quiz-next:hover{background:var(--deep-orange);}
+  .quiz-score{font-size:0.88rem;color:#8a6040;margin-top:0.5rem;}
+
+  /* ---- FOOTER ---- */
+  footer{
+    background:var(--deep-blue);color:rgba(255,255,255,0.6);
+    text-align:center;padding:3rem 2rem;
+    font-size:0.88rem;line-height:1.8;
+  }
+  footer .om{color:var(--gold);font-size:2rem;display:block;margin-bottom:0.5rem;}
+  footer a{color:var(--gold);text-decoration:none;}
+
+  /* ---- RESPONSIVE ---- */
+  @media(max-width:600px){
+    .nav-links{display:none;}
+    .anecdote{grid-template-columns:1fr;}
+    .anecdote-icon{width:50px;height:50px;font-size:1.6rem;}
+    .chapter-chip{padding:0.7rem;}
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="mandala-bg"></div>
+  <div class="hero-badge">📚 India Studies · Bhagavad Gita Explorer</div>
+  <h1>The <span>Gita</span> Stories<br>for Everyone</h1>
+  <p class="hero-sub">Ancient wisdom, modern meaning — tales of courage, kindness & doing the right thing</p>
+  <div class="hero-sanskrit">भगवद्गीता · The Song of God</div>
+  <div class="scroll-hint">Scroll to explore</div>
+</section>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo">🌸 Gita Explorer</div>
+  <div class="nav-links">
+    <a href="#what">What is it?</a>
+    <a href="#stories">Stories</a>
+    <a href="#characters">Characters</a>
+    <a href="#modern">Today's World</a>
+    <a href="#chapters">18 Chapters</a>
+    <a href="#quiz">Quiz</a>
+  </div>
+</nav>
+
+<!-- WHAT IS THE GITA -->
+<section class="section" id="what">
+  <div class="section-inner">
+    <span class="section-tag">✨ Let's Begin</span>
+    <h2 class="section-title">What is the<br>Bhagavad Gita?</h2>
+    <p class="section-desc">Imagine your best friend giving you the most important life advice ever — right before the biggest challenge of your life. That's exactly what the Bhagavad Gita is!</p>
+
+    <div class="what-grid">
+      <div class="what-visual">
+        <span class="emoji-big">🎶</span>
+        <p>"The Song of God — 700 verses of timeless wisdom spoken on a battlefield"</p>
+      </div>
+      <div class="what-points">
+        <div class="what-point">
+          <h4>📖 A conversation, not a lecture</h4>
+          <p>It's a real talk between a confused warrior (Arjuna) and his charioteer/friend/God (Krishna) — about fear, duty, life, and what really matters.</p>
+        </div>
+        <div class="what-point">
+          <h4>⏳ About 5,000 years old</h4>
+          <p>Part of the epic Mahabharata, it was written around 400–200 BCE but its ideas feel as fresh as this morning's news.</p>
+        </div>
+        <div class="what-point">
+          <h4>🌍 18 Chapters, 700 verses</h4>
+          <p>Covering everything from anxiety and purpose, to teamwork, kindness, meditation, and what happens after we die.</p>
+        </div>
+        <div class="what-point">
+          <h4>🧒 For everyone — including you!</h4>
+          <p>Scientists, athletes, leaders, and students across the world read it for guidance. Even Albert Einstein kept a copy!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KEY TEACHINGS BAND -->
+<div class="teach-band">
+  <h2>Core Ideas at a Glance</h2>
+  <p>Big concepts, made simple — the Gita's greatest hits</p>
+  <div class="teach-pills">
+    <div class="teach-pill">🎯 Do your duty, don't chase results</div>
+    <div class="teach-pill">⚖️ Good vs. Evil — choose good</div>
+    <div class="teach-pill">🧘 Stay calm inside a storm</div>
+    <div class="teach-pill">💛 True friendship has no conditions</div>
+    <div class="teach-pill">♻️ The soul is eternal</div>
+    <div class="teach-pill">🙏 Devotion beats greed</div>
+    <div class="teach-pill">📚 Knowledge is power</div>
+    <div class="teach-pill">🌱 Every action has a consequence</div>
+  </div>
+</div>
+
+<!-- STORY CARDS -->
+<section class="section bg-cream" id="stories">
+  <div class="section-inner">
+    <span class="section-tag">📖 Story Time</span>
+    <h2 class="section-title">Gita Lessons<br>Through Stories</h2>
+    <p class="section-desc">Each teaching of the Gita comes alive in a story — ancient and modern. Read, imagine, and discover!</p>
+
+    <div class="stories-grid">
+
+      <!-- Story 1 -->
+      <div class="story-card theme-orange">
+        <div class="card-header">
+          <div class="card-emoji">🏹</div>
+          <div>
+            <div class="card-label">Chapter 2 · Arjuna's Crisis</div>
+            <div class="card-title">The Player Who Froze Before the Final</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <p>Imagine you're the star player of your cricket team. It's the final, and you suddenly see your cousins on the other team. You drop your bat and say "I can't play against my own family!" Your coach walks over and says: <em>"You trained for this. It's not about winning for yourself — it's about playing your best, honestly and bravely."</em><br><br>That's exactly what happened to Arjuna. Standing between two armies, he saw his cousins, teachers, and uncles on the other side. His hands trembled, his bow fell. Krishna's response? The entire Bhagavad Gita.</p>
+        </div>
+        <div class="card-lesson"><span class="lesson-icon">💡</span><span>Lesson: Do your duty with courage, even when it's hard. Courage isn't the absence of fear — it's choosing to act anyway.</span></div>
+      </div>
+
+      <!-- Story 2 -->
+      <div class="story-card theme-blue">
+        <div class="card-header">
+          <div class="card-emoji">🎮</div>
+          <div>
+            <div class="card-label">Chapter 3 · Karma Yoga</div>
+            <div class="card-title">The Gamer Who Played to Win… Points</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <p>Meet 12-year-old Priya. She only plays games to get high scores and brag to friends. One day, she joins a coding competition — not to win, but because her school needs a team. She focuses just on building something cool. She doesn't win first prize, but her project gets selected for a national showcase.<br><br>Krishna tells Arjuna: <em>"Do your work excellently. Don't be addicted to the reward."</em> This is called Nishkama Karma — action without selfish desire.</p>
+        </div>
+        <div class="card-lesson"><span class="lesson-icon">💡</span><span>Lesson: Work hard because the work matters, not just for the prize. The best results come when you forget about results!</span></div>
+      </div>
+
+      <!-- Story 3 -->
+      <div class="story-card theme-green">
+        <div class="card-header">
+          <div class="card-emoji">🌊</div>
+          <div>
+            <div class="card-label">Chapter 6 · Meditation</div>
+            <div class="card-title">The Monkey Mind and the Still Lake</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <p>Have you ever tried to fall asleep but your brain keeps jumping — "Did I do my homework? What if my friend is angry? What's for breakfast?" Krishna calls this the "monkey mind" — jumping everywhere like a restless monkey.<br><br>He tells Arjuna to practise stillness. Just like a lake reflects the moon perfectly when it's still but shows a wobbly moon when there are waves — <em>your mind reflects truth best when it's calm.</em> Meditation is simply practising stillness, one breath at a time.</p>
+        </div>
+        <div class="card-lesson"><span class="lesson-icon">💡</span><span>Lesson: Train your mind like you train your body. Even 5 minutes of quiet focus every day can make you stronger inside.</span></div>
+      </div>
+
+      <!-- Story 4 -->
+      <div class="story-card theme-pink">
+        <div class="card-header">
+          <div class="card-emoji">♻️</div>
+          <div>
+            <div class="card-label">Chapter 2 · The Soul</div>
+            <div class="card-title">The Butterfly & the Chrysalis</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <p>When a caterpillar becomes a butterfly, does the caterpillar die? In one way yes — but something essential <em>transforms</em>, not vanishes.<br><br>Krishna explains: <em>"The soul is never born, never dies. It moves from body to body like we change clothes."</em> A modern way to think about it — your body is like a phone, and your soul is the software. Phones get old and replaced, but who you truly are continues its journey.</p>
+        </div>
+        <div class="card-lesson"><span class="lesson-icon">💡</span><span>Lesson: Don't be scared of change or endings. At the deepest level, you are made of something that cannot be destroyed.</span></div>
+      </div>
+
+      <!-- Story 5 -->
+      <div class="story-card theme-gold">
+        <div class="card-header">
+          <div class="card-emoji">🌳</div>
+          <div>
+            <div class="card-label">Chapter 14 · The Three Gunas</div>
+            <div class="card-title">The Three Types of Energy</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <p>Think of three types of students: <strong>Tamas</strong> (the one who sleeps through class, makes excuses, is lazy), <strong>Rajas</strong> (the one who studies only to beat others, very competitive, restless), and <strong>Sattva</strong> (the one who studies because they love learning and want to help others with their knowledge).<br><br>Krishna says all three energies — Tamas (darkness/rest), Rajas (passion/activity), Sattva (clarity/goodness) — exist in everything. Our goal is to increase Sattva.</p>
+        </div>
+        <div class="card-lesson"><span class="lesson-icon">💡</span><span>Lesson: Check yourself — which mode am I in right now? Sattvic energy brings peace, creativity, and real happiness.</span></div>
+      </div>
+
+      <!-- Story 6 -->
+      <div class="story-card theme-orange">
+        <div class="card-header">
+          <div class="card-emoji">🤝</div>
+          <div>
+            <div class="card-label">Chapter 12 · Bhakti</div>
+            <div class="card-title">Sudama's Friendship — The Billionaire & The Broke Friend</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <p>Krishna was a king. His childhood friend Sudama was extremely poor. When Sudama visited, too embarrassed to ask for help, he brought only a small handful of puffed rice as a gift. Krishna hugged him, cried with joy, and gave him everything — a palace, riches, comfort.<br><br>The Gita teaches that <em>pure love and devotion</em> — given freely, not to get something back — is the highest form of connection. It's not about what you bring, but the love you carry.</p>
+        </div>
+        <div class="card-lesson"><span class="lesson-icon">💡</span><span>Lesson: True friendship and love aren't transactional. Give from the heart, not expecting a return — that's Bhakti Yoga.</span></div>
+      </div>
+
+      <!-- Story 7 -->
+      <div class="story-card theme-blue">
+        <div class="card-header">
+          <div class="card-emoji">⚖️</div>
+          <div>
+            <div class="card-label">Chapter 16 · Good vs. Evil</div>
+            <div class="card-title">The Two Wolves Inside You</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <p>There's a story about a grandfather who tells his grandson: "Inside me there are two wolves fighting — one is kind, patient, and generous. The other is jealous, angry, and greedy." The grandson asks, "Which one wins?" The grandfather says: <em>"The one I feed."</em><br><br>In Chapter 16, Krishna describes divine qualities (kindness, honesty, courage, compassion) vs. demonic qualities (greed, ego, cruelty). Each of us has both — the question is which one we choose to grow.</p>
+        </div>
+        <div class="card-lesson"><span class="lesson-icon">💡</span><span>Lesson: Your choices are your character. Every small decision to be kind, honest, or brave makes you stronger in those qualities.</span></div>
+      </div>
+
+      <!-- Story 8 -->
+      <div class="story-card theme-green">
+        <div class="card-header">
+          <div class="card-emoji">🧑‍🏫</div>
+          <div>
+            <div class="card-label">Chapter 4 · Knowledge</div>
+            <div class="card-title">The Guru & the Empty Cup</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <p>A student came to a Zen master, talking non-stop about all he already knew. The master poured tea into his cup — and kept pouring even when it overflowed. "Stop! It's full!" said the student. The master smiled: <em>"Like this cup, you are full of opinions. How can I show you wisdom unless you first empty your cup?"</em><br><br>Krishna tells Arjuna: approach your teacher with humility, with real questions, with service. That's how true knowledge flows — it doesn't fit into a full vessel.</p>
+        </div>
+        <div class="card-lesson"><span class="lesson-icon">💡</span><span>Lesson: Stay curious and humble. The smartest people are often the ones most willing to say "I don't know — teach me."</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CHARACTERS -->
+<section class="section" id="characters">
+  <div class="section-inner">
+    <span class="section-tag">🎭 Meet the Cast</span>
+    <h2 class="section-title">The Characters<br>of the Gita</h2>
+    <p class="section-desc">Every great story has unforgettable characters. The Gita's cast teaches us something about ourselves.</p>
+
+    <div class="characters-row">
+      <div class="char-card">
+        <span class="char-emoji">🏹</span>
+        <div class="char-name">Arjuna</div>
+        <div class="char-role">The Warrior</div>
+        <p class="char-desc">The greatest archer of his time, yet full of self-doubt. He is us — talented but scared, capable but confused.</p>
+      </div>
+      <div class="char-card">
+        <span class="char-emoji">🦚</span>
+        <div class="char-name">Krishna</div>
+        <div class="char-role">The Divine Guide</div>
+        <p class="char-desc">Part best friend, part God, part life coach. He doesn't fight for Arjuna — he helps Arjuna find his own strength.</p>
+      </div>
+      <div class="char-card">
+        <span class="char-emoji">👑</span>
+        <div class="char-name">Yudhishthira</div>
+        <div class="char-role">The Just King</div>
+        <p class="char-desc">Arjuna's elder brother. Symbol of truth and righteousness. He chooses dharma even when it costs everything.</p>
+      </div>
+      <div class="char-card">
+        <span class="char-emoji">😤</span>
+        <div class="char-name">Duryodhana</div>
+        <div class="char-role">The Rival</div>
+        <p class="char-desc">Not a monster — just a person consumed by jealousy and ego. A warning of what happens when we feed our worst impulses.</p>
+      </div>
+      <div class="char-card">
+        <span class="char-emoji">📜</span>
+        <div class="char-name">Sanjaya</div>
+        <div class="char-role">The Narrator</div>
+        <p class="char-desc">The one who recounts the whole Gita to the blind king Dhritarashtra. The original news reporter — neutral, observing, recounting truth.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODERN ANECDOTES -->
+<section class="section bg-cream" id="modern">
+  <div class="section-inner">
+    <span class="section-tag">🌐 Today's World</span>
+    <h2 class="section-title">Gita Wisdom<br>in Modern Life</h2>
+    <p class="section-desc">The Gita was spoken on a battlefield, but its lessons show up everywhere today — at school, in sport, online, at home.</p>
+
+    <div class="anecdotes-list">
+
+      <div class="anecdote">
+        <div class="anecdote-icon" style="background:rgba(255,107,26,0.12);">🏏</div>
+        <div>
+          <span class="tag" style="color:var(--saffron);">Sport · Nishkama Karma</span>
+          <h4>Sachin Tendulkar and "Playing for the Team"</h4>
+          <p>In many interviews, Sachin said he visualised and prepared as hard as possible, then stepped onto the pitch fully committed — <em>without worrying about personal milestones.</em> His 100 international centuries came as a result of focusing on serving the team, not chasing records. That's Nishkama Karma — do the work, release the outcome.</p>
+        </div>
+      </div>
+
+      <div class="anecdote">
+        <div class="anecdote-icon" style="background:rgba(74,171,219,0.12);">💻</div>
+        <div>
+          <span class="tag" style="color:var(--sky);">Tech World · Equanimity</span>
+          <h4>Sundar Pichai's Calm Under Pressure</h4>
+          <p>Sundar Pichai, CEO of Google, is known for his famously calm presence even during product failures, crises, and Congressional hearings. He has spoken about not getting too high when things go well, or too low when they go badly. That steady, equanimous attitude — Sthitaprajna in the Gita — is exactly what Chapter 2 describes as the hallmark of a wise person.</p>
+        </div>
+      </div>
+
+      <div class="anecdote">
+        <div class="anecdote-icon" style="background:rgba(29,122,95,0.12);">🌱</div>
+        <div>
+          <span class="tag" style="color:var(--peacock-green);">Environment · Interconnectedness</span>
+          <h4>Greta Thunberg & "We Are All Connected"</h4>
+          <p>The Gita teaches that the universe is one interconnected whole — harm to nature is harm to yourself. When young climate activist Greta Thunberg said <em>"How dare you!"</em> to world leaders about climate inaction, she was expressing a deep Sattvic truth: we have a duty (dharma) to protect the world we live in. Our actions today are karma that shapes tomorrow.</p>
+        </div>
+      </div>
+
+      <div class="anecdote">
+        <div class="anecdote-icon" style="background:rgba(255,107,138,0.12);">📱</div>
+        <div>
+          <span class="tag" style="color:var(--lotus-pink);">Social Media · The Ego Trap</span>
+          <h4>When Likes Become Your Worth</h4>
+          <p>Chapter 16 warns about the "ahankar" trap — letting your ego define you. In 2023, researchers found that teenagers who base their self-worth on Instagram likes showed higher anxiety. The Gita prescribes detachment: post what you truly feel is good, then release the results. Your value isn't in your follower count. This is perhaps the most urgent Gita lesson for the digital generation.</p>
+        </div>
+      </div>
+
+      <div class="anecdote">
+        <div class="anecdote-icon" style="background:rgba(245,184,0,0.15);">🎓</div>
+        <div>
+          <span class="tag" style="color:#c89000;">Education · Study Without Attachment</span>
+          <h4>The Student Who Studied for Joy — and Got Top Marks</h4>
+          <p>Research from IIT and top universities consistently shows students who are intrinsically motivated — who study because they find it interesting — outperform those studying only for marks. This is Gita Chapter 3 in action: when Arjuna asks why humans do harmful things, Krishna explains it's desire and ego. Students who <em>enjoy</em> their subject are freed from that trap.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 18 CHAPTERS -->
+<section class="section" id="chapters">
+  <div class="section-inner">
+    <span class="section-tag">📚 All 18 Chapters</span>
+    <h2 class="section-title">The 18 Yogas<br>of the Gita</h2>
+    <p class="section-desc">Each chapter is a "Yoga" — a path or discipline. Together, they form a complete map of human wisdom.</p>
+
+    <div class="chapters-grid">
+      <div class="chapter-chip"><div class="chapter-num">Ch. 1</div><div class="chapter-name">Arjuna Vishaada</div><div class="chapter-meaning">Arjuna's Grief</div></div>
+      <div class="chapter-chip"><div class="chapter-num">Ch. 2</div><div class="chapter-name">Sankhya Yoga</div><div class="chapter-meaning">Wisdom & Soul</div></div>
+      <div class="chapter-chip"><div class="chapter-num">Ch. 3</div><div class="chapter-name">Karma Yoga</div><div class="chapter-meaning">Selfless Action</div></div>
+      <div class="chapter-chip"><div class="chapter-num">Ch. 4</div><div class="chapter-name">Jnana Yoga</div><div class="chapter-meaning">Path of Knowledge</div></div>
+      <div class="chapter-chip"><div class="chapter-num">Ch. 5</div><div class="chapter-name">Karma Sanyasa</div><div class="chapter-meaning">Renunciation</div></div>
+      <div class="chapter-chip"><div class="chapter-num">Ch. 6</div><div class="chapter-name">Dhyana Yoga</div><div class="chapter-meaning">Meditation</div></div>
+      <div class="chapter-chip"><div class="chapter-num">Ch. 7</div><div class="chapter-name">Jnana-Vijnana</div><div class="chapter-meaning">Realisation</div></div>
+      <div class="chapter-chip"><div class="chapter-num">Ch. 8</div><div class="chapter-name">Akshara Brahma</div><div class="chapter-meaning">The Eternal</div></div>
+      <div class="chapter-chip"><div class="chapter-num">Ch. 9</div><div class="chapter-name">Raja-Vidya</div><div class="chapter-meaning">Royal Knowledge</div></div>
+      <div class="chapter-chip"><div class="chapter-num">Ch. 10</div><div class="chapter-name">Vibhuti Yoga</div><div class="chapter-meaning">Divine Glories</div></div>
+      <div class="chapter-chip"><div class="chapter-num">Ch. 11</div><div class="chapter-name">Vishwarupa</div><div class="chapter-meaning">The Cosmic Form</div></div>
+      <div class="chapter-chip"><div class="chapter-num">Ch. 12</div><div class="chapter-name">Bhakti Yoga</div><div class="chapter-meaning">Path of Devotion</div></div>
+      <div class="chapter-chip"><div class="chapter-num">Ch. 13</div><div class="chapter-name">Kshetra-Jna</div><div class="chapter-meaning">Field & Knower</div></div>
+      <div class="chapter-chip"><div class="chapter-num">Ch. 14</div><div class="chapter-name">Guna Traya</div><div class="chapter-meaning">Three Qualities</div></div>
+      <div class="chapter-chip"><div class="chapter-num">Ch. 15</div><div class="chapter-name">Purushottama</div><div class="chapter-meaning">The Supreme Self</div></div>
+      <div class="chapter-chip"><div class="chapter-num">Ch. 16</div><div class="chapter-name">Daivasura</div><div class="chapter-meaning">Good & Evil</div></div>
+      <div class="chapter-chip"><div class="chapter-num">Ch. 17</div><div class="chapter-name">Shraddha Traya</div><div class="chapter-meaning">Three Faiths</div></div>
+      <div class="chapter-chip"><div class="chapter-num">Ch. 18</div><div class="chapter-name">Moksha Yoga</div><div class="chapter-meaning">Liberation</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section class="section quiz-section" id="quiz">
+  <div class="section-inner" style="text-align:center;">
+    <span class="section-tag">🎯 Test Yourself</span>
+    <h2 class="section-title">Gita Wisdom Quiz</h2>
+    <p class="section-desc" style="margin:0 auto;">Think you've got it? Let's find out! 🌟</p>
+
+    <div class="quiz-box">
+      <div class="quiz-q" id="quiz-question">Loading question...</div>
+      <div class="quiz-options" id="quiz-options"></div>
+      <div class="quiz-result" id="quiz-result"></div>
+      <button class="quiz-next" id="quiz-next" onclick="nextQuestion()">Next Question →</button>
+      <div class="quiz-score" id="quiz-score"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="om">ॐ</span>
+  <strong style="color:#fff;font-size:1.1rem;">Gita Explorer — India Studies</strong><br>
+  A learning resource for students exploring Hindu philosophy &amp; Indian classical thought.<br><br>
+  <em>"Yoga is the journey of the self, through the self, to the self." — Bhagavad Gita 6.20</em><br><br>
+  <span style="font-size:0.8rem;opacity:0.5;">Created for educational purposes · All philosophical summaries are interpretations for learning.</span>
+</footer>
+
+<script>
+const questions = [
+  {
+    q: "What does 'Bhagavad Gita' mean in English?",
+    opts: ["The Book of Battles", "The Song of God", "The Path of the Warrior", "The Secret of Time"],
+    ans: 1,
+    explain: "Bhagavad = Divine/God, Gita = Song. It's literally the Song of God — a conversation between Krishna and Arjuna!"
+  },
+  {
+    q: "Arjuna was confused before the battle. What was he most worried about?",
+    opts: ["Losing his weapons", "Fighting his own family and teachers", "The weather being too hot", "His horse being tired"],
+    ans: 1,
+    explain: "Arjuna saw his cousins, uncles, and beloved teachers on the other side and dropped his bow in grief. His crisis is the starting point of the Gita!"
+  },
+  {
+    q: "What is 'Karma' according to the Gita?",
+    opts: ["Bad luck that follows you", "Your action and its consequences", "A type of meditation", "The name of a warrior"],
+    ans: 1,
+    explain: "Karma literally means 'action'. The Gita teaches us to do good actions without being attached to the results — Nishkama Karma!"
+  },
+  {
+    q: "How many chapters does the Bhagavad Gita have?",
+    opts: ["7", "12", "18", "108"],
+    ans: 2,
+    explain: "The Gita has 18 chapters and 700 verses. Each chapter explores a different 'Yoga' or path of wisdom."
+  },
+  {
+    q: "What is 'Sattva' — one of the three Gunas?",
+    opts: ["Darkness, laziness, and confusion", "Passion, ambition, and restlessness", "Clarity, goodness, and purity", "Speed, strength, and power"],
+    ans: 2,
+    explain: "Sattva is the quality of clarity, purity, and goodness. The Gita encourages us to increase Sattvic energy in our lives!"
+  },
+  {
+    q: "Who is Krishna in relation to Arjuna?",
+    opts: ["His enemy general", "His charioteer and divine guide", "His older brother", "His archery teacher"],
+    ans: 1,
+    explain: "Krishna was Arjuna's charioteer, close friend, and — as the story unfolds — his spiritual guide and the Divine itself."
+  },
+  {
+    q: "What does 'Yoga' mean in the Bhagavad Gita?",
+    opts: ["Physical exercise only", "A type of warrior training", "A path or discipline for connecting with the divine", "A kind of food"],
+    ans: 2,
+    explain: "In the Gita, Yoga means a 'path' or 'discipline' — Karma Yoga (action), Bhakti Yoga (devotion), Jnana Yoga (knowledge) are all paths."
+  },
+  {
+    q: "The Gita says the soul (Atman) is...",
+    opts: ["Destroyed when the body dies", "Eternal — it cannot be created or destroyed", "A physical thing inside the heart", "Only present in humans"],
+    ans: 1,
+    explain: "One of the Gita's most famous teachings: the soul is eternal. It moves from body to body, never truly dying. 'Na jayate mriyate va kadacin!'"
+  }
+];
+
+let current = 0, score = 0, answered = false;
+
+function loadQuestion(){
+  const q = questions[current];
+  document.getElementById('quiz-question').textContent = `Q${current+1}. ${q.q}`;
+  const optDiv = document.getElementById('quiz-options');
+  optDiv.innerHTML = '';
+  q.opts.forEach((o, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'quiz-opt';
+    btn.textContent = o;
+    btn.onclick = () => checkAnswer(i);
+    optDiv.appendChild(btn);
+  });
+  document.getElementById('quiz-result').className = 'quiz-result';
+  document.getElementById('quiz-result').textContent = '';
+  document.getElementById('quiz-next').className = 'quiz-next';
+  document.getElementById('quiz-score').textContent = `Score: ${score} / ${current}`;
+  answered = false;
+}
+
+function checkAnswer(i){
+  if(answered) return;
+  answered = true;
+  const q = questions[current];
+  const opts = document.querySelectorAll('.quiz-opt');
+  opts.forEach((b,idx) => {
+    if(idx === q.ans) b.classList.add('correct');
+    else if(idx === i && i !== q.ans) b.classList.add('wrong');
+    b.disabled = true;
+  });
+  const res = document.getElementById('quiz-result');
+  if(i === q.ans){
+    score++;
+    res.textContent = `✅ Correct! ${q.explain}`;
+    res.className = 'quiz-result show good';
+  } else {
+    res.textContent = `❌ Not quite! ${q.explain}`;
+    res.className = 'quiz-result show bad';
+  }
+  document.getElementById('quiz-next').className = 'quiz-next show';
+  document.getElementById('quiz-score').textContent = `Score: ${score} / ${current+1}`;
+}
+
+function nextQuestion(){
+  current++;
+  if(current < questions.length){
+    loadQuestion();
+  } else {
+    const pct = Math.round(score/questions.length*100);
+    document.getElementById('quiz-question').textContent = `🎉 Quiz Complete! You scored ${score}/${questions.length} (${pct}%)`;
+    document.getElementById('quiz-options').innerHTML = '';
+    document.getElementById('quiz-result').className = 'quiz-result show good';
+    document.getElementById('quiz-result').textContent = pct>=70 ? `Wonderful! You have wisdom like Arjuna after the Gita! 🌟` : `Keep reading the stories above and try again — even Arjuna needed a teacher! 🙏`;
+    document.getElementById('quiz-next').className = 'quiz-next show';
+    document.getElementById('quiz-next').textContent = '↺ Try Again';
+    document.getElementById('quiz-next').onclick = () => { current=0;score=0;loadQuestion(); document.getElementById('quiz-next').textContent='Next Question →'; document.getElementById('quiz-next').onclick=nextQuestion; };
+    document.getElementById('quiz-score').textContent = `Final Score: ${score} / ${questions.length}`;
+  }
+}
+
+loadQuestion();
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'});
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yoga & the Mind — Patanjali's World</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&family=Nunito:ital,wght@0,400;0,600;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky: #fdf6e3;
+    --deep: #1a1040;
+    --lotus: #e85d8a;
+    --gold: #f5a623;
+    --teal: #29b6a8;
+    --lavender: #9b7fe8;
+    --leaf: #4caf7d;
+    --cloud: #fff8f0;
+    --shadow: rgba(26,16,64,0.12);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--sky);
+    font-family: 'Nunito', sans-serif;
+    color: var(--deep);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top:0; left:0; right:0; z-index:100;
+    background: rgba(253,246,227,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid rgba(232,93,138,0.2);
+    display: flex; align-items:center; justify-content:space-between;
+    padding: 0.7rem 2rem;
+  }
+  .nav-logo {
+    font-family:'Baloo 2',cursive; font-weight:800; font-size:1.4rem;
+    color: var(--lotus);
+    display:flex; align-items:center; gap:0.5rem;
+  }
+  .nav-links { display:flex; gap:1.5rem; }
+  .nav-links a {
+    text-decoration:none; font-weight:600; font-size:0.9rem;
+    color: var(--deep); transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--lotus); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; padding: 6rem 2rem 4rem;
+    position:relative; overflow:hidden;
+    background: radial-gradient(ellipse at 60% 40%, #fde8f3 0%, #fdf6e3 55%, #e8f8f5 100%);
+  }
+
+  .hero-floats {
+    position:absolute; inset:0; pointer-events:none;
+  }
+  .float-shape {
+    position:absolute; border-radius:50%;
+    animation: floatBob 6s ease-in-out infinite;
+  }
+  .f1 { width:80px;height:80px; background:rgba(232,93,138,.12); top:12%; left:8%; animation-delay:0s;}
+  .f2 { width:50px;height:50px; background:rgba(155,127,232,.15); top:20%; right:10%; animation-delay:1.5s;}
+  .f3 { width:120px;height:120px; background:rgba(41,182,168,.1); bottom:20%; left:5%; animation-delay:3s;}
+  .f4 { width:60px;height:60px; background:rgba(245,166,35,.15); bottom:15%; right:12%; animation-delay:1s;}
+  .f5 { width:40px;height:40px; background:rgba(76,175,125,.15); top:50%; left:3%; animation-delay:2s;}
+
+  @keyframes floatBob {
+    0%,100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-18px) rotate(8deg); }
+  }
+
+  .hero-badge {
+    display:inline-flex; align-items:center; gap:0.4rem;
+    background: var(--lotus); color:#fff;
+    padding: 0.35rem 1rem; border-radius:50px; font-size:0.82rem; font-weight:700;
+    margin-bottom:1.5rem; letter-spacing:0.05em;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero h1 {
+    font-family:'Baloo 2',cursive; font-weight:800; font-size:clamp(2.4rem,6vw,4.2rem);
+    line-height:1.1; color:var(--deep);
+    animation: fadeUp 0.7s ease both 0.1s;
+  }
+  .hero h1 span { color: var(--lotus); }
+  .hero-sub {
+    font-size:clamp(1rem,2vw,1.25rem); color:#555; max-width:540px; margin:1.2rem auto 2rem;
+    line-height:1.7; animation: fadeUp 0.7s ease both 0.2s;
+  }
+  .hero-btns { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; animation: fadeUp 0.7s ease both 0.3s; }
+  .btn {
+    padding: 0.75rem 1.8rem; border-radius:50px; font-weight:700; font-size:1rem;
+    cursor:pointer; border:none; transition: transform .2s, box-shadow .2s;
+    text-decoration:none; display:inline-block;
+  }
+  .btn-primary { background:var(--lotus); color:#fff; box-shadow:0 4px 20px rgba(232,93,138,.35); }
+  .btn-secondary { background:transparent; color:var(--deep); border:2px solid var(--deep); }
+  .btn:hover { transform:translateY(-3px); box-shadow:0 8px 28px var(--shadow); }
+
+  .hero-sage {
+    margin-top:3rem; font-size:5rem; animation: floatBob 5s ease-in-out infinite;
+  }
+
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(24px); }
+    to { opacity:1; transform:translateY(0); }
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 5rem 1.5rem; }
+  .section-inner { max-width:1100px; margin:0 auto; }
+  .section-tag {
+    display:inline-flex; align-items:center; gap:0.4rem;
+    font-size:0.78rem; font-weight:800; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--teal); margin-bottom:0.8rem;
+  }
+  .section-title {
+    font-family:'Baloo 2',cursive; font-weight:800;
+    font-size:clamp(1.8rem,4vw,2.8rem); line-height:1.15; margin-bottom:1rem;
+  }
+  .section-title span { color:var(--lotus); }
+  .section-lead { font-size:1.1rem; color:#555; max-width:600px; line-height:1.7; margin-bottom:3rem; }
+
+  /* ── STORY CARDS ── */
+  .stories-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:2rem; }
+  .story-card {
+    background:#fff; border-radius:24px;
+    padding:1.8rem; box-shadow:0 4px 24px var(--shadow);
+    transition: transform .3s, box-shadow .3s;
+    position:relative; overflow:hidden;
+    border-top: 5px solid var(--lotus);
+  }
+  .story-card:nth-child(2){border-top-color:var(--teal);}
+  .story-card:nth-child(3){border-top-color:var(--lavender);}
+  .story-card:nth-child(4){border-top-color:var(--gold);}
+  .story-card:nth-child(5){border-top-color:var(--leaf);}
+  .story-card:nth-child(6){border-top-color:var(--lotus);}
+  .story-card:hover { transform:translateY(-8px); box-shadow:0 14px 42px var(--shadow); }
+  .story-emoji { font-size:2.8rem; margin-bottom:0.8rem; display:block; }
+  .story-label {
+    font-size:0.72rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--lavender); margin-bottom:0.4rem;
+  }
+  .story-card h3 {
+    font-family:'Baloo 2',cursive; font-weight:800; font-size:1.25rem; margin-bottom:0.7rem; line-height:1.3;
+  }
+  .story-card p { font-size:0.95rem; color:#555; line-height:1.7; }
+  .story-quote {
+    margin-top:1rem; padding:0.8rem 1rem; border-radius:12px;
+    background:var(--sky); font-style:italic; font-size:0.9rem; color:var(--deep);
+    border-left:3px solid var(--lotus);
+  }
+
+  /* ── CHITTA SECTION ── */
+  .mind-section {
+    background: linear-gradient(135deg, #1a1040 0%, #2d1b69 50%, #1a3a4a 100%);
+    color:#fff; border-radius:40px; padding:4rem 3rem; position:relative; overflow:hidden;
+  }
+  .mind-section .section-tag { color:var(--teal); }
+  .mind-section .section-title { color:#fff; }
+  .mind-section .section-lead { color:rgba(255,255,255,0.7); }
+
+  .mind-bg-circles {
+    position:absolute; inset:0; pointer-events:none;
+  }
+  .mind-circle {
+    position:absolute; border-radius:50%; border:2px solid rgba(255,255,255,0.06);
+  }
+  .mc1 { width:300px;height:300px; top:-50px; right:-80px; }
+  .mc2 { width:200px;height:200px; bottom:-60px; left:-60px; }
+  .mc3 { width:150px;height:150px; top:40%; right:20%; }
+
+  .mind-cards { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:1.5rem; }
+  .mind-card {
+    background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12);
+    border-radius:20px; padding:1.5rem;
+    transition: background .3s, transform .3s;
+  }
+  .mind-card:hover { background:rgba(255,255,255,0.14); transform:translateY(-5px); }
+  .mind-card-icon { font-size:2.2rem; margin-bottom:0.7rem; }
+  .mind-card h4 { font-family:'Baloo 2',cursive; font-size:1.1rem; font-weight:700; margin-bottom:0.4rem; color:var(--gold); }
+  .mind-card p { font-size:0.9rem; color:rgba(255,255,255,0.7); line-height:1.65; }
+
+  /* ── 8 LIMBS ── */
+  .limbs-track {
+    display:flex; gap:1.2rem; overflow-x:auto; padding-bottom:1rem;
+    scroll-snap-type:x mandatory;
+    -ms-overflow-style:none; scrollbar-width:none;
+  }
+  .limbs-track::-webkit-scrollbar { display:none; }
+  .limb-card {
+    min-width:220px; background:#fff; border-radius:20px; padding:1.5rem;
+    box-shadow:0 4px 20px var(--shadow); scroll-snap-align:start;
+    transition: transform .3s;
+  }
+  .limb-card:hover { transform:scale(1.05); }
+  .limb-num {
+    width:36px;height:36px; border-radius:50%;
+    background:var(--lotus); color:#fff;
+    font-family:'Baloo 2',cursive; font-weight:800; font-size:1rem;
+    display:flex; align-items:center; justify-content:center; margin-bottom:0.8rem;
+  }
+  .limb-card:nth-child(2) .limb-num { background:var(--teal); }
+  .limb-card:nth-child(3) .limb-num { background:var(--lavender); }
+  .limb-card:nth-child(4) .limb-num { background:var(--gold); }
+  .limb-card:nth-child(5) .limb-num { background:var(--leaf); }
+  .limb-card:nth-child(6) .limb-num { background:#e08430; }
+  .limb-card:nth-child(7) .limb-num { background:#c0392b; }
+  .limb-card:nth-child(8) .limb-num { background:#8e44ad; }
+  .limb-card h4 { font-family:'Baloo 2',cursive; font-weight:700; font-size:1.05rem; margin-bottom:0.3rem; }
+  .limb-card .limb-sanskrit { font-size:0.78rem; color:var(--lotus); font-weight:700; letter-spacing:0.05em; margin-bottom:0.5rem; }
+  .limb-card p { font-size:0.88rem; color:#666; line-height:1.6; }
+
+  /* ── KIDS CORNER ── */
+  .kids-section {
+    background: linear-gradient(135deg, #fff8f0, #fde8f3);
+    border-radius:40px; padding:4rem 3rem;
+  }
+  .kids-activities { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:1.5rem; }
+  .kids-card {
+    background:#fff; border-radius:24px; padding:1.8rem; text-align:center;
+    box-shadow:0 4px 20px var(--shadow); transition:transform .3s;
+    border:2px dashed rgba(232,93,138,0.25);
+  }
+  .kids-card:hover { transform:translateY(-6px) rotate(1deg); }
+  .kids-card .kids-emoji { font-size:3.5rem; display:block; margin-bottom:1rem; }
+  .kids-card h4 { font-family:'Baloo 2',cursive; font-weight:800; font-size:1.15rem; margin-bottom:0.6rem; }
+  .kids-card p { font-size:0.9rem; color:#666; line-height:1.65; }
+  .kids-tip {
+    margin-top:1rem; background:var(--sky); border-radius:12px;
+    padding:0.6rem 0.9rem; font-size:0.85rem; font-weight:700; color:var(--leaf);
+  }
+
+  /* ── ANECDOTES ── */
+  .anecdotes-list { display:flex; flex-direction:column; gap:2rem; }
+  .anecdote-block {
+    background:#fff; border-radius:24px; padding:2rem;
+    box-shadow:0 4px 20px var(--shadow);
+    display:grid; grid-template-columns:auto 1fr; gap:1.5rem; align-items:start;
+  }
+  .anecdote-icon {
+    width:60px;height:60px; border-radius:18px;
+    background:var(--lavender); display:flex; align-items:center; justify-content:center;
+    font-size:1.8rem; flex-shrink:0;
+  }
+  .anecdote-block:nth-child(2) .anecdote-icon { background:var(--teal); }
+  .anecdote-block:nth-child(3) .anecdote-icon { background:var(--gold); }
+  .anecdote-block:nth-child(4) .anecdote-icon { background:var(--leaf); }
+  .anecdote-content h4 { font-family:'Baloo 2',cursive; font-weight:800; font-size:1.2rem; margin-bottom:0.5rem; }
+  .anecdote-content p { font-size:0.96rem; color:#555; line-height:1.75; }
+  .anecdote-tag {
+    display:inline-block; margin-top:0.8rem;
+    background:rgba(155,127,232,0.12); color:var(--lavender);
+    font-size:0.75rem; font-weight:700; padding:0.25rem 0.7rem; border-radius:50px;
+  }
+
+  /* ── PHILOSOPHY DEEP DIVE ── */
+  .philosophy-grid { display:grid; grid-template-columns:1fr 1fr; gap:2rem; }
+  @media(max-width:700px){ .philosophy-grid { grid-template-columns:1fr; } }
+  .phil-card {
+    background:#fff; border-radius:24px; padding:2rem;
+    box-shadow:0 4px 20px var(--shadow);
+  }
+  .phil-card h3 { font-family:'Baloo 2',cursive; font-weight:800; font-size:1.3rem; margin-bottom:0.8rem; }
+  .phil-card p { font-size:0.95rem; color:#555; line-height:1.75; margin-bottom:0.8rem; }
+  .phil-table { width:100%; border-collapse:collapse; font-size:0.9rem; }
+  .phil-table th { background:var(--deep); color:#fff; padding:0.5rem 0.8rem; text-align:left; font-family:'Baloo 2',cursive; }
+  .phil-table tr:nth-child(even) { background:#f9f4ff; }
+  .phil-table td { padding:0.5rem 0.8rem; border-bottom:1px solid #eee; }
+
+  /* ── FOOTER ── */
+  footer {
+    background:var(--deep); color:rgba(255,255,255,0.7);
+    text-align:center; padding:3rem 2rem;
+    font-size:0.9rem; line-height:1.9;
+  }
+  footer .footer-logo { font-family:'Baloo 2',cursive; font-weight:800; font-size:1.5rem; color:#fff; margin-bottom:0.5rem; }
+  footer a { color:var(--teal); text-decoration:none; }
+
+  /* ── MISC ── */
+  .scroll-prompt {
+    position:absolute; bottom:2rem; left:50%; transform:translateX(-50%);
+    font-size:0.82rem; color:#999; display:flex; flex-direction:column; align-items:center; gap:0.4rem;
+  }
+  .scroll-arrow { font-size:1.2rem; animation:bounceDown 1.5s infinite; }
+  @keyframes bounceDown {
+    0%,100%{transform:translateY(0);} 50%{transform:translateY(6px);}
+  }
+
+  .highlight-pill {
+    display:inline-block; background:rgba(245,166,35,.15); color:#b07a00;
+    font-weight:700; font-size:0.88rem; padding:0.25rem 0.75rem; border-radius:50px;
+    margin:0.2rem;
+  }
+
+  @media(max-width:600px){
+    nav .nav-links { display:none; }
+    .mind-section, .kids-section { padding:2.5rem 1.5rem; }
+    .anecdote-block { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">🪷 YogaMind</div>
+  <div class="nav-links">
+    <a href="#stories">Stories</a>
+    <a href="#mind">The Mind</a>
+    <a href="#limbs">8 Limbs</a>
+    <a href="#kids">Kids Corner</a>
+    <a href="#philosophy">Philosophy</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-floats">
+    <div class="float-shape f1"></div>
+    <div class="float-shape f2"></div>
+    <div class="float-shape f3"></div>
+    <div class="float-shape f4"></div>
+    <div class="float-shape f5"></div>
+  </div>
+  <div class="hero-badge">✨ Ancient Wisdom · Modern Life</div>
+  <h1>Yoga, <span>Patanjali</span> &<br>the Magic of the Mind</h1>
+  <p class="hero-sub">Journey with a wise sage, curious kids, and a monkey-like mind on an adventure to discover what yoga REALLY means — for everyone, everywhere.</p>
+  <div class="hero-btns">
+    <a href="#stories" class="btn btn-primary">Start the Journey 🚀</a>
+    <a href="#kids" class="btn btn-secondary">Kids Corner 🧒</a>
+  </div>
+  <div class="hero-sage">🧘</div>
+  <div class="scroll-prompt">
+    <span>Scroll to explore</span>
+    <span class="scroll-arrow">↓</span>
+  </div>
+</section>
+
+<!-- WHO WAS PATANJALI? -->
+<section id="stories">
+  <div class="section-inner">
+    <div class="section-tag">🌟 The Sage Behind It All</div>
+    <h2 class="section-title">Who Was <span>Patanjali?</span></h2>
+    <p class="section-lead">About 2,200 years ago, a brilliant thinker sat in deep meditation and wrote the most important guide to yoga ever — the Yoga Sutras. His name? Patanjali.</p>
+
+    <div class="stories-grid">
+      <div class="story-card">
+        <span class="story-emoji">🐍</span>
+        <div class="story-label">The Legend</div>
+        <h3>Born from the Sky!</h3>
+        <p>One ancient story says Patanjali fell from heaven as a tiny snake into the palms of the goddess Gonika while she was praying. She looked up and called him Patanjali — "pata" means falling, and "anjali" means folded hands of prayer!</p>
+        <div class="story-quote">"Even legends remind us: great wisdom often arrives in small, unexpected packages."</div>
+      </div>
+
+      <div class="story-card">
+        <span class="story-emoji">📜</span>
+        <div class="story-label">The Work</div>
+        <h3>196 Tiny Sentences Changed the World</h3>
+        <p>Patanjali wrote 196 "sutras" — short, sharp sentences, like tweets from 200 BCE! Each sutra is like a seed: small outside, but with a whole forest of meaning inside. Scholars still discuss them today in universities worldwide.</p>
+        <div class="story-quote">"Yogas chitta vritti nirodhah" — Yoga is the stilling of the mind's chatter. (Sutra 1.2)</div>
+      </div>
+
+      <div class="story-card">
+        <span class="story-emoji">🌍</span>
+        <div class="story-label">Modern Connection</div>
+        <h3>From Ancient India to Your Yoga App</h3>
+        <p>Today, there are over 300 million yoga practitioners globally. Every time someone does a sun salutation in New York, breathes deeply in Tokyo, or meditates in London — they're following threads that trace back to Patanjali's ideas.</p>
+        <div class="story-quote">"Ancient wisdom doesn't expire. It just waits for the right moment."</div>
+      </div>
+
+      <div class="story-card">
+        <span class="story-emoji">🐒</span>
+        <div class="story-label">Kid-Friendly Story</div>
+        <h3>The Monkey Mind</h3>
+        <p>Patanjali described our mind like a wild monkey swinging from thought to thought! Imagine a monkey in a tree — it grabs one branch (worrying about tests), swings to another (what's for lunch?), then another (did my friend like my drawing?). Yoga trains the monkey to sit still and enjoy the view.</p>
+        <div class="story-quote">"Can YOU keep your monkey still for 10 seconds? Try it! 🐒"</div>
+      </div>
+
+      <div class="story-card">
+        <span class="story-emoji">🏫</span>
+        <div class="story-label">Contemporary Story</div>
+        <h3>Arjun's Exam Stress</h3>
+        <p>Arjun, a 13-year-old in Mumbai, was terrified of his maths exam. His mind raced with worst-case stories. His yoga teacher taught him "Pratyahara" — withdrawing from noise. He took 5 slow breaths before the exam. His mind quietened. He scored his best ever!</p>
+        <div class="story-quote">"Patanjali's techniques work just as well in a modern exam hall as in an ancient forest."</div>
+      </div>
+
+      <div class="story-card">
+        <span class="story-emoji">⚽</span>
+        <div class="story-label">Sports & Yoga</div>
+        <h3>Virat, Djokovic & Dharana</h3>
+        <p>Top athletes like Novak Djokovic use mindfulness and breathwork — which is pure Patanjali! "Dharana" (focused concentration) is why a cricketer can watch a 145 km/h ball and swing perfectly. The mind must be completely ONE with the target.</p>
+        <div class="story-quote">"The greatest athletes aren't just physically fit — they've tamed their monkey minds."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE MIND IN YOGA & SANKHYA -->
+<section id="mind" style="background:transparent;">
+  <div class="section-inner">
+    <div class="mind-section">
+      <div class="mind-bg-circles">
+        <div class="mind-circle mc1"></div>
+        <div class="mind-circle mc2"></div>
+        <div class="mind-circle mc3"></div>
+      </div>
+      <div class="section-tag">🧠 The Inner Universe</div>
+      <h2 class="section-title" style="color:#fff;">The <span>Mind (Chitta)</span> in Yoga & Sānkhya</h2>
+      <p class="section-lead">Both Yoga and Sānkhya philosophy (its philosophical twin) say the mind is NOT a single thing — it's more like a whole team of players working together.</p>
+
+      <div class="mind-cards">
+        <div class="mind-card">
+          <div class="mind-card-icon">🏛️</div>
+          <h4>Chitta — The Mind-Stuff</h4>
+          <p>Like a lake of water that holds all your memories, feelings, and impressions. When it's still, it reflects the true Self (Purusha) perfectly. When disturbed, everything looks wavy and distorted.</p>
+        </div>
+        <div class="mind-card">
+          <div class="mind-card-icon">🤔</div>
+          <h4>Manas — The Sense-Mind</h4>
+          <p>The "receiver" — it collects all information from your 5 senses and sends it inward. Like your phone screen: it just shows what comes in, without judging. It's the first layer of processing.</p>
+        </div>
+        <div class="mind-card">
+          <div class="mind-card-icon">⚖️</div>
+          <h4>Buddhi — The Intellect</h4>
+          <p>The wise "decision-maker" inside you. It judges, discriminates, and says "this is right, that is wrong." In Sānkhya, Buddhi is the finest layer of Prakriti (matter) — almost transparent enough to reflect the Self.</p>
+        </div>
+        <div class="mind-card">
+          <div class="mind-card-icon">🪪</div>
+          <h4>Ahamkara — The Ego</h4>
+          <p>Literally "I-maker." It creates the sense of "I am THIS person, this body, this name." Both yoga and Sānkhya say ego isn't evil — but believing it's your TRUE self causes suffering.</p>
+        </div>
+        <div class="mind-card">
+          <div class="mind-card-icon">✨</div>
+          <h4>Purusha — Pure Consciousness</h4>
+          <p>The silent, eternal witness inside you. It never changes, never suffers, never acts. It's like the projector light in a cinema — the film (mind) plays, but the light itself stays pure and unchanged.</p>
+        </div>
+        <div class="mind-card">
+          <div class="mind-card-icon">🌿</div>
+          <h4>Prakriti — Nature / Matter</h4>
+          <p>Everything in the universe — including your mind and body — is made of Prakriti. It has three qualities (Gunas): Tamas (heaviness), Rajas (activity), Sattva (clarity). Yoga aims to increase Sattva in your mind.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:2.5rem; padding:1.5rem; background:rgba(255,255,255,0.08); border-radius:20px; border:1px solid rgba(255,255,255,0.15);">
+        <h3 style="font-family:'Baloo 2',cursive; color:var(--gold); margin-bottom:0.8rem; font-size:1.2rem;">🎬 The Cinema Analogy (for everyone!)</h3>
+        <p style="color:rgba(255,255,255,0.75); line-height:1.8; font-size:0.97rem;">
+          Imagine a cinema hall. The <strong style="color:var(--teal);">screen</strong> is Chitta (your mind). The <strong style="color:var(--gold);">film</strong> is all your thoughts, memories, and emotions. The <strong style="color:var(--lotus);">projector light</strong> is Purusha — it illuminates everything but never gets dirty or coloured by the film. Yoga is the practice of keeping the screen clean and still, so the light shines through perfectly. When the screen is dusty or torn — that's suffering. When it's clean — that's liberation (Samadhi)!
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 LIMBS OF YOGA -->
+<section id="limbs">
+  <div class="section-inner">
+    <div class="section-tag">🌿 Ashtanga Yoga</div>
+    <h2 class="section-title">The <span>8 Limbs</span> of Yoga</h2>
+    <p class="section-lead">Patanjali described yoga as a tree with 8 branches — each one building on the last, taking you from outer behaviour all the way to pure stillness.</p>
+    <div class="limbs-track">
+      <div class="limb-card">
+        <div class="limb-num">1</div>
+        <div class="limb-sanskrit">Yama</div>
+        <h4>Ethics Outward</h4>
+        <p>5 rules for how to treat the world: non-violence, truthfulness, non-stealing, moderation, non-greed. Today: being kind online counts as Ahimsa! 🙏</p>
+      </div>
+      <div class="limb-card">
+        <div class="limb-num">2</div>
+        <div class="limb-sanskrit">Niyama</div>
+        <h4>Self-Discipline</h4>
+        <p>5 inner habits: cleanliness, contentment, self-discipline, self-study, surrender to a higher power. Like a daily morning routine — but for your soul.</p>
+      </div>
+      <div class="limb-card">
+        <div class="limb-num">3</div>
+        <div class="limb-sanskrit">Asana</div>
+        <h4>Body Postures</h4>
+        <p>Patanjali devoted only 3 sutras to this! He said: be steady and comfortable. The goal isn't a perfect headstand — it's a body that doesn't distract the mind.</p>
+      </div>
+      <div class="limb-card">
+        <div class="limb-num">4</div>
+        <div class="limb-sanskrit">Pranayama</div>
+        <h4>Breath Control</h4>
+        <p>Control your breath → control your mind. Scientists now confirm: slow breathing activates the parasympathetic nervous system — exactly what Patanjali described 2000+ years ago!</p>
+      </div>
+      <div class="limb-card">
+        <div class="limb-num">5</div>
+        <div class="limb-sanskrit">Pratyahara</div>
+        <h4>Withdrawing Senses</h4>
+        <p>Like closing 5 browser tabs at once. When you stop chasing every notification, sound, and sight — you go inward. Try eating one meal without any screen today! 📵</p>
+      </div>
+      <div class="limb-card">
+        <div class="limb-num">6</div>
+        <div class="limb-sanskrit">Dharana</div>
+        <h4>Concentration</h4>
+        <p>Fixing the mind on one point. Athletes call it "the zone." Scientists call it "flow state." Patanjali called it Dharana — the gateway to meditation.</p>
+      </div>
+      <div class="limb-card">
+        <div class="limb-num">7</div>
+        <div class="limb-sanskrit">Dhyana</div>
+        <h4>Meditation</h4>
+        <p>When concentration flows effortlessly without interruption. Not blanking your mind — but having a mind so clear and focused it no longer jumps around.</p>
+      </div>
+      <div class="limb-card">
+        <div class="limb-num">8</div>
+        <div class="limb-sanskrit">Samadhi</div>
+        <h4>Pure Absorption</h4>
+        <p>The meditator, the act of meditating, and the thing being meditated upon all merge into ONE. The individual self dissolves into universal consciousness. ✨</p>
+      </div>
+    </div>
+    <p style="font-size:0.85rem; color:#999; margin-top:1rem;">← Scroll to explore all 8 limbs →</p>
+  </div>
+</section>
+
+<!-- KIDS CORNER -->
+<section id="kids" style="background:transparent;">
+  <div class="section-inner">
+    <div class="kids-section">
+      <div class="section-tag">🧒 Just for Kids</div>
+      <h2 class="section-title">Kids <span>Yoga Corner</span> 🌈</h2>
+      <p class="section-lead">Yoga isn't just for grown-ups! Ancient wisdom meets modern fun — try these activities and become your own Patanjali!</p>
+
+      <div class="kids-activities">
+        <div class="kids-card">
+          <span class="kids-emoji">🐢</span>
+          <h4>The Tortoise Pose</h4>
+          <p>Sit on the floor, spread your legs wide, and slowly fold forward, sliding your arms under your knees. You become a tortoise hiding in your shell!</p>
+          <div class="kids-tip">🧠 Mind Lesson: When things feel overwhelming, it's okay to retreat and be quiet inside.</div>
+        </div>
+
+        <div class="kids-card">
+          <span class="kids-emoji">🌳</span>
+          <h4>Tree Balance Game</h4>
+          <p>Stand on one leg, place the other foot on your calf or thigh, and raise your arms like branches. Can you stay still for 30 seconds? Try with eyes closed for extra challenge!</p>
+          <div class="kids-tip">🧠 Mind Lesson: Balance in your body teaches balance in your mind (Dharana!).</div>
+        </div>
+
+        <div class="kids-card">
+          <span class="kids-emoji">🐝</span>
+          <h4>Bee Breath (Bhramari)</h4>
+          <p>Close your eyes, cover your ears with thumbs, and hum like a bee: "MMMMMM." Feel the vibration in your head! Do this 5 times and notice how calm you feel.</p>
+          <div class="kids-tip">🧠 Mind Lesson: Sound vibration calms your nervous system — ancient AND modern science agree!</div>
+        </div>
+
+        <div class="kids-card">
+          <span class="kids-emoji">🎯</span>
+          <h4>The Dharana Game</h4>
+          <p>Light a candle (with an adult's help!) or draw a dot on paper. Stare at it without blinking for as long as you can. No thinking about anything else — just the flame or dot!</p>
+          <div class="kids-tip">🧠 Mind Lesson: This IS Dharana — the 6th limb of Patanjali's yoga!</div>
+        </div>
+
+        <div class="kids-card">
+          <span class="kids-emoji">🌊</span>
+          <h4>Mind Lake Visualisation</h4>
+          <p>Lie down and imagine your mind is a lake. When you're upset, the lake is stormy. Now breathe slowly 5 times — watch the waves settle. The lake becomes a mirror! What do you see?</p>
+          <div class="kids-tip">🧠 Mind Lesson: This is exactly what Patanjali meant by "Chitta Vritti Nirodhah" — stilling the mind's waves!</div>
+        </div>
+
+        <div class="kids-card">
+          <span class="kids-emoji">📖</span>
+          <h4>Niyama Kindness Journal</h4>
+          <p>Every evening, write 3 things: 1 kind thing you did today, 1 thing you're grateful for, 1 thing you'll do better tomorrow. This IS Svadhyaya (self-study) and Santosha (contentment)!</p>
+          <div class="kids-tip">🧠 Mind Lesson: Patanjali's Niyamas aren't rules — they're daily happiness habits!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTEMPORARY ANECDOTES -->
+<section id="anecdotes">
+  <div class="section-inner">
+    <div class="section-tag">💡 Stories from Today</div>
+    <h2 class="section-title">Patanjali in <span>Modern Life</span></h2>
+    <p class="section-lead">Ancient philosophy isn't stored in museums. It's alive in boardrooms, football fields, classrooms, and hospitals right now.</p>
+
+    <div class="anecdotes-list">
+      <div class="anecdote-block">
+        <div class="anecdote-icon">🧠</div>
+        <div class="anecdote-content">
+          <h4>Silicon Valley's Secret Weapon</h4>
+          <p>Many technology companies in Silicon Valley now offer meditation rooms and mindfulness programs to employees. Steve Jobs was famous for his Zen practice — and described how meditation trained him to "slow down and sit" before making big decisions. Patanjali called this Viveka — discriminative wisdom. When your mind is still, you see clearly. Bad decisions often come from a "vritti-ridden" (wave-filled) mind reacting rather than responding.</p>
+          <span class="anecdote-tag">Corporate Yoga & Mindfulness</span>
+        </div>
+      </div>
+
+      <div class="anecdote-block">
+        <div class="anecdote-icon">🏥</div>
+        <div class="anecdote-content">
+          <h4>Dr. Jon Kabat-Zinn & MBSR</h4>
+          <p>In 1979, a scientist named Jon Kabat-Zinn created "Mindfulness-Based Stress Reduction" — a medical programme now used in hospitals worldwide for pain, anxiety, and depression. It's essentially Patanjali's Pratyahara and Dhyana translated into clinical language. What was mystical philosophy is now prescribed medicine. Thousands of peer-reviewed studies confirm what Patanjali wrote: training attention transforms suffering.</p>
+          <span class="anecdote-tag">Science & Ancient Wisdom</span>
+        </div>
+      </div>
+
+      <div class="anecdote-block">
+        <div class="anecdote-icon">🎓</div>
+        <div class="anecdote-content">
+          <h4>Priya's School Mindfulness Programme</h4>
+          <p>A primary school in Pune introduced a 10-minute "Yoga Nidra" (yogic sleep — deep relaxation) before afternoon classes. Within one semester, teachers reported fewer conflicts, improved focus, and happier children. One 9-year-old, Priya, said: "When I do the breathing, the angry voice in my head gets smaller." She had just discovered what Patanjali called "Nirodha" — restraint of mental fluctuations — all on her own.</p>
+          <span class="anecdote-tag">Children & Yoga in Schools</span>
+        </div>
+      </div>
+
+      <div class="anecdote-block">
+        <div class="anecdote-icon">🌏</div>
+        <div class="anecdote-content">
+          <h4>International Yoga Day — 177 Nations</h4>
+          <p>On June 21 every year, the United Nations International Day of Yoga sees millions practise simultaneously across 177 countries. A proposal by India in 2014 led to its adoption in 2015. From Times Square to Tiananmen Square, people perform asanas together. Patanjali wrote for all humans — not one culture or religion. His sutra "Sarva-bhauma" (universal) has literally become universal, 2,200 years later.</p>
+          <span class="anecdote-tag">Global Yoga Movement</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY DEEP DIVE -->
+<section id="philosophy">
+  <div class="section-inner">
+    <div class="section-tag">🔭 Philosophy Corner</div>
+    <h2 class="section-title">Yoga vs <span>Sānkhya:</span> What's the Difference?</h2>
+    <p class="section-lead">Yoga philosophy grew out of Sānkhya — one of India's oldest philosophical systems. They share the same map of the universe but differ on one crucial thing.</p>
+
+    <div class="philosophy-grid">
+      <div class="phil-card">
+        <h3>🔵 Sānkhya Philosophy</h3>
+        <p>Founded by the sage Kapila, Sānkhya is purely analytical. It says reality is made of just two things:</p>
+        <p><span class="highlight-pill">Purusha</span> — Pure Consciousness (many individual souls)</p>
+        <p><span class="highlight-pill">Prakriti</span> — Nature / Matter (everything else)</p>
+        <p>Suffering arises because Purusha wrongly identifies with Prakriti. Liberation comes through <strong>knowledge</strong> — understanding that you are NOT the mind, body, or ego. You are the witness.</p>
+        <p style="margin-top:0.8rem;"><em>Sānkhya is <strong>atheist</strong> — it doesn't require a God concept.</em></p>
+      </div>
+
+      <div class="phil-card">
+        <h3>🟣 Yoga Philosophy (Patanjali)</h3>
+        <p>Patanjali took Sānkhya's framework and added a crucial ingredient: <strong>practice</strong>. He added a 25th principle to Sānkhya's 24:</p>
+        <p><span class="highlight-pill">Ishvara</span> — a special Purusha, never touched by karma or suffering. A cosmic guide you can orient toward.</p>
+        <p>Liberation comes not just through knowing but through <strong>doing</strong> — the 8-limbed path of consistent, disciplined practice.</p>
+        <p style="margin-top:0.8rem;"><em>Yoga adds <strong>Ishvara Pranidhana</strong> — surrender to something greater — as a practical fast-track to stillness.</em></p>
+      </div>
+    </div>
+
+    <div style="margin-top:2.5rem;">
+      <div class="phil-card">
+        <h3>📊 Sānkhya's 25 Principles (Tattvas) — A Quick Map</h3>
+        <table class="phil-table">
+          <thead><tr><th>Level</th><th>Principle</th><th>What It Means</th></tr></thead>
+          <tbody>
+            <tr><td>Absolute</td><td>Purusha</td><td>Pure Consciousness — the eternal Witness</td></tr>
+            <tr><td>Root Matter</td><td>Prakriti (Mula)</td><td>Unmanifest Nature — the source of everything material</td></tr>
+            <tr><td>First Evolution</td><td>Mahat / Buddhi</td><td>Cosmic Intelligence / Individual Intellect</td></tr>
+            <tr><td>Second</td><td>Ahamkara</td><td>Ego — the sense of individual "I"</td></tr>
+            <tr><td>Third</td><td>Manas</td><td>The sense-processing mind</td></tr>
+            <tr><td>Subtle</td><td>5 Tanmatras</td><td>Sound, Touch, Form, Taste, Smell (subtle essences)</td></tr>
+            <tr><td>Gross</td><td>5 Mahabhutas</td><td>Earth, Water, Fire, Air, Space (physical elements)</td></tr>
+            <tr><td>Action</td><td>5 Karmendriyas</td><td>Organs of action: speak, grasp, move, reproduce, eliminate</td></tr>
+            <tr><td>Perception</td><td>5 Jnanendriyas</td><td>Sense organs: hear, touch, see, taste, smell</td></tr>
+            <tr><td>+Yoga Only</td><td>Ishvara</td><td>The cosmic guide — Patanjali's addition to Sānkhya</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">🪷 YogaMind</div>
+  <p>Bringing Patanjali's timeless wisdom to curious minds — young and old.</p>
+  <p style="margin-top:0.5rem;">
+    Explore more: 
+    <a href="#">Yoga Sutras Text</a> · 
+    <a href="#">Sānkhya Karika</a> · 
+    <a href="#">Study Yoga ↗</a>
+  </p>
+  <p style="margin-top:1.5rem; font-size:0.8rem; opacity:0.5;">
+    Created for educational purposes. Suitable for all ages. 🌍
+  </p>
+</footer>
+
+</body>
+</html>

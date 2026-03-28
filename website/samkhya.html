@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samkhya World — The Magic of Knowing!</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&family=Nunito:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky: #FFF8EE;
+    --deep: #1A0A3C;
+    --gold: #F4A623;
+    --teal: #00C4B4;
+    --pink: #FF6B9D;
+    --purple: #7B4DCA;
+    --mint: #A8EDCB;
+    --sun: #FFD93D;
+    --card1: #FFF0FA;
+    --card2: #F0F8FF;
+    --card3: #FFF7E6;
+    --card4: #F0FFF4;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--sky);
+    color: var(--deep);
+    overflow-x: hidden;
+  }
+
+  /* ── STARFIELD ── */
+  .stars {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 0;
+    background: transparent;
+  }
+  .star {
+    position: absolute; border-radius: 50%;
+    background: var(--gold); opacity: 0;
+    animation: twinkle var(--d, 4s) var(--delay, 0s) infinite;
+  }
+  @keyframes twinkle {
+    0%,100% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: 0.7; transform: scale(1); }
+  }
+
+  /* ── HERO ── */
+  header {
+    position: relative; z-index: 1;
+    background: linear-gradient(135deg, #1A0A3C 0%, #3D1C7D 50%, #6B2FAE 100%);
+    padding: 3rem 2rem 5rem;
+    text-align: center;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(244,166,35,0.15) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 30%, rgba(0,196,180,0.12) 0%, transparent 50%);
+  }
+  .hero-emoji {
+    font-size: 5rem; display: block;
+    animation: float 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 20px rgba(244,166,35,0.6));
+  }
+  @keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  header h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(2.2rem, 6vw, 4.5rem);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.1;
+    margin: 0.5rem 0;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    position: relative;
+  }
+  header h1 span { color: var(--gold); }
+  .hero-sub {
+    color: rgba(255,255,255,0.85);
+    font-size: 1.2rem; font-weight: 600;
+    margin-top: 0.8rem; position: relative;
+    max-width: 600px; margin-inline: auto;
+  }
+  .badge {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--deep);
+    font-weight: 900; font-size: 0.85rem;
+    padding: 0.3rem 1rem; border-radius: 999px;
+    margin-top: 1.2rem;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.05)} }
+
+  /* ── WAVE ── */
+  .wave { display: block; margin-top: -1px; }
+
+  /* ── SECTION WRAPPER ── */
+  main { position: relative; z-index: 1; }
+  section { padding: 3rem 1.5rem; max-width: 960px; margin: 0 auto; }
+  section.full { max-width: 100%; padding: 3rem 0; }
+
+  /* ── INTRO BANNER ── */
+  .intro-banner {
+    background: linear-gradient(135deg, var(--purple), var(--pink));
+    border-radius: 24px;
+    padding: 2rem; color: #fff;
+    display: flex; gap: 1.5rem; align-items: flex-start;
+    flex-wrap: wrap;
+    box-shadow: 0 8px 40px rgba(123,77,202,0.25);
+  }
+  .intro-banner .big-emoji { font-size: 4rem; flex-shrink: 0; }
+  .intro-banner h2 { font-family: 'Baloo 2', cursive; font-size: 1.8rem; margin-bottom: 0.4rem; }
+  .intro-banner p { font-size: 1.05rem; line-height: 1.7; opacity: 0.95; }
+
+  /* ── SECTION HEADINGS ── */
+  .sec-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: 2rem; font-weight: 800;
+    color: var(--purple);
+    text-align: center;
+    margin-bottom: 0.3rem;
+  }
+  .sec-title span { color: var(--pink); }
+  .sec-sub { text-align: center; color: #666; font-size: 1rem; margin-bottom: 2rem; }
+
+  /* ── KAPILA SPOTLIGHT ── */
+  .kapila-card {
+    background: linear-gradient(135deg, #FFF7E6, #FFF0FA);
+    border: 3px solid var(--gold);
+    border-radius: 24px;
+    padding: 2rem; display: flex; gap: 2rem;
+    align-items: flex-start; flex-wrap: wrap;
+    box-shadow: 0 6px 30px rgba(244,166,35,0.2);
+  }
+  .kapila-avatar {
+    width: 110px; height: 110px;
+    background: linear-gradient(135deg, var(--gold), #FF8C42);
+    border-radius: 50%; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3.5rem;
+    box-shadow: 0 6px 20px rgba(244,166,35,0.4);
+    animation: float 4s ease-in-out infinite;
+  }
+  .kapila-card h3 { font-family: 'Baloo 2', cursive; font-size: 1.7rem; color: var(--deep); }
+  .kapila-card .subtitle { color: var(--purple); font-weight: 700; font-size: 0.9rem; margin-bottom: 0.8rem; }
+  .kapila-card p { line-height: 1.75; font-size: 1.02rem; }
+
+  /* ── STORY ANECDOTE ── */
+  .story-box {
+    background: #F0F8FF;
+    border-left: 6px solid var(--teal);
+    border-radius: 0 16px 16px 0;
+    padding: 1.5rem 1.8rem;
+    margin: 1.5rem 0;
+    position: relative;
+  }
+  .story-box::before {
+    content: '📖';
+    position: absolute; top: -14px; left: 16px;
+    font-size: 1.8rem;
+    background: #F0F8FF;
+    padding: 0 6px;
+  }
+  .story-box h4 { color: var(--teal); font-family: 'Baloo 2', cursive; font-size: 1.2rem; margin-bottom: 0.5rem; }
+  .story-box p { line-height: 1.7; font-size: 1rem; }
+
+  /* ── CONCEPT CARDS GRID ── */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem; margin-top: 1.5rem;
+  }
+  .concept-card {
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: default;
+  }
+  .concept-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,0.13); }
+  .concept-card .icon { font-size: 2.5rem; margin-bottom: 0.6rem; display: block; }
+  .concept-card h3 { font-family: 'Baloo 2', cursive; font-size: 1.25rem; margin-bottom: 0.4rem; }
+  .concept-card p { font-size: 0.97rem; line-height: 1.65; color: #333; }
+  .concept-card .tag {
+    display: inline-block; margin-top: 0.8rem;
+    font-size: 0.78rem; font-weight: 700;
+    padding: 0.2rem 0.8rem; border-radius: 999px;
+    background: rgba(0,0,0,0.07); color: #555;
+  }
+
+  /* ── 25 TATTVAS ACCORDION ── */
+  .tattvas-wrap { margin-top: 1.5rem; }
+  .tattva-group {
+    background: #fff;
+    border-radius: 16px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  }
+  .tattva-header {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1rem 1.4rem;
+    cursor: pointer;
+    background: transparent;
+    border: none; width: 100%;
+    text-align: left; font-family: 'Nunito', sans-serif;
+    font-size: 1.05rem; font-weight: 800;
+    transition: background 0.2s;
+  }
+  .tattva-header:hover { background: rgba(123,77,202,0.06); }
+  .tattva-header .t-icon { font-size: 1.6rem; }
+  .tattva-header .t-arrow { margin-left: auto; font-size: 1.2rem; transition: transform 0.3s; }
+  .tattva-header.open .t-arrow { transform: rotate(180deg); }
+  .tattva-body { display: none; padding: 0 1.4rem 1.2rem; }
+  .tattva-body.open { display: block; }
+  .tattva-list { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .tattva-list li {
+    background: var(--card2);
+    border-radius: 10px; padding: 0.4rem 0.9rem;
+    font-size: 0.9rem; font-weight: 600;
+    border: 1px solid rgba(0,196,180,0.2);
+  }
+  .tattva-body p { font-size: 0.97rem; line-height: 1.65; margin-bottom: 0.8rem; }
+
+  /* ── CHARACTERS ── */
+  .chars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem; margin-top: 1.5rem;
+  }
+  .char-card {
+    border-radius: 20px;
+    padding: 1.4rem;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    transition: transform 0.3s;
+  }
+  .char-card:hover { transform: translateY(-6px) rotate(1deg); }
+  .char-avatar {
+    width: 80px; height: 80px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2.4rem; margin: 0 auto 0.8rem;
+  }
+  .char-card h4 { font-family: 'Baloo 2', cursive; font-size: 1.15rem; }
+  .char-card .char-role { font-size: 0.8rem; font-weight: 700; opacity: 0.65; margin-bottom: 0.5rem; }
+  .char-card p { font-size: 0.9rem; line-height: 1.6; }
+
+  /* ── MODERN ANALOGY SECTION ── */
+  .analogy-strip {
+    background: linear-gradient(135deg, #1A0A3C, #3D1C7D);
+    padding: 3rem 1.5rem;
+    color: #fff;
+  }
+  .analogy-strip .sec-title { color: var(--sun); }
+  .analogy-strip .sec-sub { color: rgba(255,255,255,0.7); }
+  .analogy-cards {
+    max-width: 960px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.4rem; margin-top: 1.5rem;
+  }
+  .analogy-card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 18px; padding: 1.4rem;
+    backdrop-filter: blur(10px);
+    transition: background 0.3s;
+  }
+  .analogy-card:hover { background: rgba(255,255,255,0.14); }
+  .analogy-card .a-icon { font-size: 2.2rem; margin-bottom: 0.7rem; display: block; }
+  .analogy-card h4 { font-family: 'Baloo 2', cursive; font-size: 1.15rem; color: var(--sun); margin-bottom: 0.4rem; }
+  .analogy-card p { font-size: 0.95rem; line-height: 1.65; color: rgba(255,255,255,0.88); }
+  .analogy-card .vs {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(244,166,35,0.2); border-radius: 999px;
+    padding: 0.25rem 0.9rem; font-size: 0.85rem;
+    font-weight: 700; color: var(--gold); margin-top: 0.8rem;
+  }
+
+  /* ── QUIZ ── */
+  .quiz-wrap {
+    background: linear-gradient(135deg, #F0FFF4, #E8F5FF);
+    border-radius: 24px; padding: 2rem;
+    box-shadow: 0 4px 24px rgba(0,196,180,0.15);
+  }
+  .quiz-q { font-family: 'Baloo 2', cursive; font-size: 1.4rem; margin-bottom: 1rem; color: var(--deep); }
+  .quiz-options { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+  .quiz-btn {
+    padding: 0.7rem 1.3rem; border-radius: 12px;
+    border: 2px solid var(--teal); background: #fff;
+    font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 700;
+    color: var(--deep); cursor: pointer;
+    transition: all 0.25s;
+  }
+  .quiz-btn:hover { background: var(--teal); color: #fff; }
+  .quiz-btn.correct { background: #00C4B4; color: #fff; border-color: #00C4B4; }
+  .quiz-btn.wrong { background: #FF6B9D; color: #fff; border-color: #FF6B9D; }
+  .quiz-feedback {
+    margin-top: 1rem; font-size: 1.05rem; font-weight: 700;
+    min-height: 1.5rem;
+  }
+  .quiz-nav { display: flex; gap: 1rem; margin-top: 1.2rem; flex-wrap: wrap; }
+  .quiz-nav button {
+    padding: 0.6rem 1.4rem; border-radius: 12px;
+    border: none; background: var(--purple);
+    color: #fff; font-family: 'Nunito', sans-serif;
+    font-size: 1rem; font-weight: 700; cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .quiz-nav button:hover { opacity: 0.8; }
+  .quiz-progress { font-size: 0.9rem; color: #888; margin-top: 0.5rem; }
+
+  /* ── TIMELINE ── */
+  .timeline { position: relative; padding-left: 40px; }
+  .timeline::before {
+    content: ''; position: absolute; left: 14px; top: 0; bottom: 0;
+    width: 3px; background: linear-gradient(to bottom, var(--purple), var(--teal));
+    border-radius: 3px;
+  }
+  .tl-item { position: relative; margin-bottom: 2rem; }
+  .tl-dot {
+    position: absolute; left: -33px; top: 6px;
+    width: 20px; height: 20px; border-radius: 50%;
+    background: var(--gold); border: 3px solid #fff;
+    box-shadow: 0 0 0 3px var(--gold);
+  }
+  .tl-item h4 { font-family: 'Baloo 2', cursive; font-size: 1.1rem; color: var(--purple); }
+  .tl-item .tl-date { font-size: 0.82rem; font-weight: 700; color: var(--teal); margin-bottom: 0.3rem; }
+  .tl-item p { font-size: 0.96rem; line-height: 1.65; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--deep);
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    font-size: 0.92rem;
+  }
+  footer .footer-emoji { font-size: 2rem; display: block; margin-bottom: 0.5rem; }
+  footer a { color: var(--gold); text-decoration: none; }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s, transform 0.6s; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .kapila-card, .intro-banner { flex-direction: column; }
+    .kapila-avatar { margin: 0 auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Starfield -->
+<div class="stars" id="stars"></div>
+
+<!-- ══ HERO ══ -->
+<header>
+  <span class="hero-emoji">🌌</span>
+  <h1>Welcome to <span>Sāṃkhya World</span>!</h1>
+  <p class="hero-sub">The ancient Indian science of understanding <em>everything</em> — from stars to your own thoughts ✨</p>
+  <span class="badge">📚 Kid-Friendly · Ages 8+ · Ancient Wisdom, Modern Fun</span>
+</header>
+
+<svg class="wave" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="background:#1A0A3C">
+  <path d="M0,60 C360,0 1080,60 1440,20 L1440,60 Z" fill="#FFF8EE"/>
+</svg>
+
+<main>
+
+<!-- ══ INTRO ══ -->
+<section>
+  <div class="intro-banner reveal">
+    <div class="big-emoji">🧠</div>
+    <div>
+      <h2>What is Sāṃkhya?</h2>
+      <p>Imagine you had a <strong>super-power to understand the entire universe</strong> just by thinking deeply. That's what Sāṃkhya (pronounced <em>SAAM-khya</em>) teaches! It's one of the world's <strong>oldest schools of philosophy</strong> — over 2,500 years old — from ancient India. The word means <strong>"number" or "enumeration"</strong> because it counts and names everything that exists, from the cosmos to your feelings. Think of it like the <em>original operating manual for reality</em>! 🌍</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ KAPILA ══ -->
+<section>
+  <h2 class="sec-title reveal">Meet the <span>Founder</span> 🧘</h2>
+  <p class="sec-sub reveal">The wise sage who started it all</p>
+
+  <div class="kapila-card reveal">
+    <div class="kapila-avatar">🧙</div>
+    <div>
+      <h3>Sage Kapila</h3>
+      <div class="subtitle">⭐ FOUNDER OF SĀṂKHYA · "The Illumined One"</div>
+      <p>Kapila was a legendary sage who lived thousands of years ago in ancient India. Tradition says he was so wise that he could <strong>see the truth of existence just by thinking</strong> — no microscope needed! He's said to be the son of the sage Kardama and Devahuti, and in some traditions is considered an <em>avatara</em> (divine incarnation). He taught his mother Devahuti the secrets of Sāṃkhya, and that conversation is recorded in the famous <strong>Bhagavata Purāṇa</strong>.</p>
+    </div>
+  </div>
+
+  <div class="story-box reveal">
+    <h4>📜 The Story of Kapila and His Mother</h4>
+    <p>One day, Devahuti (Kapila's mother) came to her son, feeling sad and confused about life. She asked, <em>"Why do we suffer? What is the point of it all?"</em> Instead of dismissing her, young Kapila sat down and gave her the most <strong>complete explanation of the universe</strong> ever offered in ancient India. He explained the 25 elements of existence, the difference between pure consciousness and matter, and the path to freedom from suffering. His mother wept — not from sadness, but from <strong>joy and relief</strong>. That teaching became the foundation of Sāṃkhya philosophy.</p>
+  </div>
+
+  <div class="story-box reveal" style="background:#F0FFF4; border-color: #00C4B4;">
+    <h4>🌟 Modern Parallel: Like a Young Scientist</h4>
+    <p>Imagine a <strong>12-year-old prodigy</strong> who, instead of playing video games, sits under a tree and builds a complete model of the universe using only logic. No telescope. No lab. Just pure, sharp thinking. That's Kapila — the original "why does everything work this way?" kid, but in ancient India! Today, we might compare him to a young Einstein or a philosopher like Aristotle, but 1,000 years earlier.</p>
+  </div>
+</section>
+
+<!-- ══ CORE CONCEPTS ══ -->
+<section>
+  <h2 class="sec-title reveal">The Big <span>Ideas</span> 💡</h2>
+  <p class="sec-sub reveal">Sāṃkhya's most important teachings — made simple</p>
+
+  <div class="cards-grid">
+
+    <div class="concept-card reveal" style="background:#FFF0FA; border: 2px solid #FF6B9D;">
+      <span class="icon">✨</span>
+      <h3>Puruṣa (Pure Consciousness)</h3>
+      <p><strong>The "You" behind your eyes.</strong> Sāṃkhya says there is a <em>pure witnessing awareness</em> in every being — it doesn't think, feel or act, but it <em>illuminates</em> everything. Like a cinema screen that shows the movie but is never touched by it. You are that screen!</p>
+      <span class="tag">🎭 The Eternal Witness</span>
+    </div>
+
+    <div class="concept-card reveal" style="background:#F0F8FF; border: 2px solid #00C4B4;">
+      <span class="icon">🌊</span>
+      <h3>Prakṛti (Nature / Matter)</h3>
+      <p><strong>Everything else — your body, mind, thoughts, emotions, stars, clouds!</strong> Prakṛti is the great "doing" energy of the universe. It has three qualities called <em>Guṇas</em> — light, activity, and heaviness — that mix together to create literally everything.</p>
+      <span class="tag">🌍 The Creative Engine</span>
+    </div>
+
+    <div class="concept-card reveal" style="background:#FFF7E6; border: 2px solid #F4A623;">
+      <span class="icon">🎨</span>
+      <h3>The Three Guṇas</h3>
+      <p><strong>Sattva</strong> (clarity, light), <strong>Rajas</strong> (energy, passion), <strong>Tamas</strong> (heaviness, inertia). Everything in the universe — including your mood right now — is a mix of these three! Curious? Calm? Restless? Sleepy? That's the Guṇas at work!</p>
+      <span class="tag">⚖️ The Universe's Recipe</span>
+    </div>
+
+    <div class="concept-card reveal" style="background:#F0FFF4; border: 2px solid #7B4DCA;">
+      <span class="icon">🔓</span>
+      <h3>Moksha (Liberation)</h3>
+      <p>The <em>whole point</em> of Sāṃkhya! When Puruṣa (you, pure awareness) <strong>realizes it was never actually stuck in Prakṛti</strong> (nature), suffering ends. Like realising that you were just watching a scary movie — the danger was never real!</p>
+      <span class="tag">🕊️ Freedom from Suffering</span>
+    </div>
+
+    <div class="concept-card reveal" style="background:#FFF0FA; border: 2px solid #7B4DCA;">
+      <span class="icon">🤔</span>
+      <h3>Buddhi (Intellect)</h3>
+      <p>The <em>brightest mirror</em> of your mind — the part that decides, discerns, and knows right from wrong. In Sāṃkhya, Buddhi is <strong>the first thing that evolves from Prakṛti</strong> and is closest to pure consciousness. Training your Buddhi is like <em>polishing a diamond</em>.</p>
+      <span class="tag">🧠 The Decision Maker</span>
+    </div>
+
+    <div class="concept-card reveal" style="background:#F0F8FF; border: 2px solid #FF6B9D;">
+      <span class="icon">🪞</span>
+      <h3>Ahaṃkāra (Ego)</h3>
+      <p>The "I am me!" feeling. Sāṃkhya says <strong>ego is the great mistaker</strong> — it confuses the witnessing self (Puruṣa) with everything happening in the mind and body. Like mistaking the cinema projector for the movie character on screen.</p>
+      <span class="tag">🎭 The Identity Maker</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ 25 TATTVAS ══ -->
+<section>
+  <h2 class="sec-title reveal">The <span>25 Building Blocks</span> of the Universe 🧱</h2>
+  <p class="sec-sub reveal">Sāṃkhya counts everything that exists into exactly 25 "tattvas" (elements of reality). Tap each group to explore!</p>
+
+  <div class="tattvas-wrap reveal">
+
+    <div class="tattva-group">
+      <button class="tattva-header" onclick="toggleTattva(this)">
+        <span class="t-icon">⭐</span>
+        <span><strong>#1 — Puruṣa</strong> (Pure Consciousness)</span>
+        <span class="t-arrow">▼</span>
+      </button>
+      <div class="tattva-body">
+        <p>The eternal, unchanging witnessing awareness. It is <strong>not produced from anything</strong> — it simply <em>is</em>. Think of it as the electricity that powers the lamp but is not the lamp itself. There are many Puruṣas — one for every individual being!</p>
+      </div>
+    </div>
+
+    <div class="tattva-group">
+      <button class="tattva-header" onclick="toggleTattva(this)">
+        <span class="t-icon">🌊</span>
+        <span><strong>#2 — Prakṛti</strong> (Primal Nature) → produces #3 to #25</span>
+        <span class="t-arrow">▼</span>
+      </button>
+      <div class="tattva-body">
+        <p>Unmanifest, invisible primordial matter. It is the source of everything in the universe except Puruṣa. When it <em>stirs</em> (due to its proximity to Puruṣa), it begins to unfold into all of creation — like a sleeping giant who wakes up and starts doing things!</p>
+      </div>
+    </div>
+
+    <div class="tattva-group">
+      <button class="tattva-header" onclick="toggleTattva(this)">
+        <span class="t-icon">🧠</span>
+        <span><strong>#3 — Mahat / Buddhi</strong> (Cosmic/Individual Intellect)</span>
+        <span class="t-arrow">▼</span>
+      </button>
+      <div class="tattva-body">
+        <p>The first evolved product of Prakṛti — the great cosmic intelligence. In the individual, it is Buddhi, your personal intellect and wisdom. This is the part of you that can <strong>choose good over bad, real over fake</strong>. The sharper your Buddhi, the closer you are to liberation!</p>
+      </div>
+    </div>
+
+    <div class="tattva-group">
+      <button class="tattva-header" onclick="toggleTattva(this)">
+        <span class="t-icon">🪞</span>
+        <span><strong>#4 — Ahaṃkāra</strong> (Ego) → produces #5 to #25</span>
+        <span class="t-arrow">▼</span>
+      </button>
+      <div class="tattva-body">
+        <p>The sense of individual "I-ness". Ahaṃkāra is the cosmic selfie-taker — it says <em>"This is mine! I am this!"</em> It comes in three flavours: Sāttvika (pure ego), Rājasika (active ego), and Tāmasika (heavy/material ego).</p>
+      </div>
+    </div>
+
+    <div class="tattva-group">
+      <button class="tattva-header" onclick="toggleTattva(this)">
+        <span class="t-icon">💭</span>
+        <span><strong>#5 — Manas</strong> (Mind) + <strong>#6–10</strong> Five Sense Powers</span>
+        <span class="t-arrow">▼</span>
+      </button>
+      <div class="tattva-body">
+        <p>Manas is your thinking/feeling mind — the one that wanders during class! The <strong>Five sense powers (Jñānendriyas)</strong> are:</p>
+        <ul class="tattva-list">
+          <li>👁️ Sight (Cakṣus)</li><li>👂 Hearing (Śrotra)</li><li>👃 Smell (Ghrāṇa)</li>
+          <li>👅 Taste (Rasanā)</li><li>✋ Touch (Tvak)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tattva-group">
+      <button class="tattva-header" onclick="toggleTattva(this)">
+        <span class="t-icon">🤲</span>
+        <span><strong>#11–15</strong> Five Action Powers (Karmendriyas)</span>
+        <span class="t-arrow">▼</span>
+      </button>
+      <div class="tattva-body">
+        <ul class="tattva-list">
+          <li>👄 Speaking (Vāk)</li><li>🖐️ Grasping (Pāṇi)</li><li>🦶 Walking (Pāda)</li>
+          <li>🚽 Excretion (Pāyu)</li><li>💞 Reproduction (Upastha)</li>
+        </ul>
+        <p style="margin-top:0.8rem">These are the five ways your body <em>acts in the world</em>. Sāṃkhya is incredibly precise — it maps your entire inner and outer life!</p>
+      </div>
+    </div>
+
+    <div class="tattva-group">
+      <button class="tattva-header" onclick="toggleTattva(this)">
+        <span class="t-icon">🌬️</span>
+        <span><strong>#16–20</strong> Five Subtle Elements (Tanmātras)</span>
+        <span class="t-arrow">▼</span>
+      </button>
+      <div class="tattva-body">
+        <p>These are the <em>seeds of sensory experience</em> — like the "idea" of sound before sound itself!</p>
+        <ul class="tattva-list">
+          <li>🔊 Sound-essence (Śabda)</li><li>💨 Touch-essence (Sparśa)</li>
+          <li>💡 Form-essence (Rūpa)</li><li>🍯 Taste-essence (Rasa)</li><li>🌸 Smell-essence (Gandha)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tattva-group">
+      <button class="tattva-header" onclick="toggleTattva(this)">
+        <span class="t-icon">🌍</span>
+        <span><strong>#21–25</strong> Five Gross Elements (Mahābhūtas)</span>
+        <span class="t-arrow">▼</span>
+      </button>
+      <div class="tattva-body">
+        <p>The physical building blocks of the whole material universe:</p>
+        <ul class="tattva-list">
+          <li>🌌 Space (Ākāśa)</li><li>💨 Air (Vāyu)</li><li>🔥 Fire (Tejas)</li>
+          <li>💧 Water (Jala)</li><li>🌍 Earth (Pṛthvī)</li>
+        </ul>
+        <p style="margin-top:0.8rem">Everything you can see, touch, or taste is made of these five!</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ MODERN ANALOGIES ══ -->
+<div class="analogy-strip full">
+  <h2 class="sec-title reveal">🌍 Ancient Wisdom, <span>Modern Meaning</span></h2>
+  <p class="sec-sub reveal">Understanding Sāṃkhya through today's world</p>
+
+  <div class="analogy-cards">
+
+    <div class="analogy-card reveal">
+      <span class="a-icon">💻</span>
+      <h4>Puruṣa = Your Awareness</h4>
+      <p>Puruṣa (pure consciousness) is like the <em>electricity</em> powering your laptop. The laptop runs apps, crashes, plays games — but the electricity just <strong>IS</strong>, never changing. Your deep awareness is like that electricity.</p>
+      <span class="vs">⚡ Ancient ↔ Modern</span>
+    </div>
+
+    <div class="analogy-card reveal">
+      <span class="a-icon">🎮</span>
+      <h4>Prakṛti = The Game Engine</h4>
+      <p>Prakṛti is like a <em>massive video game engine</em> generating all the graphics, physics, and characters. Every mountain, cloud, emotion, and thought is rendered by this engine. You're the <strong>player</strong> watching the screen — Puruṣa!</p>
+      <span class="vs">🕹️ Ancient ↔ Modern</span>
+    </div>
+
+    <div class="analogy-card reveal">
+      <span class="a-icon">🎭</span>
+      <h4>The Three Guṇas = Your Mood App</h4>
+      <p>Imagine a <em>mood-tracker app</em> that has three sliders: Calm/Clear (Sattva), Active/Excited (Rajas), and Sleepy/Heavy (Tamas). At any moment, your mood is a <strong>unique mix of all three</strong>. So is all of nature!</p>
+      <span class="vs">📱 Ancient ↔ Modern</span>
+    </div>
+
+    <div class="analogy-card reveal">
+      <span class="a-icon">🎬</span>
+      <h4>Liberation = Realising It's a Movie</h4>
+      <p>Moksha in Sāṃkhya is like suddenly <em>remembering you're in a cinema</em>. The scary monster on screen was never real! When Puruṣa realises it was <strong>never actually bound by Prakṛti</strong>, suffering ends — poof! Just like turning the lights on in a cinema.</p>
+      <span class="vs">🍿 Ancient ↔ Modern</span>
+    </div>
+
+    <div class="analogy-card reveal">
+      <span class="a-icon">🧬</span>
+      <h4>25 Tattvas = Reality's Periodic Table</h4>
+      <p>Just like chemists use the <em>Periodic Table</em> to list all elements of physical matter, Sāṃkhya lists <strong>25 tattvas</strong> — all the "elements" of consciousness AND matter. It's like a periodic table for the entire universe, inside and out!</p>
+      <span class="vs">⚛️ Ancient ↔ Modern</span>
+    </div>
+
+    <div class="analogy-card reveal">
+      <span class="a-icon">🤖</span>
+      <h4>Ahaṃkāra = Your Username</h4>
+      <p>Your online username makes you feel like a specific person with a history, preferences, and a reputation. But the <em>real you</em> is the person behind the screen! Ahaṃkāra (ego) is your <strong>cosmic username</strong> — useful, but not the full truth.</p>
+      <span class="vs">🌐 Ancient ↔ Modern</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══ CHARACTERS ══ -->
+<section>
+  <h2 class="sec-title reveal">🌟 Characters in the <span>Sāṃkhya Story</span></h2>
+  <p class="sec-sub reveal">Meet the people and ideas that shaped this great philosophy</p>
+
+  <div class="chars-grid">
+
+    <div class="char-card reveal" style="background: #FFF7E6;">
+      <div class="char-avatar" style="background: linear-gradient(135deg, #F4A623, #FF8C42);">🧙‍♂️</div>
+      <h4>Sage Kapila</h4>
+      <div class="char-role">THE FOUNDER</div>
+      <p>The brilliant sage who first mapped out the 25 tattvas. A cosmic scientist who used logic to understand the universe.</p>
+    </div>
+
+    <div class="char-card reveal" style="background: #F0FFF4;">
+      <div class="char-avatar" style="background: linear-gradient(135deg, #00C4B4, #0099AA);">👩‍🏫</div>
+      <h4>Devahuti</h4>
+      <div class="char-role">KAPILA'S MOTHER · FIRST STUDENT</div>
+      <p>A queen who sought ultimate answers about suffering and liberation. Her deep questions inspired Kapila's greatest teachings.</p>
+    </div>
+
+    <div class="char-card reveal" style="background: #FFF0FA;">
+      <div class="char-avatar" style="background: linear-gradient(135deg, #FF6B9D, #CC3366);">📖</div>
+      <h4>Īśvarakṛṣṇa</h4>
+      <div class="char-role">AUTHOR · Sāṃkhyakārikā</div>
+      <p>Wrote the <em>Sāṃkhyakārikā</em> around 350 CE — the most important surviving text of classical Sāṃkhya. Like the philosopher who wrote the textbook!</p>
+    </div>
+
+    <div class="char-card reveal" style="background: #F0F8FF;">
+      <div class="char-avatar" style="background: linear-gradient(135deg, #7B4DCA, #4A1A9A);">🌌</div>
+      <h4>Puruṣa & Prakṛti</h4>
+      <div class="char-role">COSMIC DUO</div>
+      <p>The ultimate couple — pure consciousness and creative nature. They don't "do" anything together, but their proximity sets the entire universe in motion!</p>
+    </div>
+
+    <div class="char-card reveal" style="background: #FFF7E6;">
+      <div class="char-avatar" style="background: linear-gradient(135deg, #FFD93D, #F4A623);">🌱</div>
+      <h4>Asuri</h4>
+      <div class="char-role">KAPILA'S DISCIPLE</div>
+      <p>Said to be Kapila's first human student who carried the Sāṃkhya tradition forward. Tradition says he passed the knowledge to Pañcaśikha, spreading it widely.</p>
+    </div>
+
+    <div class="char-card reveal" style="background: #F0FFF4;">
+      <div class="char-avatar" style="background: linear-gradient(135deg, #A8EDCB, #00C4B4);">🧘‍♀️</div>
+      <h4>Pañcaśikha</h4>
+      <div class="char-role">GREAT SĀṂKHYA TEACHER</div>
+      <p>An ancient Sāṃkhya sage who wrote many texts and debated kings. His teachings are referenced in the great epic <em>Mahābhārata</em>.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ TIMELINE ══ -->
+<section>
+  <h2 class="sec-title reveal">⏳ Sāṃkhya Through <span>Time</span></h2>
+  <p class="sec-sub reveal">A very old tradition that shaped the whole world</p>
+
+  <div class="timeline reveal">
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">~1500–1000 BCE</div>
+      <h4>The Vedic Roots 🌿</h4>
+      <p>Early ideas about Puruṣa (cosmic person) and Prakṛti appear in the <em>Ṛgveda</em> and <em>Upaniṣads</em>. The seeds of Sāṃkhya are being planted.</p>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">~800–500 BCE</div>
+      <h4>Legendary Kapila 🧙</h4>
+      <p>The sage Kapila is traditionally dated to this era. He systematizes Sāṃkhya as a complete philosophy — the 25 tattvas, Guṇas, and the path of liberation.</p>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">~300–200 BCE</div>
+      <h4>Sāṃkhya in the Epics 📜</h4>
+      <p>Sāṃkhya ideas flood the <em>Mahābhārata</em> and <em>Bhagavad Gītā</em>. Chapter 2 of the Gītā is sometimes called "Sāṃkhya Yoga." Even the great warrior Arjuna hears these ideas from Krishna!</p>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">~350 CE</div>
+      <h4>Īśvarakṛṣṇa writes the Kārikā ✍️</h4>
+      <p>The <em>Sāṃkhyakārikā</em> — 72 verses summarizing the entire Sāṃkhya system — is composed. This becomes the <em>standard textbook</em> used by students for centuries.</p>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">~700–900 CE</div>
+      <h4>Commentaries Bloom 📚</h4>
+      <p>Great scholars write detailed commentaries on the Kārikā. The system reaches its full philosophical height. It influences Yoga, Ayurveda, and many Buddhist schools.</p>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">Today 🌍</div>
+      <h4>Living Wisdom 🙏</h4>
+      <p>Sāṃkhya ideas live on in Yoga philosophy, Ayurvedic medicine, modern mindfulness, and consciousness studies. Scientists and philosophers still reference Puruṣa, Prakṛti, and the Guṇas!</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ QUIZ ══ -->
+<section>
+  <h2 class="sec-title reveal">🎯 Test Your <span>Sāṃkhya</span> Superpowers!</h2>
+  <p class="sec-sub reveal">Can you answer these questions about what you've learned?</p>
+
+  <div class="quiz-wrap reveal" id="quizWrap">
+    <div class="quiz-q" id="quizQ">Loading...</div>
+    <div class="quiz-options" id="quizOpts"></div>
+    <div class="quiz-feedback" id="quizFeedback"></div>
+    <div class="quiz-nav">
+      <button onclick="nextQ()">Next Question ➡️</button>
+      <button onclick="resetQuiz()">🔄 Restart</button>
+    </div>
+    <div class="quiz-progress" id="quizProg"></div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-emoji">🌌</span>
+  <p><strong>Sāṃkhya World</strong> — Exploring Ancient Indian Wisdom for Young Minds</p>
+  <p style="margin-top:0.5rem; font-size:0.85rem">Based on the Sāṃkhyakārikā of Īśvarakṛṣṇa & the Sāṃkhya teachings of Sage Kapila</p>
+  <p style="margin-top:0.4rem; font-size:0.8rem">Educational content · Suitable for ages 8+ · Made with 💛 for curious minds everywhere</p>
+</footer>
+
+<script>
+// ── Stars ──
+const starsEl = document.getElementById('stars');
+for (let i = 0; i < 60; i++) {
+  const s = document.createElement('div');
+  s.className = 'star';
+  const size = Math.random() * 4 + 2;
+  s.style.cssText = `
+    width:${size}px; height:${size}px;
+    left:${Math.random()*100}%; top:${Math.random()*100}%;
+    --d:${Math.random()*4+2}s; --delay:${Math.random()*5}s;
+  `;
+  starsEl.appendChild(s);
+}
+
+// ── Tattva accordion ──
+function toggleTattva(btn) {
+  const body = btn.nextElementSibling;
+  const isOpen = body.classList.contains('open');
+  // close all
+  document.querySelectorAll('.tattva-body.open').forEach(b => b.classList.remove('open'));
+  document.querySelectorAll('.tattva-header.open').forEach(b => b.classList.remove('open'));
+  if (!isOpen) {
+    body.classList.add('open');
+    btn.classList.add('open');
+  }
+}
+
+// ── Scroll reveal ──
+const reveals = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.12 });
+reveals.forEach(r => io.observe(r));
+
+// ── Quiz ──
+const questions = [
+  { q: "What does the word 'Sāṃkhya' mean?", opts: ["Journey", "Number / Enumeration", "Fire", "Sky"], ans: 1, fb: "✅ Correct! Sāṃkhya means 'number' because it counts and lists all elements of reality." },
+  { q: "Who is the founder of Sāṃkhya philosophy?", opts: ["Arjuna", "Patañjali", "Sage Kapila", "Ādi Śaṅkara"], ans: 2, fb: "✅ Right! Sage Kapila is the legendary founder of Sāṃkhya." },
+  { q: "What is 'Puruṣa' in Sāṃkhya?", opts: ["A type of food", "Pure witnessing consciousness", "The five elements", "The ego"], ans: 1, fb: "✅ Brilliant! Puruṣa is the pure, unchanging witness — the awareness behind all experience." },
+  { q: "How many tattvas (elements of reality) does Sāṃkhya identify?", opts: ["10", "7", "25", "108"], ans: 2, fb: "✅ Perfect! Sāṃkhya lists exactly 25 tattvas — from Puruṣa down to the five gross elements." },
+  { q: "The three Guṇas are Sattva, Rajas and...?", opts: ["Tamas", "Karma", "Dharma", "Jñāna"], ans: 0, fb: "✅ Yes! The three Guṇas are Sattva (clarity), Rajas (energy), and Tamas (heaviness/inertia)." },
+  { q: "Kapila taught Sāṃkhya to whom first?", opts: ["A king", "His mother Devahuti", "His friend Arjuna", "All the animals"], ans: 1, fb: "✅ Correct! Kapila first taught his mother Devahuti — as recorded in the Bhāgavata Purāṇa." },
+  { q: "In Sāṃkhya, what is Prakṛti?", opts: ["Pure consciousness", "The ego", "Primal nature / matter — everything except Puruṣa", "Liberation"], ans: 2, fb: "✅ Spot on! Prakṛti is primordial nature — the creative engine producing all of the manifest universe." },
+  { q: "What is the goal of Sāṃkhya philosophy?", opts: ["To become rich", "To win wars", "Moksha — liberation from suffering", "To understand cooking"], ans: 2, fb: "✅ Wonderful! The goal of Sāṃkhya is Moksha — realizing that Puruṣa was never truly bound by Prakṛti." },
+];
+
+let current = 0, answered = false;
+
+function renderQ() {
+  answered = false;
+  const q = questions[current];
+  document.getElementById('quizQ').textContent = `Q${current+1}: ${q.q}`;
+  const opts = document.getElementById('quizOpts');
+  opts.innerHTML = '';
+  q.opts.forEach((o, i) => {
+    const b = document.createElement('button');
+    b.className = 'quiz-btn';
+    b.textContent = o;
+    b.onclick = () => checkAns(i, b);
+    opts.appendChild(b);
+  });
+  document.getElementById('quizFeedback').textContent = '';
+  document.getElementById('quizProg').textContent = `Question ${current+1} of ${questions.length}`;
+}
+
+function checkAns(i, btn) {
+  if (answered) return;
+  answered = true;
+  const q = questions[current];
+  const btns = document.querySelectorAll('.quiz-btn');
+  btns[q.ans].classList.add('correct');
+  if (i !== q.ans) btn.classList.add('wrong');
+  document.getElementById('quizFeedback').textContent = i === q.ans ? q.fb : `❌ Not quite! ${q.fb}`;
+}
+
+function nextQ() {
+  current = (current + 1) % questions.length;
+  renderQ();
+}
+
+function resetQuiz() {
+  current = 0;
+  renderQ();
+}
+
+renderQ();
+</script>
+</body>
+</html>

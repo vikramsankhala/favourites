@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Logic Lab — Nyaya & Vaisheshika for Kids!</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --saffron: #FF6B35;
+    --deep-blue: #1A1A6E;
+    --sky: #4FC3F7;
+    --gold: #FFD700;
+    --leaf: #56C596;
+    --pink: #FF6B9D;
+    --cream: #FFF8EE;
+    --purple: #7B5EA7;
+    --light-purple: #EDE0FF;
+    --text: #2D2D2D;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--deep-blue) 0%, #2D1B8E 50%, #1A0A5E 100%);
+    min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    position: relative; overflow: hidden; text-align: center; padding: 2rem;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(255,107,53,0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(79,195,247,0.15) 0%, transparent 40%);
+  }
+
+  .stars {
+    position: absolute; inset: 0; pointer-events: none;
+  }
+  .star {
+    position: absolute; background: #fff; border-radius: 50%;
+    animation: twinkle 3s infinite alternate;
+  }
+  @keyframes twinkle { from { opacity: 0.2; transform: scale(1); } to { opacity: 1; transform: scale(1.3); } }
+
+  .hero-badge {
+    background: rgba(255,215,0,0.2); border: 2px solid var(--gold);
+    color: var(--gold); padding: 0.4rem 1.2rem; border-radius: 50px;
+    font-family: 'Space Mono', monospace; font-size: 0.75rem; letter-spacing: 2px;
+    margin-bottom: 1.5rem; display: inline-block;
+    animation: slideDown 0.8s ease;
+  }
+  @keyframes slideDown { from { opacity:0; transform:translateY(-20px);} to { opacity:1; transform:translateY(0);} }
+
+  .hero h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(2.5rem, 8vw, 5.5rem);
+    color: #fff; line-height: 1.1;
+    animation: fadeUp 0.9s ease 0.2s both;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero-sub {
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    color: rgba(255,255,255,0.8); margin-top: 1rem; max-width: 600px;
+    animation: fadeUp 0.9s ease 0.4s both;
+  }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(30px);} to { opacity:1; transform:translateY(0);} }
+
+  .hero-chars {
+    display: flex; gap: 1.5rem; margin-top: 3rem; flex-wrap: wrap; justify-content: center;
+    animation: fadeUp 0.9s ease 0.6s both;
+  }
+  .hero-char {
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  }
+  .hero-char .avatar {
+    width: 80px; height: 80px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2.5rem; border: 3px solid rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.1);
+    transition: transform 0.3s;
+  }
+  .hero-char:hover .avatar { transform: scale(1.15) rotate(5deg); }
+  .hero-char span { color: rgba(255,255,255,0.7); font-size: 0.8rem; font-weight: 700; }
+
+  .scroll-hint {
+    margin-top: 3rem; color: rgba(255,255,255,0.5);
+    font-size: 0.85rem; letter-spacing: 1px;
+    animation: bounce 2s infinite;
+  }
+  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--deep-blue); position: sticky; top: 0; z-index: 100;
+    display: flex; gap: 0; overflow-x: auto; border-bottom: 3px solid var(--gold);
+  }
+  nav a {
+    color: rgba(255,255,255,0.7); text-decoration: none;
+    padding: 1rem 1.4rem; font-weight: 700; font-size: 0.85rem;
+    white-space: nowrap; transition: all 0.2s; border-bottom: 3px solid transparent;
+    margin-bottom: -3px;
+  }
+  nav a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+  /* ── SECTIONS ── */
+  section { padding: 5rem 1.5rem; max-width: 1100px; margin: 0 auto; }
+
+  .section-tag {
+    display: inline-block; font-family: 'Space Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 3px; padding: 0.3rem 1rem;
+    border-radius: 50px; margin-bottom: 1rem; font-weight: 700;
+  }
+  h2.section-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(2rem, 5vw, 3rem); line-height: 1.15; margin-bottom: 0.75rem;
+  }
+  .section-desc { font-size: 1.05rem; color: #555; max-width: 650px; line-height: 1.7; margin-bottom: 3rem; }
+
+  /* ── INTRO CARDS ── */
+  .intro-strip {
+    background: linear-gradient(135deg, var(--saffron), #FF8C42);
+    color: #fff; border-radius: 24px; padding: 3rem 2rem;
+    text-align: center; margin: 3rem 0; position: relative; overflow: hidden;
+  }
+  .intro-strip::after {
+    content: '🔬🧪🔭'; font-size: 3rem; position: absolute;
+    right: 2rem; top: 50%; transform: translateY(-50%); opacity: 0.3;
+  }
+  .intro-strip h3 { font-family: 'Fredoka One', cursive; font-size: 1.8rem; margin-bottom: 0.5rem; }
+  .intro-strip p { font-size: 1rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+
+  /* ── STORY CARDS ── */
+  .story-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; }
+
+  .story-card {
+    border-radius: 20px; overflow: hidden; cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 6px 30px rgba(0,0,0,0.08);
+  }
+  .story-card:hover { transform: translateY(-6px); box-shadow: 0 16px 50px rgba(0,0,0,0.15); }
+
+  .card-top {
+    padding: 2rem; display: flex; align-items: flex-start; gap: 1rem;
+    position: relative; overflow: hidden;
+  }
+  .card-emoji { font-size: 3rem; flex-shrink: 0; }
+  .card-top h3 { font-family: 'Fredoka One', cursive; font-size: 1.3rem; line-height: 1.2; color: #fff; }
+  .card-top p { font-size: 0.85rem; color: rgba(255,255,255,0.85); margin-top: 0.3rem; }
+
+  .card-body { padding: 1.5rem; background: #fff; }
+  .card-body p { font-size: 0.92rem; line-height: 1.65; color: #444; }
+
+  .card-lesson {
+    margin-top: 1rem; padding: 0.8rem 1rem;
+    border-radius: 12px; font-size: 0.82rem; font-weight: 700;
+    display: flex; gap: 0.5rem; align-items: flex-start;
+  }
+
+  /* color themes */
+  .theme-saffron .card-top { background: linear-gradient(135deg, #FF6B35, #FF8C42); }
+  .theme-saffron .card-lesson { background: #FFF0EB; color: #C94A1A; }
+  .theme-blue .card-top { background: linear-gradient(135deg, var(--deep-blue), #3535AA); }
+  .theme-blue .card-lesson { background: #EBF0FF; color: #1A1A8E; }
+  .theme-teal .card-top { background: linear-gradient(135deg, #00897B, #26C6A0); }
+  .theme-teal .card-lesson { background: #E6FAF5; color: #005A4E; }
+  .theme-purple .card-top { background: linear-gradient(135deg, #7B5EA7, #9C6EC7); }
+  .theme-purple .card-lesson { background: var(--light-purple); color: #4A2C7A; }
+  .theme-pink .card-top { background: linear-gradient(135deg, #E91E8C, #F06292); }
+  .theme-pink .card-lesson { background: #FEE8F4; color: #8B0057; }
+  .theme-gold .card-top { background: linear-gradient(135deg, #E65100, #FF8F00); }
+  .theme-gold .card-lesson { background: #FFF3E0; color: #B33F00; }
+
+  /* ── CHARACTER PROFILES ── */
+  .chars-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.5rem; }
+  .char-card {
+    background: #fff; border-radius: 20px; padding: 1.8rem;
+    text-align: center; border: 2px solid #F0E6FF;
+    transition: transform 0.3s, border-color 0.3s;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  }
+  .char-card:hover { transform: translateY(-5px); border-color: var(--purple); }
+  .char-avatar { font-size: 3.5rem; margin-bottom: 0.75rem; }
+  .char-card h4 { font-family: 'Fredoka One', cursive; font-size: 1.2rem; margin-bottom: 0.3rem; }
+  .char-card .char-title { font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; color: var(--purple); text-transform: uppercase; margin-bottom: 0.6rem; }
+  .char-card p { font-size: 0.85rem; color: #666; line-height: 1.55; }
+  .char-badge { display: inline-block; margin-top: 0.8rem; padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; background: var(--light-purple); color: var(--purple); }
+
+  /* ── CONCEPT EXPLAINER ── */
+  .concept-tabs { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2.5rem; }
+  .tab-btn {
+    padding: 0.6rem 1.4rem; border-radius: 50px; border: 2px solid #ddd;
+    background: #fff; cursor: pointer; font-weight: 700; font-size: 0.9rem;
+    transition: all 0.2s; font-family: 'Nunito', sans-serif;
+  }
+  .tab-btn.active, .tab-btn:hover { background: var(--deep-blue); color: #fff; border-color: var(--deep-blue); }
+
+  .concept-panel { display: none; }
+  .concept-panel.active { display: block; }
+
+  .concept-box {
+    background: #fff; border-radius: 20px; padding: 2rem;
+    border-left: 6px solid var(--saffron);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+  .concept-box h3 { font-family: 'Fredoka One', cursive; font-size: 1.5rem; margin-bottom: 0.5rem; }
+  .concept-box .sanskrit { font-family: 'Space Mono', monospace; font-size: 0.8rem; color: var(--saffron); margin-bottom: 1rem; letter-spacing: 1px; }
+  .concept-box p { font-size: 0.95rem; line-height: 1.7; color: #444; margin-bottom: 1rem; }
+  .analogy-box {
+    background: linear-gradient(135deg, #FFF8EE, #FFEFD5);
+    border-radius: 12px; padding: 1.2rem 1.5rem;
+    border-left: 4px solid var(--gold); margin-top: 1rem;
+  }
+  .analogy-box strong { color: var(--saffron); font-size: 0.8rem; letter-spacing: 1px; display: block; margin-bottom: 0.4rem; }
+  .analogy-box p { font-size: 0.9rem; color: #555; margin: 0; }
+
+  /* ── QUIZ ── */
+  .quiz-section { background: linear-gradient(135deg, var(--deep-blue), #2D2D8E); border-radius: 28px; padding: 3rem 2rem; color: #fff; }
+  .quiz-section h2 { font-family: 'Fredoka One', cursive; font-size: 2.2rem; color: var(--gold); margin-bottom: 0.5rem; }
+  .quiz-section p { opacity: 0.85; margin-bottom: 2rem; }
+
+  .quiz-q { font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; }
+  .quiz-options { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1.5rem; }
+  .quiz-opt {
+    background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.2);
+    padding: 0.9rem 1rem; border-radius: 12px; cursor: pointer;
+    font-size: 0.9rem; font-weight: 600; color: #fff;
+    transition: all 0.2s; text-align: center;
+    font-family: 'Nunito', sans-serif;
+  }
+  .quiz-opt:hover { background: rgba(255,215,0,0.2); border-color: var(--gold); }
+  .quiz-opt.correct { background: rgba(86,197,150,0.3); border-color: var(--leaf); }
+  .quiz-opt.wrong { background: rgba(255,107,53,0.3); border-color: var(--saffron); }
+
+  .quiz-feedback { padding: 1rem 1.5rem; border-radius: 12px; margin-bottom: 1rem; font-size: 0.95rem; display: none; }
+  .quiz-feedback.show { display: block; }
+  .quiz-feedback.correct { background: rgba(86,197,150,0.2); border: 1px solid var(--leaf); }
+  .quiz-feedback.wrong { background: rgba(255,107,53,0.2); border: 1px solid var(--saffron); }
+
+  #next-btn {
+    background: var(--gold); color: var(--deep-blue); padding: 0.8rem 2rem;
+    border: none; border-radius: 50px; cursor: pointer; font-weight: 800;
+    font-size: 1rem; display: none; font-family: 'Nunito', sans-serif;
+    transition: transform 0.2s;
+  }
+  #next-btn:hover { transform: scale(1.05); }
+
+  .score-display { font-family: 'Fredoka One', cursive; font-size: 1.2rem; opacity: 0.9; margin-top: 1rem; }
+
+  /* ── TIMELINE ── */
+  .timeline { position: relative; padding: 0 0 0 3rem; }
+  .timeline::before {
+    content: ''; position: absolute; left: 14px; top: 0; bottom: 0;
+    width: 3px; background: linear-gradient(to bottom, var(--saffron), var(--purple));
+    border-radius: 3px;
+  }
+  .tl-item { position: relative; margin-bottom: 2.5rem; }
+  .tl-dot {
+    position: absolute; left: -2.4rem; top: 0.5rem;
+    width: 20px; height: 20px; border-radius: 50%;
+    background: var(--saffron); border: 3px solid #fff;
+    box-shadow: 0 0 0 3px var(--saffron);
+  }
+  .tl-date { font-family: 'Space Mono', monospace; font-size: 0.75rem; color: var(--saffron); font-weight: 700; margin-bottom: 0.3rem; }
+  .tl-item h4 { font-family: 'Fredoka One', cursive; font-size: 1.15rem; margin-bottom: 0.4rem; }
+  .tl-item p { font-size: 0.9rem; color: #555; line-height: 1.6; }
+
+  /* ── CATEGORIES STRIP ── */
+  .cat-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
+  .cat-pill {
+    padding: 0.6rem 1.3rem; border-radius: 50px; font-weight: 700;
+    font-size: 0.85rem; cursor: pointer; transition: transform 0.2s;
+  }
+  .cat-pill:hover { transform: scale(1.05); }
+
+  /* ── FUN FACTS ── */
+  .facts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.5rem; }
+  .fact-card {
+    background: #fff; border-radius: 18px; padding: 1.5rem;
+    border-top: 5px solid var(--saffron); text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+  }
+  .fact-card:hover { transform: translateY(-4px); }
+  .fact-card:nth-child(2) { border-top-color: var(--purple); }
+  .fact-card:nth-child(3) { border-top-color: var(--leaf); }
+  .fact-card:nth-child(4) { border-top-color: var(--sky); }
+  .fact-num { font-family: 'Fredoka One', cursive; font-size: 2.5rem; color: var(--saffron); }
+  .fact-card:nth-child(2) .fact-num { color: var(--purple); }
+  .fact-card:nth-child(3) .fact-num { color: var(--leaf); }
+  .fact-card:nth-child(4) .fact-num { color: var(--sky); }
+  .fact-card p { font-size: 0.9rem; color: #555; line-height: 1.5; margin-top: 0.5rem; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--deep-blue); color: rgba(255,255,255,0.7);
+    text-align: center; padding: 3rem 1.5rem;
+  }
+  footer .logo { font-family: 'Fredoka One', cursive; font-size: 1.8rem; color: var(--gold); margin-bottom: 0.5rem; }
+  footer p { font-size: 0.88rem; line-height: 1.7; max-width: 550px; margin: 0 auto; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .quiz-options { grid-template-columns: 1fr; }
+    .intro-strip::after { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="stars" id="stars"></div>
+  <div class="hero-badge">🇮🇳 ANCIENT WISDOM · MODERN MINDS</div>
+  <h1>The <span>Logic Lab</span> 🔬</h1>
+  <p class="hero-sub">Explore Nyaya &amp; Vaisheshika — India's amazing ancient science of reasoning, atoms, and asking the right questions!</p>
+  <div class="hero-chars">
+    <div class="hero-char"><div class="avatar">🦉</div><span>Nyaya Nandini</span></div>
+    <div class="hero-char"><div class="avatar">⚗️</div><span>Vaishu the Scientist</span></div>
+    <div class="hero-char"><div class="avatar">🧩</div><span>Praman Pete</span></div>
+    <div class="hero-char"><div class="avatar">🤔</div><span>Doubt Detective</span></div>
+    <div class="hero-char"><div class="avatar">⚛️</div><span>Atom Anu</span></div>
+  </div>
+  <div class="scroll-hint">▼ Scroll to explore ▼</div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#stories">📖 Stories</a>
+  <a href="#characters">🧑‍🤝‍🧑 Characters</a>
+  <a href="#concepts">💡 Concepts</a>
+  <a href="#quiz">🎯 Quiz</a>
+  <a href="#timeline">🕰️ History</a>
+  <a href="#facts">✨ Fun Facts</a>
+</nav>
+
+<!-- INTRO -->
+<section style="padding-top: 4rem;">
+  <div class="intro-strip">
+    <h3>What is Nyaya &amp; Vaisheshika? 🤔</h3>
+    <p>Imagine having a <strong>superpower</strong> that lets you tell truth from lies, ask brilliant questions, and understand what EVERYTHING in the universe is made of. That's exactly what two brilliant ancient Indian schools of thought figured out — and they were thousands of years ahead of their time!</p>
+  </div>
+
+  <div class="facts-grid" id="facts">
+    <div class="fact-card"><div class="fact-num">~600 BCE</div><p>When Gautama founded the Nyaya school — older than most world philosophies!</p></div>
+    <div class="fact-card"><div class="fact-num">4</div><p>Ways of knowing truth (Pramanas) — Perception, Inference, Comparison &amp; Testimony</p></div>
+    <div class="fact-card"><div class="fact-num">7</div><p>Categories of reality in Vaisheshika — from tiny atoms to universal properties</p></div>
+    <div class="fact-card"><div class="fact-num">16</div><p>Steps in a perfect debate discovered by the Nyaya school — logic as a sport!</p></div>
+  </div>
+</section>
+
+<!-- STORIES -->
+<section id="stories">
+  <span class="section-tag" style="background:#FFF0EB; color:var(--saffron);">📖 STORIES</span>
+  <h2 class="section-title">Adventures in Logic Town</h2>
+  <p class="section-desc">Meet our characters in action! Each story teaches a real idea from Nyaya &amp; Vaisheshika philosophy — set in the world you know today.</p>
+
+  <div class="story-grid">
+
+    <!-- Story 1 -->
+    <div class="story-card theme-saffron">
+      <div class="card-top">
+        <div class="card-emoji">🦉</div>
+        <div>
+          <h3>The Smoke Mystery</h3>
+          <p>Nyaya Nandini &amp; the Inference Adventure</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <p>Nandini is a sharp 11-year-old who notices smoke rising above the school canteen from the playground. She tells her friend, "The kitchen is cooking something!" Her friend Rahul asks, "But you haven't gone inside — how do you KNOW?" Nandini smiles. "Because <em>wherever there's smoke, there's fire</em> — like when we camped and saw smoke rising from the woods. So the canteen has fire — so someone is cooking!"</p>
+        <p style="margin-top:0.75rem">This is exactly <strong>Anumana</strong> — Inference! The Nyaya philosophers were the first to write down the rules for this kind of thinking over 2,500 years ago.</p>
+        <div class="card-lesson">
+          <span>🔥</span>
+          <span><strong>Nyaya Lesson:</strong> Anumana (Inference) = Using what you already know + signs around you to figure out hidden truths. Detectives use this every single day!</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Story 2 -->
+    <div class="story-card theme-blue">
+      <div class="card-top">
+        <div class="card-emoji">⚗️</div>
+        <div>
+          <h3>Vaishu Meets a Mango</h3>
+          <p>Vaisheshika &amp; the Science of Categories</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <p>Vaishu the Scientist is obsessed with sorting things. At the fruit stall, she picks up a mango and starts muttering: "Okay — this mango is a <em>substance</em> (dravya). It has a yellow <em>quality</em> (guna). It <em>ripens</em> — that's an action (karma). It belongs to the mango <em>universal</em> (samanya) — all mangoes share mango-ness!"</p>
+        <p style="margin-top:0.75rem">The fruit seller stares. "Beta, do you want to buy the mango or give it a philosophy exam?" Vaishu laughs, "Both!" The ancient Vaisheshika thinkers would have loved her — they catalogued EVERYTHING in the universe into exactly these categories.</p>
+        <div class="card-lesson">
+          <span>🥭</span>
+          <span><strong>Vaisheshika Lesson:</strong> Everything that exists can be sorted into categories — Substance, Quality, Action, Universal, Particular, and Inherence. This is like ancient science's version of the Periodic Table!</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Story 3 -->
+    <div class="story-card theme-teal">
+      <div class="card-top">
+        <div class="card-emoji">⚛️</div>
+        <div>
+          <h3>Atom Anu's Big Discovery</h3>
+          <p>Paramanu — The Ancient Atom Theory</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <p>In science class, the teacher says atoms were discovered in the 1800s. Anu raises her hand: "Ma'am, a philosopher named Kanada described atoms around 600 BCE — over 2,400 years ago!" The class goes quiet. The teacher is intrigued.</p>
+        <p style="margin-top:0.75rem">Anu explains: Kanada (whose name literally means "atom eater"!) said if you keep cutting something — a grain of rice, a rock — smaller and smaller, you eventually reach a <strong>Paramanu</strong> (para = beyond, anu = atom) — an indivisible particle. He said everything in the physical world is made of these. Sound familiar? Modern physics proved him right!</p>
+        <div class="card-lesson">
+          <span>⚛️</span>
+          <span><strong>Vaisheshika Lesson:</strong> Paramanu = the smallest indivisible unit. Kanada's atomic theory predates Dalton's by over 2,000 years!</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Story 4 -->
+    <div class="story-card theme-purple">
+      <div class="card-top">
+        <div class="card-emoji">🧩</div>
+        <div>
+          <h3>Praman Pete Solves the Fight</h3>
+          <p>The 4 Pramanas in Action</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <p>Two cousins are fighting. Arjun says the samosa at the corner shop is spicy. Priya says it isn't. Enter Praman Pete — the calmest kid in school — who asks each of them 4 questions:</p>
+        <p style="margin-top:0.5rem">🔍 <strong>Pratyaksha:</strong> "Did you actually EAT one today?" (Perception)<br>
+        💡 <strong>Anumana:</strong> "Did you see red chilli powder in the oil?" (Inference)<br>
+        📚 <strong>Upamana:</strong> "Is it like that Kolhapuri dish you compared it to?" (Comparison)<br>
+        🗣️ <strong>Shabda:</strong> "What did the shopkeeper tell you?" (Testimony)</p>
+        <p style="margin-top:0.5rem">Using all 4, Pete figures out the samosa changed — new cook, milder recipe. Mystery solved. Nyaya wins again.</p>
+        <div class="card-lesson">
+          <span>🧩</span>
+          <span><strong>Nyaya Lesson:</strong> The 4 Pramanas are your toolkit for finding truth. Before arguing, ask: which type of evidence do I have?</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Story 5 -->
+    <div class="story-card theme-pink">
+      <div class="card-top">
+        <div class="card-emoji">🤔</div>
+        <div>
+          <h3>The Doubt Detective's Notebook</h3>
+          <p>Tarka — The Power of Hypothetical Reasoning</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <p>Detective Diya never accepts anything at face value. When her teacher says "All phones distract students," Diya opens her notebook and writes: <em>"Assume the opposite — phones DON'T distract. Then why do ALL the top-scoring students in the country use them for study apps?" </em></p>
+        <p style="margin-top:0.75rem">She's using <strong>Tarka</strong> — hypothetical reasoning — to test a claim. Suppose X is wrong; does the opposite make sense? If not, X must be right. The Nyaya school invented this as a formal tool for debate over 2,000 years ago. Diya would have been their star student.</p>
+        <div class="card-lesson">
+          <span>🔎</span>
+          <span><strong>Nyaya Lesson:</strong> Tarka = test a claim by imagining its opposite. If the opposite is absurd, your original claim is likely true. This is the heart of scientific thinking!</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Story 6 -->
+    <div class="story-card theme-gold">
+      <div class="card-top">
+        <div class="card-emoji">🎮</div>
+        <div>
+          <h3>The Great Debate Championship</h3>
+          <p>Vada — Nyaya's Rules for Honest Arguing</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <p>The Logic Lab school holds a debate championship. But the rules are ancient — they come directly from the Nyaya Sutras! You can't just shout louder. You must state your <em>pratijña</em> (claim), give your <em>hetu</em> (reason), provide a <em>udaharana</em> (example), then apply it back (<em>upanaya</em>) and draw a <em>nigamana</em> (conclusion). Miss a step and you LOSE.</p>
+        <p style="margin-top:0.75rem">When student Rohan just says "AI is good because it's smart," the judge buzzes him. "Where's your example? Your comparison? Your reasoning chain?" This 5-step argument structure — called the <strong>Pañcāvayava</strong> — is basically the ancient Indian version of a perfect logical proof.</p>
+        <div class="card-lesson">
+          <span>🏆</span>
+          <span><strong>Nyaya Lesson:</strong> Good arguments have structure. The 5-step Nyaya argument (Pañcāvayava) is a complete logical proof that holds up even by modern standards.</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CHARACTERS -->
+<section id="characters">
+  <span class="section-tag" style="background:var(--light-purple); color:var(--purple);">🧑‍🤝‍🧑 MEET THE CHARACTERS</span>
+  <h2 class="section-title">Your Guides to Ancient Logic</h2>
+  <p class="section-desc">These modern kids carry the wisdom of ancient Indian philosophers. Find your favourite!</p>
+
+  <div class="chars-grid">
+    <div class="char-card">
+      <div class="char-avatar">🦉</div>
+      <h4>Nyaya Nandini</h4>
+      <div class="char-title">The Inference Queen</div>
+      <p>Never jumps to conclusions without evidence. Can spot hidden truths just from clues around her — like a modern-day Sherlock Holmes.</p>
+      <span class="char-badge">🔥 Anumana Expert</span>
+    </div>
+    <div class="char-card">
+      <div class="char-avatar">⚗️</div>
+      <h4>Vaishu the Scientist</h4>
+      <div class="char-title">Category Master</div>
+      <p>Sorts everything in the world into neat categories. Her bedroom is organized by the 7 Vaisheshika padarthas — her parents are baffled.</p>
+      <span class="char-badge">🥭 Padartha Pro</span>
+    </div>
+    <div class="char-card">
+      <div class="char-avatar">⚛️</div>
+      <h4>Atom Anu</h4>
+      <div class="char-title">The Tiny Truth Seeker</div>
+      <p>Obsessed with what things are made of at the deepest level. Hero: Kanada, the ancient thinker who imagined atoms 2,400 years before modern science.</p>
+      <span class="char-badge">⚛️ Paramanu Fan</span>
+    </div>
+    <div class="char-card">
+      <div class="char-avatar">🧩</div>
+      <h4>Praman Pete</h4>
+      <div class="char-title">The Truth Checker</div>
+      <p>Always asks: "But HOW do you know that?" Uses the 4 Pramanas as a mental checklist before accepting any claim as true.</p>
+      <span class="char-badge">🧩 4 Pramanas</span>
+    </div>
+    <div class="char-card">
+      <div class="char-avatar">🤔</div>
+      <h4>Doubt Detective Diya</h4>
+      <div class="char-title">Hypothetical Reasoner</div>
+      <p>Tests every idea by imagining its opposite. Carries a notebook called "What If I'm Wrong?" — and she's almost never wrong because of it.</p>
+      <span class="char-badge">🔎 Tarka Thinker</span>
+    </div>
+    <div class="char-card">
+      <div class="char-avatar">🎮</div>
+      <h4>Debate Dude Rohan</h4>
+      <div class="char-title">Argument Architect</div>
+      <p>Learned the hard way that shouting isn't arguing. Now builds every argument in 5 careful steps, the Pañcāvayava way.</p>
+      <span class="char-badge">🏆 Debate Champ</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONCEPTS -->
+<section id="concepts">
+  <span class="section-tag" style="background:#E6FAF5; color:#005A4E);">💡 KEY CONCEPTS</span>
+  <h2 class="section-title">Big Ideas, Simply Explained</h2>
+  <p class="section-desc">Tap a concept to explore it. We use real-life examples to make ancient wisdom totally clear!</p>
+
+  <div class="concept-tabs">
+    <button class="tab-btn active" onclick="showConcept('pramana')">🧩 Pramana</button>
+    <button class="tab-btn" onclick="showConcept('anumana')">🔥 Anumana</button>
+    <button class="tab-btn" onclick="showConcept('padartha')">🥭 Padartha</button>
+    <button class="tab-btn" onclick="showConcept('paramanu')">⚛️ Paramanu</button>
+    <button class="tab-btn" onclick="showConcept('tarka')">🔎 Tarka</button>
+    <button class="tab-btn" onclick="showConcept('pancavayava')">🏆 Pañcāvayava</button>
+  </div>
+
+  <div id="pramana" class="concept-panel active">
+    <div class="concept-box">
+      <h3>🧩 Pramana — Valid Sources of Knowledge</h3>
+      <div class="sanskrit">SANSKRIT: प्रमाण · "Pra-maa-na" = Measure of Truth</div>
+      <p>Nyaya philosophy asked a really deep question: <strong>How do we know what we know?</strong> They answered with 4 approved sources of valid knowledge — like 4 passports for a fact to be trusted:</p>
+      <p><strong>1. Pratyaksha (Perception)</strong> — You directly see, hear, smell, taste, or touch it. "I taste the sugar — it is sweet."<br>
+      <strong>2. Anumana (Inference)</strong> — You reason from signs. "There's smoke → there must be fire."<br>
+      <strong>3. Upamana (Comparison)</strong> — You learn by analogy. "A bison is like a big cow you told me about."<br>
+      <strong>4. Shabda (Testimony)</strong> — A reliable person/text tells you. "My doctor told me to rest — I believe her."</p>
+      <div class="analogy-box">
+        <strong>🌟 MODERN ANALOGY</strong>
+        <p>Before you say "That restaurant is good," check: Did you eat there? (Pratyaksha) Did you see reviews? (Anumana) Is it like one you liked? (Upamana) Did a friend recommend it? (Shabda). Nyaya Pramanas = your fact-checking toolkit!</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="anumana" class="concept-panel">
+    <div class="concept-box" style="border-left-color:var(--purple)">
+      <h3>🔥 Anumana — The Art of Inference</h3>
+      <div class="sanskrit" style="color:var(--purple)">SANSKRIT: अनुमान · "Anu-maan" = After-measure / Reasoning</div>
+      <p>This is Nyaya's most famous gift to logic. Inference lets you discover truths you CAN'T directly see. It requires 3 parts:</p>
+      <p><strong>Paksha</strong> — The subject (The mountain)<br>
+      <strong>Sadhya</strong> — What we want to prove (has fire)<br>
+      <strong>Hetu</strong> — The reason/sign (has smoke)<br>
+      <strong>Vyapti</strong> — The universal rule (all smoke comes from fire)</p>
+      <p>Nyaya demanded that the "universal rule" be tested and established separately — not just assumed. That's what makes it rigorous science, not guesswork!</p>
+      <div class="analogy-box">
+        <strong>🌟 MODERN ANALOGY</strong>
+        <p>Forensic detectives use Anumana! "There are muddy footprints (hetu) → Someone walked through the garden (sadhya) → because footprints always require a walker (vyapti)." CSI is basically a Nyaya philosophy class.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="padartha" class="concept-panel">
+    <div class="concept-box" style="border-left-color:var(--leaf)">
+      <h3>🥭 Padartha — Categories of Reality</h3>
+      <div class="sanskrit" style="color:var(--leaf)">SANSKRIT: पदार्थ · "Pada-artha" = Meaning of a word / Category of existence</div>
+      <p>Vaisheshika asked: <strong>What kinds of things actually exist?</strong> Their answer was 7 categories that cover literally everything:</p>
+      <p><strong>1. Dravya (Substance)</strong> — Things that exist independently (earth, water, fire, air, space, time, mind, soul)<br>
+      <strong>2. Guna (Quality)</strong> — Properties of things (colour, taste, smell, number, size)<br>
+      <strong>3. Karma (Action/Motion)</strong> — What things do (moving upward, downward, contracting)<br>
+      <strong>4. Samanya (Universal)</strong> — What makes things the same kind ("cowness" in all cows)<br>
+      <strong>5. Vishesha (Particular)</strong> — What makes each eternal atom unique<br>
+      <strong>6. Samavaya (Inherence)</strong> — The inseparable relation (colour INHERES in the object)<br>
+      <strong>7. Abhava (Absence)</strong> — Non-existence is also a real category!</p>
+      <div class="analogy-box">
+        <strong>🌟 MODERN ANALOGY</strong>
+        <p>Think of it like a database schema! Vaisheshika created the ultimate classification system for reality — like biologists classifying all life into Kingdom, Phylum, Class... but for EVERYTHING that exists.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="paramanu" class="concept-panel">
+    <div class="concept-box" style="border-left-color:var(--sky)">
+      <h3>⚛️ Paramanu — The Original Atom Theory</h3>
+      <div class="sanskrit" style="color:var(--sky)">SANSKRIT: परमाणु · "Parama-anu" = Beyond-small / Ultimate particle</div>
+      <p>Around 600 BCE, Kanada (founder of Vaisheshika) proposed something astonishing: <strong>all matter is made of indivisible particles.</strong> He reasoned: if you keep dividing something, you must eventually reach a point where division is impossible. That's a Paramanu.</p>
+      <p>He said two Paramanu combine to form a <em>dvyanuka</em> (diatomic), and three of those make a <em>tryanuka</em>... building up all matter we see. This mirrors modern chemistry almost exactly — atoms, molecules, compounds!</p>
+      <div class="analogy-box">
+        <strong>🌟 MODERN ANALOGY</strong>
+        <p>Modern physics: Protons + Neutrons → Atoms → Molecules → Matter. Kanada's system: Paramanu → Dvyanuka → Tryanuka → Visible matter. He was 2,400 years early to the party!</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="tarka" class="concept-panel">
+    <div class="concept-box" style="border-left-color:var(--pink)">
+      <h3>🔎 Tarka — Hypothetical Reasoning</h3>
+      <div class="sanskrit" style="color:var(--pink)">SANSKRIT: तर्क · "Tar-ka" = Reasoning / Dialectic</div>
+      <p>Tarka is a special reasoning tool: to prove something is TRUE, assume it is FALSE and see if that leads to an absurd or impossible conclusion. If the opposite of your claim is ridiculous, your claim must be right!</p>
+      <p>Example: Claim: "The soul exists." Tarka approach: "Assume the soul does NOT exist. Then how do we explain memory, personality, and consciousness persisting over time? This is absurd. Therefore, something soul-like must exist."</p>
+      <div class="analogy-box">
+        <strong>🌟 MODERN ANALOGY</strong>
+        <p>Mathematicians use this as "Proof by Contradiction" — a cornerstone of modern logic. Nyaya invented it as a philosophical tool. Same idea, different name!</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="pancavayava" class="concept-panel">
+    <div class="concept-box" style="border-left-color:var(--gold)">
+      <h3>🏆 Pañcāvayava — The 5-Part Argument</h3>
+      <div class="sanskrit" style="color:#B33F00">SANSKRIT: पञ्चावयव · "Pañca-avayava" = Five limbs</div>
+      <p>The Nyaya school described the perfect logical argument as having 5 parts. This became the standard for all debate and reasoning in ancient India:</p>
+      <p><strong>1. Pratijña (Claim)</strong> — "The mountain has fire."<br>
+      <strong>2. Hetu (Reason)</strong> — "Because it has smoke."<br>
+      <strong>3. Udaharana (Example)</strong> — "Like a kitchen — wherever there's smoke, there's fire."<br>
+      <strong>4. Upanaya (Application)</strong> — "This mountain has smoke just like the kitchen."<br>
+      <strong>5. Nigamana (Conclusion)</strong> — "Therefore, this mountain has fire."</p>
+      <div class="analogy-box">
+        <strong>🌟 MODERN ANALOGY</strong>
+        <p>This is almost identical to the modern syllogism in Western logic (Aristotle) — but developed independently! Both East and West figured out that good arguments need structure. Humanity's logic brains think alike.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz" style="padding: 0 1.5rem 4rem;">
+  <div class="quiz-section">
+    <h2>🎯 The Logic Lab Quiz!</h2>
+    <p>Test your Nyaya &amp; Vaisheshika knowledge. Can you outsmart Praman Pete?</p>
+
+    <div id="quiz-content">
+      <div class="quiz-q" id="q-text"></div>
+      <div class="quiz-options" id="q-options"></div>
+      <div class="quiz-feedback" id="q-feedback"></div>
+      <button id="next-btn" onclick="nextQ()">Next Question →</button>
+      <div class="score-display" id="score-display"></div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline">
+  <span class="section-tag" style="background:#FFF0EB; color:var(--saffron);">🕰️ HISTORY</span>
+  <h2 class="section-title">A Journey Through Time</h2>
+  <p class="section-desc">From ancient forests to modern science labs — the story of Nyaya &amp; Vaisheshika through the ages.</p>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">~600 BCE</div>
+      <h4>🌿 Kanada's Atomic Vision</h4>
+      <p>Kanada, sitting in a field at dusk, watches tiny particles of food being swept away. He wonders: what is the smallest piece of matter? He formulates the Vaisheshika Sutra, theorising the Paramanu — the indivisible atom. Science is born.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:var(--purple)"></div>
+      <div class="tl-date">~550 BCE</div>
+      <h4>🔬 Gautama's Logic System</h4>
+      <p>The sage Gautama (Akshapada) composes the Nyaya Sutras — the world's first systematic handbook of logic. 16 categories of valid reasoning, debate rules, and the 4 Pramanas are defined. Philosophy becomes a science of thinking.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:var(--leaf)"></div>
+      <div class="tl-date">~200 CE</div>
+      <h4>🤝 Nyaya &amp; Vaisheshika Merge</h4>
+      <p>Over centuries, the two schools begin combining their ideas. Logic + Atomic Science = a powerful unified system. Thinkers now debate the nature of reality with both rigorous epistemology AND a physical theory of the universe.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:var(--sky)"></div>
+      <div class="tl-date">~1000 CE</div>
+      <h4>📚 Navya-Nyaya: The New Logic</h4>
+      <p>Scholars like Gangesa develop "Navya-Nyaya" — a highly technical, almost mathematical language for expressing logical statements. It's so precise that modern logicians compare it to symbolic logic and computer science notation.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:var(--gold)"></div>
+      <div class="tl-date">1808 CE</div>
+      <h4>⚛️ Dalton's Atom Theory — 2,400 Years Later</h4>
+      <p>John Dalton publishes his atomic theory in the West. Western science "discovers" what Kanada described millennia earlier. The Paramanu gets a new name: atom. The idea is the same.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:var(--pink)"></div>
+      <div class="tl-date">Today 🌟</div>
+      <h4>🧠 Philosophy Meets AI &amp; Logic</h4>
+      <p>Computer scientists studying Navya-Nyaya find it remarkably similar to modern formal logic and programming languages. Nyaya's Pramanas are studied alongside epistemology in universities worldwide. Ancient wisdom, modern relevance.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo">The Logic Lab 🔬</div>
+  <p>A fun learning journey into Nyaya & Vaisheshika — India's ancient schools of Logic, Epistemology & Metaphysics. Made with curiosity for young minds everywhere.<br><br>
+  <em>"Doubt is the beginning of wisdom." — Nyaya Sutra tradition</em></p>
+</footer>
+
+<script>
+  // Stars
+  const starsEl = document.getElementById('stars');
+  for (let i = 0; i < 80; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    const size = Math.random() * 3 + 1;
+    s.style.cssText = `width:${size}px;height:${size}px;left:${Math.random()*100}%;top:${Math.random()*100}%;animation-delay:${Math.random()*3}s;animation-duration:${2+Math.random()*2}s;`;
+    starsEl.appendChild(s);
+  }
+
+  // Concept tabs
+  function showConcept(id) {
+    document.querySelectorAll('.concept-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  // Quiz
+  const questions = [
+    {
+      q: "🦉 Nandini sees smoke rising from behind a building and says 'There must be fire!' Which Pramana is she using?",
+      opts: ["Pratyaksha (Perception)", "Anumana (Inference)", "Shabda (Testimony)", "Upamana (Comparison)"],
+      ans: 1, explain: "She's using Anumana (Inference)! She can't see the fire directly but reasons from the sign (smoke) to the hidden fact (fire). A classic Nyaya example!"
+    },
+    {
+      q: "⚛️ Kanada said if you keep dividing matter, you reach an indivisible particle. What did he call it?",
+      opts: ["Dravya", "Guna", "Paramanu", "Karma"],
+      ans: 2, explain: "Paramanu! Para = beyond, anu = small. Kanada's concept of the indivisible atomic unit, proposed around 600 BCE — long before modern atomic theory!"
+    },
+    {
+      q: "🧩 How many valid sources of knowledge (Pramanas) does the Nyaya school recognise?",
+      opts: ["3", "4", "5", "7"],
+      ans: 1, explain: "4 Pramanas! Pratyaksha (Perception), Anumana (Inference), Upamana (Comparison), and Shabda (Testimony). Together they cover all valid ways of knowing."
+    },
+    {
+      q: "🥭 In Vaisheshika, the 'colour' of a mango is an example of which category (Padartha)?",
+      opts: ["Dravya (Substance)", "Guna (Quality)", "Karma (Action)", "Samanya (Universal)"],
+      ans: 1, explain: "Guna (Quality)! Qualities like colour, taste, and smell are properties that belong to substances but can't exist independently. A mango is Dravya; its yellowness is Guna!"
+    },
+    {
+      q: "🔎 Proving something by showing its opposite leads to absurdity is called what in Nyaya?",
+      opts: ["Anumana", "Shabda", "Tarka", "Pramana"],
+      ans: 2, explain: "Tarka! It's like 'proof by contradiction' — assume the opposite, show it's impossible, and your original claim must be true. Modern mathematics uses the exact same technique!"
+    },
+    {
+      q: "🏆 What is the first step of the 5-part Nyaya argument (Pañcāvayava)?",
+      opts: ["Hetu (Reason)", "Pratijña (Claim)", "Nigamana (Conclusion)", "Udaharana (Example)"],
+      ans: 1, explain: "Pratijña (Claim) is the first step! You start by clearly stating what you're trying to prove. Without a clear claim, there's nothing to argue for!"
+    }
+  ];
+
+  let current = 0, score = 0, answered = false;
+
+  function loadQ() {
+    answered = false;
+    const q = questions[current];
+    document.getElementById('q-text').textContent = q.q;
+    const opts = document.getElementById('q-options');
+    opts.innerHTML = '';
+    q.opts.forEach((o, i) => {
+      const b = document.createElement('div');
+      b.className = 'quiz-opt';
+      b.textContent = o;
+      b.onclick = () => answer(i, b);
+      opts.appendChild(b);
+    });
+    const fb = document.getElementById('q-feedback');
+    fb.className = 'quiz-feedback';
+    fb.textContent = '';
+    document.getElementById('next-btn').style.display = 'none';
+    document.getElementById('score-display').textContent = `Question ${current+1} of ${questions.length} · Score: ${score}`;
+  }
+
+  function answer(idx, btn) {
+    if (answered) return;
+    answered = true;
+    const q = questions[current];
+    const allBtns = document.querySelectorAll('.quiz-opt');
+    allBtns.forEach((b, i) => {
+      if (i === q.ans) b.classList.add('correct');
+      else if (i === idx && idx !== q.ans) b.classList.add('wrong');
+    });
+    const fb = document.getElementById('q-feedback');
+    if (idx === q.ans) {
+      score++;
+      fb.className = 'quiz-feedback correct show';
+      fb.innerHTML = '✅ Brilliant! ' + q.explain;
+    } else {
+      fb.className = 'quiz-feedback wrong show';
+      fb.innerHTML = '❌ Not quite! ' + q.explain;
+    }
+    document.getElementById('score-display').textContent = `Question ${current+1} of ${questions.length} · Score: ${score}`;
+    document.getElementById('next-btn').style.display = current < questions.length - 1 ? 'inline-block' : 'none';
+    if (current === questions.length - 1) {
+      document.getElementById('q-feedback').innerHTML += `<br><br>🎉 <strong>Final score: ${score}/${questions.length}!</strong> ${score >= 5 ? 'Nyaya Nandini would be proud!' : score >= 3 ? 'Good thinking! Keep exploring!' : 'Keep learning — revisit the stories above!'}`;
+    }
+  }
+
+  function nextQ() {
+    current++;
+    if (current < questions.length) loadQ();
+  }
+
+  loadQ();
+</script>
+</body>
+</html>
