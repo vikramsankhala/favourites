@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Janjati Collective — Tribal Art, Craft & Produce Marketplace</title>
+  <meta name="description" content="A contemporary business platform concept to promote Indian tribal art, handicrafts, and tribal produce in India and abroad through traceability, fair trade, and modern commerce." />
+  <meta property="og:title" content="Janjati Collective — Tribal Art, Craft & Produce Marketplace" />
+  <meta property="og:description" content="A state-of-the-art digital business platform connecting tribal creators, buyers, institutions, and global markets." />
+  <meta property="og:type" content="website" />
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=boska@400,500,700&display=swap" rel="stylesheet">
+  <style>
+    :root, [data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.75rem);
+      --text-hero: clamp(3rem, 0.8rem + 6vw, 6.75rem);
+      --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem; --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem; --space-12: 3rem; --space-16: 4rem; --space-20: 5rem; --space-24: 6rem; --space-32: 8rem;
+      --color-bg: #f7f4ee;
+      --color-surface: #fbf9f4;
+      --color-surface-2: #f3efe7;
+      --color-surface-offset: #ebe4d8;
+      --color-border: #d8cebd;
+      --color-divider: #ded6ca;
+      --color-text: #231d17;
+      --color-text-muted: #6e665e;
+      --color-text-faint: #9a9086;
+      --color-text-inverse: #faf7f1;
+      --color-primary: #145b52;
+      --color-primary-hover: #0f4840;
+      --color-primary-active: #09342f;
+      --color-primary-highlight: #cfe0da;
+      --color-orange: #b86b19;
+      --color-gold: #9a7a13;
+      --color-success: #3d6a2f;
+      --radius-sm: 0.375rem; --radius-md: 0.65rem; --radius-lg: 1rem; --radius-xl: 1.5rem; --radius-full: 9999px;
+      --shadow-sm: 0 1px 2px rgba(31, 22, 12, 0.08);
+      --shadow-md: 0 12px 30px rgba(31, 22, 12, 0.12);
+      --shadow-lg: 0 20px 60px rgba(31, 22, 12, 0.16);
+      --content-default: 1120px;
+      --content-wide: 1280px;
+      --font-body: 'Satoshi', Inter, sans-serif;
+      --font-display: 'Boska', Georgia, serif;
+      --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #151311;
+      --color-surface: #1a1715;
+      --color-surface-2: #211d1a;
+      --color-surface-offset: #2a241f;
+      --color-border: #3a332d;
+      --color-divider: #302a25;
+      --color-text: #ece5da;
+      --color-text-muted: #b2a89b;
+      --color-text-faint: #7f766c;
+      --color-text-inverse: #191613;
+      --color-primary: #72b4a8;
+      --color-primary-hover: #5ea397;
+      --color-primary-active: #43857b;
+      --color-primary-highlight: #243732;
+      --color-orange: #d79a5c;
+      --color-gold: #d3b04d;
+      --color-success: #84bb6b;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,.25);
+      --shadow-md: 0 12px 30px rgba(0,0,0,.35);
+      --shadow-lg: 0 20px 60px rgba(0,0,0,.45);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme]) {
+        --color-bg: #151311;
+        --color-surface: #1a1715;
+        --color-surface-2: #211d1a;
+        --color-surface-offset: #2a241f;
+        --color-border: #3a332d;
+        --color-divider: #302a25;
+        --color-text: #ece5da;
+        --color-text-muted: #b2a89b;
+        --color-text-faint: #7f766c;
+        --color-text-inverse: #191613;
+        --color-primary: #72b4a8;
+        --color-primary-hover: #5ea397;
+        --color-primary-active: #43857b;
+        --color-primary-highlight: #243732;
+        --color-orange: #d79a5c;
+        --color-gold: #d3b04d;
+        --color-success: #84bb6b;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: none; text-size-adjust: none; scroll-padding-top: 6rem; }
+    body {
+      min-height: 100dvh;
+      background:
+        radial-gradient(circle at top left, color-mix(in srgb, var(--color-primary) 10%, transparent), transparent 28%),
+        radial-gradient(circle at bottom right, color-mix(in srgb, var(--color-orange) 10%, transparent), transparent 22%),
+        var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.6;
+    }
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+    :focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; border-radius: var(--radius-sm); }
+    .skip-link { position: absolute; left: var(--space-4); top: -100%; background: var(--color-primary); color: var(--color-text-inverse); padding: var(--space-3) var(--space-4); z-index: 100; border-radius: var(--radius-full); }
+    .skip-link:focus { top: var(--space-4); }
+    .container { width: min(calc(100% - 2rem), var(--content-default)); margin: 0 auto; }
+    .wide { width: min(calc(100% - 2rem), var(--content-wide)); margin: 0 auto; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: var(--space-2); padding: 0.4rem 0.85rem;
+      border-radius: var(--radius-full); background: color-mix(in srgb, var(--color-primary) 10%, var(--color-surface));
+      border: 1px solid color-mix(in srgb, var(--color-primary) 18%, var(--color-border)); font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.12em; color: var(--color-primary);
+    }
+    .section { padding: clamp(var(--space-16), 10vw, var(--space-24)) 0; }
+    .section-head { display: grid; gap: var(--space-4); margin-bottom: var(--space-10); }
+    .section-head h2 { font-family: var(--font-display); font-size: var(--text-2xl); line-height: 1; max-width: 12ch; }
+    .section-head p { color: var(--color-text-muted); max-width: 62ch; }
+
+    .site-header {
+      position: sticky; top: 0; z-index: 40; backdrop-filter: blur(14px);
+      background: color-mix(in srgb, var(--color-bg) 82%, transparent);
+      border-bottom: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+    }
+    .header-row { min-height: 4.8rem; display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); }
+    .brand { display: inline-flex; align-items: center; gap: var(--space-3); font-weight: 700; }
+    .brand-mark { width: 2.6rem; height: 2.6rem; padding: 0.4rem; border-radius: 0.85rem; background: linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 16%, var(--color-surface)), color-mix(in srgb, var(--color-orange) 10%, var(--color-surface))); border: 1px solid color-mix(in srgb, var(--color-primary) 15%, var(--color-border)); box-shadow: var(--shadow-sm); }
+    .brand-text strong { display: block; font-size: var(--text-sm); }
+    .brand-text span { display: block; font-size: var(--text-xs); color: var(--color-text-muted); letter-spacing: 0.05em; text-transform: uppercase; }
+    .nav { display: flex; align-items: center; gap: var(--space-5); }
+    .nav-links { display: flex; gap: var(--space-4); flex-wrap: wrap; }
+    .nav-links a { font-size: var(--text-sm); color: var(--color-text-muted); }
+    .nav-links a:hover { color: var(--color-text); }
+    .theme-toggle, .menu-toggle {
+      width: 2.75rem; height: 2.75rem; display: inline-grid; place-items: center; border-radius: var(--radius-full);
+      border: 1px solid color-mix(in srgb, var(--color-text) 12%, transparent); background: var(--color-surface);
+    }
+    .menu-toggle { display: none; }
+    .hero { padding: clamp(var(--space-16), 8vw, var(--space-24)) 0 var(--space-16); }
+    .hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(var(--space-8), 4vw, var(--space-16)); align-items: end; }
+    .hero-copy { display: grid; gap: var(--space-6); }
+    .hero h1 { font-family: var(--font-display); font-size: var(--text-hero); line-height: 0.94; max-width: 10ch; letter-spacing: -0.02em; }
+    .hero p { max-width: 62ch; color: var(--color-text-muted); }
+    .hero-actions { display: flex; gap: var(--space-4); flex-wrap: wrap; }
+    .button {
+      min-height: 3rem; padding: 0.8rem 1.15rem; display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2);
+      border-radius: var(--radius-full); font-size: var(--text-sm); font-weight: 700; border: 1px solid transparent; transition: transform var(--transition-interactive), background var(--transition-interactive), border-color var(--transition-interactive), color var(--transition-interactive);
+    }
+    .button:hover { transform: translateY(-1px); }
+    .button-primary { background: var(--color-primary); color: var(--color-text-inverse); }
+    .button-primary:hover { background: var(--color-primary-hover); }
+    .button-secondary { border-color: color-mix(in srgb, var(--color-text) 14%, transparent); background: color-mix(in srgb, var(--color-surface) 78%, transparent); }
+
+    .hero-panel {
+      padding: var(--space-8); background: linear-gradient(180deg, color-mix(in srgb, var(--color-surface) 92%, transparent), var(--color-surface-2));
+      border: 1px solid color-mix(in srgb, var(--color-primary) 12%, var(--color-border)); border-radius: var(--radius-xl); box-shadow: var(--shadow-lg);
+      display: grid; gap: var(--space-6); position: relative; overflow: hidden;
+    }
+    .hero-panel::after {
+      content: ""; position: absolute; inset: auto -10% -25% auto; width: 15rem; aspect-ratio: 1; border-radius: 50%;
+      background: radial-gradient(circle, color-mix(in srgb, var(--color-primary) 18%, transparent), transparent 70%);
+      pointer-events: none;
+    }
+    .mini-stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-4); }
+    .mini-stat {
+      padding: var(--space-4); border-radius: var(--radius-lg); background: color-mix(in srgb, var(--color-surface) 86%, transparent);
+      border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+    }
+    .mini-stat strong { font-size: var(--text-xl); font-family: var(--font-display); line-height: 1; }
+    .mini-stat span { display: block; font-size: var(--text-xs); color: var(--color-text-muted); margin-top: var(--space-2); text-transform: uppercase; letter-spacing: 0.08em; }
+    .hero-list { display: grid; gap: var(--space-3); color: var(--color-text-muted); }
+    .hero-list li { display: flex; gap: var(--space-3); align-items: flex-start; }
+    .hero-list i { width: 0.75rem; height: 0.75rem; border-radius: 50%; margin-top: 0.45rem; background: var(--color-primary); box-shadow: 0 0 0 0.28rem color-mix(in srgb, var(--color-primary) 15%, transparent); }
+
+    .logo-cloud { padding-top: var(--space-4); display: grid; gap: var(--space-4); }
+    .logo-cloud p { font-size: var(--text-xs); color: var(--color-text-faint); text-transform: uppercase; letter-spacing: 0.12em; }
+    .logo-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-3); }
+    .logo-row div { padding: var(--space-3) var(--space-4); text-align: center; border-radius: var(--radius-full); background: var(--color-surface); border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent); font-size: var(--text-xs); color: var(--color-text-muted); }
+
+    .story-grid, .model-grid, .tech-grid, .stake-grid, .market-grid, .roadmap-grid, .impact-grid, .governance-grid {
+      display: grid; gap: var(--space-5);
+    }
+    .story-grid { grid-template-columns: 1.1fr 0.9fr; }
+    .story-card, .model-card, .tech-card, .stake-card, .market-card, .roadmap-card, .impact-card, .governance-card {
+      background: var(--color-surface);
+      border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+      border-radius: var(--radius-xl);
+      padding: clamp(var(--space-6), 4vw, var(--space-8));
+      box-shadow: var(--shadow-sm);
+    }
+    .story-card h3, .model-card h3, .tech-card h3, .stake-card h3, .market-card h3, .roadmap-card h3, .impact-card h3, .governance-card h3 {
+      font-size: var(--text-lg); line-height: 1.15; margin-bottom: var(--space-3);
+    }
+    .story-card p, .model-card p, .tech-card p, .stake-card p, .market-card p, .roadmap-card p, .impact-card p, .governance-card p { color: var(--color-text-muted); }
+    .story-card ul, .model-card ul, .tech-card ul, .stake-card ul, .market-card ul, .roadmap-card ul, .impact-card ul, .governance-card ul {
+      list-style: none; display: grid; gap: var(--space-3); margin-top: var(--space-5);
+    }
+    .story-card li, .model-card li, .tech-card li, .stake-card li, .market-card li, .roadmap-card li, .impact-card li, .governance-card li {
+      padding-top: var(--space-3); border-top: 1px solid var(--color-divider);
+    }
+    .metric-band {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-4); margin-top: var(--space-8);
+    }
+    .metric-band .metric {
+      padding: var(--space-5); border-radius: var(--radius-lg); background: color-mix(in srgb, var(--color-surface) 86%, transparent);
+      border: 1px solid color-mix(in srgb, var(--color-text) 8%, transparent);
+    }
+    .metric strong { display: block; font-family: var(--font-display); font-size: var(--text-xl); line-height: 1; margin-bottom: var(--space-2); }
+    .metric span { color: var(--color-text-muted); font-size: var(--text-sm); }
+
+    .model-grid, .tech-grid, .stake-grid, .market-grid, .impact-grid, .governance-grid { grid-template-columns: repeat(3, 1fr); }
+    .roadmap-grid { grid-template-columns: repeat(4, 1fr); }
+    .pill-list { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-5); }
+    .pill { font-size: var(--text-xs); padding: 0.45rem 0.75rem; border-radius: var(--radius-full); background: color-mix(in srgb, var(--color-primary) 10%, var(--color-surface)); color: var(--color-primary); border: 1px solid color-mix(in srgb, var(--color-primary) 16%, transparent); }
+
+    .split-band {
+      display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5); align-items: stretch;
+    }
+    .process-card {
+      background: linear-gradient(180deg, color-mix(in srgb, var(--color-surface) 96%, transparent), var(--color-surface-2));
+      border-radius: var(--radius-xl); border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent); padding: var(--space-8);
+    }
+    .process-steps { display: grid; gap: var(--space-4); margin-top: var(--space-6); }
+    .process-step { display: grid; grid-template-columns: auto 1fr; gap: var(--space-3); align-items: start; }
+    .process-step .num { width: 2rem; height: 2rem; display: grid; place-items: center; border-radius: 50%; background: var(--color-primary); color: var(--color-text-inverse); font-size: var(--text-xs); font-weight: 700; }
+    .process-step p { color: var(--color-text-muted); }
+
+    .cta-panel {
+      padding: clamp(var(--space-8), 6vw, var(--space-16)); background: linear-gradient(135deg, var(--color-primary), color-mix(in srgb, var(--color-primary) 78%, #274c47)); color: var(--color-text-inverse);
+      border-radius: calc(var(--radius-xl) * 1.1); display: grid; grid-template-columns: 1.1fr 0.9fr; gap: var(--space-8); align-items: center; box-shadow: var(--shadow-lg);
+    }
+    .cta-panel h2 { font-family: var(--font-display); font-size: var(--text-2xl); line-height: 1; margin-bottom: var(--space-4); }
+    .cta-panel p { color: color-mix(in srgb, var(--color-text-inverse) 84%, transparent); }
+    .cta-list { display: grid; gap: var(--space-3); }
+    .cta-list li { padding-left: var(--space-4); position: relative; }
+    .cta-list li::before { content: ""; position: absolute; left: 0; top: 0.7rem; width: 0.5rem; height: 0.5rem; border-radius: 50%; background: color-mix(in srgb, white 84%, transparent); }
+    .cta-actions { display: flex; gap: var(--space-4); flex-wrap: wrap; margin-top: var(--space-5); }
+    .cta-panel .button-secondary { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.22); }
+
+    footer { padding: var(--space-10) 0 var(--space-12); }
+    .footer-grid { display: grid; grid-template-columns: 1fr auto; gap: var(--space-6); align-items: center; border-top: 1px solid var(--color-divider); padding-top: var(--space-6); }
+    .footer-grid p { color: var(--color-text-muted); font-size: var(--text-sm); max-width: 60ch; }
+    .footer-links { display: flex; gap: var(--space-4); flex-wrap: wrap; }
+    .footer-links a { font-size: var(--text-sm); color: var(--color-text-muted); }
+
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity 700ms cubic-bezier(0.16,1,0.3,1), transform 700ms cubic-bezier(0.16,1,0.3,1); }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 980px) {
+      .hero-grid, .story-grid, .split-band, .cta-panel, .model-grid, .tech-grid, .stake-grid, .market-grid, .impact-grid, .governance-grid, .roadmap-grid, .metric-band { grid-template-columns: 1fr 1fr; }
+      .cta-panel { grid-template-columns: 1fr; }
+      .logo-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 760px) {
+      .header-row { align-items: flex-start; padding: var(--space-3) 0; }
+      .nav { align-items: flex-end; }
+      .nav-links {
+        position: absolute; left: 1rem; right: 1rem; top: calc(100% + 0.5rem); display: none; flex-direction: column;
+        background: color-mix(in srgb, var(--color-surface) 95%, transparent); border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent); border-radius: var(--radius-xl); padding: var(--space-4); box-shadow: var(--shadow-lg);
+      }
+      .nav-links.open { display: flex; }
+      .menu-toggle { display: inline-grid; }
+      .hero-grid, .story-grid, .split-band, .model-grid, .tech-grid, .stake-grid, .market-grid, .impact-grid, .governance-grid, .roadmap-grid, .metric-band { grid-template-columns: 1fr; }
+      .hero h1 { max-width: 11ch; }
+      .section-head h2 { max-width: none; }
+      .mini-stat-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .button:hover { transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="#top" aria-label="Janjati Collective home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Janjati Collective logo">
+            <path d="M32 8L50 18.5V40.5L32 56L14 40.5V18.5L32 8Z" stroke="currentColor" stroke-width="3.5"/>
+            <path d="M22 24L32 18L42 24V35L32 43L22 35V24Z" stroke="currentColor" stroke-width="3.5"/>
+            <path d="M32 18V43" stroke="currentColor" stroke-width="3.5"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <strong>Janjati Collective</strong>
+          <span>India to the world</span>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Primary navigation">
+        <button class="menu-toggle" aria-label="Open menu" data-menu-toggle>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+        <div class="nav-links" data-nav-links>
+          <a href="#model">Business model</a>
+          <a href="#technology">Technology</a>
+          <a href="#markets">Markets</a>
+          <a href="#impact">Impact</a>
+          <a href="#roadmap">Roadmap</a>
+        </div>
+        <button class="theme-toggle" aria-label="Switch theme" data-theme-toggle>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero wide" id="top">
+      <div class="hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow">Sustainable commerce for living heritage</span>
+          <h1>Promote tribal art, handicraft and produce with dignity, scale and traceability.</h1>
+          <p>
+            This website presents a contemporary business concept for India that combines fair trade sourcing, digital storytelling, export readiness, and supply-chain transparency so tribal communities, buyers, institutions, and investors all benefit together.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#model">Explore the model</a>
+            <a class="button button-secondary" href="#roadmap">See launch roadmap</a>
+          </div>
+          <div class="logo-cloud">
+            <p>Designed for collaboration across</p>
+            <div class="logo-row" aria-label="Stakeholder types">
+              <div>Artisans & FPOs</div>
+              <div>Designers & Curators</div>
+              <div>Domestic Buyers</div>
+              <div>Global Importers</div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-panel reveal" aria-label="Business highlights">
+          <div>
+            <span class="eyebrow">Why this works</span>
+          </div>
+          <div class="mini-stat-grid">
+            <div class="mini-stat"><strong>3-Pillar</strong><span>Art, craft and produce</span></div>
+            <div class="mini-stat"><strong>B2B + D2C</strong><span>Retail, gifting and export</span></div>
+            <div class="mini-stat"><strong>Phygital</strong><span>Marketplace + experience hubs</span></div>
+            <div class="mini-stat"><strong>Traceable</strong><span>Origin, maker and impact data</span></div>
+          </div>
+          <ul class="hero-list" role="list">
+            <li><i></i><span>Digitally profile each artisan cluster, product line, and tribal produce source.</span></li>
+            <li><i></i><span>Use modern cataloging, quality grading, logistics orchestration, and storytelling-led commerce.</span></li>
+            <li><i></i><span>Create premium positioning for ethical buyers in India, museums, hospitality, gifting, and overseas retail.</span></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">The opportunity</span>
+          <h2>A large market exists, but the value chain is still fragmented.</h2>
+          <p>Indian handicrafts already have significant export scale, while TRIFED and related tribal promotion systems show that procurement, showroom, e-commerce, training, and international market access can be organized at national level. The next step is a stronger premium platform that unifies provenance, fair pricing, design innovation, and institutional sales.</p>
+        </div>
+        <div class="story-grid">
+          <article class="story-card reveal">
+            <h3>The core gap</h3>
+            <p>Many tribal creators produce exceptional work, but buyers often see inconsistent catalogs, weak branding, limited trust signals, fragmented logistics, and little product storytelling.</p>
+            <ul role="list">
+              <li>Low visibility of artisan identity and tribal context.</li>
+              <li>Uneven packaging, quality control, and export documentation.</li>
+              <li>Middlemen capture disproportionate value.</li>
+              <li>Forest and farm-linked tribal produce lacks premium brand architecture.</li>
+            </ul>
+          </article>
+          <article class="story-card reveal">
+            <h3>The strategic answer</h3>
+            <p>Build a branded commerce ecosystem rather than just an online store. The platform should combine sourcing, incubation, certification, content, channel sales, and technology-enabled operations.</p>
+            <ul role="list">
+              <li>Cluster-based onboarding with local partners and producer institutions.</li>
+              <li>Digital product passports for authenticity and origin traceability.</li>
+              <li>Tiered channels: D2C, export wholesale, gifting, hospitality, museum retail.</li>
+              <li>Data-led pricing and demand forecasting to reduce waste and dead inventory.</li>
+            </ul>
+          </article>
+        </div>
+        <div class="metric-band reveal" aria-label="Opportunity indicators">
+          <div class="metric"><strong>US$ 4.35B</strong><span>Indian handicraft exports in FY22</span></div>
+          <div class="metric"><strong>5,927</strong><span>Suppliers/producers empanelled with TRIFED as of 31.03.2025</span></div>
+          <div class="metric"><strong>3,05,485</strong><span>Families linked to those empanelled producers</span></div>
+          <div class="metric"><strong>77</strong><span>Tribes India showrooms highlighted by TRIFED</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="model">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Business model</span>
+          <h2>Design a win-win platform, not a charity storefront.</h2>
+          <p>The enterprise should operate as a commercially disciplined, impact-led marketplace brand. It must earn revenue through multiple channels while ensuring producers receive transparent, pre-defined value shares and capability-building support.</p>
+        </div>
+        <div class="model-grid">
+          <article class="model-card reveal">
+            <h3>Supply engine</h3>
+            <p>Partner with artisan collectives, self-help groups, FPOs, Van Dhan networks, NGOs, and state tribal development institutions. Use cluster managers for sampling, design support, quality standards, and production planning.</p>
+            <div class="pill-list"><span class="pill">Cluster onboarding</span><span class="pill">QC protocols</span><span class="pill">Maker profiles</span></div>
+          </article>
+          <article class="model-card reveal">
+          <h3>Demand engine</h3>
+            <p>Sell through D2C web commerce, curated B2B catalogues, premium gifting, export buyers, hospitality sourcing, museum shops, and pop-up experience events in metros and overseas cultural festivals.</p>
+            <div class="pill-list"><span class="pill">Retail</span><span class="pill">Wholesale</span><span class="pill">Corporate gifting</span></div>
+          </article>
+          <article class="model-card reveal">
+            <h3>Value engine</h3>
+            <p>Capture value via product margin, subscription access for institutional buyers, export services, white-label sourcing, impact reporting dashboards, and design incubation partnerships.</p>
+            <div class="pill-list"><span class="pill">Margins</span><span class="pill">Services</span><span class="pill">Data products</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container split-band">
+        <article class="process-card reveal">
+          <span class="eyebrow">How stakeholders win</span>
+          <div class="process-steps">
+            <div class="process-step"><span class="num">1</span><div><h3>Artisans and gatherers</h3><p>Receive assured procurement pathways, better market intelligence, design support, transparent pricing, and stronger repeat orders.</p></div></div>
+            <div class="process-step"><span class="num">2</span><div><h3>Buyers</h3><p>Get authentic sourcing, curated collections, dependable quality, export documentation, and a powerful heritage story with every product.</p></div></div>
+            <div class="process-step"><span class="num">3</span><div><h3>Institutions</h3><p>Access measurable impact data for CSR, tourism, culture, and livelihood missions without compromising commercial viability.</p></div></div>
+            <div class="process-step"><span class="num">4</span><div><h3>The platform</h3><p>Builds a defensible brand through provenance, curation, operations discipline, and a trusted network effect across regions and categories.</p></div></div>
+          </div>
+        </article>
+        <article class="process-card reveal">
+          <span class="eyebrow">Revenue architecture</span>
+          <div class="process-steps">
+            <div class="process-step"><span class="num">A</span><div><h3>Premium collections</h3><p>Limited-run art and collectible handicrafts with artist stories, certificates, and curator notes for high-value buyers.</p></div></div>
+            <div class="process-step"><span class="num">B</span><div><h3>Daily use range</h3><p>Home, decor, fashion accessories, and tableware adapted for modern households while preserving cultural identity.</p></div></div>
+            <div class="process-step"><span class="num">C</span><div><h3>Tribal produce</h3><p>Honey, millets, spices, forest foods, herbal wellness, and natural ingredients sold with origin-led branding and compliance.</p></div></div>
+            <div class="process-step"><span class="num">D</span><div><h3>Enterprise services</h3><p>Bulk sourcing, export facilitation, corporate gifting, store-in-store programs, and hospitality procurement partnerships.</p></div></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="technology">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">State-of-the-art technology</span>
+          <h2>Use modern systems to protect heritage while scaling commerce.</h2>
+          <p>The platform should feel premium on the front end and rigorous on the back end, with traceability, multilingual operations, data visibility, and workflow automation embedded from day one.</p>
+        </div>
+        <div class="tech-grid">
+          <article class="tech-card reveal">
+            <h3>Digital product passports</h3>
+            <p>Every item gets a QR-based identity linked to maker, region, material, process, authenticity, and impact metrics. This strengthens trust in India and abroad.</p>
+            <ul role="list">
+              <li>Origin and cluster metadata</li>
+              <li>Material and craft taxonomy</li>
+              <li>Certificate and batch traceability</li>
+            </ul>
+          </article>
+          <article class="tech-card reveal">
+            <h3>AI-assisted commerce ops</h3>
+            <p>Use AI for catalog enrichment, translation, buyer segmentation, demand prediction, dynamic merchandising, and assisted customer service across markets.</p>
+            <ul role="list">
+              <li>Auto-tagging and storytelling drafts</li>
+              <li>Multilingual product pages</li>
+              <li>Demand and inventory planning</li>
+            </ul>
+          </article>
+          <article class="tech-card reveal">
+            <h3>Distributed sourcing workflows</h3>
+            <p>Field apps let cluster coordinators upload samples, QC images, artisan attendance, dispatch milestones, and payment status from remote regions.</p>
+            <ul role="list">
+              <li>Offline-first data capture</li>
+              <li>Integrated payments and reconciliation</li>
+              <li>Buyer and supplier dashboards</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="markets">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Market strategy</span>
+          <h2>Win domestically first, then scale abroad with focused categories.</h2>
+          <p>Export demand is real, but the business should sequence growth carefully. Start with curated, high-trust categories and channel partnerships before expanding into broader international retail.</p>
+        </div>
+        <div class="market-grid">
+          <article class="market-card reveal">
+            <h3>India</h3>
+            <p>Target metro consumers, cultural institutions, hotels, architects, premium gifting clients, and conscious households through rich storytelling and curated collections.</p>
+            <div class="pill-list"><span class="pill">D2C</span><span class="pill">Retail pop-ups</span><span class="pill">Institutional sales</span></div>
+          </article>
+          <article class="market-card reveal">
+            <h3>Global</h3>
+            <p>Focus on export-ready home decor, collectibles, textiles, jewelry, bamboo/cane, pottery, gifts, and select packaged produce with strong compliance and premium packaging.</p>
+            <div class="pill-list"><span class="pill">Importers</span><span class="pill">Museum stores</span><span class="pill">Fair-trade buyers</span></div>
+          </article>
+          <article class="market-card reveal">
+            <h3>Brand edge</h3>
+            <p>Compete on authenticity, design-led curation, verified provenance, and measurable livelihood impact instead of competing only on low price.</p>
+            <div class="pill-list"><span class="pill">Authenticity</span><span class="pill">Premium story</span><span class="pill">Impact proof</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Management architecture</span>
+          <h2>Operate like a modern mission-driven enterprise.</h2>
+          <p>The platform needs disciplined management systems across sourcing, merchandising, pricing, logistics, compliance, partnerships, and impact governance. Good intent alone will not scale this business.</p>
+        </div>
+        <div class="governance-grid">
+          <article class="governance-card reveal">
+            <h3>Category management</h3>
+            <p>Separate collectible art, lifestyle handicraft, and packaged produce into distinct business units with different pricing, compliance, and demand cycles.</p>
+          </article>
+          <article class="governance-card reveal">
+            <h3>Design and product council</h3>
+            <p>Create a rotating council of tribal representatives, designers, historians, and merchandisers to preserve authenticity while improving market fit.</p>
+          </article>
+          <article class="governance-card reveal">
+            <h3>Impact and fairness rules</h3>
+            <p>Publish maker share bands, payment timelines, procurement norms, and grievance channels so trust is built into the operating model.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="impact">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Impact metrics</span>
+          <h2>Measure livelihood quality, not just gross merchandise value.</h2>
+          <p>A true win-win platform tracks whether communities gain income stability, women’s participation, repeat orders, skill uplift, and asset ownership along with brand growth and customer retention.</p>
+        </div>
+        <div class="impact-grid">
+          <article class="impact-card reveal">
+            <h3>Producer metrics</h3>
+            <ul role="list">
+              <li>Average earnings uplift by cluster</li>
+              <li>Share of women-led production units</li>
+              <li>Repeat procurement rate and payment speed</li>
+            </ul>
+          </article>
+          <article class="impact-card reveal">
+            <h3>Market metrics</h3>
+            <ul role="list">
+              <li>Repeat customers and reorder velocity</li>
+              <li>Export conversion and margin by category</li>
+              <li>Brand premium captured through storytelling</li>
+            </ul>
+          </article>
+          <article class="impact-card reveal">
+            <h3>Ecosystem metrics</h3>
+            <ul role="list">
+              <li>Clusters digitized and products catalogued</li>
+              <li>Craft forms revived or protected</li>
+              <li>Sustainable material and packaging adoption</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="roadmap">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Phased roadmap</span>
+          <h2>Launch with focus, then expand with discipline.</h2>
+          <p>A viable rollout starts with 3 to 5 craft and produce clusters, a strong founding assortment, and one excellent operating playbook before broader national and export scaling.</p>
+        </div>
+        <div class="roadmap-grid">
+          <article class="roadmap-card reveal">
+            <h3>Phase 01</h3>
+            <p>Validate 3 pilot clusters, build catalog standards, onboard anchor buyers, and launch premium storytelling-led commerce.</p>
+          </article>
+          <article class="roadmap-card reveal">
+            <h3>Phase 02</h3>
+            <p>Add institutional gifting, hospitality, and diaspora channels; formalize packaging and export documentation workflows.</p>
+          </article>
+          <article class="roadmap-card reveal">
+            <h3>Phase 03</h3>
+            <p>Launch traceability passports, buyer dashboards, multilingual content, and curated global wholesale outreach.</p>
+          </article>
+          <article class="roadmap-card reveal">
+            <h3>Phase 04</h3>
+            <p>Scale into a trusted umbrella brand with flagship experience centers, global fairs, and strategic collaborations abroad.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta-panel reveal">
+          <div>
+            <span class="eyebrow" style="background: rgba(255,255,255,0.1); color: white; border-color: rgba(255,255,255,0.18);">Contemporary, viable, scalable</span>
+            <h2>A modern tribal commerce brand can be both ethical and globally competitive.</h2>
+            <p>Use this website as a strategic concept note, investor-facing explainer, or starting point for a full product build with catalog, sourcing workflows, and stakeholder dashboards.</p>
+          </div>
+          <div>
+            <ul class="cta-list" role="list">
+              <li>Fair, transparent value distribution across stakeholders</li>
+              <li>Technology that increases trust rather than replacing people</li>
+              <li>Management systems built for procurement, quality, and export scale</li>
+              <li>Brand storytelling that elevates Indian tribal heritage worldwide</li>
+            </ul>
+            <div class="cta-actions">
+              <a class="button button-secondary" href="#top">Back to top</a>
+              <a class="button button-secondary" href="#technology">Review tech stack</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <p>Concept website for a sustainable business that promotes Indian tribal art, handicraft, and tribal produce through fair trade, premium branding, and state-of-the-art operations.</p>
+      <div class="footer-links">
+        <a href="#model">Model</a>
+        <a href="#markets">Markets</a>
+        <a href="#impact">Impact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const themeToggle = document.querySelector('[data-theme-toggle]');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      let theme = prefersDark ? 'dark' : 'light';
+      root.setAttribute('data-theme', theme);
+      const renderIcon = () => {
+        if (!themeToggle) return;
+        themeToggle.innerHTML = theme === 'dark'
+          ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+          : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+      };
+      renderIcon();
+      themeToggle?.addEventListener('click', () => {
+        theme = theme === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', theme);
+        renderIcon();
+      });
+
+      const menuButton = document.querySelector('[data-menu-toggle]');
+      const navLinks = document.querySelector('[data-nav-links]');
+      menuButton?.addEventListener('click', () => navLinks?.classList.toggle('open'));
+      navLinks?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => navLinks.classList.remove('open')));
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add('is-visible');
+        });
+      }, { threshold: 0.14 });
+      document.querySelectorAll('.reveal').forEach((item) => observer.observe(item));
+    })();
+  </script>
+</body>
+</html>
