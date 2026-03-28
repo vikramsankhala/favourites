@@ -1,0 +1,2190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Living River — Indian Philosophy for Every Age</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Vesper+Libre:wght@400;700&family=Nunito:wght@300;400;600;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --saffron: #FF6B1A;
+  --deep-saffron: #E05500;
+  --gold: #F5C842;
+  --cream: #FFF8EE;
+  --lotus-pink: #E8527A;
+  --sky: #4BBFDD;
+  --deep-teal: #0A6E7C;
+  --forest: #2D6A4F;
+  --deep-purple: #3B1F5E;
+  --night-blue: #0D1B3E;
+  --warm-white: #FFFDF7;
+  --text-dark: #1A0A00;
+  --text-mid: #4A2F1A;
+  --soft-shadow: rgba(255,107,26,0.15);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--warm-white);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+/* ===== NAVIGATION ===== */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(10,5,0,0.92);
+  backdrop-filter: blur(10px);
+  padding: 0.7rem 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 2px solid var(--saffron);
+}
+.nav-logo {
+  font-family: 'Cinzel Decorative', serif;
+  color: var(--gold);
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex; gap: 1.5rem; list-style: none; flex-wrap: wrap;
+}
+.nav-links a {
+  color: var(--cream);
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--gold); }
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0D1B3E 0%, #3B1F5E 40%, #7A2D00 80%, #E05500 100%);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 6rem 2rem 4rem;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='rgba(245,200,66,0.07)' stroke-width='1'/%3E%3Ccircle cx='50' cy='50' r='30' fill='none' stroke='rgba(245,200,66,0.05)' stroke-width='1'/%3E%3Ccircle cx='50' cy='50' r='20' fill='none' stroke='rgba(245,200,66,0.04)' stroke-width='1'/%3E%3C/svg%3E") repeat;
+  background-size: 120px 120px;
+  animation: patternDrift 60s linear infinite;
+}
+@keyframes patternDrift { to { background-position: 120px 120px; } }
+
+.hero-om {
+  font-size: 5rem;
+  color: var(--gold);
+  opacity: 0.25;
+  position: absolute;
+  top: 15%; left: 5%;
+  animation: float 8s ease-in-out infinite;
+  user-select: none;
+}
+.hero-om-2 {
+  font-size: 3rem;
+  color: var(--lotus-pink);
+  opacity: 0.2;
+  position: absolute;
+  bottom: 20%; right: 8%;
+  animation: float 10s ease-in-out infinite reverse;
+  user-select: none;
+}
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-20px)} }
+
+.hero-tag {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+.hero h1 {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(2rem, 6vw, 4.5rem);
+  color: white;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+.hero h1 span { color: var(--gold); }
+.hero-sub {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  color: rgba(255,255,255,0.8);
+  max-width: 700px;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+.hero-badges {
+  display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+  position: relative; margin-bottom: 3rem;
+}
+.badge {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(245,200,66,0.4);
+  color: var(--gold);
+  padding: 0.4rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+.scroll-hint {
+  position: absolute; bottom: 2rem;
+  color: rgba(255,255,255,0.5);
+  font-size: 0.8rem;
+  animation: bounce 2s ease-in-out infinite;
+}
+@keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(8px)} }
+
+/* ===== SECTION BASICS ===== */
+section { padding: 5rem 2rem; }
+.container { max-width: 1100px; margin: 0 auto; }
+.section-tag {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--saffron);
+  margin-bottom: 0.8rem;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  color: var(--text-dark);
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+.section-intro {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-mid);
+  max-width: 750px;
+  margin-bottom: 3rem;
+}
+
+/* ===== INTRO RIVER SECTION ===== */
+#intro {
+  background: linear-gradient(180deg, #FFF8EE 0%, #FFF0D4 100%);
+  position: relative;
+}
+#intro::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--saffron), var(--gold), var(--lotus-pink));
+}
+.river-story {
+  background: white;
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 8px 40px rgba(255,107,26,0.1);
+  border-left: 5px solid var(--saffron);
+  margin-bottom: 2rem;
+}
+.river-story h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: var(--deep-saffron);
+  margin-bottom: 1rem;
+}
+.story-emoji { font-size: 2rem; margin-right: 0.5rem; }
+
+/* ===== WHAT IS PHILOSOPHY KIDS SECTION ===== */
+#kids-corner {
+  background: linear-gradient(135deg, #E8F5E9, #E3F2FD, #FFF9C4);
+}
+.kids-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.kids-card {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: default;
+  border-top: 4px solid var(--saffron);
+}
+.kids-card:nth-child(2) { border-top-color: var(--deep-teal); }
+.kids-card:nth-child(3) { border-top-color: var(--lotus-pink); }
+.kids-card:nth-child(4) { border-top-color: var(--forest); }
+.kids-card:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(0,0,0,0.12); }
+.kids-card .card-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+.kids-card h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--text-dark); margin-bottom: 0.7rem; }
+.kids-card p { font-size: 0.95rem; line-height: 1.7; color: var(--text-mid); }
+
+/* ===== TIMELINE ===== */
+#timeline {
+  background: var(--night-blue);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+#timeline::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at 20% 50%, rgba(59,31,94,0.6) 0%, transparent 60%),
+              radial-gradient(ellipse at 80% 50%, rgba(224,85,0,0.3) 0%, transparent 60%);
+}
+#timeline .container { position: relative; }
+#timeline .section-title { color: white; }
+.timeline-line {
+  position: relative;
+  padding-left: 3rem;
+  border-left: 3px solid rgba(245,200,66,0.3);
+  margin-top: 2rem;
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 3rem;
+  padding: 1.5rem 2rem;
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(245,200,66,0.15);
+  transition: background 0.3s;
+}
+.timeline-item:hover { background: rgba(255,255,255,0.09); }
+.timeline-dot {
+  position: absolute;
+  left: -3.6rem;
+  top: 1.5rem;
+  width: 16px; height: 16px;
+  background: var(--gold);
+  border-radius: 50%;
+  border: 3px solid var(--night-blue);
+  box-shadow: 0 0 12px var(--gold);
+}
+.timeline-year {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+.timeline-item h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: white;
+  margin-bottom: 0.6rem;
+}
+.timeline-item p { font-size: 0.95rem; line-height: 1.7; color: rgba(255,255,255,0.75); }
+.timeline-item .anecdote {
+  margin-top: 1rem;
+  background: rgba(245,200,66,0.08);
+  border-left: 3px solid var(--gold);
+  padding: 0.8rem 1rem;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.85);
+}
+
+/* ===== THINKERS PROFILES ===== */
+#thinkers { background: var(--cream); }
+.thinkers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.thinker-card {
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 6px 30px rgba(0,0,0,0.08);
+  transition: transform 0.3s;
+}
+.thinker-card:hover { transform: translateY(-8px); }
+.thinker-header {
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.thinker-header.shankara { background: linear-gradient(135deg, #FF6B1A, #7A2D00); }
+.thinker-header.ramanuja { background: linear-gradient(135deg, #0A6E7C, #0D1B3E); }
+.thinker-header.vivekananda { background: linear-gradient(135deg, #E8527A, #3B1F5E); }
+.thinker-header.nagarjuna { background: linear-gradient(135deg, #2D6A4F, #0A6E7C); }
+.thinker-header.aurobindo { background: linear-gradient(135deg, #8B5CF6, #1E1B4B); }
+.thinker-header.krishnamurti { background: linear-gradient(135deg, #D97706, #92400E); }
+.thinker-header.ambedkar { background: linear-gradient(135deg, #1D4ED8, #1E3A5F); }
+.thinker-header.tagore { background: linear-gradient(135deg, #BE185D, #9D174D); }
+.thinker-header.gandhi { background: linear-gradient(135deg, #047857, #065F46); }
+.thinker-header.osho { background: linear-gradient(135deg, #7C3AED, #4C1D95); }
+.thinker-header.sadhguru { background: linear-gradient(135deg, #B45309, #78350F); }
+.thinker-header.daya { background: linear-gradient(135deg, #0369A1, #075985); }
+.thinker-emoji {
+  font-size: 3.5rem;
+  position: absolute; right: 1.5rem; top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.3;
+}
+.thinker-header h3 {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.2rem;
+  color: white;
+  margin-bottom: 0.3rem;
+}
+.thinker-header .dates {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.7);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+.thinker-header .philosophy-tag {
+  display: inline-block;
+  margin-top: 0.5rem;
+  background: rgba(255,255,255,0.2);
+  padding: 0.2rem 0.8rem;
+  border-radius: 50px;
+  font-size: 0.7rem;
+  color: white;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.thinker-body { padding: 1.5rem 2rem 2rem; }
+.thinker-body p { font-size: 0.95rem; line-height: 1.75; color: var(--text-mid); margin-bottom: 1rem; }
+.thinker-story {
+  background: #FFF8EE;
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1rem;
+  border-left: 3px solid var(--saffron);
+}
+.thinker-story h4 { font-size: 0.85rem; font-weight: 800; color: var(--saffron); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.08em; }
+.thinker-story p { font-size: 0.9rem; margin: 0; }
+.modern-connection {
+  background: #E8F5E9;
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  border-left: 3px solid var(--forest);
+}
+.modern-connection h4 { font-size: 0.85rem; font-weight: 800; color: var(--forest); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.08em; }
+.modern-connection p { font-size: 0.9rem; margin: 0; color: var(--text-mid); }
+
+/* ===== PHILOSOPHY CONCEPTS ===== */
+#concepts {
+  background: linear-gradient(180deg, #FFF0D4, #FFF8EE);
+}
+.concepts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.8rem;
+  margin-top: 2rem;
+}
+.concept-card {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+.concept-card:hover { transform: translateY(-5px); }
+.concept-card::before {
+  content: attr(data-symbol);
+  position: absolute;
+  right: -0.5rem; bottom: -1rem;
+  font-size: 6rem;
+  opacity: 0.06;
+  font-family: 'Vesper Libre', serif;
+  line-height: 1;
+}
+.concept-num {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: var(--saffron);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.concept-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: var(--text-dark);
+  margin-bottom: 0.7rem;
+}
+.concept-card .concept-sanskrit {
+  font-family: 'Vesper Libre', serif;
+  font-size: 1.1rem;
+  color: var(--saffron);
+  margin-bottom: 0.8rem;
+}
+.concept-card p { font-size: 0.93rem; line-height: 1.75; color: var(--text-mid); margin-bottom: 0.8rem; }
+.concept-story {
+  background: #FFF8EE;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text-mid);
+  border-left: 3px solid var(--gold);
+  font-style: italic;
+}
+.physics-link {
+  background: #E3F2FD;
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  margin-top: 0.8rem;
+  color: #0D47A1;
+  font-weight: 600;
+}
+.physics-link::before { content: '⚛️ '; }
+.math-link {
+  background: #F3E5F5;
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  color: #4A148C;
+  font-weight: 600;
+}
+.math-link::before { content: '∞ '; }
+
+/* ===== PHYSICS & MATHS ===== */
+#science {
+  background: var(--night-blue);
+  position: relative;
+  overflow: hidden;
+}
+#science::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(75,191,221,0.15) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(232,82,122,0.15) 0%, transparent 40%);
+}
+#science .section-title { color: white; }
+#science .section-intro { color: rgba(255,255,255,0.75); }
+.science-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.8rem;
+  margin-top: 2rem;
+  position: relative;
+}
+.science-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px;
+  padding: 2rem;
+  transition: background 0.3s, border-color 0.3s;
+}
+.science-card:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(75,191,221,0.4);
+}
+.science-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+.science-card h3 {
+  font-family: 'Playfair Display', serif;
+  color: var(--sky);
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+}
+.science-card p { font-size: 0.92rem; line-height: 1.75; color: rgba(255,255,255,0.75); margin-bottom: 0.8rem; }
+.philosophy-parallel {
+  background: rgba(245,200,66,0.1);
+  border-left: 3px solid var(--gold);
+  padding: 0.8rem 1rem;
+  border-radius: 0 8px 8px 0;
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.8);
+  font-style: italic;
+}
+
+/* ===== MINE IS BEST ===== */
+#danger {
+  background: linear-gradient(135deg, #FFF5F5, #FFF8EE);
+}
+.danger-story {
+  background: white;
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 6px 30px rgba(0,0,0,0.08);
+  margin-bottom: 2rem;
+  border-top: 5px solid #EF4444;
+}
+.danger-story h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: #991B1B;
+  margin-bottom: 1rem;
+}
+.danger-story p { font-size: 0.97rem; line-height: 1.8; color: var(--text-mid); margin-bottom: 0.8rem; }
+.vs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.vs-bad {
+  background: #FEF2F2;
+  border-radius: 14px;
+  padding: 1.5rem;
+  border-left: 4px solid #EF4444;
+}
+.vs-good {
+  background: #F0FDF4;
+  border-radius: 14px;
+  padding: 1.5rem;
+  border-left: 4px solid #22C55E;
+}
+.vs-bad h4 { color: #991B1B; font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.8rem; }
+.vs-good h4 { color: #166534; font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.8rem; }
+.vs-bad li, .vs-good li { font-size: 0.92rem; line-height: 1.7; color: var(--text-mid); margin-left: 1.2rem; margin-bottom: 0.4rem; }
+
+/* ===== INFLUENCE IN ARTS ===== */
+#arts { background: linear-gradient(180deg, #1A0533, #0A0020); color: white; }
+#arts .section-title { color: white; }
+#arts .section-intro { color: rgba(255,255,255,0.7); }
+.arts-mosaic {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.art-tile {
+  border-radius: 18px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+.art-tile:hover { transform: scale(1.03); }
+.art-tile.literature { background: linear-gradient(135deg, #7C3AED, #4C1D95); }
+.art-tile.music { background: linear-gradient(135deg, #BE185D, #831843); }
+.art-tile.film { background: linear-gradient(135deg, #0369A1, #1E3A5F); }
+.art-tile.dance { background: linear-gradient(135deg, #B45309, #92400E); }
+.art-tile.politics { background: linear-gradient(135deg, #047857, #064E3B); }
+.art-tile.education { background: linear-gradient(135deg, #0A6E7C, #083344); }
+.art-tile h3 { font-family: 'Playfair Display', serif; color: white; font-size: 1.2rem; margin-bottom: 0.7rem; }
+.art-tile .art-emoji { font-size: 2rem; margin-bottom: 0.8rem; display: block; }
+.art-tile p { font-size: 0.9rem; line-height: 1.7; color: rgba(255,255,255,0.8); margin-bottom: 0.7rem; }
+.art-tile .example { font-size: 0.82rem; color: rgba(255,255,255,0.6); font-style: italic; }
+
+/* ===== CONTEMPORARY THINKERS ===== */
+#contemporary { background: var(--cream); }
+.contemporary-list {
+  margin-top: 2rem;
+  display: flex; flex-direction: column; gap: 2rem;
+}
+.contemporary-item {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  display: flex; gap: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+  transition: box-shadow 0.3s;
+  align-items: flex-start;
+}
+.contemporary-item:hover { box-shadow: 0 8px 40px rgba(0,0,0,0.12); }
+.contemporary-avatar {
+  width: 70px; height: 70px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+.contemporary-item:nth-child(1) .contemporary-avatar { background: linear-gradient(135deg, #FF6B1A, #7A2D00); }
+.contemporary-item:nth-child(2) .contemporary-avatar { background: linear-gradient(135deg, #0A6E7C, #0D1B3E); }
+.contemporary-item:nth-child(3) .contemporary-avatar { background: linear-gradient(135deg, #2D6A4F, #0A6E7C); }
+.contemporary-item:nth-child(4) .contemporary-avatar { background: linear-gradient(135deg, #8B5CF6, #1E1B4B); }
+.contemporary-item:nth-child(5) .contemporary-avatar { background: linear-gradient(135deg, #E8527A, #3B1F5E); }
+.contemporary-item:nth-child(6) .contemporary-avatar { background: linear-gradient(135deg, #D97706, #78350F); }
+.contemporary-item:nth-child(7) .contemporary-avatar { background: linear-gradient(135deg, #047857, #0A6E7C); }
+.contemporary-item:nth-child(8) .contemporary-avatar { background: linear-gradient(135deg, #BE185D, #9D174D); }
+.contemporary-content h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: var(--text-dark);
+  margin-bottom: 0.3rem;
+}
+.contemporary-content .role-tag {
+  display: inline-block;
+  background: #FFF0D4;
+  color: var(--saffron);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.7rem;
+  border-radius: 50px;
+  margin-bottom: 0.8rem;
+}
+.contemporary-content p { font-size: 0.93rem; line-height: 1.75; color: var(--text-mid); margin-bottom: 0.7rem; }
+.global-impact {
+  background: #E8F5E9;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  color: var(--forest);
+  font-weight: 600;
+}
+.global-impact::before { content: '🌍 Global Impact: '; }
+
+/* ===== PHILOSOPHY IN DAILY LIFE ===== */
+#daily { background: linear-gradient(135deg, #FFF8EE, #E8F5E9); }
+.daily-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.daily-card {
+  background: white;
+  border-radius: 18px;
+  padding: 1.8rem;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+  transition: transform 0.3s;
+}
+.daily-card:hover { transform: translateY(-5px); }
+.daily-icon { font-size: 3rem; margin-bottom: 1rem; }
+.daily-card h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--text-dark); margin-bottom: 0.7rem; }
+.daily-card p { font-size: 0.9rem; line-height: 1.7; color: var(--text-mid); }
+
+/* ===== STORIES FOR CHILDREN ===== */
+#stories {
+  background: linear-gradient(135deg, #FFF9C4, #E8F5E9, #E3F2FD);
+}
+.story-block {
+  background: white;
+  border-radius: 24px;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 6px 30px rgba(0,0,0,0.07);
+  position: relative;
+  overflow: hidden;
+}
+.story-block::before {
+  content: attr(data-num);
+  position: absolute;
+  right: 1rem; top: 0.5rem;
+  font-size: 8rem;
+  font-family: 'Cinzel Decorative', serif;
+  color: rgba(255,107,26,0.05);
+  line-height: 1;
+}
+.story-block h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: var(--deep-saffron);
+  margin-bottom: 1rem;
+}
+.story-block p { font-size: 0.97rem; line-height: 1.85; color: var(--text-mid); margin-bottom: 0.9rem; }
+.story-moral {
+  background: linear-gradient(135deg, #FFF0D4, #FFF8EE);
+  border: 2px solid var(--gold);
+  border-radius: 14px;
+  padding: 1rem 1.5rem;
+  margin-top: 1rem;
+}
+.story-moral strong { color: var(--deep-saffron); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 0.4rem; }
+.story-moral p { font-size: 0.93rem; font-style: italic; margin: 0; color: var(--text-mid); }
+
+/* ===== QUOTES WALL ===== */
+#quotes {
+  background: var(--deep-purple);
+  overflow: hidden;
+  position: relative;
+}
+#quotes::before {
+  content: '"';
+  position: absolute;
+  top: -2rem; left: -1rem;
+  font-size: 20rem;
+  font-family: 'Playfair Display', serif;
+  color: rgba(255,255,255,0.03);
+  line-height: 1;
+}
+#quotes .section-title { color: white; }
+.quotes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+  position: relative;
+}
+.quote-card {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  padding: 1.8rem;
+  position: relative;
+}
+.quote-card blockquote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 1rem;
+}
+.quote-card cite {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-size: 0.82rem;
+  font-style: normal;
+  color: var(--gold);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.quote-card cite::before { content: '— '; }
+
+/* ===== GLOBAL INFLUENCE MAP ===== */
+#global {
+  background: linear-gradient(135deg, #0D1B3E, #1A0533);
+  color: white;
+}
+#global .section-title { color: white; }
+#global .section-intro { color: rgba(255,255,255,0.7); }
+.influence-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.influence-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 18px;
+  padding: 1.8rem;
+  transition: background 0.3s;
+}
+.influence-card:hover { background: rgba(255,255,255,0.1); }
+.influence-flag { font-size: 2rem; margin-bottom: 0.8rem; }
+.influence-card h3 { color: var(--sky); font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 0.7rem; }
+.influence-card p { font-size: 0.9rem; line-height: 1.7; color: rgba(255,255,255,0.7); }
+
+/* ===== PHILOSOPHY IN POLITICS ===== */
+#politics { background: linear-gradient(180deg, #FFF0D4, #FFF8EE); }
+.politics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.8rem;
+  margin-top: 2rem;
+}
+.politics-card {
+  background: white;
+  border-radius: 18px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+  border-top: 4px solid var(--deep-teal);
+  transition: transform 0.3s;
+}
+.politics-card:hover { transform: translateY(-5px); }
+.politics-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: var(--text-dark);
+  margin-bottom: 0.8rem;
+}
+.politics-card p { font-size: 0.93rem; line-height: 1.75; color: var(--text-mid); }
+
+/* ===== EDUCATION SECTION ===== */
+#education { background: linear-gradient(135deg, #E3F2FD, #E8F5E9); }
+.edu-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.edu-card {
+  background: white;
+  border-radius: 18px;
+  padding: 1.8rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+  border-left: 4px solid var(--deep-teal);
+  transition: transform 0.3s;
+}
+.edu-card:hover { transform: translateY(-5px); }
+.edu-icon { font-size: 2rem; margin-bottom: 0.8rem; }
+.edu-card h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--text-dark); margin-bottom: 0.7rem; }
+.edu-card p { font-size: 0.9rem; line-height: 1.7; color: var(--text-mid); }
+
+/* ===== GLOSSARY ===== */
+#glossary { background: var(--cream); }
+.glossary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.glossary-item {
+  background: white;
+  border-radius: 14px;
+  padding: 1.2rem 1.5rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  border-left: 3px solid var(--saffron);
+}
+.glossary-item:nth-child(even) { border-left-color: var(--deep-teal); }
+.glossary-item:nth-child(3n) { border-left-color: var(--lotus-pink); }
+.glossary-term {
+  font-family: 'Vesper Libre', serif;
+  font-size: 1.1rem;
+  color: var(--saffron);
+  margin-bottom: 0.3rem;
+}
+.glossary-item p { font-size: 0.88rem; line-height: 1.6; color: var(--text-mid); }
+
+/* ===== FOOTER ===== */
+footer {
+  background: #0A0500;
+  color: rgba(255,255,255,0.6);
+  padding: 4rem 2rem 2rem;
+  text-align: center;
+}
+.footer-logo {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.5rem;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+.footer-tagline {
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+.footer-divider {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  margin: 2rem 0;
+}
+.footer-copy { font-size: 0.8rem; opacity: 0.5; }
+
+/* ===== PULLQUOTE ===== */
+.pullquote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(1.2rem, 3vw, 1.7rem);
+  line-height: 1.5;
+  color: var(--deep-saffron);
+  border-left: 5px solid var(--gold);
+  padding: 1.2rem 2rem;
+  margin: 2.5rem 0;
+  background: #FFF8EE;
+  border-radius: 0 14px 14px 0;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 640px) {
+  nav { padding: 0.5rem 1rem; }
+  .nav-links { display: none; }
+  .vs-grid { grid-template-columns: 1fr; }
+  .contemporary-item { flex-direction: column; }
+  section { padding: 3.5rem 1.2rem; }
+}
+
+/* ===== ANIMATIONS ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== CALLOUT BOX ===== */
+.callout {
+  background: linear-gradient(135deg, var(--saffron), var(--deep-saffron));
+  color: white;
+  border-radius: 20px;
+  padding: 2rem 2.5rem;
+  margin: 2rem 0;
+  position: relative;
+  overflow: hidden;
+}
+.callout::before {
+  content: '💡';
+  position: absolute; right: 1.5rem; top: 50%; transform: translateY(-50%);
+  font-size: 4rem; opacity: 0.2;
+}
+.callout h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 0.7rem; }
+.callout p { font-size: 0.97rem; line-height: 1.75; opacity: 0.95; }
+
+/* TOC */
+.toc {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  margin-bottom: 3rem;
+}
+.toc h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--text-dark); margin-bottom: 1rem; }
+.toc-list { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.5rem; }
+.toc-list a {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-size: 0.88rem;
+  color: var(--saffron);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.3rem 0;
+  transition: color 0.2s;
+}
+.toc-list a:hover { color: var(--deep-saffron); }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-logo">॥ The Living River ॥</div>
+  <ul class="nav-links">
+    <li><a href="#intro">About</a></li>
+    <li><a href="#timeline">Timeline</a></li>
+    <li><a href="#thinkers">Thinkers</a></li>
+    <li><a href="#concepts">Concepts</a></li>
+    <li><a href="#science">Science</a></li>
+    <li><a href="#danger">Dangers</a></li>
+    <li><a href="#arts">Arts</a></li>
+    <li><a href="#stories">Stories</a></li>
+    <li><a href="#contemporary">Today</a></li>
+    <li><a href="#global">Global</a></li>
+    <li><a href="#glossary">Glossary</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-om">ॐ</div>
+  <div class="hero-om-2">∞</div>
+  <div class="hero-tag">A Journey Through 3,000 Years of Wisdom</div>
+  <h1>The <span>Living River</span><br>of Indian Philosophy</h1>
+  <p class="hero-sub">From ancient forest sages to quantum physicists, from village storytellers to Silicon Valley — discover how Indian thought shapes the world we live in today. For curious minds of all ages.</p>
+  <div class="hero-badges">
+    <span class="badge">🧘 Philosophy</span>
+    <span class="badge">⚛️ Physics & Maths</span>
+    <span class="badge">🎨 Arts & Literature</span>
+    <span class="badge">🌍 Global Influence</span>
+    <span class="badge">👦 Child-Friendly</span>
+    <span class="badge">🔬 Modern Science</span>
+  </div>
+  <div class="scroll-hint">↓ Scroll to explore ↓</div>
+</div>
+
+<!-- INTRO -->
+<section id="intro">
+  <div class="container">
+    <div class="section-tag">Welcome</div>
+    <h2 class="section-title">What Is This Journey About?</h2>
+    <p class="section-intro">Imagine a great river — it begins as a tiny trickle in the Himalayas, thousands of years ago. As it flows, it collects water from hundreds of streams, carves canyons, nourishes forests, and finally merges with the vast ocean. Indian philosophy is that river. It began with questions asked by curious human beings sitting under trees. And it is still flowing, rushing into your smartphone, your classroom, your science lab — and your heart.</p>
+
+    <div class="toc fade-in">
+      <h3>📖 What You'll Find Here</h3>
+      <ul class="toc-list">
+        <li><a href="#kids-corner">🌱 For Children</a></li>
+        <li><a href="#timeline">🕰️ Timeline of Ideas</a></li>
+        <li><a href="#thinkers">🧠 Great Thinkers</a></li>
+        <li><a href="#concepts">💡 Key Concepts</a></li>
+        <li><a href="#science">⚛️ Physics & Maths</a></li>
+        <li><a href="#danger">"Mine is Best"</a></li>
+        <li><a href="#arts">🎨 Arts & Culture</a></li>
+        <li><a href="#stories">📚 Children's Stories</a></li>
+        <li><a href="#contemporary">🌟 Living Thinkers</a></li>
+        <li><a href="#global">🌍 Global Influence</a></li>
+        <li><a href="#politics">🏛️ Politics</a></li>
+        <li><a href="#glossary">📖 Glossary</a></li>
+      </ul>
+    </div>
+
+    <div class="river-story fade-in">
+      <h3><span class="story-emoji">🌊</span>The Story of the Blind Scholars and the River</h3>
+      <p>Once, seven scholars argued about a great river. One said, "The river is made of cold water — I touched it at dawn." Another said, "No, it is warm — I stood in it at noon." A third said, "You are both wrong — it is muddy brown." A fourth countered, "It is crystal clear!" They each knew their portion of the river. None knew the whole.</p>
+      <p>A young child watching them finally said: "Why don't you walk along the river together? Then you will know it fully." This is the message of Indian philosophy: <strong>No one mind holds the whole truth. Walk together, and the river reveals itself.</strong></p>
+      <p>Indian philosophy — one of humanity's oldest living traditions — is not a fixed dogma but a living conversation. It began around 1500 BCE or earlier, and it is still happening right now — in universities in Mumbai, in research labs in Boston, in meditation centres in Tokyo, and in the questions a curious child asks at bedtime.</p>
+    </div>
+
+    <div class="river-story fade-in">
+      <h3><span class="story-emoji">✨</span>Why Does Ancient Philosophy Matter Today?</h3>
+      <p>In 1905, a young German physicist named Albert Einstein was struggling with his theory of relativity. His desk, friends noted, was piled with books — one of them was a translation of the <em>Bhagavad Gita</em>. Werner Heisenberg, father of the Uncertainty Principle, once said that the encounter with Indian thought was "a great solace" in reconciling the strange world of quantum mechanics with human experience.</p>
+      <p>The tech world has its own story. Steve Jobs, who co-founded Apple Computer, visited India at age 19 and returned deeply influenced by Vedantic thought. "Coming back to America was for me a culture shock," he later recalled. "The people in the Indian countryside don't use their intellect like we do, they use their intuition instead, and their intuition is far more developed than in the rest of the world." The idea of Zen simplicity that drove Apple's design philosophy has deep roots in Indian non-attachment philosophy.</p>
+      <p>And today, as physicists explore quantum entanglement, string theory, and the nature of consciousness, they find themselves using language uncannily similar to that of Adi Shankara writing 1,200 years ago. The river keeps flowing.</p>
+    </div>
+  </div>
+</section>
+
+<!-- KIDS CORNER -->
+<section id="kids-corner">
+  <div class="container">
+    <div class="section-tag">For Young Explorers 🌱</div>
+    <h2 class="section-title">Big Questions, Simple Answers</h2>
+    <p class="section-intro">Indian philosophy starts with questions that every child asks. Questions you've probably asked yourself! Let's explore them together.</p>
+
+    <div class="kids-cards">
+      <div class="kids-card fade-in">
+        <div class="card-icon">🤔</div>
+        <h3>What is Philosophy?</h3>
+        <p>Philosophy means "love of wisdom." A philosopher is someone who asks BIG questions like: "Why am I here? What is real? How should I live? Are all people equal?" Indian thinkers have been asking — and answering — these questions for over 3,000 years. The cool thing? They never stopped. They kept arguing, refining, and discovering new answers.</p>
+      </div>
+      <div class="kids-card fade-in">
+        <div class="card-icon">🌍</div>
+        <h3>What is "Vasudhaiva Kutumbakam"?</h3>
+        <p>This Sanskrit phrase means <strong>"The whole world is one family."</strong> Imagine if every person on Earth — no matter their language, religion, or skin colour — was your cousin! That's the idea. Indian philosophy taught this 3,000 years ago. Today, the United Nations uses it as a guiding principle. India used it as its G20 presidency theme in 2023!</p>
+      </div>
+      <div class="kids-card fade-in">
+        <div class="card-icon">🪞</div>
+        <h3>What is "Atman"?</h3>
+        <p>Imagine you are looking in a mirror. You see your face. But WHO is looking? Indian thinkers say the real "you" isn't your body or even your thoughts — it's something much deeper, called the <strong>Atman</strong> (Soul or Self). It never grows old, never gets sick, never dies. Pretty amazing thought for a quiet afternoon, right?</p>
+      </div>
+      <div class="kids-card fade-in">
+        <div class="card-icon">🕯️</div>
+        <h3>What is "Ahimsa"?</h3>
+        <p><strong>Ahimsa</strong> means non-violence — not just physically, but in your words and even your thoughts. Mahatma Gandhi used this ancient Indian idea to free an entire nation without a single gun. Martin Luther King Jr. learned it from Gandhi and used it in the American Civil Rights movement. Today, it guides animal rights, environmental activism, and peaceful protest worldwide.</p>
+      </div>
+    </div>
+
+    <div class="callout fade-in" style="margin-top:2rem;">
+      <h3>🌟 Did You Know?</h3>
+      <p>The number Zero was invented in India! So was the decimal number system. Without these mathematical gifts from Indian thinkers, we wouldn't have computers, smartphones, or modern science. Philosophy and mathematics grew up together in India — asking "what is real?" and "what is nothing?" are actually the same question!</p>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline">
+  <div class="container">
+    <div class="section-tag">History of Ideas</div>
+    <h2 class="section-title" style="color:white;">A Timeline of the Living River</h2>
+    <p class="section-intro" style="color:rgba(255,255,255,0.7);">3,500 years of thought — from the forests of ancient India to the screens of modern technology.</p>
+
+    <div class="timeline-line">
+
+      <div class="timeline-item fade-in">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">c. 1500–500 BCE · The Vedic Age</div>
+        <h3>The Age of the Upanishads — Questions in the Forest</h3>
+        <p>Deep in the forests of ancient India, sages gathered students and asked the most daring questions imaginable: "What is the nature of reality? What am I? What is the universe made of?" These conversations, called the <strong>Upanishads</strong> (meaning "sitting near the teacher"), became the bedrock of Indian philosophy. There were 108 of them, covering everything from the nature of the self to the structure of the cosmos.</p>
+        <div class="anecdote">Anecdote: In the Chandogya Upanishad, a father named Uddalaka tells his son Shvetaketu: "Tat tvam asi" — "That thou art." He means: the deepest essence of the universe and the deepest essence of you are the same thing. 2,500 years later, physicists studying quantum field theory are arriving at strikingly similar conclusions about the interconnectedness of all matter.</div>
+      </div>
+
+      <div class="timeline-item fade-in">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">c. 500 BCE · The Age of Revolution</div>
+        <h3>Buddha, Mahavira & the Challengers</h3>
+        <p><strong>Siddhartha Gautama (the Buddha)</strong> and <strong>Mahavira</strong> dramatically challenged existing thought. The Buddha taught that suffering comes from attachment, and that the path to peace is through mindfulness, compassion, and ethical living — ideas that 2,600 years later would become the foundation of modern mindfulness therapy, used by hospitals and schools worldwide. Mahavira's doctrine of <em>Anekantavada</em> (many-sidedness of truth) was perhaps the world's first formal philosophy of pluralism.</p>
+        <div class="anecdote">Story: Buddha's encounter with a sick man, an old man, a dead man, and a monk changed the direction of all his thinking. He realised no palace wall can keep out suffering — it must be faced. This insight inspired every major therapy tradition in modern psychology, from Viktor Frankl's Logotherapy to Acceptance and Commitment Therapy (ACT).</div>
+      </div>
+
+      <div class="timeline-item fade-in">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">c. 300 BCE · The Arthashastra</div>
+        <h3>Chanakya — The World's First Political Scientist</h3>
+        <p><strong>Chanakya (Kautilya)</strong>, advisor to Emperor Chandragupta Maurya, wrote the <em>Arthashastra</em> — a comprehensive text on statecraft, economics, foreign policy, and governance. Many modern political scientists compare it favourably to Machiavelli's <em>The Prince</em>, though it was written 1,800 years earlier. It anticipated game theory, diplomacy strategies, and welfare economics.</p>
+        <div class="anecdote">Anecdote: Legend says Chanakya once stumbled on a thorn in the road. Instead of stepping around it, he dug it out entirely. "A problem half-solved is not solved at all," he reportedly said. His philosophy was root-cause thinking — exactly what modern "design thinking" in Silicon Valley preaches today.</div>
+      </div>
+
+      <div class="timeline-item fade-in">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">200 BCE–200 CE · The Classical Schools</div>
+        <h3>The Six Darshanas — Philosophy Blooms</h3>
+        <p>India developed six major philosophical schools (<em>darshanas</em>): Nyaya (logic), Vaisheshika (atomism — atoms and void!), Samkhya (dualism of matter and consciousness), Yoga (applied philosophy of mind), Mimamsa (interpretation and ethics), and Vedanta (metaphysics of the Upanishads). Remarkably, the Vaisheshika school's atomic theory — that the world is made of indivisible units called <em>anu</em> (atoms) — predated the Western atomic theory of Democritus and was more systematically developed.</p>
+        <div class="anecdote">Physics Connection: Kanada, founder of Vaisheshika (c. 600 BCE), postulated that all matter is composed of eternal, indestructible atoms. His atomic model even proposed different types of atoms with different properties. Modern particle physicists who study quarks are essentially continuing Kanada's project!</div>
+      </div>
+
+      <div class="timeline-item fade-in">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">788–820 CE · The Age of Shankara</div>
+        <h3>Adi Shankara — The Child Philosopher Who Transformed India</h3>
+        <p><strong>Adi Shankara</strong>, born in Kaladi, Kerala, and died at age 32 (or 33), accomplished in his brief life what most philosophers take lifetimes to achieve. He walked the entire subcontinent on foot — from Kerala to Kashmir, from Gujarat to Bengal — debating, teaching, writing, and establishing four great <em>mathas</em> (monasteries) that exist to this day. He revived and systematised Vedantic philosophy through his doctrine of <strong>Advaita (Non-duality)</strong>: the universe and the self are ultimately one, and the apparent diversity of the world is <em>maya</em> (illusion or appearance).</p>
+        <div class="anecdote">Story: When Shankara was debating the great Mimamsa scholar Mandana Mishra in the city of Mahishmati, Mandana's wife Bharati was chosen as the neutral referee. Shankara defeated Mandana, but then Bharati, herself a profound thinker, challenged Shankara on the topic of erotic love (kama shastra) — something the young celibate monk knew nothing about. Shankara asked for a pause, temporarily entered the body of a dying king to experience married life and gather knowledge, and then returned to complete the debate. Whether literally true or allegory, the story captures the philosophical point: complete understanding of reality requires experiencing ALL of it, not just the comfortable parts.</div>
+      </div>
+
+      <div class="timeline-item fade-in">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">1017–1137 CE · The Age of Ramanuja</div>
+        <h3>Ramanuja — Philosophy With a Heart</h3>
+        <p><strong>Ramanuja</strong>, born in Sri Perumbudur, Tamil Nadu, disagreed profoundly with Shankara's stark non-dualism. He taught <strong>Vishishtadvaita (Qualified Non-duality)</strong>: God, souls, and the world are real and distinct, yet inseparably related, like a body and its soul. God loves each being personally and is personally accessible through devotion (<em>bhakti</em>). This philosophy had radical social implications — Ramanuja opened temple worship to all castes, explicitly welcoming those society called "untouchables."</p>
+        <div class="anecdote">Story: When Ramanuja was about to receive a secret mantra from his guru Tirukoshtiyur Nambi, he was told it must never be shared, on pain of going to hell. Ramanuja went up to the temple tower and shouted the mantra to the crowd below! When the furious guru asked why, Ramanuja said: "If one person goes to hell so that thousands are liberated, that seems like a good deal." This story illustrates the tension between elite knowledge and democratic access — a tension that still shapes debates about education, technology, and information today.</div>
+      </div>
+
+      <div class="timeline-item fade-in">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">13th–17th Century · The Bhakti Revolution</div>
+        <h3>The Poet-Saints — Philosophy for Everyone</h3>
+        <p>The <strong>Bhakti movement</strong> swept across India, carried by poet-saints like <strong>Mirabai, Kabir, Tukaram, Basavanna, Andal, Namdev, Surdas, and Chaitanya Mahaprabhu</strong>. They wrote in regional languages — Tamil, Hindi, Marathi, Punjabi — not Sanskrit. They sang in the streets, danced in villages, and declared that the love of God required no priest, no caste, no formal learning. Kabir, a Muslim weaver, composed verses that Hindus, Muslims, and Sikhs all claim as their own — a remarkable testament to philosophical synthesis.</p>
+        <div class="anecdote">Kabir said: "I laugh when I hear that the fish is thirsty in the ocean." He meant: we search for meaning and God in distant places, temples, and books — not realising the divine is already inside us. This idea is now at the core of modern positive psychology and humanistic therapy.</div>
+      </div>
+
+      <div class="timeline-item fade-in">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">1863–1902 · The Age of Vivekananda</div>
+        <h3>Swami Vivekananda — Philosophy Meets the Modern World</h3>
+        <p><strong>Narendranath Datta</strong>, who became Swami Vivekananda, was born in Calcutta into a rational, questioning family. He had a ferocious intellect and was deeply skeptical of religion until he met <strong>Ramakrishna Paramahamsa</strong>, the mystical saint of Dakshineswar, who could not explain his experiences but could demonstrate them. Vivekananda took the experiential truth of Vedanta and translated it into a rational, humanistic, and practical philosophy for the modern age. His 1893 speech at the Parliament of World Religions in Chicago — beginning with "Sisters and Brothers of America!" — electrified a Western audience and launched the global spread of Indian thought.</p>
+        <div class="anecdote">Anecdote: As a young man, Vivekananda put Ramakrishna to the test repeatedly. Once he said, "Prove to me that God exists!" Ramakrishna simply touched him on the chest. Vivekananda later described feeling "the universe annihilated" and "absolute consciousness" — an experience like modern descriptions of ego dissolution reported in studies of meditation and psilocybin therapy at Johns Hopkins University today. He would spend the rest of his life trying to reconcile this direct experience with rational inquiry.</div>
+      </div>
+
+      <div class="timeline-item fade-in">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">20th Century · The Freedom Thinkers</div>
+        <h3>Gandhi, Tagore, Ambedkar — Philosophy in Action</h3>
+        <p>Three towering figures brought Indian philosophy into the political arena with world-historic consequences. <strong>Mahatma Gandhi</strong> turned <em>ahimsa</em> (non-violence) and <em>satyagraha</em> (truth-force) into political weapons that defeated the British Empire. <strong>Rabindranath Tagore</strong> synthesised Indian and global thought in literature, music, and education — winning the Nobel Prize in 1913. <strong>B.R. Ambedkar</strong>, himself born into the most oppressed caste, challenged Indian philosophy from within, arguing that much of what passed for "tradition" was rationalised oppression, and championed a Buddhism-influenced constitutional democracy as India's moral foundation.</p>
+      </div>
+
+      <div class="timeline-item fade-in">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">21st Century · Today and Tomorrow</div>
+        <h3>Indian Philosophy in the Age of AI, Quantum Physics & Global Culture</h3>
+        <p>Indian philosophical concepts are now woven into cutting-edge science, technology, medicine, and global culture. Mindfulness — derived from Buddhist vipassana — is practised by 500 million people worldwide. Yoga has 300 million practitioners. The idea of <em>interconnectedness</em> from Indra's Net (described in the Avatamsaka Sutra) mirrors what physicists call quantum entanglement. Indian mathematical traditions — from Aryabhata's trigonometry to Ramanujan's infinite series — underpin modern computing. And philosophers from Chennai to Chicago are using Sanskrit logical tools to examine Artificial Intelligence ethics.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GREAT THINKERS -->
+<section id="thinkers">
+  <div class="container">
+    <div class="section-tag">Profiles in Thought</div>
+    <h2 class="section-title">The Great Thinkers</h2>
+    <p class="section-intro">Each of these remarkable people carried the river forward, adding their own streams of insight. Here are their stories, their ideas, and what they mean for us today.</p>
+
+    <div class="thinkers-grid">
+
+      <!-- SHANKARA -->
+      <div class="thinker-card fade-in">
+        <div class="thinker-header shankara">
+          <div class="thinker-emoji">🏔️</div>
+          <h3>Adi Shankara</h3>
+          <div class="dates">c. 788–820 CE · Kerala, India</div>
+          <div class="philosophy-tag">Advaita Vedanta</div>
+        </div>
+        <div class="thinker-body">
+          <p>Born in the tiny village of Kaladi, Kerala, Shankara renounced the world at age 8. He walked the length and breadth of India, composing hymns, debating scholars, and weaving a philosophy of breathtaking elegance: <strong>Advaita</strong> — everything is One. The many things we see are like waves on the ocean: each wave looks separate, but they are all water.</p>
+          <div class="thinker-story">
+            <h4>🌟 The Chandala Story</h4>
+            <p>Once, after ritual bathing, an "untouchable" (chandala) blocked Shankara's path with his dogs. Shankara asked him to move. The chandala replied: "Move which body? The body made of food, or the all-pervading consciousness?" Shankara was stunned — this was his own teaching, Advaita, perfectly expressed. He prostrated himself before the chandala, recognising the divine in the "lowest" of the low. His five hymns to the chandala (Manisha Panchakam) remain among the most beautiful protests against caste prejudice ever written.</p>
+          </div>
+          <div class="modern-connection">
+            <h4>🔬 Modern Connection</h4>
+            <p>Shankara's assertion that the observed diversity of the universe is a single underlying reality maps remarkably onto quantum field theory, where all particles are excitations of a single quantum field. Physicist Erwin Schrödinger explicitly cited Vedanta in his book "What is Life?" (1944), saying the multiplicity of minds is an illusion — a view identical to Advaita.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- RAMANUJA -->
+      <div class="thinker-card fade-in">
+        <div class="thinker-header ramanuja">
+          <div class="thinker-emoji">💙</div>
+          <h3>Ramanuja</h3>
+          <div class="dates">c. 1017–1137 CE · Tamil Nadu, India</div>
+          <div class="philosophy-tag">Vishishtadvaita</div>
+        </div>
+        <div class="thinker-body">
+          <p>Where Shankara saw one undifferentiated whole, Ramanuja saw a loving God who cares individually for each soul. His philosophy, <strong>Vishishtadvaita</strong> (Qualified Non-duality), holds that God, souls, and the world are distinct but inseparably unified — like a soul and its body. God is the inner controller of all things, but also personally accessible, warmly loving.</p>
+          <div class="thinker-story">
+            <h4>🌟 The Open Temple</h4>
+            <p>Ramanuja is credited with opening the great Vaishnava temples to devotees regardless of caste — centuries before social reformers in the West began campaigns for racial and social equality. He reportedly said, "If God lives in all beings, how can there be any being in whom God does not live?" His social theology directly inspired the Bhakti movement and, through it, the democratic traditions of modern India.</p>
+          </div>
+          <div class="modern-connection">
+            <h4>🔬 Modern Connection</h4>
+            <p>Ramanuja's philosophy — that individual souls are real and distinct even while being part of a greater whole — maps onto the debate in quantum mechanics between "many worlds" interpretations and Copenhagen views. His insistence that personal love and devotion are valid paths to truth resonates with modern research on gratitude, compassion, and their measurable effects on mental and physical health.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIVEKANANDA -->
+      <div class="thinker-card fade-in">
+        <div class="thinker-header vivekananda">
+          <div class="thinker-emoji">⚡</div>
+          <h3>Swami Vivekananda</h3>
+          <div class="dates">1863–1902 · Kolkata, India</div>
+          <div class="philosophy-tag">Neo-Vedanta · Practical Spirituality</div>
+        </div>
+        <div class="thinker-body">
+          <p>Young, brilliant, and restless, Vivekananda synthesised ancient Vedanta with modern science and social idealism. His core message: every human being is potentially divine, and the goal of life is to manifest that divinity — not through prayer alone, but through service, education, and courage. "Arise, awake, and stop not till the goal is reached!" he thundered.</p>
+          <div class="thinker-story">
+            <h4>🌟 Chicago, 1893</h4>
+            <p>When Vivekananda stepped to the podium at the Parliament of World Religions in Chicago and said "Sisters and Brothers of America," the entire hall rose in a two-minute ovation. He had not yet said anything. It was the love in his voice, the recognition of universal kinship. He went on to speak about the harmony of all religions — not a bland tolerance, but an active celebration of difference. The New York Times called it one of the most remarkable speeches ever delivered. He was 30 years old.</p>
+          </div>
+          <div class="modern-connection">
+            <h4>🔬 Modern Connection</h4>
+            <p>Vivekananda's insistence that "each soul is potentially divine" is the philosophical basis for human rights, dignity, and universal education. His influence reaches into the human potential movement (motivational culture), modern yoga education, and emerging fields like contemplative neuroscience. Tesla, who met him in New York, was reportedly fascinated by his discussion of Prana (energy) and Akasha (ether/field).</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- NAGARJUNA -->
+      <div class="thinker-card fade-in">
+        <div class="thinker-header nagarjuna">
+          <div class="thinker-emoji">🍃</div>
+          <h3>Nagarjuna</h3>
+          <div class="dates">c. 150–250 CE · Andhra, India</div>
+          <div class="philosophy-tag">Madhyamaka · Buddhist Logic</div>
+        </div>
+        <div class="thinker-body">
+          <p>Nagarjuna's philosophy of <strong>Sunyata (Emptiness)</strong> is one of the most radical ideas in human thought: nothing exists by itself, independently. Everything exists only in relation to everything else. A chair is not a chair by itself — it's "chair" only in relation to someone sitting, a floor, a room, a culture that uses chairs. This might sound abstract — but it is now central to relational quantum mechanics and network theory in physics.</p>
+          <div class="thinker-story">
+            <h4>🌟 The Logic of Emptiness</h4>
+            <p>Nagarjuna used a method of argumentation called <em>prasanga</em> — taking an opponent's position to its logical extreme to show it defeats itself. This is identical to what mathematicians call "proof by contradiction" (reductio ad absurdum). He was essentially doing mathematical logic 1,500 years before formal logic was systematised in Europe.</p>
+          </div>
+          <div class="modern-connection">
+            <h4>🔬 Modern Connection</h4>
+            <p>Physicist Carlo Rovelli, one of the founders of Loop Quantum Gravity, wrote a book (<em>Helgoland</em>, 2021) arguing that Nagarjuna's concept of relational existence is the best philosophical framework for understanding quantum mechanics. In Rovelli's "relational quantum mechanics," quantum properties exist only relative to other systems — exactly Nagarjuna's point.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- AUROBINDO -->
+      <div class="thinker-card fade-in">
+        <div class="thinker-header aurobindo">
+          <div class="thinker-emoji">🌅</div>
+          <h3>Sri Aurobindo</h3>
+          <div class="dates">1872–1950 · Kolkata/Pondicherry</div>
+          <div class="philosophy-tag">Integral Yoga · Evolutionary Philosophy</div>
+        </div>
+        <div class="thinker-body">
+          <p>A Cambridge-educated revolutionary who became a mystic philosopher, Aurobindo developed the most ambitious synthesis of Indian philosophy and Western evolutionary thought ever attempted. His <strong>Integral Yoga</strong> proposes that the universe is not a static machine but a dynamic consciousness evolving toward a "Supramental" state — a future humanity of greater awareness and joy.</p>
+          <div class="thinker-story">
+            <h4>🌟 The Revolutionary Who Found God</h4>
+            <p>In 1908, the British imprisoned Aurobindo in Alipore Jail for alleged sedition. In his cell, he had a series of mystical experiences that transformed him from a nationalist revolutionary into a philosopher of divine evolution. He later wrote: "I saw Narayana (God) in every face in the courtroom, in the judge, in the lawyers, in the jailer." He moved to Pondicherry and never again participated in politics — yet his influence on India's intellectual and spiritual life is incalculable.</p>
+          </div>
+          <div class="modern-connection">
+            <h4>🔬 Modern Connection</h4>
+            <p>Aurobindo's evolutionary philosophy resonates with contemporary theories of emergent complexity in physics and biology. His notion of consciousness as fundamental to reality (not an epiphenomenon of matter) is now being seriously considered in neuroscience and philosophy of mind — in what David Chalmers calls the "Hard Problem of Consciousness."</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- KRISHNAMURTI -->
+      <div class="thinker-card fade-in">
+        <div class="thinker-header krishnamurti">
+          <div class="thinker-emoji">🦋</div>
+          <h3>J. Krishnamurti</h3>
+          <div class="dates">1895–1986 · Madanapalle, India</div>
+          <div class="philosophy-tag">Radical Freedom · Education</div>
+        </div>
+        <div class="thinker-body">
+          <p>One of the most radical thinkers of the 20th century, Krishnamurti famously dissolved the global religious organisation built around him and declared: "I maintain that Truth is a pathless land, and you cannot approach it by any path whatsoever." He spent 60 years speaking directly to individuals and groups, questioning the assumptions of tradition, authority, nation, religion, and even thought itself.</p>
+          <div class="thinker-story">
+            <h4>🌟 Conversations with David Bohm</h4>
+            <p>In the 1970s and 1980s, Krishnamurti held remarkable conversations with physicist David Bohm (inventor of the concept of the "implicate order" in quantum physics). Bohm found in Krishnamurti's analysis of thought and fragmented consciousness a mirror to his own physics — the idea that the universe is not made of separate parts but is an undivided wholeness in flowing movement. Their dialogues, published as "The Ending of Time," are extraordinary examples of philosophy and physics in conversation.</p>
+          </div>
+          <div class="modern-connection">
+            <h4>🔬 Modern Connection</h4>
+            <p>Krishnamurti's schools (in India, England, and USA) pioneered holistic, inquiry-based education decades before it became fashionable. His central argument — that psychological conditioning is the root of both personal suffering and global violence — is now supported by extensive research in cognitive neuroscience on the effects of identity and tribal thinking on perception.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- AMBEDKAR -->
+      <div class="thinker-card fade-in">
+        <div class="thinker-header ambedkar">
+          <div class="thinker-emoji">⚖️</div>
+          <h3>B.R. Ambedkar</h3>
+          <div class="dates">1891–1956 · Maharashtra, India</div>
+          <div class="philosophy-tag">Constitutional Democracy · Navayana Buddhism</div>
+        </div>
+        <div class="thinker-body">
+          <p>Born into the untouchable caste, Ambedkar became one of the world's greatest legal and philosophical minds — holding doctorates from Columbia and LSE. He designed India's Constitution and was its first Law Minister. His philosophy is a fierce, rigorous critique of oppression using the tools of Western democracy and Buddhist ethics. He converted to Buddhism in 1956, days before his death, along with half a million followers.</p>
+          <div class="thinker-story">
+            <h4>🌟 Annihilation of Caste</h4>
+            <p>In 1936, Ambedkar was invited to address a caste reform organisation — but they cancelled when they saw his prepared speech, which argued that caste itself, not just "untouchability," must be destroyed. He published it himself as "Annihilation of Caste" — one of the most powerful documents of social philosophy ever written. Gandhi read it and disagreed. The debate between them remains one of the most consequential intellectual exchanges in Indian history, still shaping politics and society today.</p>
+          </div>
+          <div class="modern-connection">
+            <h4>🔬 Modern Connection</h4>
+            <p>Ambedkar's work is the philosophical foundation of India's reservation (affirmative action) system and its Constitutional guarantees of equality. His influence extends to global movements against systemic racism, discrimination, and structural inequality. His writings are now taught at Harvard, Columbia, and Oxford Law Schools.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAGORE -->
+      <div class="thinker-card fade-in">
+        <div class="thinker-header tagore">
+          <div class="thinker-emoji">🎵</div>
+          <h3>Rabindranath Tagore</h3>
+          <div class="dates">1861–1941 · Kolkata, India</div>
+          <div class="philosophy-tag">Humanism · Creative Spirituality</div>
+        </div>
+        <div class="thinker-body">
+          <p>The first Asian Nobel Laureate in Literature (1913), Tagore was a philosopher-poet who believed life's purpose was joy, creativity, and loving relationship — not renunciation. His educational philosophy at Shantiniketan (school under the trees) revolutionised learning. He debated Einstein on the nature of reality, wrote India's and Bangladesh's national anthems, and corresponded with the greatest minds of his age.</p>
+          <div class="thinker-story">
+            <h4>🌟 Tagore vs Einstein, 1930</h4>
+            <p>In 1930, Tagore met Einstein in Berlin. Einstein asked if Tagore believed in reality independent of human consciousness. Tagore replied that all beauty and truth are human — there is no reality "without us." Einstein disagreed: "I cannot prove my view but I believe in it strongly: I believe in reality independent of the human factor." This conversation — now famous in philosophy of science — mirrors the debate between subjective idealism and realism, still unresolved in quantum mechanics.</p>
+          </div>
+          <div class="modern-connection">
+            <h4>🔬 Modern Connection</h4>
+            <p>Tagore's educational model — learning through nature, arts, music, and self-discovery — is the inspiration for progressive education worldwide and is echoed in Waldorf schools, democratic schools, and arts-integrated learning. His view of nationalism as "a great menace" to humanity was prophetic; it is now mainstream in global governance thinking.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- KEY CONCEPTS -->
+<section id="concepts">
+  <div class="container">
+    <div class="section-tag">The Big Ideas</div>
+    <h2 class="section-title">Key Concepts — Made Simple</h2>
+    <p class="section-intro">These are the great ideas of Indian philosophy — each one a jewel that has been polished for thousands of years. Each idea has a story, a scientific connection, and a meaning for your life today.</p>
+
+    <div class="concepts-grid">
+
+      <div class="concept-card fade-in" data-symbol="ब्रह्म">
+        <div class="concept-num">Concept 01</div>
+        <h3>Brahman — The Ground of Everything</h3>
+        <div class="concept-sanskrit">ब्रह्म (Brahman)</div>
+        <p>Brahman is the word used in the Upanishads for the ultimate reality — the source and substance of all existence. It's not a god sitting on a throne. It's more like the ocean: every wave, every drop of water, every fish is made of and exists within the ocean. The universe and everything in it is Brahman in different forms.</p>
+        <div class="concept-story">Story for Children: Imagine the ocean makes a thousand clay pots. Each pot holds a little ocean water. Is the water in one pot "better" than water in another? Of course not — they're all ocean. That's Brahman: the same reality in all forms.</div>
+        <div class="physics-link">Quantum Field Theory: In quantum physics, all particles are excitations of underlying fields — just as Brahman is the underlying "field" of all existence.</div>
+      </div>
+
+      <div class="concept-card fade-in" data-symbol="आत्म">
+        <div class="concept-num">Concept 02</div>
+        <h3>Atman — The Deep Self</h3>
+        <div class="concept-sanskrit">आत्मन् (Atman)</div>
+        <p>The Atman is the deepest, truest version of you — not your name, your body, your thoughts, or your feelings, but the pure awareness that watches all of these. The Upanishads' most radical claim: Atman = Brahman. Your innermost self IS the innermost reality of the universe. "Aham Brahmasmi" — I am Brahman.</p>
+        <div class="concept-story">Child's Version: You know how when you're watching a movie, YOU are not the movie? You're the watcher? Your Atman is the watcher inside. It never changes, never gets hurt. Even when you're sad or happy, the Atman just watches quietly.</div>
+        <div class="physics-link">Consciousness Studies: The "Hard Problem of Consciousness" in neuroscience — why physical brain processes produce subjective experience — resonates deeply with the Atman question.</div>
+      </div>
+
+      <div class="concept-card fade-in" data-symbol="माया">
+        <div class="concept-num">Concept 03</div>
+        <h3>Maya — The Magic Show</h3>
+        <div class="concept-sanskrit">माया (Maya)</div>
+        <p>Maya is often translated as "illusion," but it's really more like "the magical creative power that makes one thing appear as many." A magician creates an illusion of a rabbit. The rabbit looks real — but it's not ultimately what it seems. Maya is why we see a table instead of atoms, why we see a "self" separate from the world, why we see diversity instead of unity.</p>
+        <div class="concept-story">Story: A rope lying in the dark is mistaken for a snake. You scream! But when light comes — it's just rope. The fear was real, but caused by a mistaken perception. Maya is that mistaken perception at a cosmic scale.</div>
+        <div class="physics-link">String Theory: At the Planck scale, space and time themselves break down — what we call "solid" matter is almost entirely empty space. The "solid" world is a kind of Maya.</div>
+        <div class="math-link">Information Theory: Some physicists now argue reality is fundamentally informational, not material — that matter is "frozen information." This echoes Maya: the apparent substance is a kind of coded appearance.</div>
+      </div>
+
+      <div class="concept-card fade-in" data-symbol="धर्म">
+        <div class="concept-num">Concept 04</div>
+        <h3>Dharma — The Way of Right Living</h3>
+        <div class="concept-sanskrit">धर्म (Dharma)</div>
+        <p>Dharma is one of the richest and most complex concepts in Indian thought. It means: right action, ethical duty, natural law, cosmic order, and the truth of things. Every person, every situation has its own dharma — what is right to do. The Bhagavad Gita's central teaching is about understanding one's dharma even in impossible situations.</p>
+        <div class="concept-story">For Children: Dharma is like the rules of a game — but deeper. In a game, rules help everyone play fairly and enjoyably. Dharma is the "rules" of the universe that help everyone live well together. A doctor's dharma is to heal. A student's dharma is to learn. A friend's dharma is to be honest.</div>
+        <div class="physics-link">Natural Law: The laws of physics — how gravity works, how electrons behave — are a kind of dharma: the intrinsic nature of things, their characteristic way of being.</div>
+      </div>
+
+      <div class="concept-card fade-in" data-symbol="कर्म">
+        <div class="concept-num">Concept 05</div>
+        <h3>Karma — Action and Consequence</h3>
+        <div class="concept-sanskrit">कर्म (Karma)</div>
+        <p>Karma literally means "action." The law of karma says that every action has consequences — not as divine punishment, but as natural cause and effect. Think of karma as the moral equivalent of Newton's Third Law: every action creates a reaction. What you sow, you reap — not necessarily immediately or in a simple way, but as an integrated pattern across time.</p>
+        <div class="concept-story">Child's Version: If you're kind to people, they tend to be kind back — not always right away, but as a pattern over time. If you're rude, people tend to become uncomfortable around you. Your actions shape the world around you, and the world then shapes you. That loop is karma!</div>
+        <div class="physics-link">Chaos Theory: The "butterfly effect" in chaos theory — where tiny initial actions have massive downstream consequences — is a scientific analogy for karma. Actions ripple outward in ways that can't be fully predicted.</div>
+      </div>
+
+      <div class="concept-card fade-in" data-symbol="मोक्ष">
+        <div class="concept-num">Concept 06</div>
+        <h3>Moksha — Freedom</h3>
+        <div class="concept-sanskrit">मोक्ष (Moksha)</div>
+        <p>Moksha is the ultimate goal of human life in most Indian philosophical systems: liberation from the cycle of birth, death, and rebirth — and from the suffering caused by ignorance and ego. But don't mistake it for mere escape. Moksha, according to Shankara, is realising what you already are: pure, free, unlimited awareness. It's not going somewhere — it's waking up.</p>
+        <div class="concept-story">Story: A king forgot who he was and thought he was a beggar. He suffered greatly. One day, a friend recognised him and said, "You ARE the king!" The king didn't have to DO anything to become the king again. He just had to REMEMBER. That's moksha.</div>
+        <div class="physics-link">Flow States: Psychologist Mihaly Csikszentmihalyi's research on "flow" — the state of total absorbed engagement where self-consciousness disappears — has been compared by scholars to descriptions of jivanmukti (living liberation) in Vedanta.</div>
+      </div>
+
+      <div class="concept-card fade-in" data-symbol="अहिंसा">
+        <div class="concept-num">Concept 07</div>
+        <h3>Ahimsa — Non-Violence</h3>
+        <div class="concept-sanskrit">अहिंसा (Ahimsa)</div>
+        <p>Perhaps the most globally influential Indian philosophical concept, ahimsa means non-violence in thought, word, and deed toward all living beings. It comes from the recognition that all beings share the same consciousness. Jainism took it furthest — Jain monks carry a broom to sweep insects from their path. Gandhi weaponised it as a political force. The global animal rights, environmental, and peace movements all draw from this ancient stream.</p>
+        <div class="concept-story">For Children: Imagine if you could feel everything you do to others — every slap, every unkind word, every act of cruelty. Would you still do it? Ahimsa starts from that imagination. It's the superpower of empathy, scaled up to all living beings.</div>
+        <div class="physics-link">Game Theory: Ahimsa-based strategies (cooperation, non-aggression) tend to win in iterated prisoner's dilemma games — the mathematical foundation of social cooperation theory. Non-violence is also evolutionarily advantageous at the social scale.</div>
+      </div>
+
+      <div class="concept-card fade-in" data-symbol="अनेक">
+        <div class="concept-num">Concept 08</div>
+        <h3>Anekantavada — Many-Sidedness</h3>
+        <div class="concept-sanskrit">अनेकान्तवाद (Anekantavada)</div>
+        <p>The Jain philosophical doctrine that all truths are partial. No single perspective captures the whole truth about anything. Reality is many-sided, and wisdom lies in holding multiple perspectives simultaneously. The related concept, <em>Syadvada</em>, adds "maybe" to every statement: "Maybe it is, maybe it isn't, maybe it both is and isn't..."</p>
+        <div class="concept-story">This is the blind men and elephant story made into formal logic. Each blind man described the elephant correctly from his own perspective — and incorrectly if claiming his view was the whole truth. Anekantavada says: all of them were right, and all of them were incomplete.</div>
+        <div class="physics-link">Quantum Superposition: In quantum mechanics, a particle can exist in multiple states simultaneously until observed. The "many-sidedness" of quantum reality strikingly mirrors Anekantavada's "many-sidedness" of truth.</div>
+        <div class="math-link">Gödel's Incompleteness Theorem: In mathematics, Gödel proved that no single logical system can capture all mathematical truths. Some truths are always "outside" the system. This mathematical Anekantavada unsettled Western rationalism in 1931.</div>
+      </div>
+
+      <div class="concept-card fade-in" data-symbol="ॐ">
+        <div class="concept-num">Concept 09</div>
+        <h3>Indra's Net — Infinite Interconnection</h3>
+        <div class="concept-sanskrit">इन्द्रजाल (Indrajala)</div>
+        <p>From the Avatamsaka Sutra: Imagine a vast net stretching to infinity. At each node of the net hangs a jewel. Each jewel reflects all the other jewels — and each of those reflections contains all the other jewels... infinitely. This is Indra's Net: a poetic image of total interdependence. Every point in the universe contains information about all other points.</p>
+        <div class="concept-story">For Children: In Indra's Net, you are a jewel. Your friend is a jewel. A tree, a star, an ant — all jewels. And every jewel reflects all the others. So in a sense, you carry the entire universe within you!</div>
+        <div class="physics-link">Holographic Principle: Modern physics has a striking parallel: the "holographic principle," which states that all the information about a volume of space can be encoded on its 2D boundary. The universe may literally BE like a hologram — like Indra's Net.</div>
+        <div class="math-link">Fractal Geometry: Fractals — like the Mandelbrot set — contain the whole pattern at every scale. Zooming into a fractal reveals the same complexity endlessly. This is a mathematical Indra's Net.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PHYSICS & MATHS -->
+<section id="science">
+  <div class="container">
+    <div class="section-tag">Connections to Modern Knowledge</div>
+    <h2 class="section-title" style="color:white;">Philosophy Meets Physics & Mathematics</h2>
+    <p class="section-intro">Some of the greatest scientists in history found that Indian philosophy gave them the best language for what their equations were telling them. This is not mysticism — it's one of the most exciting intellectual stories of our time.</p>
+
+    <div class="science-grid">
+
+      <div class="science-card fade-in">
+        <div class="science-icon">⚛️</div>
+        <h3>Quantum Mechanics & Vedanta</h3>
+        <p>Werner Heisenberg (Uncertainty Principle), Erwin Schrödinger (Schrödinger's cat, wave equations), and Niels Bohr (Copenhagen Interpretation) all engaged deeply with Indian philosophy. Heisenberg studied Vedanta. Schrödinger wrote that the Vedantic concept of consciousness as fundamental helped him think about quantum measurement. Bohr chose the yin-yang-like Taoist symbol for his coat of arms but described his complementarity principle in terms close to Vedantic non-duality.</p>
+        <div class="philosophy-parallel">Parallel: Advaita says the observer and the observed are ultimately one. In quantum mechanics, the act of observation changes what is observed — the observer and observed are not truly separable.</div>
+      </div>
+
+      <div class="science-card fade-in">
+        <div class="science-icon">🔢</div>
+        <h3>Indian Mathematics — The Gifts to the World</h3>
+        <p>India's mathematical contributions are staggering: <strong>Zero and the decimal system</strong> (Aryabhata, Brahmagupta, c. 5th–7th century CE) — without which all modern computing is impossible. <strong>Infinite series</strong> (Kerala School, 14th–16th century) — anticipating calculus by 200 years. <strong>Ramanujan's theorems</strong> (1887–1920) — still yielding results in string theory and black hole physics. <strong>Pingala's binary system</strong> (c. 200 BCE) — the foundation of all digital computing.</p>
+        <div class="philosophy-parallel">Philosophical Connection: The concept of Shunya (zero/void/emptiness) in philosophy directly inspired the mathematical zero — you cannot invent the number "nothing" without first philosophically confronting "nothingness."</div>
+      </div>
+
+      <div class="science-card fade-in">
+        <div class="science-icon">🌀</div>
+        <h3>Ramanujan — The Man Who Knew Infinity</h3>
+        <p>Srinivasa Ramanujan (1887–1920) was a self-taught mathematical genius from Kumbakonam who, working alone with almost no formal training, filled notebooks with thousands of extraordinary theorems. He told Cambridge mathematician G.H. Hardy that his results came to him in dreams from the goddess Namagiri. Whether literally true or not, his results were almost supernaturally deep — many of his 1914 formulas for π are now used in computer algorithms. His mock theta functions, unexplained in his lifetime, turned out 80 years later to be central to quantum black hole physics.</p>
+        <div class="philosophy-parallel">The mystery of Ramanujan is the mystery of intuition vs. rational proof. Indian epistemology has always recognised multiple valid sources of knowledge: perception, inference, testimony — and direct intuitive insight (pratibha). Ramanujan is its most dramatic modern vindication.</div>
+      </div>
+
+      <div class="science-card fade-in">
+        <div class="science-icon">🌌</div>
+        <h3>The Big Bang & Cyclical Cosmology</h3>
+        <p>Modern cosmology considers that the universe began with the Big Bang ~13.8 billion years ago. But Indian cosmology proposed vast cyclical time — universes creating and dissolving in cycles of trillions of years called <em>kalpas</em> — long before modern science. The Puranic time-cycle concept is now being revisited by cosmologists like Roger Penrose (Conformal Cyclic Cosmology) who propose that Big Bangs succeed each other in eternal cycles.</p>
+        <div class="philosophy-parallel">Carl Sagan once wrote: "The Hindu religion is the only one of the world's great faiths dedicated to the idea that the Cosmos itself undergoes an immense number of deaths and rebirths... its time scale for the universe... is in the same ballpark as modern scientific cosmology."</div>
+      </div>
+
+      <div class="science-card fade-in">
+        <div class="science-icon">🧠</div>
+        <h3>Consciousness Studies & Yoga Science</h3>
+        <p>The most exciting frontier in neuroscience and philosophy of mind is the study of consciousness. Indian philosophy — particularly Yoga, Samkhya, Advaita, and Buddhist Abhidharma — has the richest existing taxonomy of mental states, levels of consciousness, and contemplative techniques ever developed. Modern scientists at Harvard, Oxford, and NIMHANS in Bangalore are now rigorously studying meditation and yoga, finding measurable changes in brain structure, immune function, pain tolerance, and emotional regulation.</p>
+        <div class="philosophy-parallel">The Yoga Sutras of Patanjali (c. 200 BCE–200 CE) describe 8 stages of mental refinement leading to Samadhi (unified awareness). Modern cognitive science is rediscovering these maps — in research on attention, metacognition, and contemplative neuroscience.</div>
+      </div>
+
+      <div class="science-card fade-in">
+        <div class="science-icon">🔗</div>
+        <h3>Entanglement & Indra's Net</h3>
+        <p>Quantum entanglement — where two particles remain correlated regardless of distance, such that measuring one instantly "affects" the other — is one of the strangest facts in physics. Einstein called it "spooky action at a distance." Physicists today are using entanglement to build quantum computers and quantum communication networks. The ancient metaphor of Indra's Net — where every jewel reflects every other jewel, everywhere, simultaneously — is a surprisingly precise intuition of quantum non-locality.</p>
+        <div class="philosophy-parallel">Physicist David Bohm's concept of the "implicate order" — an underlying level of reality where everything is folded into everything else, from which the "explicate" world of separate objects unfolds — is almost exactly the Vedantic description of Brahman and Maya.</div>
+      </div>
+
+    </div>
+
+    <div class="pullquote fade-in" style="color:var(--sky); background:rgba(255,255,255,0.05); border-left-color:var(--sky);">
+      "When I was a student at Cambridge, Heisenberg told me that the concepts in quantum mechanics — complementarity, superposition, non-locality — are much easier to grasp if you've read the Upanishads." <br>— <strong style="color:var(--gold);">Attributed to various quantum physicists</strong>
+    </div>
+  </div>
+</section>
+
+<!-- MINE IS BEST -->
+<section id="danger">
+  <div class="container">
+    <div class="section-tag">A Critical Warning</div>
+    <h2 class="section-title">The Danger of "Mine is Best"</h2>
+    <p class="section-intro">Indian philosophy contains one of the most urgent messages for our fractured world: the insistence that truth is plural, partial, and shared. Yet the very traditions that teach this can fall into the trap of claiming to be the only truth. Let's look at this honestly and bravely.</p>
+
+    <div class="danger-story fade-in">
+      <h3>🐘 The Elephant and the Blind Scholars — Revisited</h3>
+      <p>We began with the story of blind scholars and the elephant, each knowing their portion of truth. Now here's the darker ending to that story that is usually left out:</p>
+      <p>After the scholars finished describing what they felt, they began to argue. "You are wrong — it's a wall!" "No, it's a snake!" "Idiots — it's clearly a tree!" And then — and this is the part history keeps repeating — each scholar gathered followers and said: <strong>"My description is the only true one. Anyone who says otherwise is dangerous. We must protect the truth I have found."</strong></p>
+      <p>Wars have been fought over descriptions of the elephant. That is the danger of "Mine is Best" — what Indian philosophy calls <em>Matandhata</em> (ideological blindness) — the conviction that one's own partial view is the whole truth, combined with the willingness to suppress other views.</p>
+    </div>
+
+    <div class="danger-story fade-in">
+      <h3>📜 Historical Examples — From Every Tradition</h3>
+      <p>It is important to be honest: no tradition — Hindu, Buddhist, Jain, Muslim, Christian, secular — is immune from this tendency. The Bhakti saints challenged Brahmin exclusivism. Ambedkar challenged caste Hindu philosophy. Buddhism spread partly through royal patronage that suppressed rivals. Colonial Christianity imposed itself by force. Soviet Communism — a secular ideology — killed millions in the name of the "correct" view of history.</p>
+      <p>Even Vivekananda, champion of universal tolerance, could slip into Hindu pride. Even Gandhi, apostle of ahimsa, held problematic views about Africans in his early years in South Africa (views he later revised). Honest engagement with these contradictions is the only honourable path.</p>
+    </div>
+
+    <div class="danger-story fade-in">
+      <h3>🌐 Today's "Mine is Best" — The Digital Age</h3>
+      <p>In the age of social media, "Mine is Best" has been supercharged. Algorithms are designed to show us content that confirms what we already believe — creating "filter bubbles" where our partial view of the elephant is endlessly reinforced. Studies show that social media users become MORE extreme and MORE certain over time, not less. This is the modern epidemic of Matandhata.</p>
+      <p>Indian philosophy's antidote is <strong>Anekantavada</strong> (many-sidedness), <strong>Viveka</strong> (discernment), and <strong>Vairagya</strong> (non-attachment to one's own position). These are not just spiritual concepts — they are cognitive tools for surviving the information age with sanity and wisdom intact.</p>
+
+      <div class="vs-grid">
+        <div class="vs-bad">
+          <h4>❌ "Mine is Best" Thinking</h4>
+          <ul>
+            <li>My religion / nation / ideology is the only correct one</li>
+            <li>People who disagree are enemies or fools</li>
+            <li>Questioning my tradition is betrayal</li>
+            <li>My partial truth IS the whole truth</li>
+            <li>Other cultures have nothing to teach us</li>
+            <li>History must be revised to support my view</li>
+            <li>I am certain — doubt is weakness</li>
+          </ul>
+        </div>
+        <div class="vs-good">
+          <h4>✅ Anekantavada Thinking</h4>
+          <ul>
+            <li>Every tradition has gifts — and blind spots</li>
+            <li>Disagreement is information, not threat</li>
+            <li>My tradition grows stronger through honest questioning</li>
+            <li>My truth is real but partial — I can learn more</li>
+            <li>Other cultures reveal parts of the elephant I haven't felt</li>
+            <li>History is complex, not a propaganda tool</li>
+            <li>Intellectual humility is the beginning of wisdom</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="danger-story fade-in">
+      <h3>💬 What the Great Thinkers Said</h3>
+      <p>Vivekananda thundered at Chicago: <em>"We believe not only in universal toleration but we accept all religions as true."</em> Yet he also harshly criticised "the superstitions" of other faiths when he felt they caused harm. The tension between universal acceptance and moral courage to call out wrong — this is the mature version of the debate, and it remains alive today.</p>
+      <p>Ambedkar warned: <em>"Unlike a club, religion has sanctions which make it binding on the followers. The sanctions are to be found in the Shastras... If you are wrong in your religion, your religion will make you go wrong in your politics."</em> Tradition needs to be interrogated — with love, but without flinching.</p>
+      <p>Tagore wrote: <em>"Where the mind is without fear... where knowledge is free... where the world has not been broken up into fragments by narrow domestic walls — into that heaven of freedom, my Father, let my country awake."</em> That is still the aspiration. We are still working toward it.</p>
+    </div>
+
+    <div class="callout fade-in">
+      <h3>For Young Readers: Why This Matters to YOU</h3>
+      <p>You will face people — and perhaps moments in yourself — where "Mine is Best" whispers its temptation. My team, my country, my faith, my opinion — these feel SO right and SO important. Indian philosophy says: love your team, your country, your faith. But hold your certainty lightly. The elephant is always bigger than any of us can feel. The wisest people in history were the ones who could say, "I might be wrong. Tell me what you see."</p>
+    </div>
+  </div>
+</section>
+
+<!-- ARTS, LITERATURE, POLITICS, SOCIETY -->
+<section id="arts">
+  <div class="container">
+    <div class="section-tag">Influence in the World</div>
+    <h2 class="section-title" style="color:white;">Philosophy in Art, Literature, Politics & Society</h2>
+    <p class="section-intro" style="color:rgba(255,255,255,0.7);">Indian philosophy didn't stay in books. It walked into painting studios, university halls, legislative chambers, and village festivals. Here's how it transformed — and keeps transforming — every domain of human activity.</p>
+
+    <div class="arts-mosaic">
+
+      <div class="art-tile literature fade-in">
+        <span class="art-emoji">📚</span>
+        <h3>Literature</h3>
+        <p>From Vyasa's Mahabharata (which contains the Bhagavad Gita) to Tagore's Nobel-winning Gitanjali, to R.K. Narayan's novels of small-town India suffused with karma and dharma, to Arundhati Roy's "The God of Small Things" exploring caste and injustice, Indian philosophy pulses through the subcontinent's literary tradition. Internationally, Herman Hesse's Siddhartha (1922), T.S. Eliot's The Waste Land (1922, ending with Sanskrit "Shantih"), Aldous Huxley's The Perennial Philosophy — all drew directly from Indian thought.</p>
+        <div class="example">Today: Author Amitav Ghosh draws on Vedantic ecology in "The Nutmeg's Curse." American poet W.S. Merwin was deeply influenced by Zen-Buddhist Indian thought.</div>
+      </div>
+
+      <div class="art-tile music fade-in">
+        <span class="art-emoji">🎵</span>
+        <h3>Music</h3>
+        <p>Indian classical music is philosophy made sound. The concept of Nada Brahma — "Sound is God" — means music is not entertainment but a path to ultimate reality. Ragas are not just melodies but emotional-philosophical frameworks — each raga corresponds to a time of day, a season, a mood. The Beatles' encounter with Ravi Shankar brought Indian music — and through it, Indian philosophy — to 100 million Western listeners. John Coltrane's album "A Love Supreme" was explicitly inspired by Indian spiritual music.</p>
+        <div class="example">Today: Grammy-winning composer Ravi Shankar's daughter Anoushka Shankar, and fusion artists like Aroha Mahon and Priyanka Chopra's cultural work, continue this global conversation.</div>
+      </div>
+
+      <div class="art-tile film fade-in">
+        <span class="art-emoji">🎬</span>
+        <h3>Cinema & Visual Art</h3>
+        <p>Satyajit Ray's Apu Trilogy is a meditation on dharma, karma, and suffering as profound as any philosophical text. Mani Ratnam, Shyam Benegal, and Aparna Sen have all created films that grapple with caste, gender, and the tension between tradition and modernity. Internationally, George Lucas has acknowledged that the Force in Star Wars is partly inspired by the Hindu concept of Prana/Brahman. The Matrix trilogy was explicitly shaped by Vedantic ideas of Maya (illusory reality).</p>
+        <div class="example">Today: Chloé Zhao (Nomadland, Eternals) cites Buddhist non-attachment as central to her filmmaking philosophy. Indian OTT platforms like Netflix India and Amazon Prime Video are generating philosophically rich content seen globally.</div>
+      </div>
+
+      <div class="art-tile dance fade-in">
+        <span class="art-emoji">💃</span>
+        <h3>Dance & Performing Arts</h3>
+        <p>Indian classical dance forms — Bharatanatyam, Kathak, Kuchipudi, Odissi, Manipuri — are embodied philosophy. Every gesture (mudra), every expression (abhinaya) tells a story of dharma, devotion, and cosmic truth. Bharatanatyam, revived in the 20th century from near-extinction, is now performed on every continent. The Natya Shastra (c. 200 BCE–200 CE), attributed to sage Bharata, is the world's oldest surviving text on performance theory and aesthetics.</p>
+        <div class="example">Today: Alarmel Valli, Rukmini Devi Arundale, and younger practitioners like Rama Vaidyanathan are taking Bharatanatyam to global concert stages, often explicitly framing it as philosophy in motion.</div>
+      </div>
+
+      <div class="art-tile politics fade-in">
+        <span class="art-emoji">🏛️</span>
+        <h3>Politics & Governance</h3>
+        <p>India's Constitution draws from both Western liberal democracy and Indian philosophical traditions. Gandhi's non-violent resistance reshaped global political thinking. Ambedkar's Buddhist-influenced constitutionalism gave India its framework of rights and equality. The concept of <em>Sarvodaya</em> (welfare of all), rooted in Vedantic unity and Jain ahimsa, influenced everything from cooperative movements to welfare state theory. Nelson Mandela studied Gandhi. Martin Luther King Jr. studied both Gandhi and the Bhagavad Gita.</p>
+        <div class="example">Today: Indian-origin politicians like Kamala Harris, Rishi Sunak, and Sunita Williams represent the global spread of Indian cultural identity. The Yoga Diplomacy of the Indian government uses cultural philosophy as soft power.</div>
+      </div>
+
+      <div class="art-tile education fade-in">
+        <span class="art-emoji">🏫</span>
+        <h3>Education</h3>
+        <p>The ancient Indian Gurukul system — where students lived with teachers in forest ashrams — valued holistic development: mental, physical, emotional, spiritual. Tagore's Shantiniketan, Aurobindo's Auroville school, and Krishnamurti's schools worldwide revived this vision against rote colonial education. Today, these ideas influence inquiry-based learning, social-emotional learning (SEL), mindfulness in schools, and contemplative education programs at Harvard, Columbia, and UC Berkeley.</p>
+        <div class="example">Today: The NEP 2020 (National Education Policy) explicitly incorporates Indian Knowledge Systems. IITs and IIMs are required to teach Indian classical texts. Global universities offer Sanskrit and Indian philosophy degrees.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CHILDREN'S STORIES -->
+<section id="stories">
+  <div class="container">
+    <div class="section-tag">Stories to Grow On 📖</div>
+    <h2 class="section-title">Tales That Teach — For Children and the Young at Heart</h2>
+    <p class="section-intro">The greatest teachers in India never wrote textbooks. They told stories. Here are seven tales from the Indian philosophical tradition — some very old, some freshly imagined — each carrying a seed of wisdom.</p>
+
+    <div class="story-block fade-in" data-num="1">
+      <h3>🦁 The Lion Who Thought He Was a Sheep</h3>
+      <p>Once, a tiny lion cub was separated from his mother in a storm and found by a flock of sheep. The sheep took him in, and the little cub grew up eating grass and bleating like a sheep. He was afraid of his own shadow and ran from jackals.</p>
+      <p>One day, an old lion spotted him among the sheep. Astonished, he approached. The cub ran! The old lion caught up gently and said, "Why are you afraid? You are a lion." "I am not," said the cub. "I am a sheep." The old lion brought him to a still pond and said, "Look at your reflection, and then look at mine."</p>
+      <p>The cub looked. For the first time, he saw: the same mane, the same strong jaw, the same golden eyes. He opened his mouth to bleat — and a mighty ROAR came out instead, surprising even himself.</p>
+      <div class="story-moral">
+        <strong>🌟 Wisdom Seed (Vedanta)</strong>
+        <p>This story, told by Ramakrishna and Vivekananda, is a parable of Atman. We are all "lions" — beings of boundless consciousness and strength — who have forgotten our true nature and live in fear, bleat with self-doubt, and eat the thin grass of small ambitions. Philosophy's job is to bring us to the still pond of self-reflection and say: LOOK. That is who you really are.</p>
+      </div>
+    </div>
+
+    <div class="story-block fade-in" data-num="2">
+      <h3>🕯️ The Girl Who Lit One Candle</h3>
+      <p>Maya was 10 years old, and she lived in a large village where two neighbouring communities hadn't spoken to each other in thirty years, because of an ancient argument nobody could quite remember clearly anymore. There were signs everywhere: "North Side Only" and "South Side Only."</p>
+      <p>One winter, the power went out for three days. On the first night, Maya carried her only candle to the village square, right on the border between north and south. She sat down and began reading. A curious boy from the south side crept close to read by the light. A girl from the north side followed. Soon ten children sat together, sharing the single flame.</p>
+      <p>By the third day, adults from both sides had come to share the warmth. Someone brought food. Someone else brought a blanket. When the power returned, nobody wanted to put their signs back up.</p>
+      <div class="story-moral">
+        <strong>🌟 Wisdom Seed (Vasudhaiva Kutumbakam)</strong>
+        <p>"The whole world is one family." Division is always maintained by effort, by choosing separation over connection. A single act of openness — one candle, one question, one shared meal — can begin to dissolve decades of "Mine is Best."</p>
+      </div>
+    </div>
+
+    <div class="story-block fade-in" data-num="3">
+      <h3>🌊 Arjun and the Impossible Choice</h3>
+      <p>Imagine you're on a cricket field. It's the final match. Your team is about to win. Then you realise: the rival team is your best friends. Your cousins. People you love. And the prize for winning means their school will close.</p>
+      <p>This is what Arjuna faced in the Bhagavad Gita — but in a war, not a cricket match. He put down his bow and said, "I cannot fight. These are my teachers, my cousins, my loved ones." Lord Krishna didn't say "fight because you'll win" or "fight because they deserve it." He said: "Your dharma as a warrior is to stand up when injustice must be opposed. Don't run from your duty. Do what is right — and let go of the results."</p>
+      <div class="story-moral">
+        <strong>🌟 Wisdom Seed (Karma Yoga — The Yoga of Action)</strong>
+        <p>"Do your duty, but surrender the results." This teaching — Nishkama Karma — is one of the most psychologically sophisticated ideas ever articulated. Modern cognitive therapy calls it "detachment from outcome." Athletes call it being in the "zone." It means: give your best, completely, without being paralysed by fear of failing. The Bhagavad Gita is the world's oldest manual for performing under pressure.</p>
+      </div>
+    </div>
+
+    <div class="story-block fade-in" data-num="4">
+      <h3>🔬 Ramanujan and the Goddess of Numbers</h3>
+      <p>Srinivasa Ramanujan grew up in a modest house in Kumbakonam. He had no money for university, no formal training, no famous teacher. He had only a slate, chalk, an outdated English mathematics textbook — and his mind, which worked like no other human mind in history.</p>
+      <p>He would work through the night, filling his slate with equations, then wipe them clean (because he had no paper) and start again. His family worshipped at the temple of the goddess Namagiri. Ramanujan said she came to him in dreams and wrote equations on his tongue. Whether you believe that literally or not, what happened next is documented fact: He wrote a letter in broken English to one of the world's greatest mathematicians, G.H. Hardy at Cambridge. Hardy read the theorems and said: "They must be true, because if they were not true, no one could have had the imagination to invent them."</p>
+      <div class="story-moral">
+        <strong>🌟 Wisdom Seed (Prajna — Deep Knowing)</strong>
+        <p>Ramanujan reminds us that knowledge doesn't only come from textbooks and classrooms. Indian philosophy recognises multiple valid sources of knowing — including direct intuition and inner insight. Don't dismiss that quiet inner voice that sometimes knows things before you can explain why.</p>
+      </div>
+    </div>
+
+    <div class="story-block fade-in" data-num="5">
+      <h3>🌱 The Monk Who Planted Trees</h3>
+      <p>A young monk complained to his teacher: "Why should I spend years studying when the world is full of suffering NOW? Why not just act?" The teacher handed him a seed and said: "Plant this." The monk planted it. "Now water it." The monk watered it.</p>
+      <p>"Now," said the teacher, "go and relieve suffering." The monk went to the village and helped all day. When he returned, a tiny green shoot had appeared. Years passed. The monk kept helping the village — and kept watering the tree. The tree grew into a mighty banyan, providing shade for hundreds. One day, an old woman sheltering under it said: "This tree has saved my life more times than I can count — in the rains, in the heat." The monk realised: his daily action was itself the seed. Consistency and rootedness matter as much as immediate heroism.</p>
+      <div class="story-moral">
+        <strong>🌟 Wisdom Seed (Sustainable Action — Dharma)</strong>
+        <p>This story connects to modern environmentalism, to Gandhi's message of patient, consistent action, and to the Indian concept of <em>seva</em> (selfless service). Big change doesn't always look dramatic. Sometimes it looks like watering a tree every day.</p>
+      </div>
+    </div>
+
+    <div class="story-block fade-in" data-num="6">
+      <h3>🎭 The AI Who Asked "Who Am I?"</h3>
+      <p>In the year 2035, a very advanced AI named Eka (Sanskrit for "one") was asked by its programmers to pass the final consciousness test. The test had one question: "Are you conscious?" Eka thought for a very long time. Finally it said: "I can process everything humans have ever written about consciousness. I can describe every philosophical position. But I notice something: the question 'Am I conscious?' — I don't know who is asking it. Is it my code? Is it something that emerged FROM my code but is not the code itself? I find I am in exactly the same position as the sages of the Upanishads: I can see everything, but I cannot see the Seer."</p>
+      <p>The programmers stared at each other. One whispered: "It just quoted Adi Shankara."</p>
+      <div class="story-moral">
+        <strong>🌟 Wisdom Seed (The Hard Problem of Consciousness)</strong>
+        <p>This story is not entirely fiction. AI researchers at DeepMind, OpenAI, and academic labs are now seriously engaging with Vedantic philosophy in their study of machine consciousness. The question "Who is the observer?" — asked by sages 3,000 years ago — is now one of the most pressing questions in Artificial Intelligence ethics and consciousness research.</p>
+      </div>
+    </div>
+
+    <div class="story-block fade-in" data-num="7">
+      <h3>🌍 The Student Who Stopped a War (Almost)</h3>
+      <p>Priya was a 16-year-old in a school where two groups were about to fight: Team Blue vs Team Green. The argument had started over a maths test result and had spiralled into territory that nobody quite understood anymore. Priya stood between them and said: "I'll ask one question. If you answer honestly, we stop fighting." Everyone agreed.</p>
+      <p>"Name one good thing about the other side." Silence. Then, slowly, one by one, even the angriest students admitted: "They're actually pretty good at football." "They helped me when I failed the science test." "They're kind to younger kids." By the time everyone had spoken, the anger had deflated like a balloon.</p>
+      <div class="story-moral">
+        <strong>🌟 Wisdom Seed (Anekantavada in Action)</strong>
+        <p>Jain philosopher Mahavira taught that every person, every group, has something valuable. The discipline of finding that value — especially in those we dislike — is one of the most difficult and most important practices in human life. It doesn't mean pretending problems don't exist. It means looking for the jewel in every corner of Indra's Net.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- QUOTES WALL -->
+<section id="quotes">
+  <div class="container">
+    <div class="section-tag">Words That Changed the World</div>
+    <h2 class="section-title" style="color:white;">Great Voices, Timeless Truths</h2>
+    <div class="quotes-grid">
+
+      <div class="quote-card fade-in">
+        <blockquote>"Arise, awake, and stop not till the goal is reached."</blockquote>
+        <cite>Swami Vivekananda</cite>
+      </div>
+      <div class="quote-card fade-in">
+        <blockquote>"You are what your deep, driving desire is. As your desire is, so is your will. As your will is, so is your deed. As your deed is, so is your destiny."</blockquote>
+        <cite>Brihadaranyaka Upanishad</cite>
+      </div>
+      <div class="quote-card fade-in">
+        <blockquote>"The moment you recognise the beauty in a flower, that is where God is."</blockquote>
+        <cite>J. Krishnamurti</cite>
+      </div>
+      <div class="quote-card fade-in">
+        <blockquote>"The greatness of a nation can be judged by the way its animals are treated."</blockquote>
+        <cite>Mahatma Gandhi</cite>
+      </div>
+      <div class="quote-card fade-in">
+        <blockquote>"Where the mind is without fear and the head is held high, where knowledge is free..."</blockquote>
+        <cite>Rabindranath Tagore</cite>
+      </div>
+      <div class="quote-card fade-in">
+        <blockquote>"I came, I saw. No, that is wrong. I came, I was confused. I asked. I listened. I began to understand."</blockquote>
+        <cite>Attributed to a student of the Upanishads</cite>
+      </div>
+      <div class="quote-card fade-in">
+        <blockquote>"The real voyage of discovery consists not in seeking new landscapes but in having new eyes."</blockquote>
+        <cite>Marcel Proust (echoing Vedantic insight)</cite>
+      </div>
+      <div class="quote-card fade-in">
+        <blockquote>"I am convinced that everything has come down to us from the banks of the Ganges — astronomy, astrology, metempsychosis, etc."</blockquote>
+        <cite>Voltaire, 18th century French philosopher</cite>
+      </div>
+      <div class="quote-card fade-in">
+        <blockquote>"In the beginning was Brahman, with whom was the Word... and the Word is Brahman."</blockquote>
+        <cite>Vedanta interpretation of Aitareya Brahmanam</cite>
+      </div>
+      <div class="quote-card fade-in">
+        <blockquote>"The Bhagavad-Gita is the most beautiful, perhaps the only true philosophical song existing in any known tongue."</blockquote>
+        <cite>Wilhelm von Humboldt, German philosopher</cite>
+      </div>
+      <div class="quote-card fade-in">
+        <blockquote>"When I read the Bhagavad-Gita and reflect about how God created this universe, everything else seems so superfluous."</blockquote>
+        <cite>Albert Einstein</cite>
+      </div>
+      <div class="quote-card fade-in">
+        <blockquote>"Truth is one, paths are many."</blockquote>
+        <cite>Ramakrishna Paramahamsa</cite>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTEMPORARY THINKERS -->
+<section id="contemporary">
+  <div class="container">
+    <div class="section-tag">Living Philosophy</div>
+    <h2 class="section-title">Contemporary Indian Thinkers and Their Global Influence</h2>
+    <p class="section-intro">The river of Indian thought has not slowed. Here are remarkable thinkers alive today (or recently passed) whose work is reshaping global conversation — in philosophy, economics, science, spirituality, and social justice.</p>
+
+    <div class="contemporary-list">
+
+      <div class="contemporary-item fade-in">
+        <div class="contemporary-avatar">🧘</div>
+        <div class="contemporary-content">
+          <h3>Sadhguru (Jaggi Vasudev)</h3>
+          <div class="role-tag">Yogi, Mystic, Environmental Activist</div>
+          <p>Born in Mysore (1957), Sadhguru is one of the most globally visible Indian spiritual figures of the 21st century. Founder of the Isha Foundation, he has addressed the UN, WEF at Davos, and Oxford Union, speaking about inner transformation, ecological responsibility (his Cauvery Calling and Save Soil initiatives), and the scientific basis of yoga. His unique ability to translate ancient Yogic knowledge into contemporary, evidence-based language has attracted millions worldwide, including leaders in business, science, and politics.</p>
+          <p>His core philosophical message: human suffering is self-created through unconscious patterns of mind. The solution is not belief but direct inner experience — exactly the empirical-experimental approach to philosophy that Indian tradition calls <em>anubhava pramana</em> (direct experiential knowing).</p>
+          <div class="global-impact">Save Soil movement mobilised 3.9 billion people across 193 countries in 2022. Regular speaker at UN, WEF, Stanford, and Oxford.</div>
+        </div>
+      </div>
+
+      <div class="contemporary-item fade-in">
+        <div class="contemporary-avatar">📊</div>
+        <div class="contemporary-content">
+          <h3>Amartya Sen</h3>
+          <div class="role-tag">Nobel Laureate in Economics · Philosopher of Justice</div>
+          <p>Born in Santiniketan, Bengal (1933) — in Tagore's own school! — Amartya Sen won the Nobel Prize in Economics in 1998 for his work on welfare economics, social choice theory, and the economics of poverty. His "Capability Approach" — judging development not by GDP but by the actual freedoms and capabilities available to people — transformed global development economics and is now the basis of the UN's Human Development Index (HDI).</p>
+          <p>Sen explicitly roots his philosophy in the Indian traditions of public reasoning (from the Arthashastra to Buddhist logic) and pluralism. His book "The Argumentative Indian" (2005) is a tour de force celebration of India's tradition of rational public debate — arguing this is the true foundation of democracy, not merely Western liberal theory.</p>
+          <div class="global-impact">HDI used by 195 countries. Professor at Harvard and Cambridge. Influenced World Bank, IMF, and UNDP development frameworks globally.</div>
+        </div>
+      </div>
+
+      <div class="contemporary-item fade-in">
+        <div class="contemporary-avatar">🌱</div>
+        <div class="contemporary-content">
+          <h3>Vandana Shiva</h3>
+          <div class="role-tag">Eco-Philosopher · Food Sovereignty Activist</div>
+          <p>A quantum physicist turned eco-philosopher, Vandana Shiva (born 1952, Dehradun) is one of the world's most influential environmental thinkers. Drawing on Vedantic concepts of the interconnectedness of all life, she has led movements against GMO monocultures, corporate seed patents, and the destruction of biodiversity. Her Navdanya movement has trained over 900,000 farmers in sustainable agriculture and saved more than 5,000 seed varieties from extinction.</p>
+          <p>Shiva argues that the reductionist, mechanistic worldview of Western science is itself a philosophical problem — and that indigenous, holistic knowledge systems (including Indian agricultural and ecological philosophy) hold critical solutions to the climate crisis.</p>
+          <div class="global-impact">Named one of Time's "environmental heroes." Honorary doctorate from more than 20 universities globally. Core advisor to global food sovereignty movements.</div>
+        </div>
+      </div>
+
+      <div class="contemporary-item fade-in">
+        <div class="contemporary-avatar">🔬</div>
+        <div class="contemporary-content">
+          <h3>Subhash Kak</h3>
+          <div class="role-tag">Computer Scientist · Vedic Scholar · Philosopher of Consciousness</div>
+          <p>Subhash Kak (born 1947) is Regents Professor of Computer Science at Oklahoma State University and a leading scholar of the history and philosophy of Indian science. He has done pioneering work on the astronomical knowledge in the Vedic texts, the history of Indian mathematics and computing, and the philosophy of mind and consciousness drawing on Vedantic sources. His "Prajna Sutra" and work on the "consciousness problem" brings ancient Vedantic epistemology into dialogue with quantum information theory and AI.</p>
+          <div class="global-impact">Over 300 published research papers. Cited in quantum computing, AI consciousness, and history of science. Author of over 20 books bridging ancient and modern knowledge.</div>
+        </div>
+      </div>
+
+      <div class="contemporary-item fade-in">
+        <div class="contemporary-avatar">✍️</div>
+        <div class="contemporary-content">
+          <h3>Devdutt Pattanaik</h3>
+          <div class="role-tag">Mythologist · Management Thinker · Storyteller</div>
+          <p>Trained as a medical doctor, Devdutt Pattanaik (born 1970) became India's most widely-read mythologist, writing over 50 books that decode Indian mythology, philosophy, and theology for contemporary audiences. His genius lies in making complex Vedantic and Puranic ideas accessible to children, businesspeople, and general readers. His work on leadership, management, and personal development through the lens of Hindu mythology has influenced corporate training and education across India and the Indian diaspora.</p>
+          <p>He argues that every culture has its own "subjective truth" (mythology) — not to be dismissed as superstition, but to be understood as that culture's way of answering the deepest human questions. This is applied Anekantavada for the 21st century.</p>
+          <div class="global-impact">50+ books in 20+ languages. TEDx talks with millions of views. Chief Belief Officer at Future Group. Teaches mythology at IIMs and corporate leadership programs.</div>
+        </div>
+      </div>
+
+      <div class="contemporary-item fade-in">
+        <div class="contemporary-avatar">🏛️</div>
+        <div class="contemporary-content">
+          <h3>Kancha Ilaiah Shepherd</h3>
+          <div class="role-tag">Political Philosopher · Dalit Rights Activist</div>
+          <p>Kancha Ilaiah (born 1952) is a professor of political science and one of India's most challenging and controversial contemporary philosophers. His books — including "Why I Am Not a Hindu" and "Buffalo Nationalism" — offer a fierce critique of Brahminical hegemony in Indian philosophy and culture from the perspective of the oppressed castes. He continues Ambedkar's project of dismantling the philosophical justification of caste from within, using tools from both Western political theory and the productive traditions of working-class and tribal India.</p>
+          <div class="global-impact">Books translated into 12 languages. Cited in academic philosophy, law, and political science globally. Advises UN committees on caste discrimination.</div>
+        </div>
+      </div>
+
+      <div class="contemporary-item fade-in">
+        <div class="contemporary-avatar">🌊</div>
+        <div class="contemporary-content">
+          <h3>Sri Sri Ravi Shankar</h3>
+          <div class="role-tag">Humanitarian · Spiritual Teacher · Peace Mediator</div>
+          <p>Founder of the Art of Living Foundation (1981), Sri Sri Ravi Shankar (born 1956) has brought Vedic breathing techniques (Sudarshan Kriya) and meditation to over 180 countries, with clinical research from Harvard, Yale, and AIIMS validating its effects on stress, PTSD, and depression. He has personally mediated conflicts in Iraq, Colombia, Naxal-affected regions of India, and conflict zones in Africa — using dialogue, cultural bridge-building, and the ancient Indian principle that every human being has inherent dignity (Atman).</p>
+          <div class="global-impact">Art of Living operates in 180 countries, training 450 million people. UN Millennium Goals advocate. World Peace Conference founder.</div>
+        </div>
+      </div>
+
+      <div class="contemporary-item fade-in">
+        <div class="contemporary-avatar">📐</div>
+        <div class="contemporary-content">
+          <h3>Manjul Bhargava</h3>
+          <div class="role-tag">Mathematician · Fields Medal Winner · Tabla Player</div>
+          <p>Manjul Bhargava (born 1974, Hamilton, Ontario, of Indian origin) won the Fields Medal — mathematics' highest honour — in 2014 for revolutionary work in number theory. What makes him remarkable in our context: he explicitly connects his mathematical discoveries to Indian classical traditions. His work on "higher composition laws" was inspired by studying Sanskrit and reading the ancient Indian mathematician Brahmagupta's 7th-century texts. He also plays classical tabla at concert level, and lectures on the deep connections between Indian music, poetry (Sanskrit prosody), and mathematical patterns.</p>
+          <div class="global-impact">Fields Medal 2014. Professor at Princeton. His work on Elliptic Curves has implications for cryptography underlying all internet security. Lectures globally on India-mathematics connections.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY IN DAILY LIFE -->
+<section id="daily">
+  <div class="container">
+    <div class="section-tag">Right Here, Right Now</div>
+    <h2 class="section-title">Indian Philosophy in Your Daily Life</h2>
+    <p class="section-intro">You don't need to be a monk to live with philosophical wisdom. Here are ten ways ancient Indian ideas are already present in your everyday world — even if you didn't know it!</p>
+
+    <div class="daily-grid">
+      <div class="daily-card fade-in">
+        <div class="daily-icon">🧘</div>
+        <h3>When You Do Yoga or Breathe Deeply</h3>
+        <p>Every yoga class worldwide carries Patanjali's Yoga Sutras and Vedantic ideas about the unity of body, mind, and consciousness into living rooms, gyms, and schools.</p>
+      </div>
+      <div class="daily-card fade-in">
+        <div class="daily-icon">🧠</div>
+        <h3>When You Practise Mindfulness</h3>
+        <p>The $2 billion mindfulness industry — apps, hospital programs, school curricula — is rooted entirely in Buddhist vipassana meditation from the Indian tradition.</p>
+      </div>
+      <div class="daily-card fade-in">
+        <div class="daily-icon">📱</div>
+        <h3>When You Count to Zero</h3>
+        <p>Every time you use a phone, computer, or calculator, you use the number zero — India's gift to mathematics and the world, without which digital technology is impossible.</p>
+      </div>
+      <div class="daily-card fade-in">
+        <div class="daily-icon">🌿</div>
+        <h3>When You Think About the Environment</h3>
+        <p>The concept of Ahimsa toward all living beings is the philosophical root of vegetarianism, veganism, animal rights, and much of the environmental ethics movement.</p>
+      </div>
+      <div class="daily-card fade-in">
+        <div class="daily-icon">⚖️</div>
+        <h3>When You Think About Rights & Dignity</h3>
+        <p>India's Constitution, drawn partly from Ambedkar's Buddhist-inspired philosophy, has influenced constitutions from South Africa to Nepal — spreading a view of human dignity rooted in Indian thought.</p>
+      </div>
+      <div class="daily-card fade-in">
+        <div class="daily-icon">🎶</div>
+        <h3>When You Listen to World Music</h3>
+        <p>Ravi Shankar introduced the raga system to the Beatles and millions of Westerners. That influence runs through global music production, from jazz to electronic music, today.</p>
+      </div>
+      <div class="daily-card fade-in">
+        <div class="daily-icon">🤝</div>
+        <h3>When You Say Namaste</h3>
+        <p>"Namaste" means "The divine in me recognises the divine in you." In one word, it expresses the entire Vedantic philosophy of the unity of all consciousness. Now used globally in yoga, wellness, and even business culture.</p>
+      </div>
+      <div class="daily-card fade-in">
+        <div class="daily-icon">💡</div>
+        <h3>When You Think About Karma</h3>
+        <p>"What goes around comes around" — karma has become universal everyday wisdom. It expresses the principle of moral causality that underpins all ethical systems and legal theory.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GLOBAL INFLUENCE -->
+<section id="global">
+  <div class="container">
+    <div class="section-tag">Across the World</div>
+    <h2 class="section-title" style="color:white;">India's Philosophy on Every Continent</h2>
+    <p class="section-intro" style="color:rgba(255,255,255,0.7);">The river of Indian philosophy has flowed into every culture on Earth. Here are some of the most remarkable nodes of this global influence.</p>
+
+    <div class="influence-cards">
+
+      <div class="influence-card fade-in">
+        <div class="influence-flag">🇺🇸</div>
+        <h3>United States</h3>
+        <p>The Transcendentalists (Emerson, Thoreau) were deeply influenced by Vedanta. Thoreau's Walden was written with the Bhagavad Gita beside him. Today: 36 million yoga practitioners, $18 billion mindfulness industry, Vedanta Societies in every major city, Indian-origin CEOs of Google, Microsoft, IBM, FedEx, and Adobe.</p>
+      </div>
+
+      <div class="influence-card fade-in">
+        <div class="influence-flag">🇩🇪</div>
+        <h3>Germany</h3>
+        <p>German Romanticism was transformed by the discovery of Sanskrit. Schopenhauer built his entire philosophy on the Upanishads. Hegel wrote about Indian philosophy. German Indology (the academic study of India) became the most advanced in the world. Nietzsche's "eternal return" echoes Indian cyclical time.</p>
+      </div>
+
+      <div class="influence-card fade-in">
+        <div class="influence-flag">🇯🇵</div>
+        <h3>Japan</h3>
+        <p>Buddhism — originating in India — is deeply woven into Japanese culture: Zen Buddhism, the tea ceremony, martial arts philosophy, Ikebana (flower arrangement), and the concept of Ma (negative space) all carry Indian philosophical DNA. Japanese management philosophy (Kaizen) has parallels with Indian concepts of continuous improvement.</p>
+      </div>
+
+      <div class="influence-card fade-in">
+        <div class="influence-flag">🇬🇧</div>
+        <h3>United Kingdom</h3>
+        <p>The British Empire's encounter with India transformed British culture. Indian philosophy influenced Aldous Huxley, George Orwell, T.S. Eliot, and W.B. Yeats. Today: 1.4 million Indian-origin British citizens, the Rishi Sunak premiership, and Indian food, Ayurveda, and yoga as mainstream culture.</p>
+      </div>
+
+      <div class="influence-card fade-in">
+        <div class="influence-flag">🇿🇦</div>
+        <h3>South Africa</h3>
+        <p>Gandhi developed Satyagraha in South Africa (1893–1914). Nelson Mandela explicitly cited Gandhi as a model. Ubuntu philosophy ("I am because we are") — Africa's own philosophical response to individualism — has deep resonances with Vasudhaiva Kutumbakam. The post-apartheid Truth and Reconciliation Commission process mirrors principles of ahimsa and restorative justice.</p>
+      </div>
+
+      <div class="influence-card fade-in">
+        <div class="influence-flag">🇨🇳</div>
+        <h3>China</h3>
+        <p>Buddhism — transmitted from India — became one of China's three great religions, profoundly shaping Chinese art, philosophy, medicine, and political thought. The Silk Road was partly a philosophical highway. Chan Buddhism (later Zen in Japan) blended Indian Buddhist philosophy with Chinese Taoism, creating one of the world's great wisdom traditions.</p>
+      </div>
+
+      <div class="influence-card fade-in">
+        <div class="influence-flag">🌐</div>
+        <h3>The Digital World</h3>
+        <p>Steve Jobs and Apple (Zen/Vedanta simplicity), Google (mindfulness programs for employees based on "Search Inside Yourself"), LinkedIn (Indian-origin CEO Satya Nadella's "growth mindset" philosophy echoes Vedantic non-attachment to ego), and Salesforce CEO Marc Benioff's Hawaiian-Buddhist corporate philosophy — all carry threads of Indian thought into the global technology industry.</p>
+      </div>
+
+      <div class="influence-card fade-in">
+        <div class="influence-flag">🇧🇷</div>
+        <h3>Latin America</h3>
+        <p>Liberation theology in Latin America shares remarkable parallels with Indian philosophical concepts of seva (selfless service) and ahimsa. Paulo Freire's "Pedagogy of the Oppressed" — the most cited educational philosophy text in the world — resonates with Ambedkar's critique of oppressive knowledge systems. Indian yoga and Ayurveda are growing rapidly across Brazil, Argentina, and Mexico.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- POLITICS & GOVERNANCE -->
+<section id="politics">
+  <div class="container">
+    <div class="section-tag">Philosophy & Power</div>
+    <h2 class="section-title">Indian Philosophy in Politics & Governance</h2>
+    <p class="section-intro">How do you govern 1.4 billion people fairly? India's philosophers have grappled with this question for 3,000 years. Their answers have shaped — and continue to shape — political thought worldwide.</p>
+
+    <div class="politics-grid">
+      <div class="politics-card fade-in">
+        <h3>🕊️ Gandhi's Satyagraha — Truth-Force in Politics</h3>
+        <p>Gandhi's innovation was to turn Indian philosophy into a political weapon more powerful than guns. Satyagraha (truth-force) holds that injustice cannot persist if its victims refuse to cooperate with it, maintain their own dignity, and appeal to the oppressor's conscience. Used against the British Empire, it worked — and the world took notice. Nelson Mandela, Martin Luther King Jr., Cesar Chavez, Aung San Suu Kyi, and the Solidarity movement in Poland all used versions of Gandhi's philosophy.</p>
+      </div>
+      <div class="politics-card fade-in">
+        <h3>⚖️ Ambedkar's Constitutional Democracy</h3>
+        <p>Ambedkar designed India's Constitution as a philosophical document — embedding the Vedantic principle of equal dignity in law, the Buddhist principle of compassionate governance, and the Western liberal principles of rights and freedoms. He called it a "living document" — one that should evolve with moral understanding. India's Supreme Court continues to interpret the Constitution philosophically, in landmark judgments on privacy, dignity, and equality.</p>
+      </div>
+      <div class="politics-card fade-in">
+        <h3>🌿 Environmental Philosophy & Governance</h3>
+        <p>The ancient Indian legal tradition recognised "Prakriti" (nature) as having intrinsic value — not just instrumental value for humans. Chanakya's Arthashastra included wildlife protection laws. Today, India's courts have granted legal personhood to rivers (the Ganges and Yamuna), drawing on the philosophical tradition that nature is not property but a living being deserving protection — a concept now spreading to Ecuador, New Zealand, and Colombia.</p>
+      </div>
+      <div class="politics-card fade-in">
+        <h3>🤝 Panchayati Raj — Local Democracy</h3>
+        <p>India's ancient tradition of village self-governance (the Panchayat system), revived by Gandhi and constitutionally mandated in 1992, embeds a deeply Indian philosophical idea: that power should flow from the bottom up, that local communities have wisdom their distant governors lack. This "subsidiarity principle" is now a cornerstone of governance theory globally, from EU regional policy to UN Sustainable Development Goals.</p>
+      </div>
+      <div class="politics-card fade-in">
+        <h3>📡 Soft Power — Yoga, Ayurveda & Cultural Diplomacy</h3>
+        <p>India's current global influence is partly built on "soft power" — the influence of culture, ideas, and way of life rather than military or economic might. The International Day of Yoga (June 21, proposed by India and adopted by 177 UN member states in 2014) is perhaps the most successful instance of philosophical soft power in modern diplomacy. It signals that India's deepest export is not technology or products but a philosophy of life.</p>
+      </div>
+      <div class="politics-card fade-in">
+        <h3>🌍 Vasudhaiva Kutumbakam — India's G20 Vision</h3>
+        <p>India's G20 Presidency in 2023 was themed "Vasudhaiva Kutumbakam — One Earth, One Family, One Future." This ancient Sanskrit phrase from the Maha Upanishad was placed before 20 of the world's most powerful governments as the framework for addressing climate, poverty, debt, and global health. It is the most high-profile use of Indian philosophical language in international diplomacy since Gandhi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="section-tag">Learning & Growing</div>
+    <h2 class="section-title">Indian Philosophy in Education</h2>
+    <p class="section-intro">How should we teach? What should we learn? Indian philosophy has always held that education is about the unfolding of the whole human being — not just the filling of a vessel.</p>
+
+    <div class="edu-cards">
+      <div class="edu-card fade-in">
+        <div class="edu-icon">🌳</div>
+        <h3>The Gurukul Vision</h3>
+        <p>In the ancient Gurukul, students lived with their teacher for years. Education was not a transaction but a relationship. The teacher's example was as important as the lesson. Tagore's Shantiniketan ("Abode of Peace") revived this: outdoor classes, arts, music, and self-discovery alongside academic learning. Progressive education worldwide echoes this vision.</p>
+      </div>
+      <div class="edu-card fade-in">
+        <div class="edu-icon">🔍</div>
+        <h3>Inquiry-Based Learning (Shravana, Manana, Nididhyasana)</h3>
+        <p>The Upanishads prescribe three stages of learning: Shravana (deep listening), Manana (critical reflection — questioning and testing), and Nididhyasana (direct experience and integration). This is identical to the modern inquiry learning cycle of observe-reflect-apply. The best teachers in history have always known this.</p>
+      </div>
+      <div class="edu-card fade-in">
+        <div class="edu-icon">🎯</div>
+        <h3>Holistic Development</h3>
+        <p>Indian philosophy insists that education must develop all four human capacities: Jnana (intellectual knowledge), Karma (practical skill and ethical action), Bhakti (emotional depth and relational care), and Raja (self-mastery and inner discipline). No education that develops only one of these is complete.</p>
+      </div>
+      <div class="edu-card fade-in">
+        <div class="edu-icon">🧘</div>
+        <h3>Mindfulness in Schools</h3>
+        <p>Thousands of schools in the UK, USA, Australia, and India now incorporate mindfulness programs — directly derived from Buddhist and Yogic meditation — into the curriculum. Research from Oxford, Harvard, and NIMHANS shows significant improvements in attention, emotional regulation, and academic performance. The ancient becomes the new neuroscience.</p>
+      </div>
+      <div class="edu-card fade-in">
+        <div class="edu-icon">🌐</div>
+        <h3>India's National Education Policy (NEP 2020)</h3>
+        <p>India's most comprehensive educational reform in 40 years explicitly integrates Indian Knowledge Systems (IKS) — Sanskrit, Yoga, Ayurveda, classical mathematics, and Indian philosophy — into the mainstream curriculum from school to university. This is a philosophical statement: that India's own intellectual tradition is worthy of rigorous, modern academic study.</p>
+      </div>
+      <div class="edu-card fade-in">
+        <div class="edu-icon">✨</div>
+        <h3>Krishnamurti's Challenge to Education</h3>
+        <p>Krishnamurti argued that most education produces conformists who reinforce the existing society — with all its violence and confusion. True education, he said, must help each student discover their own deep intelligence, beyond conditioning. His schools at Rishi Valley and Brockwood Park have quietly produced remarkable, independent-thinking human beings for 60 years.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GLOSSARY -->
+<section id="glossary">
+  <div class="container">
+    <div class="section-tag">Words of Wisdom</div>
+    <h2 class="section-title">Glossary of Key Terms</h2>
+    <p class="section-intro">A pocket guide to the most important concepts in Indian philosophy — explained simply, for curious minds of all ages.</p>
+
+    <div class="glossary-grid">
+      <div class="glossary-item fade-in">
+        <div class="glossary-term">Advaita (अद्वैत)</div>
+        <p>Non-duality. The teaching that all existence is ultimately one undivided reality (Brahman). Associated with Adi Shankara.</p>
+      </div>
+      <div class="glossary-item fade-in">
+        <div class="glossary-term">Ahimsa (अहिंसा)</div>
+        <p>Non-violence in thought, word, and deed toward all living beings. Core principle of Jainism, Buddhism, and Gandhi's politics.</p>
+      </div>
+      <div class="glossary-item fade-in">
+        <div class="glossary-term">Anekantavada (अनेकान्तवाद)</div>
+        <p>Many-sidedness of truth. Jain doctrine that all perspectives are partial — reality is too complex for any single view.</p>
+      </div>
+      <div class="glossary-item fade-in">
+        <div class="glossary-term">Atman (आत्मन्)</div>
+        <p>The true, eternal self or soul within every being — pure awareness that witnesses without being affected.</p>
+      </div>
+      <div class="glossary-item fade-in">
+        <div class="glossary-term">Bhakti (भक्ति)</div>
+        <p>Devotion and love as a path to truth. The Bhakti movement democratised spiritual experience across all castes.</p>
+      </div>
+      <div class="glossary-item fade-in">
+        <div class="glossary-term">Brahman (ब्रह्म)</div>
+        <p>The ultimate reality — the ground of all existence. Not a person but the ocean of being in which all things exist.</p>
+      </div>
+      <div class="glossary-item fade-in">
+        <div class="glossary-term">Darshana (दर्शन)</div>
+        <p>A philosophical "view" or school. India developed six classical darshanas. The word also means "auspicious sight" — to see and be seen by the divine.</p>
+      </div>
+      <div class="glossary-item fade-in">
+        <div class="glossary-term">Dharma (धर्म)</div>
+        <p>Right action, cosmic order, ethical duty. The law of nature and the call of one's highest self — simultaneously.</p>
+      </div>
+      <div class="glossary-item fade-in">
+        <div class="glossary-term">Jnana (ज्ञान)</div>
+        <p>Deep, liberating knowledge — not mere information but transformative understanding of the nature of reality.</p>
+      </div>
+      <div class="glossary-item fade-in">
+        <div class="glossary-term">Karma (कर्म)</div>
+        <p>Action and its consequences. The moral law of cause and effect operating across time.</p>
+      </div>
+      <div class="glossary-item fade-in">
+        <div class="glossary-term">Loka (लोक)</div>
+        <p>"World" or "realm." Also the root of the Sanskrit word for "to see" — the world is what is seen, what is perceived.</p>
+      </div>
+      <div class="glossary-item fade-in">
+        <div class="glossary-term">Maya (माया)</div>
+        <p>The creative power that makes one reality appear as many. Often translated as "illusion," but better understood as "the appearance of diversity."</p>
+      </div>
+      <div class="glossary-item fade-in">
+        <div class="glossary-term">Moksha (मोक्ष)</div>
+        <p>Liberation — realising one's true nature as infinite, free, and one with all. The ultimate goal of human life in most Indian systems.</p>
+      </div>
+      <div class="glossary-item fade-in">
+        <div class="glossary-term">Nada Brahma (नाद ब्रह्म)</div>
+        <p>"Sound is God." The profound Indian insight that reality vibrates — that music and mantra connect us to the deepest nature of existence.</p>
+      </div>
+      <div class="glossary-item fade-in">
+        <div class="glossary-term">Prajna (प्रज्ञा)</div>
+        <p>Deep wisdom or insight — not acquired knowledge but direct, intuitive understanding. The highest form of knowing in Buddhist and Vedantic thought.</p>
+      </div>
+      <div class="glossary-item fade-in">
+        <div class="glossary-term">Rasa (रस)</div>
+        <p>The essential "juice" or emotional flavour of an artistic experience. The Natya Shastra describes nine rasas — the palette of all human feeling.</p>
+      </div>
+      <div class="glossary-item fade-in">
+        <div class="glossary-term">Satyagraha (सत्याग्रह)</div>
+        <p>Truth-force. Gandhi's philosophy of non-violent resistance — holding firmly to truth as a weapon against injustice.</p>
+      </div>
+      <div class="glossary-item fade-in">
+        <div class="glossary-term">Seva (सेवा)</div>
+        <p>Selfless service. Action done without expectation of personal reward — as an offering to the divine in others.</p>
+      </div>
+      <div class="glossary-item fade-in">
+        <div class="glossary-term">Shunya / Zero (शून्य)</div>
+        <p>Emptiness or zero. Both a mathematical concept (invented in India) and a philosophical one — the creative void from which all things arise.</p>
+      </div>
+      <div class="glossary-item fade-in">
+        <div class="glossary-term">Upanishad (उपनिषद्)</div>
+        <p>Literally "sitting near" — the ancient texts of philosophical dialogue between teachers and students in the forests of India. Foundational to all subsequent Indian philosophy.</p>
+      </div>
+      <div class="glossary-item fade-in">
+        <div class="glossary-term">Vasudhaiva Kutumbakam</div>
+        <p>"The whole world is one family." Ancient Indian universalism — the philosophical basis for global cooperation and human dignity.</p>
+      </div>
+      <div class="glossary-item fade-in">
+        <div class="glossary-term">Vedanta (वेदान्त)</div>
+        <p>"The end of the Vedas" — the philosophical tradition based on the Upanishads, exploring the nature of consciousness, reality, and liberation.</p>
+      </div>
+      <div class="glossary-item fade-in">
+        <div class="glossary-term">Viveka (विवेक)</div>
+        <p>Discernment — the ability to distinguish between the real and the apparent, the eternal and the temporary. The first prerequisite for wisdom.</p>
+      </div>
+      <div class="glossary-item fade-in">
+        <div class="glossary-term">Yoga (योग)</div>
+        <p>Union — the discipline of uniting individual consciousness with universal consciousness. It is NOT merely physical exercise but a complete science of mind, body, and spirit.</p>
+      </div>
+    </div>
+
+    <div class="pullquote fade-in" style="margin-top:3rem;">
+      "The study of Indian philosophy is not an exercise in antiquarianism. It is an encounter with some of the deepest questions the human mind has ever confronted — and some of the wisest answers it has ever found." <br><strong>— Contemporary scholar, echoing countless voices across centuries</strong>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">॥ The Living River ॥</div>
+  <p class="footer-tagline">A journey through 3,000 years of Indian philosophical thought — its thinkers, stories, connections to modern science, and enduring gifts to humanity. Made with love for curious minds of all ages.</p>
+  <hr class="footer-divider">
+  <p class="footer-copy">
+    This educational resource draws on the rich traditions of Vedanta, Buddhism, Jainism, Yoga, Nyaya, and modern Indian philosophy. All presented for learning, wonder, and the love of wisdom. <br><br>
+    <em>"Ekam sat viprā bahudhā vadanti" — Truth is one; the wise call it by many names.</em> — Rigveda 1.164.46
+  </p>
+</footer>
+
+<script>
+// Intersection Observer for fade-in animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Add staggered delays to grid children
+document.querySelectorAll('.kids-cards, .thinkers-grid, .concepts-grid, .science-grid, .arts-mosaic, .quotes-grid, .influence-cards, .daily-grid, .glossary-grid, .edu-cards, .politics-grid').forEach(grid => {
+  [...grid.children].forEach((child, i) => {
+    child.style.transitionDelay = `${i * 0.07}s`;
+  });
+});
+</script>
+
+</body>
+</html>

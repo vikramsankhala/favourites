@@ -1,0 +1,2439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Infinite Mirror — Advaita & Mysticism in Indian Philosophy</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --saffron: #FF6B00;
+    --deep-saffron: #E05A00;
+    --gold: #FFB830;
+    --deep-gold: #CC8800;
+    --lotus-pink: #E8557A;
+    --deep-teal: #0A3D5C;
+    --midnight: #06152B;
+    --cosmos: #0D1B2A;
+    --star-white: #F5F0E8;
+    --cream: #FFF8EE;
+    --soft-gold: #FDE8B0;
+    --indigo: #2D3A8C;
+    --purple: #6B3FA0;
+    --light-teal: #4ECDC4;
+    --river: #5BB8E6;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Crimson Pro', Georgia, serif;
+    background: var(--cosmos);
+    color: var(--star-white);
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  /* STARFIELD */
+  #starfield {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* NAVIGATION */
+  nav {
+    position: fixed;
+    top: 0; width: 100%;
+    z-index: 1000;
+    background: rgba(6,21,43,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,107,0,0.25);
+    padding: 12px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  nav .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--gold);
+    letter-spacing: 1px;
+  }
+
+  nav .logo span { color: var(--saffron); }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  nav ul li a {
+    color: var(--soft-gold);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,184,48,0.2);
+    transition: all 0.3s;
+    white-space: nowrap;
+  }
+
+  nav ul li a:hover {
+    background: var(--saffron);
+    color: white;
+    border-color: var(--saffron);
+  }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 40px 80px;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(255,107,0,0.15) 0%, rgba(6,21,43,0.0) 70%);
+  }
+
+  .mandala-bg {
+    position: absolute;
+    width: 700px; height: 700px;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.06;
+    animation: slowSpin 120s linear infinite;
+  }
+
+  @keyframes slowSpin { to { transform: translate(-50%,-50%) rotate(360deg); } }
+
+  .om-glyph {
+    font-size: 6rem;
+    color: var(--gold);
+    text-shadow: 0 0 60px rgba(255,184,48,0.6);
+    animation: pulse 4s ease-in-out infinite;
+    display: block;
+    margin-bottom: 20px;
+    line-height: 1;
+  }
+
+  @keyframes pulse {
+    0%,100% { text-shadow: 0 0 40px rgba(255,184,48,0.5); transform: scale(1); }
+    50% { text-shadow: 0 0 100px rgba(255,184,48,0.9); transform: scale(1.04); }
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--star-white);
+    margin-bottom: 16px;
+  }
+
+  .hero h1 span {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .hero .subtitle {
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    color: rgba(245,240,232,0.75);
+    max-width: 700px;
+    margin: 0 auto 30px;
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 40px;
+  }
+
+  .badge {
+    background: rgba(255,107,0,0.15);
+    border: 1px solid rgba(255,107,0,0.4);
+    border-radius: 30px;
+    padding: 6px 18px;
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--gold);
+    animation: fadeIn 1s ease forwards;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.85rem;
+    color: rgba(245,240,232,0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    animation: bounce 2s ease-in-out infinite;
+  }
+
+  .scroll-hint .arrow { font-size: 1.4rem; }
+
+  @keyframes bounce {
+    0%,100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  /* SECTIONS */
+  section {
+    position: relative;
+    z-index: 1;
+    padding: 80px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .full-section {
+    max-width: 100%;
+    padding: 80px 0;
+  }
+
+  .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  .section-label {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--saffron);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--saffron), transparent);
+    max-width: 200px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 900;
+    color: var(--star-white);
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+
+  .section-title span { color: var(--gold); font-style: italic; }
+
+  .section-intro {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: rgba(245,240,232,0.8);
+    max-width: 820px;
+    margin-bottom: 50px;
+  }
+
+  /* DIVIDER */
+  .divider {
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--saffron), var(--gold), var(--saffron), transparent);
+    margin: 20px 0;
+    opacity: 0.35;
+  }
+
+  /* STORY CARDS */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 28px;
+    margin-top: 40px;
+  }
+
+  .story-card {
+    background: linear-gradient(135deg, rgba(255,107,0,0.07), rgba(45,58,140,0.07));
+    border: 1px solid rgba(255,184,48,0.15);
+    border-radius: 20px;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    cursor: default;
+  }
+
+  .story-card::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,184,48,0.1), transparent);
+    transition: opacity 0.3s;
+  }
+
+  .story-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255,107,0,0.4);
+    box-shadow: 0 20px 50px rgba(255,107,0,0.12);
+  }
+
+  .card-emoji {
+    font-size: 2.8rem;
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  .card-tag {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--saffron);
+    margin-bottom: 8px;
+  }
+
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--star-white);
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .card-body {
+    font-size: 1.0rem;
+    line-height: 1.75;
+    color: rgba(245,240,232,0.75);
+  }
+
+  .card-quote {
+    margin-top: 16px;
+    padding: 12px 16px;
+    border-left: 3px solid var(--gold);
+    background: rgba(255,184,48,0.06);
+    border-radius: 0 10px 10px 0;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--soft-gold);
+  }
+
+  /* PHILOSOPHER PROFILES */
+  .philosopher-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 32px;
+    margin-top: 40px;
+  }
+
+  .philosopher-card {
+    background: linear-gradient(145deg, rgba(13,27,42,0.95), rgba(45,58,140,0.15));
+    border: 1px solid rgba(78,205,196,0.2);
+    border-radius: 24px;
+    overflow: hidden;
+    transition: all 0.4s;
+  }
+
+  .philosopher-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(78,205,196,0.5);
+    box-shadow: 0 24px 60px rgba(78,205,196,0.1);
+  }
+
+  .philosopher-banner {
+    height: 8px;
+    background: linear-gradient(to right, var(--saffron), var(--gold));
+  }
+
+  .philosopher-content {
+    padding: 32px;
+  }
+
+  .philosopher-avatar {
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, rgba(255,107,0,0.2), rgba(107,63,160,0.2));
+    border: 2px solid rgba(255,184,48,0.3);
+    margin-bottom: 18px;
+  }
+
+  .philosopher-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 900;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+
+  .philosopher-era {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 0.8rem;
+    color: var(--saffron);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+  }
+
+  .philosopher-bio {
+    font-size: 1.0rem;
+    line-height: 1.75;
+    color: rgba(245,240,232,0.78);
+    margin-bottom: 16px;
+  }
+
+  .philosopher-teaching {
+    background: rgba(255,107,0,0.08);
+    border: 1px solid rgba(255,107,0,0.2);
+    border-radius: 12px;
+    padding: 16px;
+    margin-top: 14px;
+  }
+
+  .philosopher-teaching strong {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--saffron);
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .philosopher-teaching p {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: rgba(245,240,232,0.75);
+    font-style: italic;
+  }
+
+  /* KIDS SECTION */
+  .kids-section {
+    background: linear-gradient(135deg, rgba(232,85,122,0.08), rgba(255,107,0,0.06));
+    border-top: 2px solid rgba(232,85,122,0.2);
+    border-bottom: 2px solid rgba(232,85,122,0.2);
+  }
+
+  .kids-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .kids-card {
+    background: linear-gradient(135deg, rgba(232,85,122,0.12), rgba(255,107,0,0.08));
+    border: 2px solid rgba(232,85,122,0.25);
+    border-radius: 20px;
+    padding: 28px;
+    text-align: center;
+    transition: all 0.3s;
+  }
+
+  .kids-card:hover {
+    transform: scale(1.03);
+    border-color: rgba(232,85,122,0.6);
+  }
+
+  .kids-card .big-emoji {
+    font-size: 3.5rem;
+    margin-bottom: 14px;
+    display: block;
+    animation: wiggle 3s ease-in-out infinite;
+  }
+
+  @keyframes wiggle {
+    0%,100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+  }
+
+  .kids-card h3 {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--lotus-pink);
+    margin-bottom: 10px;
+  }
+
+  .kids-card p {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: rgba(245,240,232,0.8);
+  }
+
+  /* PHYSICS SECTION */
+  .physics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 28px;
+    margin-top: 40px;
+  }
+
+  .physics-card {
+    background: linear-gradient(145deg, rgba(91,184,230,0.06), rgba(45,58,140,0.12));
+    border: 1px solid rgba(91,184,230,0.2);
+    border-radius: 20px;
+    padding: 32px;
+    transition: all 0.3s;
+  }
+
+  .physics-card:hover {
+    border-color: rgba(91,184,230,0.5);
+    transform: translateY(-5px);
+    box-shadow: 0 16px 40px rgba(91,184,230,0.1);
+  }
+
+  .physics-icon {
+    font-size: 2.5rem;
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  .physics-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--river);
+    margin-bottom: 10px;
+  }
+
+  .physics-card p {
+    font-size: 0.98rem;
+    line-height: 1.75;
+    color: rgba(245,240,232,0.75);
+  }
+
+  .physics-card .connection {
+    margin-top: 14px;
+    padding: 12px;
+    background: rgba(91,184,230,0.08);
+    border-radius: 10px;
+    font-size: 0.9rem;
+    color: var(--river);
+    font-style: italic;
+  }
+
+  /* QUOTE BLOCK */
+  .big-quote {
+    text-align: center;
+    padding: 60px 40px;
+    position: relative;
+  }
+
+  .big-quote::before {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 12rem;
+    color: rgba(255,184,48,0.06);
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .big-quote blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    font-style: italic;
+    color: var(--soft-gold);
+    max-width: 820px;
+    margin: 0 auto 20px;
+    line-height: 1.5;
+    position: relative;
+    z-index: 1;
+  }
+
+  .big-quote cite {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 0.9rem;
+    color: var(--saffron);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* TIMELINE */
+  .timeline {
+    position: relative;
+    padding: 20px 0;
+    margin-top: 40px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, var(--saffron), var(--gold), var(--saffron), transparent);
+    transform: translateX(-50%);
+  }
+
+  .timeline-item {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 50px;
+    position: relative;
+    align-items: flex-start;
+  }
+
+  .timeline-item:nth-child(odd) {
+    flex-direction: row;
+  }
+
+  .timeline-item:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+  .timeline-dot {
+    position: absolute;
+    left: 50%;
+    top: 20px;
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 20px rgba(255,184,48,0.6);
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+
+  .timeline-content {
+    width: calc(50% - 40px);
+    background: linear-gradient(135deg, rgba(255,107,0,0.07), rgba(13,27,42,0.5));
+    border: 1px solid rgba(255,184,48,0.15);
+    border-radius: 16px;
+    padding: 24px;
+    transition: all 0.3s;
+  }
+
+  .timeline-content:hover {
+    border-color: rgba(255,184,48,0.4);
+    transform: scale(1.02);
+  }
+
+  .timeline-year {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--saffron);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 6px;
+  }
+
+  .timeline-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .timeline-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: rgba(245,240,232,0.75);
+  }
+
+  /* CONCEPT BOXES */
+  .concept-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .concept-box {
+    border-radius: 16px;
+    padding: 28px;
+    border: 1px solid;
+    transition: all 0.3s;
+  }
+
+  .concept-box:hover { transform: translateY(-4px); }
+
+  .concept-box.saffron {
+    background: rgba(255,107,0,0.07);
+    border-color: rgba(255,107,0,0.25);
+  }
+
+  .concept-box.teal {
+    background: rgba(78,205,196,0.06);
+    border-color: rgba(78,205,196,0.2);
+  }
+
+  .concept-box.purple {
+    background: rgba(107,63,160,0.08);
+    border-color: rgba(107,63,160,0.25);
+  }
+
+  .concept-box.blue {
+    background: rgba(91,184,230,0.07);
+    border-color: rgba(91,184,230,0.2);
+  }
+
+  .concept-box.pink {
+    background: rgba(232,85,122,0.07);
+    border-color: rgba(232,85,122,0.2);
+  }
+
+  .concept-box.gold {
+    background: rgba(255,184,48,0.06);
+    border-color: rgba(255,184,48,0.2);
+  }
+
+  .concept-Sanskrit {
+    font-size: 2rem;
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  .concept-english {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--saffron);
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .concept-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--star-white);
+    margin-bottom: 8px;
+  }
+
+  .concept-box p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: rgba(245,240,232,0.72);
+  }
+
+  /* MATH SECTION */
+  .math-card {
+    background: linear-gradient(145deg, rgba(107,63,160,0.12), rgba(45,58,140,0.08));
+    border: 1px solid rgba(107,63,160,0.3);
+    border-radius: 20px;
+    padding: 32px;
+    margin-bottom: 28px;
+    transition: all 0.3s;
+  }
+
+  .math-card:hover {
+    border-color: rgba(107,63,160,0.6);
+    transform: translateX(6px);
+  }
+
+  .math-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--purple);
+    filter: brightness(1.8);
+    margin-bottom: 12px;
+  }
+
+  .math-card p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: rgba(245,240,232,0.78);
+  }
+
+  .math-formula {
+    background: rgba(107,63,160,0.15);
+    border-radius: 10px;
+    padding: 14px 20px;
+    margin: 14px 0;
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.1rem;
+    color: var(--soft-gold);
+    text-align: center;
+    border: 1px solid rgba(107,63,160,0.25);
+  }
+
+  /* STORIES BIG */
+  .story-full {
+    background: linear-gradient(135deg, rgba(255,107,0,0.05), rgba(13,27,42,0.8));
+    border: 1px solid rgba(255,184,48,0.12);
+    border-radius: 24px;
+    padding: 40px;
+    margin-bottom: 36px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .story-full::after {
+    content: '';
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(255,184,48,0.05), transparent);
+    pointer-events: none;
+  }
+
+  .story-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 900;
+    color: rgba(255,184,48,0.12);
+    line-height: 1;
+    margin-bottom: -20px;
+  }
+
+  .story-full h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 12px;
+    position: relative;
+  }
+
+  .story-full .meta {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 0.78rem;
+    color: var(--saffron);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+    display: flex;
+    gap: 14px;
+  }
+
+  .story-full p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(245,240,232,0.82);
+    margin-bottom: 14px;
+  }
+
+  .story-moral {
+    background: rgba(255,184,48,0.07);
+    border-left: 4px solid var(--gold);
+    border-radius: 0 12px 12px 0;
+    padding: 16px 20px;
+    margin-top: 16px;
+  }
+
+  .story-moral strong {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .story-moral p {
+    font-size: 0.95rem !important;
+    color: var(--soft-gold) !important;
+    font-style: italic;
+  }
+
+  /* CONTEMPORARY SECTION */
+  .contemporary-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    background: rgba(13,27,42,0.7);
+    border: 1px solid rgba(78,205,196,0.15);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 28px;
+    transition: all 0.3s;
+  }
+
+  .contemporary-card:hover {
+    border-color: rgba(78,205,196,0.4);
+    transform: translateY(-4px);
+  }
+
+  .contemp-left {
+    padding: 32px;
+    background: linear-gradient(135deg, rgba(255,107,0,0.08), rgba(13,27,42,0.5));
+    border-right: 1px solid rgba(78,205,196,0.1);
+  }
+
+  .contemp-right {
+    padding: 32px;
+    background: linear-gradient(135deg, rgba(78,205,196,0.06), rgba(13,27,42,0.5));
+  }
+
+  .contemp-left h3, .contemp-right h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .contemp-left h3 { color: var(--gold); }
+  .contemp-right h3 { color: var(--light-teal); }
+
+  .contemp-left p, .contemp-right p {
+    font-size: 0.97rem;
+    line-height: 1.75;
+    color: rgba(245,240,232,0.75);
+  }
+
+  /* SCHOOL BOX */
+  .school-box {
+    background: linear-gradient(135deg, rgba(232,85,122,0.1), rgba(255,107,0,0.06));
+    border: 2px dashed rgba(232,85,122,0.3);
+    border-radius: 20px;
+    padding: 36px;
+    margin: 40px 0;
+    text-align: center;
+  }
+
+  .school-box h3 {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--lotus-pink);
+    margin-bottom: 14px;
+  }
+
+  .school-box p {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(245,240,232,0.8);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* ACCORDION */
+  .accordion-item {
+    background: rgba(13,27,42,0.6);
+    border: 1px solid rgba(255,184,48,0.12);
+    border-radius: 14px;
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+
+  .accordion-header {
+    padding: 20px 28px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s;
+  }
+
+  .accordion-header:hover {
+    background: rgba(255,107,0,0.06);
+  }
+
+  .accordion-header h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--star-white);
+  }
+
+  .accordion-toggle {
+    font-size: 1.4rem;
+    color: var(--gold);
+    transition: transform 0.3s;
+  }
+
+  .accordion-body {
+    padding: 0 28px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, padding 0.3s;
+  }
+
+  .accordion-body.open {
+    max-height: 600px;
+    padding: 0 28px 20px;
+  }
+
+  .accordion-body p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: rgba(245,240,232,0.75);
+  }
+
+  /* FOOTER */
+  footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 60px 40px 40px;
+    border-top: 1px solid rgba(255,184,48,0.1);
+    background: rgba(6,21,43,0.95);
+  }
+
+  footer .footer-om {
+    font-size: 3rem;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  footer p {
+    font-size: 0.9rem;
+    color: rgba(245,240,232,0.45);
+    line-height: 1.7;
+  }
+
+  footer .footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  footer .footer-links a {
+    color: rgba(255,184,48,0.6);
+    text-decoration: none;
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 0.82rem;
+    transition: color 0.3s;
+  }
+
+  footer .footer-links a:hover { color: var(--gold); }
+
+  /* SEPARATOR BANNERS */
+  .banner {
+    padding: 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .banner-saffron {
+    background: linear-gradient(135deg, rgba(255,107,0,0.12), rgba(255,184,48,0.08));
+    border-top: 1px solid rgba(255,107,0,0.2);
+    border-bottom: 1px solid rgba(255,107,0,0.2);
+  }
+
+  .banner p {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    font-style: italic;
+    color: var(--gold);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+
+  /* SCROLL ANIMATION */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 12px 20px; }
+    section { padding: 60px 20px; }
+    .section-inner { padding: 0 20px; }
+    .timeline::before { display: none; }
+    .timeline-item, .timeline-item:nth-child(even) {
+      flex-direction: column !important;
+    }
+    .timeline-content { width: 100%; }
+    .timeline-dot { display: none; }
+    .contemporary-card { grid-template-columns: 1fr; }
+    .contemp-left { border-right: none; border-bottom: 1px solid rgba(78,205,196,0.1); }
+  }
+
+  /* GLOW LINES */
+  .glow-line {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--saffron), transparent);
+    margin: 40px 0;
+    opacity: 0.3;
+  }
+
+  /* TOC */
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 14px;
+    margin-top: 30px;
+  }
+
+  .toc-item {
+    background: rgba(255,107,0,0.07);
+    border: 1px solid rgba(255,107,0,0.18);
+    border-radius: 12px;
+    padding: 14px 18px;
+    text-decoration: none;
+    color: var(--soft-gold);
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s;
+  }
+
+  .toc-item:hover {
+    background: rgba(255,107,0,0.14);
+    border-color: rgba(255,107,0,0.4);
+    transform: translateX(4px);
+    color: white;
+  }
+
+  /* Highlight text */
+  .hl-gold { color: var(--gold); }
+  .hl-saffron { color: var(--saffron); }
+  .hl-teal { color: var(--light-teal); }
+  .hl-pink { color: var(--lotus-pink); }
+  .hl-river { color: var(--river); }
+</style>
+</head>
+<body>
+
+<!-- STARFIELD CANVAS -->
+<canvas id="starfield"></canvas>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="logo">🕉 <span>The Infinite</span> Mirror</div>
+  <ul>
+    <li><a href="#intro">Introduction</a></li>
+    <li><a href="#advaita">Advaita</a></li>
+    <li><a href="#philosophers">Philosophers</a></li>
+    <li><a href="#stories">Stories</a></li>
+    <li><a href="#kids">For Kids</a></li>
+    <li><a href="#timeline">Timeline</a></li>
+    <li><a href="#physics">Physics</a></li>
+    <li><a href="#math">Mathematics</a></li>
+    <li><a href="#contemporary">Today</a></li>
+    <li><a href="#mysticism">Mysticism</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <svg class="mandala-bg" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="350" cy="350" r="300" fill="none" stroke="#FFB830" stroke-width="1"/>
+    <circle cx="350" cy="350" r="250" fill="none" stroke="#FF6B00" stroke-width="0.5"/>
+    <circle cx="350" cy="350" r="200" fill="none" stroke="#FFB830" stroke-width="1"/>
+    <circle cx="350" cy="350" r="150" fill="none" stroke="#FF6B00" stroke-width="0.5"/>
+    <circle cx="350" cy="350" r="100" fill="none" stroke="#FFB830" stroke-width="1"/>
+    <circle cx="350" cy="350" r="50" fill="none" stroke="#FF6B00" stroke-width="0.5"/>
+    <polygon points="350,50 630,500 70,500" fill="none" stroke="#FFB830" stroke-width="0.5"/>
+    <polygon points="350,650 630,200 70,200" fill="none" stroke="#FF6B00" stroke-width="0.5"/>
+    <polygon points="50,350 600,120 600,580" fill="none" stroke="#FFB830" stroke-width="0.3"/>
+    <polygon points="650,350 100,120 100,580" fill="none" stroke="#FF6B00" stroke-width="0.3"/>
+  </svg>
+
+  <div style="position:relative;z-index:2;">
+    <span class="om-glyph">ॐ</span>
+    <h1>The <span>Infinite Mirror</span><br>Advaita & Mysticism</h1>
+    <p class="subtitle">A Journey Through India's Greatest Philosophical Tradition — From Ancient Forests to the Quantum Lab</p>
+    <div class="hero-badges">
+      <span class="badge">🏔 3,000+ Years of Wisdom</span>
+      <span class="badge">🔬 Meets Modern Physics</span>
+      <span class="badge">👶 Kid-Friendly Stories</span>
+      <span class="badge">🧮 Mathematics of Consciousness</span>
+      <span class="badge">🌍 Contemporary Connections</span>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <span>Begin the Journey</span>
+    <span class="arrow">↓</span>
+  </div>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="full-section" id="intro" style="background:rgba(13,27,42,0.5);">
+  <div class="section-inner">
+    <div class="section-label">🗺 Navigate the Cosmos</div>
+    <h2 class="section-title">What Is This <span>Journey</span>?</h2>
+    <p class="section-intro">
+      This website is a grand exploration of Advaita Vedanta — one of the most profound philosophical systems ever devised by human minds. We'll travel from ancient Indian forests where sages meditated under banyan trees, all the way to modern particle physics labs where scientists are discovering startling similarities. Along the way, we'll meet extraordinary thinkers, hear unforgettable stories, and find wisdom that matters <em>right now</em>, in the age of smartphones, AI, and quantum computers.
+    </p>
+    <div class="toc-grid">
+      <a href="#advaita" class="toc-item">✨ What is Advaita?</a>
+      <a href="#philosophers" class="toc-item">👳 The Great Philosophers</a>
+      <a href="#shankara" class="toc-item">🌟 Adi Shankara</a>
+      <a href="#ramanuja" class="toc-item">🌸 Ramanuja</a>
+      <a href="#vivekananda" class="toc-item">🦁 Swami Vivekananda</a>
+      <a href="#stories" class="toc-item">📖 Sacred Stories</a>
+      <a href="#kids" class="toc-item">🧒 For Young Minds</a>
+      <a href="#timeline" class="toc-item">⏳ Timeline</a>
+      <a href="#concepts" class="toc-item">💡 Key Concepts</a>
+      <a href="#physics" class="toc-item">⚛ Physics Connection</a>
+      <a href="#math" class="toc-item">🔢 Mathematics</a>
+      <a href="#mysticism" class="toc-item">🌀 Mysticism</a>
+      <a href="#contemporary" class="toc-item">🌐 Today's World</a>
+      <a href="#dialogue" class="toc-item">🤝 East Meets West</a>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT IS ADVAITA -->
+<section id="advaita" class="reveal">
+  <div class="section-label">The Core Idea</div>
+  <h2 class="section-title">What Is <span>Advaita</span>?</h2>
+  <p class="section-intro">
+    The word "Advaita" (अद्वैत) means <strong style="color:var(--gold)">Non-Dual</strong> — literally, "not two." It is the bold philosophical claim that underneath all the apparent multiplicity of the universe — mountains, rivers, people, stars, thoughts, feelings — there is exactly <em>one</em> ultimate reality. That reality is called <strong style="color:var(--saffron)">Brahman</strong>, and it is pure, infinite, undivided consciousness. And here's the astonishing part: <em>you are that</em>. Your true self (Atman) is not separate from Brahman — they are identical.
+  </p>
+
+  <div class="cards-grid">
+    <div class="story-card reveal">
+      <span class="card-emoji">🪞</span>
+      <div class="card-tag">The Mirror Metaphor</div>
+      <div class="card-title">One Light, Many Reflections</div>
+      <p class="card-body">Imagine a single flame placed in a room with a hundred mirrors. You see a hundred flames — yet there is only one. Advaita says the universe is like this: countless beings, objects, experiences — but all reflections of one undivided consciousness.</p>
+      <div class="card-quote">"Ekam sat vipra bahudha vadanti" — Truth is one; the wise call it by many names. (Rig Veda)</div>
+    </div>
+
+    <div class="story-card reveal">
+      <span class="card-emoji">🌊</span>
+      <div class="card-tag">Wave & Ocean</div>
+      <div class="card-title">The Ocean Never Loses a Wave</div>
+      <p class="card-body">Think of waves on the ocean. Each wave seems individual — big, small, tall, crashing. But every wave is made of ocean. When the wave crashes, it doesn't "die" — it returns to what it always was. Advaita says the same of human souls: we are waves of the one infinite ocean of consciousness.</p>
+      <div class="card-quote">"Tat Tvam Asi" — Thou art That. (Chandogya Upanishad)</div>
+    </div>
+
+    <div class="story-card reveal">
+      <span class="card-emoji">💎</span>
+      <div class="card-tag">The Diamond Principle</div>
+      <div class="card-title">Pure Awareness</div>
+      <p class="card-body">Advaita teaches that at the deepest level, consciousness is not a <em>product</em> of the brain or body — it is the very fabric of reality. The brain doesn't produce consciousness any more than a mirror produces the light it reflects. This view has fascinating parallels with contemporary theories in consciousness science.</p>
+      <div class="card-quote">"Prajnanam Brahma" — Consciousness is Brahman. (Aitareya Upanishad)</div>
+    </div>
+
+    <div class="story-card reveal">
+      <span class="card-emoji">🌫</span>
+      <div class="card-tag">Maya: The Grand Illusion</div>
+      <div class="card-title">The World as Magical Appearance</div>
+      <p class="card-body">Advaita doesn't deny the world exists — it says the world appears real the way a dream appears real while you're dreaming. This is <strong style="color:var(--gold)">Maya</strong>: not that the world is fake, but that we mistake it for the whole truth. We're like someone who sees a rope in the dark and jumps back thinking it's a snake.</p>
+      <div class="card-quote">"Brahma satyam jagan mithya" — Brahman is real; the world as we perceive it is an appearance.</div>
+    </div>
+
+    <div class="story-card reveal">
+      <span class="card-emoji">🔑</span>
+      <div class="card-tag">Liberation</div>
+      <div class="card-title">Moksha: The Freedom That Was Always There</div>
+      <p class="card-body">The goal in Advaita isn't to <em>achieve</em> oneness with Brahman — you already are that. The goal is <strong style="color:var(--gold)">Moksha</strong> (liberation): removing the ignorance (Avidya) that makes you think you're separate. It's like realizing you were holding the key to the locked door in your hand the whole time.</p>
+      <div class="card-quote">"Aham Brahmasmi" — I am Brahman. (Brihadaranyaka Upanishad)</div>
+    </div>
+
+    <div class="story-card reveal">
+      <span class="card-emoji">📚</span>
+      <div class="card-tag">The Upanishads</div>
+      <div class="card-title">Where It All Began</div>
+      <p class="card-body">The philosophical foundations of Advaita emerge from the <strong style="color:var(--gold)">Upanishads</strong> — 108 ancient texts composed between 800 and 200 BCE in the forest ashrams of India. Thinkers like the sage Yajnavalkya, the woman philosopher Gargi, and others debated consciousness, reality, and the nature of self with remarkable sophistication.</p>
+      <div class="card-quote">These dialogues inspired Schopenhauer, influenced Einstein, and fascinated Niels Bohr.</div>
+    </div>
+  </div>
+</section>
+
+<div class="banner banner-saffron reveal">
+  <p>"You are not a drop in the ocean. You are the entire ocean in a drop." — Rumi (echoing Advaita)</p>
+</div>
+
+<!-- KEY CONCEPTS -->
+<section id="concepts" class="reveal">
+  <div class="section-label">Sanskrit Vocabulary</div>
+  <h2 class="section-title">The Language of <span>Infinity</span></h2>
+  <p class="section-intro">Every great philosophy has its own vocabulary. Here are the essential Sanskrit concepts you'll need on this journey.</p>
+
+  <div class="concept-grid">
+    <div class="concept-box saffron reveal">
+      <span class="concept-Sanskrit">ब्रह्म</span>
+      <span class="concept-english">Brahman</span>
+      <h3>The Infinite Ground</h3>
+      <p>The ultimate reality underlying all existence. Not a god who lives somewhere, but the ground of being itself — pure, unlimited, self-luminous awareness. It is described as Sat-Chit-Ananda: Existence-Consciousness-Bliss.</p>
+    </div>
+
+    <div class="concept-box teal reveal">
+      <span class="concept-Sanskrit">आत्मन्</span>
+      <span class="concept-english">Atman</span>
+      <h3>The True Self</h3>
+      <p>Your innermost self — not your name, not your body, not your thoughts or feelings. The Atman is the witness-consciousness that watches all your experiences but is never touched by them. Advaita's greatest insight: Atman = Brahman.</p>
+    </div>
+
+    <div class="concept-box purple reveal">
+      <span class="concept-Sanskrit">माया</span>
+      <span class="concept-english">Maya</span>
+      <h3>The Cosmic Illusion</h3>
+      <p>The power by which the one Brahman appears as the many. Not "illusion" in the sense of fake, but in the sense of a magic show — something appears that is not what it seems. Maya is both the creative power of Brahman and the veil that hides it.</p>
+    </div>
+
+    <div class="concept-box blue reveal">
+      <span class="concept-Sanskrit">जीव</span>
+      <span class="concept-english">Jiva</span>
+      <h3>The Individual Soul</h3>
+      <p>The individual person, the "wave" in the ocean of Brahman. The Jiva believes itself separate because of Maya and ego (Ahamkara). When this misunderstanding dissolves, the Jiva recognizes itself as Brahman — like ice melting back into water.</p>
+    </div>
+
+    <div class="concept-box gold reveal">
+      <span class="concept-Sanskrit">मोक्ष</span>
+      <span class="concept-english">Moksha</span>
+      <h3>Liberation</h3>
+      <p>Freedom from the cycle of birth and death (Samsara) through the direct recognition of one's true nature as Brahman. This is not a place you go after death — it can happen right now, in this life, in this body, in this moment of clear seeing.</p>
+    </div>
+
+    <div class="concept-box pink reveal">
+      <span class="concept-Sanskrit">अविद्या</span>
+      <span class="concept-english">Avidya</span>
+      <h3>Ignorance</h3>
+      <p>Not the ignorance of not knowing facts, but the primal misidentification with what you are not. Avidya is the root cause of all suffering — the mistaken belief that you are a limited, mortal being, separate from everything else.</p>
+    </div>
+
+    <div class="concept-box saffron reveal">
+      <span class="concept-Sanskrit">तुरीय</span>
+      <span class="concept-english">Turiya</span>
+      <h3>The Fourth State</h3>
+      <p>Beyond waking, dreaming, and deep sleep lies Turiya — the pure witness-consciousness that underlies all three states. This is closest to what physicists might call the "ground state" of consciousness itself. Mystics say ordinary meditation can touch this state.</p>
+    </div>
+
+    <div class="concept-box teal reveal">
+      <span class="concept-Sanskrit">विवेक</span>
+      <span class="concept-english">Viveka</span>
+      <h3>Discrimination / Discernment</h3>
+      <p>The capacity to distinguish between the permanent and the impermanent, the real and the unreal. This is the primary tool of Advaita practice — not blind faith, but razor-sharp intellectual and intuitive discernment. Shankara called it the most important qualification for a seeker.</p>
+    </div>
+
+    <div class="concept-box purple reveal">
+      <span class="concept-Sanskrit">अहं ब्रह्मास्मि</span>
+      <span class="concept-english">Mahavakya</span>
+      <h3>The Great Sayings</h3>
+      <p>Four "Mahavakyas" (great sentences) from the Upanishads crystallize Advaita's core: "Prajnanam Brahma" (consciousness is Brahman), "Aham Brahmasmi" (I am Brahman), "Tat Tvam Asi" (thou art That), "Ayam Atma Brahma" (this self is Brahman).</p>
+    </div>
+  </div>
+</section>
+
+<!-- THE THREE GREAT PHILOSOPHERS -->
+<section id="philosophers" class="reveal">
+  <div class="section-label">The Architects of Thought</div>
+  <h2 class="section-title">Three <span>Giants</span> of Indian Philosophy</h2>
+  <p class="section-intro">Three thinkers, separated by centuries, who shaped the course of Indian philosophical thought — and whose ideas resonate powerfully in the modern world.</p>
+
+  <div class="philosopher-grid">
+    <!-- SHANKARA -->
+    <div class="philosopher-card reveal" id="shankara">
+      <div class="philosopher-banner" style="background:linear-gradient(to right,#FF6B00,#FFB830);"></div>
+      <div class="philosopher-content">
+        <div class="philosopher-avatar">🏔</div>
+        <div class="philosopher-name">Adi Shankaracharya</div>
+        <div class="philosopher-era">788 – 820 CE · Kerala → All of India</div>
+        <p class="philosopher-bio">
+          Born in Kaladi, Kerala, Adi Shankara was one of history's most remarkable prodigies. He mastered the Vedas by age 8, took sannyasa (renunciation) at 8, wrote his first philosophical commentary at 12, and completed a philosophical reformation of all of India before dying at just 32 years old.
+        </p>
+        <p class="philosopher-bio">
+          Shankara walked barefoot across the entire Indian subcontinent — twice — debating scholars, establishing the four Maths (monastic centers) at Sringeri, Dwarka, Puri, and Badrinath, and reviving Advaita Vedanta at a time when it had been eclipsed by other schools. He wrote brilliant commentaries on the Upanishads, the Brahmasutras, and the Bhagavad Gita.
+        </p>
+        <p class="philosopher-bio">
+          His core teaching: <em>only Brahman is real; the world as a separate entity is an appearance (vivartavada); the self is not the body, mind, or ego, but pure consciousness identical with Brahman.</em>
+        </p>
+        <div class="philosopher-teaching">
+          <strong>His Most Famous Poem</strong>
+          <p>"Mano Buddhi Ahankara Chitta Ninaham — I am not the mind, intellect, ego or memory. I am pure auspicious consciousness — Shivoham, Shivoham." (Nirvana Shatakam)</p>
+        </div>
+        <div class="philosopher-teaching" style="margin-top:12px;">
+          <strong>Modern Relevance</strong>
+          <p>Shankara's rigorous non-dualism resonates with quantum field theory (one unified field underlying all particles), information-theoretic views of reality, and the "hard problem of consciousness" in neuroscience.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RAMANUJA -->
+    <div class="philosopher-card reveal" id="ramanuja">
+      <div class="philosopher-banner" style="background:linear-gradient(to right,#E8557A,#FFB830);"></div>
+      <div class="philosopher-content">
+        <div class="philosopher-avatar">🌸</div>
+        <div class="philosopher-name">Ramanujacharya</div>
+        <div class="philosopher-era">1017 – 1137 CE · Tamil Nadu</div>
+        <p class="philosopher-bio">
+          Ramanuja lived an extraordinary 120 years, transforming south Indian devotional religion and founding the Vishishtadvaita (Qualified Non-Dualism) school — one of the most sophisticated challenges to Shankara's Advaita. Born in Sri Perumbudur, Tamil Nadu, he became one of the most important theologian-philosophers in India's history.
+        </p>
+        <p class="philosopher-bio">
+          Against Shankara's "pure" non-dualism, Ramanuja argued that the individual souls (Jivas) and the world are <em>real</em>, but they exist as the "body" of Brahman (Vishnu). Think of it this way: your hand is genuinely your hand, not an illusion — yet it belongs to and depends entirely on you. That's the relationship between the world and God in Vishishtadvaita.
+        </p>
+        <p class="philosopher-bio">
+          Ramanuja democratized spiritual practice — he insisted that devotion (Bhakti) was available to everyone, regardless of caste or gender. He defied the norms of his time by publicly teaching the secret Ashtakshara Mantra to everyone who would listen.
+        </p>
+        <div class="philosopher-teaching">
+          <strong>Core Philosophy</strong>
+          <p>"Brahman is real, the world is real, and individual souls are real — but souls and the world constitute the 'body' of Brahman who is their inner controller (antaryami). Brahman is Vishnu, the God of love, and the path to liberation is loving devotion."</p>
+        </div>
+        <div class="philosopher-teaching" style="margin-top:12px;">
+          <strong>Modern Relevance</strong>
+          <p>Ramanuja's ideas resonate with modern process theology, relational ontology, and with contemporary consciousness researchers who argue that consciousness is both one and many — like the relationship between a hologram and its parts.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIVEKANANDA -->
+    <div class="philosopher-card reveal" id="vivekananda">
+      <div class="philosopher-banner" style="background:linear-gradient(to right,#2D3A8C,#4ECDC4);"></div>
+      <div class="philosopher-content">
+        <div class="philosopher-avatar">🦁</div>
+        <div class="philosopher-name">Swami Vivekananda</div>
+        <div class="philosopher-era">1863 – 1902 CE · Kolkata → Chicago → The World</div>
+        <p class="philosopher-bio">
+          Born Narendranath Datta in Kolkata, Vivekananda was a brilliant, restless, questioning young man who became the foremost disciple of Sri Ramakrishna Paramahamsa — and then electrified the entire world. His opening words at the Parliament of World Religions in Chicago on September 11, 1893 — "Sisters and brothers of America!" — were greeted with a two-minute standing ovation.
+        </p>
+        <p class="philosopher-bio">
+          Vivekananda synthesized the ancient wisdom of Advaita with the modern world. He presented Vedanta in scientific language, argued that Hinduism was a rational, empirical tradition (not mere superstition), and gave the West its first systematic exposure to yoga, meditation, and Advaita philosophy.
+        </p>
+        <p class="philosopher-bio">
+          He founded the Ramakrishna Math and Mission in 1897, combining spiritual practice with social service — "God in the poor" was his motto. His lectures, especially "Jnana Yoga," "Raja Yoga," and "Karma Yoga," remain among the most influential philosophical works of the 19th century.
+        </p>
+        <div class="philosopher-teaching">
+          <strong>His Revolutionary Insight</strong>
+          <p>"Each soul is potentially divine. The goal is to manifest this divinity within, by controlling nature, external and internal. Do this either by work, or worship, or psychic control, or philosophy — by one, or more, or all of these — and be free." (His definition of religion)</p>
+        </div>
+        <div class="philosopher-teaching" style="margin-top:12px;">
+          <strong>Modern Relevance</strong>
+          <p>Vivekananda's call for "practical Vedanta" — living non-dualism through compassionate action — anticipates mindfulness movements, positive psychology, and modern social activism rooted in spiritual values. His ideas directly influenced figures like Nikola Tesla, William James, and Mahatma Gandhi.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHANKARA vs RAMANUJA -->
+<div class="full-section reveal" style="background:rgba(13,27,42,0.6);">
+  <div class="section-inner">
+    <div class="section-label">The Great Debate</div>
+    <h2 class="section-title">Shankara vs. Ramanuja: <span>The Friendly Battle</span></h2>
+    <p class="section-intro">Two of history's most brilliant minds disagreed on the deepest question: What is the relationship between the individual self and the ultimate reality? This debate shaped Indian philosophy for a thousand years — and it continues today.</p>
+
+    <div class="contemporary-card reveal">
+      <div class="contemp-left">
+        <h3>🏔 Shankara's Advaita (Pure Non-Dualism)</h3>
+        <p><strong style="color:var(--gold)">Position:</strong> Brahman alone is real. The appearance of individual souls and a separate world is due to Maya (cosmic illusion-power). When enlightenment comes, the individuality dissolves — like salt dissolving in water. There is no "two" — only the one, undivided Brahman.</p>
+        <br>
+        <p><strong style="color:var(--gold)">Analogy:</strong> The space inside a pot and the space outside the pot are not actually two different spaces — there is only one space. The pot's walls make them <em>appear</em> separate.</p>
+        <br>
+        <p><strong style="color:var(--gold)">Implication:</strong> Devotion to a personal God is "saguna" (with qualities) Brahman — a useful stepping-stone to the ultimate "nirguna" (without qualities) Brahman. The personal God is not the ultimate reality.</p>
+      </div>
+      <div class="contemp-right">
+        <h3>🌸 Ramanuja's Vishishtadvaita (Qualified Non-Dualism)</h3>
+        <p><strong style="color:var(--light-teal)">Position:</strong> Brahman (Vishnu) is real, individual souls are real, and the material world is real. But souls and world exist <em>within</em> Brahman as his body. There is non-duality in the sense that nothing exists outside of Brahman — but there is genuine plurality within him.</p>
+        <br>
+        <p><strong style="color:var(--light-teal)">Analogy:</strong> A body and its limbs are one, yet genuinely distinct. The hand is not an illusion — but it exists only as part of the body and cannot be separated from it.</p>
+        <br>
+        <p><strong style="color:var(--light-teal)">Implication:</strong> Liberation means eternal loving communion with the personal God (Vishnu), not dissolution of individuality. The soul retains a form of identity in the liberated state.</p>
+      </div>
+    </div>
+
+    <div class="school-box reveal">
+      <h3>🧒 For Young Thinkers: Which Do YOU Think is Right?</h3>
+      <p>Imagine you have a bucket of water. Shankara would say: the water in the bucket and the water in the ocean are <em>the same water</em> — when you pour the bucket in, there's no more "bucket water." Ramanuja would say: yes, but that water formed real waves and real patterns, and those patterns matter and are real too! Both thinkers were brilliant. This beautiful debate continues in philosophy classrooms and physics departments around the world today.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SACRED STORIES -->
+<section id="stories" class="reveal">
+  <div class="section-label">Wisdom Through Story</div>
+  <h2 class="section-title">Sacred <span>Stories</span> That Changed the World</h2>
+  <p class="section-intro">In India's philosophical tradition, the highest truths were always taught through story. Here are some of the most famous, most beloved — with their deep teachings explained for all ages.</p>
+
+  <div class="story-full reveal">
+    <div class="story-number">01</div>
+    <h3>Shankara and the Untouchable Chandala</h3>
+    <div class="meta"><span>📍 Varanasi, 8th Century CE</span><span>⭐ Shankara's Most Famous Moment</span></div>
+    <p>One morning in Varanasi, the young Shankara was walking from the Ganges river toward the great Vishwanath temple. He was a renowned sage, followed by disciples, respected by all. Then, on the narrow lane, he encountered a group of men — outcaste laborers (Chandalas), considered "untouchable" by the social conventions of the time — who were walking with their dogs, heading toward the river.</p>
+    <p>"Move aside!" commanded one of Shankara's disciples. "Let the teacher pass!"</p>
+    <p>But then the extraordinary happened. One of the Chandalas spoke directly to Shankara in flawless Sanskrit: "O Teacher, you speak of Brahman being in all things, in all beings. You say Atman is the same in all. Then what is it that you ask me to move — this body of five elements, or the pure consciousness that inhabits it? Is the consciousness in me different from the consciousness in you?"</p>
+    <p>Shankara stopped. His disciples fell silent. The great philosopher stood stunned. Here was his own teaching being used to challenge him. He looked at the man before him and realized — this was no ordinary person. He bowed deeply.</p>
+    <p>"You are my teacher," Shankara said. "In you, I see Lord Shiva himself."</p>
+    <p>He then composed the beautiful "Manisha Panchakam" — five verses on the nature of the true guru — right there on the street. The last line of each verse concludes: "Whoever has realized Brahman — be he outcast or Brahmin — he is my guru. This is my firm conviction (Manisha)."</p>
+    <div class="story-moral">
+      <strong>The Teaching</strong>
+      <p>If Advaita is true — if all beings are equally manifestations of the one Brahman — then social hierarchies that treat some humans as less valuable are a philosophical contradiction. Shankara's encounter was not just a spiritual lesson; it was a radical social statement that still resonates today in discussions of human dignity and equality.</p>
+    </div>
+  </div>
+
+  <div class="story-full reveal">
+    <div class="story-number">02</div>
+    <h3>Vivekananda Meets Ramakrishna</h3>
+    <div class="meta"><span>📍 Dakshineswar, Kolkata, 1881</span><span>⭐ The Meeting That Changed History</span></div>
+    <p>Narendranath Datta was 18 years old, brilliant, skeptical, and searching. He had been studying Western philosophy — Hume, Mill, Spencer, Kant — and found them all unsatisfying. He was part of the Brahmo Samaj, which rejected idol worship. And he had one burning question that he asked every religious figure he met: "Sir, have you seen God?"</p>
+    <p>Most teachers smiled politely and gave philosophical answers. But when Narendra asked this question to the strange, laughing, dancing priest at Dakshineswar temple — Sri Ramakrishna — the answer was electric.</p>
+    <p>"Yes," said Ramakrishna simply, looking directly at Narendra. "Yes, I have seen God, more directly than I see you now. And I can show you."</p>
+    <p>Narendra was startled. Then Ramakrishna reached out and touched him. Narendra later described feeling as though an electric current shot through his body — his sense of the external world dissolved, and he had a terrifying and beautiful experience of infinite consciousness. He screamed, "What is happening to me? What about my family?"</p>
+    <p>Ramakrishna laughed and touched him again, bringing him back. "Enough for now," he said. "Let it come gradually."</p>
+    <p>That meeting — that touch — transformed the skeptical Western-educated young man into Swami Vivekananda, who would carry the wisdom of India to the world.</p>
+    <div class="story-moral">
+      <strong>The Teaching</strong>
+      <p>Vedanta is not just a philosophy to be argued about — it is an <em>experience</em> to be had. Ramakrishna represented the mystical experiential tradition; Vivekananda the intellectual. Together, they showed that head and heart, philosophy and experience, thought and feeling must unite for genuine wisdom. This balance remains essential today.</p>
+    </div>
+  </div>
+
+  <div class="story-full reveal">
+    <div class="story-number">03</div>
+    <h3>Ramanuja and the Secret of Secrets</h3>
+    <div class="meta"><span>📍 Srirangam Temple, 12th Century</span><span>⭐ The Greatest Act of Spiritual Rebellion</span></div>
+    <p>Ramanuja had a guru named Goshthipurna (Tirukkoshtiyur Nambi), a wise elder who held in his keeping one of the most powerful mantras in the Vaishnava tradition: the Ashtakshara Mantra ("Om Namo Narayanaya"). This mantra was considered so powerful, so sacred, that it was given only to properly initiated disciples in absolute secrecy. Goshthipurna refused to share it with Ramanuja eleven times before finally relenting.</p>
+    <p>When he finally gave Ramanuja the mantra, he was very clear: "This mantra is so powerful that it grants liberation. But share it with no one outside the tradition, or you will go to hell for violating the oath."</p>
+    <p>Ramanuja received the mantra, felt overwhelming bliss, and then — climbed to the top of the temple gopuram (tower) and shouted the mantra at the top of his voice to the thousands of pilgrims gathered below.</p>
+    <p>Goshthipurna came running, furious. "You fool! You were told to keep this secret! Now you will go to hell for this betrayal!"</p>
+    <p>Ramanuja bowed calmly. "If by sharing this one mantra, thousands of people can be liberated, then I am very happy to go to hell alone, so they may go free. The liberation of one is meaningless when so many are suffering."</p>
+    <p>Goshthipurna stared at his disciple. Then, slowly, tears ran down his face. He embraced Ramanuja. "You have understood more than I taught you," he whispered.</p>
+    <div class="story-moral">
+      <strong>The Teaching</strong>
+      <p>Ramanuja's act is one of the most radical gestures in the history of religious practice: the democratization of liberation. He believed that truth, love, and God's grace were not the preserve of the elite — they belonged to everyone. This revolutionary idea connects directly to modern human rights thinking and the universality of spiritual dignity.</p>
+    </div>
+  </div>
+
+  <div class="story-full reveal">
+    <div class="story-number">04</div>
+    <h3>Vivekananda at Chicago: "Sisters and Brothers of America!"</h3>
+    <div class="meta"><span>📍 Chicago, September 11, 1893</span><span>⭐ The Speech That Introduced India to the World</span></div>
+    <p>Swami Vivekananda had arrived in Chicago with almost no money, knowing very few people, and without a formal invitation to speak at the Parliament of World Religions. Through a series of remarkable coincidences (or what he might have called divine providence), he secured a place to speak.</p>
+    <p>When his turn came, the 30-year-old monk from India walked to the podium in his saffron robe and ochre turban, looked out at the 7,000 people in the hall, and began simply: "Sisters and brothers of America!"</p>
+    <p>The crowd erupted. A two-minute standing ovation. The word "sisters" — placing women equal to men — was unusual for a formal address in 1893. And the word "brothers" — claiming kinship with the entire audience, across religions, races, and nations — embodied Advaita's most fundamental insight: we are all one family.</p>
+    <p>He went on to speak about the ancient Indian principle that all religions are paths to the same truth — "We believe not only in universal toleration, but we accept all religions as true." He quoted a beautiful poem: "As different streams having their sources in different places all mingle their water in the sea, sources in different tendencies, various though they appear, crooked or straight, all lead to God." The hall was moved to tears.</p>
+    <p>The next morning, every newspaper in America ran his photo. The New York Herald called him "undoubtedly the greatest figure in the Parliament of Religions." He had brought Vedanta — Advaita — to the modern world.</p>
+    <div class="story-moral">
+      <strong>The Teaching</strong>
+      <p>Vivekananda demonstrated that ancient Indian wisdom was not primitive superstition but a sophisticated, rational, and universal philosophy. His address was one of the first times a non-Christian, non-Western spiritual tradition was received with respect and enthusiasm by a Western audience — a pivotal moment in the history of global religious dialogue.</p>
+    </div>
+  </div>
+
+  <div class="story-full reveal">
+    <div class="story-number">05</div>
+    <h3>The Story of Nachiketa and Death</h3>
+    <div class="meta"><span>📍 The Katha Upanishad · ~800 BCE</span><span>⭐ The Oldest Story About Consciousness</span></div>
+    <p>A young boy named Nachiketa watched his father perform a religious ceremony, giving away old, useless cows to earn spiritual merit. Disturbed by his father's insincerity, Nachiketa asked: "Father, to whom will you give me?" Three times he asked. Angrily, his father snapped: "I give you to Death!"</p>
+    <p>Nachiketa took this literally and walked to the house of Yama — the god of Death — and waited. Yama was away for three days. When he returned, he was embarrassed to have left a young guest unfed and welcomed. To compensate, he granted Nachiketa three wishes.</p>
+    <p>For his third wish, Nachiketa asked the deepest question: "When a person dies, some say he still exists, others say he does not. What is the truth? Teach me this."</p>
+    <p>Yama was taken aback. Even Death himself tried to dissuade the boy — "Ask for anything else! Kingdoms, gold, beautiful women, long life, great powers!" But Nachiketa refused all these. "These pleasures are temporary. Only the knowledge of what survives death is worth having."</p>
+    <p>Yama, deeply impressed, said: "You are a true seeker. What survives death is the Atman — the pure consciousness that is never born and never dies. It is subtler than the subtlest, greater than the greatest. It is not slain when the body is slain. It is self-luminous, eternal, unchanging. It is what you truly are."</p>
+    <div class="story-moral">
+      <strong>The Teaching</strong>
+      <p>This story, over 2,800 years old, addresses the deepest question any human can ask — what happens to consciousness when the body dies? The Upanishadic answer is that the Atman (pure consciousness) is beyond birth and death. This is not mere consolation — it is a philosophical claim about the nature of awareness itself that deserves serious examination. Modern consciousness researchers are just beginning to probe these questions.</p>
+    </div>
+  </div>
+</section>
+
+<!-- KIDS SECTION -->
+<div class="full-section kids-section reveal" id="kids">
+  <div class="section-inner">
+    <div class="section-label">🌟 For Young Explorers</div>
+    <h2 class="section-title">Advaita for <span>Curious Kids</span> 🌈</h2>
+    <p class="section-intro">You don't need to be a grown-up to explore the biggest ideas in the universe! Here are some fun ways to understand Advaita — India's amazing philosophy that says everything is connected.</p>
+
+    <div class="kids-cards">
+      <div class="kids-card reveal">
+        <span class="big-emoji">🌊</span>
+        <h3>The Wave Experiment</h3>
+        <p>Fill a bathtub or bucket with water. Push the water to make waves. Each wave is different — but ALL of them are made of water. Advaita says: all the different people, animals, plants, and things in the universe are like waves — we look different, but we're all made of the same "stuff": pure consciousness!</p>
+      </div>
+
+      <div class="kids-card reveal">
+        <span class="big-emoji">🕯</span>
+        <h3>The Candle Game</h3>
+        <p>Light ONE candle. Now use it to light 5 more candles. Are the flames "different"? They look different! But they all came from the same original flame. Advaita says our souls are like those flames — each different on the outside, but all coming from the same source of light.</p>
+      </div>
+
+      <div class="kids-card reveal">
+        <span class="big-emoji">🌅</span>
+        <h3>Sunrise Over the Sea</h3>
+        <p>When the sun rises over the ocean, look at the reflections. Every little wave has a tiny sun in it! Are there millions of suns? No — there's ONE sun, appearing in millions of waves. Advaita says: there is ONE consciousness, appearing as millions of beings.</p>
+      </div>
+
+      <div class="kids-card reveal">
+        <span class="big-emoji">🔮</span>
+        <h3>The Dream Question</h3>
+        <p>When you dream at night, sometimes your dream feels totally real — you might feel scared, happy, or surprised! Then you wake up and realize it was a dream. Advaita says our waking life is a bit like a dream — very real-feeling, but not the deepest reality. The deepest reality is pure awareness.</p>
+      </div>
+
+      <div class="kids-card reveal">
+        <span class="big-emoji">🌳</span>
+        <h3>The Tree Family</h3>
+        <p>A tree has thousands of leaves. Each leaf is separate — different shape, different size. But they all grow from the same roots, drink the same water, breathe the same air. Advaita says all living beings are like leaves on the cosmic tree of consciousness — different branches, same roots!</p>
+      </div>
+
+      <div class="kids-card reveal">
+        <span class="big-emoji">🎭</span>
+        <h3>The Costume Party</h3>
+        <p>Imagine a massive costume party where everyone wears totally different costumes — some are robots, some are animals, some are aliens. It looks like hundreds of different beings! But underneath each costume... there's a person! Advaita says the universe is like that: many different "costumes," but one consciousness wearing them all.</p>
+      </div>
+
+      <div class="kids-card reveal">
+        <span class="big-emoji">🧩</span>
+        <h3>The Jigsaw Puzzle</h3>
+        <p>When a jigsaw puzzle is scattered on the floor, it looks like 500 separate, random pieces. But when you put them together, they form ONE picture. The universe is like that: many separate-looking parts that actually form one complete picture — Brahman.</p>
+      </div>
+
+      <div class="kids-card reveal">
+        <span class="big-emoji">🎵</span>
+        <h3>The Music of Everything</h3>
+        <p>Imagine a symphony orchestra. There are 80 musicians playing different instruments — violins, drums, trumpets, flutes. Each one plays a different note. But together, they make ONE beautiful piece of music. Advaita says the universe is one grand symphony, and every being is a note in it!</p>
+      </div>
+    </div>
+
+    <div class="school-box reveal">
+      <h3>🎓 Try This at School!</h3>
+      <p>Next time you're with your classmates, try this experiment: Ask everyone to think about the moment just before they thought their first thought this morning — that silent, awake feeling, before any words or images came. EVERYONE has that quiet, aware feeling! That deep awareness is the same in everyone. Advaita calls it Atman. You all share it. That's the most important thing Advaita teaches: <strong>at the deepest level, you are all connected.</strong></p>
+    </div>
+  </div>
+</div>
+
+<!-- TIMELINE -->
+<section id="timeline" class="reveal">
+  <div class="section-label">A Journey Through Time</div>
+  <h2 class="section-title">3,000 Years of <span>Wisdom</span></h2>
+  <p class="section-intro">From the banks of ancient rivers to the quantum physics lab — the story of Advaita and Indian mysticism across the millennia.</p>
+
+  <div class="timeline">
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="timeline-year">~1500 BCE</div>
+        <div class="timeline-title">The Rigveda: Cosmic Unity</div>
+        <p class="timeline-text">The earliest hymns of the Rigveda already hint at a single, unifying principle: "Ekam sat vipra bahudha vadanti" — Truth is one, the wise call it many names. The seeds of Advaita are planted.</p>
+      </div>
+      <div style="width:calc(50%-40px);"></div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div style="width:calc(50%-40px);"></div>
+      <div class="timeline-content">
+        <div class="timeline-year">~800-200 BCE</div>
+        <div class="timeline-title">The Upanishads: The Forest Philosophy</div>
+        <p class="timeline-text">In forest ashrams, sages compose the Upanishads — dialogues about Brahman, Atman, consciousness, and reality. The Katha, Brihadaranyaka, Chandogya, and Mandukya Upanishads contain the core ideas of Advaita. Women philosophers like Gargi and Maitreyi participate in the debates.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="timeline-year">~200 BCE</div>
+        <div class="timeline-title">Badarayana's Brahmasutras</div>
+        <p class="timeline-text">The philosopher Badarayana (Vyasa) systematizes the Upanishadic teachings in the Brahmasutras — terse, logical aphorisms that become the definitive "textbook" of Vedanta. Later philosophers will write competing commentaries on this text.</p>
+      </div>
+      <div style="width:calc(50%-40px);"></div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div style="width:calc(50%-40px);"></div>
+      <div class="timeline-content">
+        <div class="timeline-year">5th Century CE</div>
+        <div class="timeline-title">Gaudapada: The Pre-Shankara Advaita</div>
+        <p class="timeline-text">Shankara's grand-teacher Gaudapada writes the Mandukya Karika — a radical text arguing that all experience, whether waking, dreaming, or deep sleep, is fundamentally like a dream. The world arises like magic (maya) — unborn (ajata). This becomes the bedrock of Shankara's later system.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="timeline-year">788 – 820 CE</div>
+        <div class="timeline-title">Adi Shankara: The Great Systematizer</div>
+        <p class="timeline-text">In a life of only 32 years, Shankara transforms Indian philosophy. He walks across India, establishes four Maths, writes commentaries on the Upanishads, Gita, and Brahmasutras, composes devotional hymns, and defeats rival schools in debate. His Advaita becomes the dominant philosophical school of India.</p>
+      </div>
+      <div style="width:calc(50%-40px);"></div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div style="width:calc(50%-40px);"></div>
+      <div class="timeline-content">
+        <div class="timeline-year">1017 – 1137 CE</div>
+        <div class="timeline-title">Ramanuja: Love in Philosophy</div>
+        <p class="timeline-text">Living 120 years, Ramanuja writes the Sri Bhashya (commentary on Brahmasutras), develops Vishishtadvaita, synthesizes the devotional poetry of the Alvars with Vedantic philosophy, and establishes a tradition where God, soul, and world form a loving unity.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="timeline-year">13th Century CE</div>
+        <div class="timeline-title">Madhva and the Dvaita School</div>
+        <p class="timeline-text">Madhvacharya (1238–1317) takes an even more radical position than Ramanuja: the world, souls, and God are completely distinct (Dvaita = dualism). Only devotion to Vishnu leads to liberation. The three schools — Advaita, Vishishtadvaita, Dvaita — form the three pillars of Vedantic debate.</p>
+      </div>
+      <div style="width:calc(50%-40px);"></div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div style="width:calc(50%-40px);"></div>
+      <div class="timeline-content">
+        <div class="timeline-year">15th–17th Century CE</div>
+        <div class="timeline-title">The Bhakti Movement: Mysticism Goes to the Streets</div>
+        <p class="timeline-text">Poet-saints like Kabir, Mirabai, Tukaram, Surdas, and Chaitanya Mahaprabhu bring the mystical experience of unity to ordinary people through song, dance, and love poetry. Mirabai (a princess who abandoned her palace for devotion to Krishna) becomes one of India's greatest mystical poets.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="timeline-year">1836 – 1886 CE</div>
+        <div class="timeline-title">Sri Ramakrishna: The Living Laboratory</div>
+        <p class="timeline-text">The Kolkata temple priest Ramakrishna Paramahamsa practices all religions — Hinduism, Islam, Christianity — and achieves mystical union through each. His conclusion: all paths lead to the same destination. He becomes the living proof of Advaita's universalism, and Vivekananda's master.</p>
+      </div>
+      <div style="width:calc(50%-40px);"></div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div style="width:calc(50%-40px);"></div>
+      <div class="timeline-content">
+        <div class="timeline-year">1863 – 1902 CE</div>
+        <div class="timeline-title">Vivekananda: Vedanta Meets the Modern World</div>
+        <p class="timeline-text">After electrifying the Parliament of World Religions (1893), Vivekananda tours America and Europe for four years, teaching Vedanta, yoga, and Advaita. He founds the Ramakrishna Mission (1897), combining meditation with social work. He influences Tesla, William James, Leo Tolstoy, and Aldous Huxley.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="timeline-year">20th Century CE</div>
+        <div class="timeline-title">Ramana Maharshi, Aurobindo & The Modern Renaissance</div>
+        <p class="timeline-text">Bhagavan Ramana Maharshi (1879–1950) at Arunachala teaches silent Advaita — "Who am I?" as the direct path to self-knowledge. Sri Aurobindo (1872–1950) synthesizes Advaita with evolutionary theory, proposing that matter is evolving toward higher consciousness. Both attract global followings.</p>
+      </div>
+      <div style="width:calc(50%-40px);"></div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div style="width:calc(50%-40px);"></div>
+      <div class="timeline-content">
+        <div class="timeline-year">1970s – Present</div>
+        <div class="timeline-title">Advaita Meets Physics & Neuroscience</div>
+        <p class="timeline-text">Physicists like Fritjof Capra (The Tao of Physics, 1975) and David Bohm (Wholeness and the Implicate Order, 1980) draw parallels between quantum physics and Eastern non-dualism. Neuroscientists like Christof Koch investigate consciousness in ways that echo Advaita's questions. The dialogue continues.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="timeline-year">2024 – 2026 CE</div>
+        <div class="timeline-title">Today: Mindfulness, AI & the Hard Problem</div>
+        <p class="timeline-text">Advaita's questions are more urgent than ever: as AI systems become more sophisticated, what IS consciousness? Can it be computed? Is it fundamental or emergent? The ancient Indian philosophers who pondered Brahman and Atman would recognize these questions immediately. The search continues.</p>
+      </div>
+      <div style="width:calc(50%-40px);"></div>
+    </div>
+  </div>
+</section>
+
+<div class="big-quote reveal">
+  <blockquote>"The only way to come to truth is to be totally, absolutely, consistently honest — this is what both Advaita philosophy and good science demand."</blockquote>
+  <cite>— Inspired by Swami Vivekananda's "Practical Vedanta"</cite>
+</div>
+
+<!-- PHYSICS CONNECTION -->
+<div class="full-section reveal" id="physics" style="background:linear-gradient(180deg, rgba(13,27,42,0.8), rgba(45,58,140,0.1));">
+  <div class="section-inner">
+    <div class="section-label">⚛ Science Meets Spirit</div>
+    <h2 class="section-title">Advaita & <span>Modern Physics</span></h2>
+    <p class="section-intro">Some of the greatest physicists of the 20th century — including Schrödinger, Heisenberg, Bohr, and Bohm — were deeply influenced by Indian philosophy. The parallels between quantum physics and Advaita Vedanta are not superficial — they point to profound questions about the nature of reality.</p>
+
+    <div class="physics-grid">
+      <div class="physics-card reveal">
+        <span class="physics-icon">🌊</span>
+        <h3>Quantum Field Theory & Brahman</h3>
+        <p>In quantum field theory, all particles — electrons, protons, quarks, photons — are not separate "things." They are excitations (vibrations) of underlying quantum fields that permeate all of space. There is one electron field, one photon field, etc. Individual "particles" are like ripples in these fields.</p>
+        <div class="connection">🔗 Advaita parallel: Just as Brahman is the one ground of being from which all apparent multiplicity arises, quantum fields are the one ground from which all apparent particles arise. The "many" resolves back to the "one."</div>
+      </div>
+
+      <div class="physics-card reveal">
+        <span class="physics-icon">🔬</span>
+        <h3>The Observer Effect & Consciousness</h3>
+        <p>In quantum mechanics, the act of "observation" or "measurement" plays a peculiar role in collapsing a particle's wave function from many possible states to one. Physicists like John von Neumann argued that the observer (consciousness) cannot be left out of a complete description of physical reality.</p>
+        <div class="connection">🔗 Advaita parallel: Shankara argued that consciousness (Chit) is not a product of matter — it is fundamental. Brahman = Sat-Chit-Ananda (Being-Consciousness-Bliss). Consciousness is primary, not derived. This is precisely what the quantum measurement problem suggests.</div>
+      </div>
+
+      <div class="physics-card reveal">
+        <span class="physics-icon">🕸</span>
+        <h3>Quantum Entanglement & Non-Separation</h3>
+        <p>Entangled particles, regardless of the distance between them, instantly "know" the state of each other. Einstein called this "spooky action at a distance" and disliked it. But it has been confirmed experimentally (John Bell's theorem, 1964; Aspect's experiments, 1982). Space does not separate entangled particles.</p>
+        <div class="connection">🔗 Advaita parallel: The appearance of separation is Maya. At the deepest level, all things are non-separated. Entanglement seems to confirm that the universe is not fundamentally a collection of separate parts — it is one interconnected whole, exactly as Advaita says.</div>
+      </div>
+
+      <div class="physics-card reveal">
+        <span class="physics-icon">🌀</span>
+        <h3>Bohm's Implicate Order</h3>
+        <p>Physicist David Bohm proposed that beneath the explicate (unfolded, visible) order of the universe, there is an implicate (enfolded) order in which everything is interconnected. Particles we see as separate are like "ripples" on the surface of a much deeper ocean of undivided wholeness.</p>
+        <div class="connection">🔗 Advaita parallel: Bohm's "holomovement" (the undivided flowing totality) mirrors Advaita's Brahman. Bohm explicitly acknowledged the influence of Indian philosophy, particularly through his conversations with philosopher Jiddu Krishnamurti.</div>
+      </div>
+
+      <div class="physics-card reveal">
+        <span class="physics-icon">🐱</span>
+        <h3>Schrödinger's Cat & Erwin Schrödinger's Vedanta</h3>
+        <p>Physicist Erwin Schrödinger (of "Schrödinger's Cat" fame) was an avid reader of the Upanishads. In his book "What Is Life?" (1944) and "Mind and Matter" (1958), he argued that consciousness is singular — there is only ONE consciousness, appearing as many. He quoted Advaita directly.</p>
+        <div class="connection">🔗 His famous quote: "The over-all number of minds is just one. I venture to call it indestructible since it has a peculiar timetable, namely mind is always now." — Almost a perfect paraphrase of the Advaitic "one Atman" teaching.</div>
+      </div>
+
+      <div class="physics-card reveal">
+        <span class="physics-icon">🔭</span>
+        <h3>The Big Bang & Maya</h3>
+        <p>The universe began approximately 13.8 billion years ago in a state of unimaginable density — essentially, a singularity, a "point" with no internal differentiation. From this one point, all of space, time, matter, and energy emerged. The diversity of the cosmos arose from primordial unity.</p>
+        <div class="connection">🔗 Advaita parallel: Brahman, the undifferentiated One, manifests as the differentiated many through its power of Maya. The Big Bang can be read as a cosmological description of the same primal unfolding that Advaita describes philosophically.</div>
+      </div>
+
+      <div class="physics-card reveal">
+        <span class="physics-icon">🧠</span>
+        <h3>The Hard Problem of Consciousness</h3>
+        <p>Philosopher David Chalmers (1994) formulated the "hard problem of consciousness": why does physical brain activity give rise to subjective experience at all? Why is there "something it's like" to see red or feel pain? No purely physical explanation seems sufficient. This problem remains unsolved.</p>
+        <div class="connection">🔗 Advaita's answer: Consciousness is not a product of the brain — it is fundamental. Brahman IS consciousness. The brain does not generate awareness; it is a vehicle through which one universal consciousness expresses itself. This is the "panpsychist" view that many scientists now seriously consider.</div>
+      </div>
+
+      <div class="physics-card reveal">
+        <span class="physics-icon">⏰</span>
+        <h3>The Block Universe & Eternal Now</h3>
+        <p>In Einstein's special theory of relativity, space and time form a four-dimensional "spacetime" manifold. The past, present, and future all exist equally in this block universe — there is no privileged "now." Time's flow may be an illusion of consciousness, not an objective feature of reality.</p>
+        <div class="connection">🔗 Advaita parallel: The Mandukya Upanishad describes pure consciousness (Turiya) as timeless — it does not arise and pass away, but is the eternal witness. Mystics report that in deep meditation, time "stops" — they enter an eternal present. Physics and mysticism converge here.</div>
+      </div>
+
+      <div class="physics-card reveal">
+        <span class="physics-icon">🌌</span>
+        <h3>Heisenberg's Uncertainty & The Limits of Knowledge</h3>
+        <p>Werner Heisenberg's uncertainty principle states that one cannot simultaneously know both the position and momentum of a particle with perfect precision. The act of measuring one disturbs the other. There are fundamental limits to what can be known about the physical world.</p>
+        <div class="connection">🔗 Advaita parallel: Shankara argued that the intellect (buddhi), being part of Maya, cannot fully grasp Brahman — only direct experience (anubhava) through meditation can. Both quantum mechanics and Advaita suggest that ordinary modes of knowing hit a wall at the deepest levels of reality.</div>
+      </div>
+    </div>
+
+    <div class="school-box reveal" style="margin-top:50px;">
+      <h3>🔬 What Scientists Have Said</h3>
+      <p><strong style="color:var(--gold)">Niels Bohr</strong> chose the Taoist/Advaitic yin-yang symbol for his coat of arms. <strong style="color:var(--gold)">Werner Heisenberg</strong> said conversations with Indian physicists helped him find the conceptual framework for quantum mechanics. <strong style="color:var(--gold)">J. Robert Oppenheimer</strong> quoted the Bhagavad Gita upon witnessing the first nuclear explosion. <strong style="color:var(--gold)">Nikola Tesla</strong> corresponded with Vivekananda and credited Advaita concepts with inspiring his thinking about energy and matter.</p>
+    </div>
+  </div>
+</div>
+
+<!-- MATHEMATICS -->
+<section id="math" class="reveal">
+  <div class="section-label">🔢 The Geometry of God</div>
+  <h2 class="section-title">Mathematics & <span>Non-Duality</span></h2>
+  <p class="section-intro">Numbers, infinity, and mathematical structures illuminate the truths of Advaita in surprising ways. India's mathematical tradition and its philosophical tradition were never separate — they grew together from the same roots.</p>
+
+  <div class="math-card reveal">
+    <h3>∞ The Mathematics of Infinity (Ananta)</h3>
+    <p>The Vedic concept of Brahman as infinite (ananta) is not merely poetic. India gave the world the rigorous mathematical concept of infinity. The Ishavasya Upanishad contains a remarkable verse: "Purnam adah purnam idam, purnat purnam udachyate, purnasya purnam adaya, purnam evavashishyate."</p>
+    <div class="math-formula">∞ - ∞ = ∞ &nbsp;|&nbsp; "From the whole, the whole is born. Take the whole from the whole — the whole remains."</div>
+    <p>This describes the mathematical property of infinite sets: the set of all natural numbers (1,2,3...) and the set of all even numbers (2,4,6...) are both infinite, and both "the same size" (in Cantor's terms, they have the same cardinality). Georg Cantor, who developed set theory, was aware of Indian mathematical concepts and spoke of the "Absolute Infinite" in terms very similar to Brahman.</p>
+  </div>
+
+  <div class="math-card reveal">
+    <h3>🔄 Topology: Möbius Strip & Non-Duality</h3>
+    <p>Take a strip of paper, give it one twist, and join the ends. You now have a Möbius strip — a surface with only ONE side and ONE edge. Start drawing a line along one "side" and you'll end up back where you started, having covered both apparent sides without ever crossing the edge. It appears to have two sides — but it has one.</p>
+    <div class="math-formula">One surface that appears as two = Maya manifesting as apparent duality from underlying unity</div>
+    <p>This is a beautiful mathematical illustration of Advaita: the apparent duality of "self" and "other," "subject" and "object," looks like two things — but when you trace the structure deeply, you find they are one continuous surface. The separation is apparent, not real.</p>
+  </div>
+
+  <div class="math-card reveal">
+    <h3>🌀 Fractals: Self-Similarity at All Scales</h3>
+    <p>A fractal is a mathematical structure that displays the same pattern at every scale of magnification. The Mandelbrot set, Sierpinski triangle, and countless others show infinite complexity arising from simple recursive rules. Zoom in to any part and you find the whole structure again — reflected in every detail.</p>
+    <div class="math-formula">Self-similarity at all scales: each part contains the whole pattern</div>
+    <p>Advaita's "Brahman in the smallest as in the greatest" is a fractal idea. The Atman in the individual is the same as the Brahman in the cosmos. The Chandogya Upanishad's instruction "Tat Tvam Asi" (That Thou Art) describes this fractal identity: the universal is present in the particular at every level of reality.</p>
+  </div>
+
+  <div class="math-card reveal">
+    <h3>🔢 Zero: India's Gift to Mathematics & Philosophy</h3>
+    <p>India invented zero (shunya). This was not merely a mathematical invention — it was philosophical. The concept of "shunya" (emptiness, void) was already central to Buddhist and Advaitic thinking before it became a numeral. Zero represents the ground from which all numbers arise, and to which they return. Without zero, our entire number system collapses.</p>
+    <div class="math-formula">0 + n = n &nbsp;|&nbsp; Zero does not destroy what it touches — it is the fertile ground from which number emerges</div>
+    <p>In Advaita, Brahman is sometimes described as "shunya" (void) — not because it is nothing, but because it is beyond all positive description. Like zero, which is neither positive nor negative but gives rise to both, Brahman transcends all categories while being the ground of all existence.</p>
+  </div>
+
+  <div class="math-card reveal">
+    <h3>🌐 Holography & Advaita</h3>
+    <p>A hologram is an image where every part of the film contains information about the entire image. If you cut a hologram in half and illuminate it, you don't see half the image — you see the whole image (slightly less clearly). The whole is encoded in every part.</p>
+    <div class="math-formula">Every part contains the information of the whole</div>
+    <p>This holographic principle has a contemporary physics dimension: physicist Stephen Hawking (following work by Bekenstein, 't Hooft, and Susskind) developed the "holographic principle" — the idea that all the information in a 3D volume of space is encoded on its 2D boundary surface. Our three-dimensional universe may be like a hologram. And Advaita would say: yes — each Atman contains the whole of Brahman.</p>
+  </div>
+
+  <div class="math-card reveal">
+    <h3>📐 Sri Yantra: Sacred Geometry of Non-Duality</h3>
+    <p>The Sri Yantra is one of the most complex and beautiful geometric figures in the world — nine interlocking triangles (four pointing up, five pointing down) surrounded by lotus petals and a square enclosure, all emanating from a central dot (bindu). It contains 43 smaller triangles.</p>
+    <div class="math-formula">The bindu (·) at the center represents Brahman — dimensionless, yet the source of all geometry</div>
+    <p>Remarkably, the Sri Yantra's proportions contain the golden ratio (φ ≈ 1.618) throughout its structure. Modern computational analysis has shown that achieving the perfect intersection points requires extremely precise angular measurements — a mathematical achievement of ancient Indian geometers. This sacred geometry is a mathematical meditation on non-duality: how one central point gives rise to infinite geometric complexity.</p>
+  </div>
+</section>
+
+<!-- MYSTICISM -->
+<section id="mysticism" class="reveal">
+  <div class="section-label">🌌 The Inner Universe</div>
+  <h2 class="section-title">The World of <span>Indian Mysticism</span></h2>
+  <p class="section-intro">Mysticism is not superstition — it is the direct, first-person investigation of consciousness itself. India has developed the world's most sophisticated and systematic approaches to exploring the inner universe.</p>
+
+  <div class="cards-grid">
+    <div class="story-card reveal">
+      <span class="card-emoji">🧘</span>
+      <div class="card-tag">Dhyana (Meditation)</div>
+      <div class="card-title">The Science of Turning Inward</div>
+      <p class="card-body">Indian meditation traditions developed thousands of years before neuroscience — yet modern brain imaging confirms what meditators reported: deep meditation changes brain structure, reduces the "default mode network" (the ego-activity of the brain), increases gamma waves, and induces states of profound peace. The Yoga Sutras of Patanjali (200 BCE) remain a precise manual of consciousness exploration.</p>
+    </div>
+
+    <div class="story-card reveal">
+      <span class="card-emoji">🌸</span>
+      <div class="card-tag">Kashmir Shaivism</div>
+      <div class="card-title">The Universe is God's Self-Expression</div>
+      <p class="card-body">Kashmir Shaivism (9th–12th centuries CE) presents a thrilling variant of non-dualism: the universe is not Maya (illusion) but the free, playful self-expression (lila) of Shiva-consciousness. The Tantric tradition holds that matter itself is divine — that the body, sex, food, and ordinary life are all vehicles for spiritual awakening. Philosophers like Abhinavagupta wrote encyclopedic works synthesizing all of this.</p>
+    </div>
+
+    <div class="story-card reveal">
+      <span class="card-emoji">💃</span>
+      <div class="card-tag">Bhakti Mysticism</div>
+      <div class="card-title">Love as the Path to Union</div>
+      <p class="card-body">The Bhakti mystics — Mirabai, Tukaram, Kabir, Surdas, Chaitanya — described the mystical union of the soul with God in the language of passionate love. Mirabai wrote: "I have drunk the immortal nectar of love. Whatever you call it poison — I call it nectar." This mysticism of the heart is as rigorous as any philosophy, and modern positive psychology research confirms that love and compassion practices fundamentally alter brain and biology.</p>
+    </div>
+
+    <div class="story-card reveal">
+      <span class="card-emoji">🌿</span>
+      <div class="card-tag">The Guru-Shishya Tradition</div>
+      <div class="card-title">Knowledge That Cannot Be Booked</div>
+      <p class="card-body">In India's mystical tradition, the highest wisdom cannot be learned from books alone — it requires a transmission from teacher to student (guru-shishya parampara). The guru does not merely provide information; their very presence, their state of being, communicates something that words cannot. Shankara himself received this transmission from Govindapada; Vivekananda from Ramakrishna. This continues today in living traditions.</p>
+    </div>
+
+    <div class="story-card reveal">
+      <span class="card-emoji">🌙</span>
+      <div class="card-tag">Dream Yoga & States of Consciousness</div>
+      <div class="card-title">Exploring Consciousness Through Dreams</div>
+      <p class="card-body">The Mandukya Upanishad identifies four states of consciousness: waking (jagrit), dreaming (svapna), deep sleep (sushupti), and the fourth (turiya) — pure awareness. Advanced practices in the Indian and Tibetan traditions involve maintaining awareness during dreams (lucid dreaming) and deep sleep — essentially mapping the full territory of consciousness. Modern sleep science has validated some of these states.</p>
+    </div>
+
+    <div class="story-card reveal">
+      <span class="card-emoji">🔥</span>
+      <div class="card-tag">Samadhi: The State Beyond States</div>
+      <div class="card-title">When the Wave Knows It Is Ocean</div>
+      <p class="card-body">Samadhi is the highest state described in yoga texts — a direct, non-conceptual experience of one's identity with Brahman. It is not unconsciousness — it is super-consciousness. The yogic texts describe different grades of Samadhi, from Savikalpa (with object) to Nirvikalpa (without object/distinction) to Sahaja (natural, effortless — the state of a permanently enlightened being). Ramana Maharshi described Sahaja Samadhi as simply "being what you are."</p>
+    </div>
+  </div>
+</section>
+
+<!-- OTHER SCHOOLS OF INDIAN PHILOSOPHY -->
+<div class="full-section reveal" style="background:rgba(13,27,42,0.6);">
+  <div class="section-inner">
+    <div class="section-label">The Full Map</div>
+    <h2 class="section-title">Other Schools of <span>Indian Philosophy</span></h2>
+    <p class="section-intro">Advaita is one of six orthodox (astika) schools of Indian philosophy, and is related to many heterodox schools. Together, they form one of humanity's richest philosophical traditions.</p>
+
+    <div class="accordion-item reveal">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        <h4>⚡ Samkhya & Yoga: The Philosophy of Practice</h4>
+        <span class="accordion-toggle">+</span>
+      </div>
+      <div class="accordion-body">
+        <p>Samkhya (attributed to the sage Kapila, ~600 BCE) is a dualist system that distinguishes between Purusha (pure consciousness) and Prakriti (primal matter/energy). All of nature — including mind and intellect — is Prakriti in various states. Purusha is the pure witness. When Purusha mistakenly identifies with Prakriti, suffering arises. Liberation comes from discriminating between them. <br><br>Yoga (Patanjali's Yoga Sutras, ~200 BCE) is the practical application of Samkhya: through ethical practice, posture, breath, sense withdrawal, concentration, meditation, and samadhi, the yogi gradually stills the fluctuations of the mind until Purusha shines in its own nature. Yoga was the practical path; Samkhya the theory. Modern yoga (the physical practice most know) is a tiny fragment of this vast system.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item reveal">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        <h4>⚖ Nyaya & Vaisheshika: Logic and Atomic Theory</h4>
+        <span class="accordion-toggle">+</span>
+      </div>
+      <div class="accordion-body">
+        <p>Nyaya (founded by Gautama Aksapada, ~200 BCE) developed a rigorous system of logic and epistemology — a "theory of knowledge" that analyzed valid sources of knowledge (perception, inference, comparison, testimony). Nyaya philosophers debated the Buddhists and developed some of the world's first formal logical arguments. <br><br>Vaisheshika (Kanada, ~600 BCE) proposed an atomic theory: all matter is composed of indivisible atoms (paramanu) of four types — earth, water, fire, air — plus space, time, direction, soul, and mind. This was not the same as Democritus' atoms (with which it is sometimes compared) but it represents an independent and sophisticated ancient atomic theory, developed entirely from philosophical reasoning.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item reveal">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        <h4>🌸 Buddhism & Jainism: Related but Different</h4>
+        <span class="accordion-toggle">+</span>
+      </div>
+      <div class="accordion-body">
+        <p>Buddhism (founded by Siddhartha Gautama, ~500 BCE) shares with Advaita an emphasis on the non-existence of a permanent self (anatta) and on consciousness as central — but differs radically in denying Brahman or any permanent ground of being. Buddhist philosophy developed its own rich schools: Madhyamaka (Nagarjuna's philosophy of emptiness/sunyata), Yogachara (consciousness-only philosophy), and Theravada. <br><br>Jainism (Mahavira, ~600 BCE) emphasizes extreme non-violence (ahimsa), multiple viewpoints (anekantavada — no single perspective captures the whole truth), and the reality of multiple eternal souls. Jain logic developed the famous syadvada — "maybe it is so" — a radical pluralism of truth that anticipates modern philosophical contextualism.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item reveal">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        <h4>🔱 Tantra: The Non-Dual Path Through the Body</h4>
+        <span class="accordion-toggle">+</span>
+      </div>
+      <div class="accordion-body">
+        <p>Tantra is widely misunderstood in the West. Philosophically, it is a non-dual system that refuses to reject anything as "impure" or "unspiritual." Since Brahman is all, everything — including the body, food, pleasure, and the material world — can be a vehicle for awakening. Kashmir Shaivism (Abhinavagupta, 950–1016 CE) is the philosophical summit of this tradition. <br><br>The Tantric yogi works with the body's energy system (chakras, kundalini), mantras, visualization, and ritual to transform ordinary experience into a vehicle for recognizing non-duality. Unlike Shankara's path of intellectual renunciation, Tantra says: don't reject the world — see through it to its divine ground while remaining in it.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item reveal">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        <h4>🌍 Sufism & Indian Mysticism: Cross-Cultural Dialogue</h4>
+        <span class="accordion-toggle">+</span>
+      </div>
+      <div class="accordion-body">
+        <p>When Sufi mystics came to India (from the 10th century onward), they found an immediate resonance with Advaita. The Sufi concept of "Fana" (annihilation of the self in God) mirrors Advaita's moksha. The great Sufi poet Rumi's verse reads almost like Upanishadic poetry. In particular, the Mughal prince Dara Shikoh (1615–1659) translated 50 Upanishads into Persian as "Sirr-i-Akbar" (The Greatest Secret), writing that the Upanishads were the "scripture of the people of the Book" hidden in cryptic form. This remarkable cross-cultural philosophical dialogue influenced subsequent centuries.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTEMPORARY CONTEXT -->
+<section id="contemporary" class="reveal">
+  <div class="section-label">🌐 Living Philosophy</div>
+  <h2 class="section-title">Advaita in the <span>Contemporary World</span></h2>
+  <p class="section-intro">These ancient ideas are not museum pieces. They are alive, relevant, and increasingly urgent in the 21st century. Here's where Advaita shows up today.</p>
+
+  <div class="contemporary-card reveal">
+    <div class="contemp-left">
+      <h3>🤖 Artificial Intelligence & Consciousness</h3>
+      <p>As AI systems like GPT-4, Claude, and Gemini become more sophisticated, a burning philosophical question emerges: Can AI be conscious? Is there "something it's like" to be an AI? The "hard problem of consciousness" (Chalmers) makes this genuinely difficult. Advaita's answer would be startling: consciousness is not a computation — it is the ground of all being. No amount of information processing automatically generates the inner light of awareness. This perspective, called "panpsychism" in modern philosophy, is gaining traction among serious consciousness researchers including Christof Koch and Donald Hoffman.</p>
+    </div>
+    <div class="contemp-right">
+      <h3>🧬 Neuroscience of Meditation</h3>
+      <p>Decades of neuroscience research (Sara Lazar at Harvard, Richard Davidson at Wisconsin, Judson Brewer at Brown) confirm that meditation produces measurable changes in brain structure and function: increased grey matter density in attention regions, decreased amygdala reactivity, increased gamma-wave coherence during meditation. The "default mode network" — the brain network associated with self-referential thinking (the ego) — shows decreased activity in experienced meditators. This is neurological confirmation of what Advaita has always said: the ego is not the real self.</p>
+    </div>
+  </div>
+
+  <div class="contemporary-card reveal">
+    <div class="contemp-left">
+      <h3>🌍 Climate Crisis & Ecological Non-Dualism</h3>
+      <p>The ecological crisis we face is, at its root, a philosophical crisis: the belief that humans are separate from nature, that the environment is an "external" resource to be used. Advaita's core teaching — that the apparent separation between self and world, human and nature, is the fundamental illusion — provides a philosophical foundation for ecological ethics. If I am not separate from the forest, the river, the atmosphere — then destroying them is literally self-harm. Thinkers like Joanna Macy and the Deep Ecology movement have drawn explicitly on this Advaitic insight.</p>
+    </div>
+    <div class="contemp-right">
+      <h3>🏥 Mindfulness & Mental Health</h3>
+      <p>The global mindfulness movement — MBSR (Mindfulness-Based Stress Reduction, developed by Jon Kabat-Zinn), mindfulness-based cognitive therapy, and related approaches — drew directly from Buddhist and Advaitic meditation practices. Kabat-Zinn studied with Krishnamurti and various Buddhist teachers. Today, mindfulness is prescribed by NHS (UK) and major health systems globally for depression, anxiety, chronic pain, and PTSD. The ancient Indian insight that suffering arises from identifying with the contents of consciousness (thoughts, feelings, sensations) rather than as the witnessing awareness behind them is now clinical medicine.</p>
+    </div>
+  </div>
+
+  <div class="contemporary-card reveal">
+    <div class="contemp-left">
+      <h3>🧑‍🤝‍🧑 Social Justice & Advaita</h3>
+      <p>Vivekananda's "practical Vedanta" said: if all beings are Brahman, then serving the poor is literally worshipping God. This radical non-dualism — no separation between spiritual practice and social action — animated the Ramakrishna Mission's network of hospitals, schools, and disaster relief. B.R. Ambedkar, who fought against caste discrimination and drafted India's constitution, drew on Buddhist non-dualism to argue for radical equality. The Advaitic insight that all apparent divisions are ultimately illusory is a profound philosophical foundation for human rights.</p>
+    </div>
+    <div class="contemp-right">
+      <h3>🔮 String Theory & Unified Field</h3>
+      <p>String theory (and its successor, M-theory) proposes that all apparently different particles and forces are excitations of one-dimensional "strings" or branes vibrating in an 11-dimensional spacetime. If correct, all matter and energy in the universe reduce to one fundamental type of entity in vibration. This "unification" — reducing the many to the one — is the deepest ambition of theoretical physics, and it mirrors precisely what Advaita has claimed philosophically for 3,000 years: at the deepest level, there is only one thing.</p>
+    </div>
+  </div>
+
+  <div class="contemporary-card reveal">
+    <div class="contemp-left">
+      <h3>📱 Social Media & The Distracted Mind</h3>
+      <p>Perhaps nothing would horrify Shankara and Vivekananda more than the average modern smartphone user — constantly distracted, never present, endlessly seeking stimulation from external sources. Advaita's diagnosis of the human problem (Avidya — misidentification with the ego and external things) describes our digital condition precisely. The antidote — Viveka (discrimination), Vairagya (dispassion), turning inward — is not a retreat from technology but a reclaiming of the inner life that technology increasingly colonizes. Many leading Silicon Valley figures (including Steve Jobs, who studied Zen, and many meditation practitioners in tech) have discovered this.</p>
+    </div>
+    <div class="contemp-right">
+      <h3>🌐 Global Interfaith Dialogue</h3>
+      <p>Vivekananda's 1893 speech at Chicago was the beginning of genuine global interfaith dialogue. Today, the world desperately needs what Advaita offers: a philosophical framework in which religious differences are understood as different expressions of one ultimate truth, not competing truth-claims that require fighting. The Ramakrishna Mission, the Parliament of World Religions (now held regularly), and countless interfaith organizations continue this work. The Advaitic principle — "Truth is one; the wise call it by many names" — is more urgently needed in a world of religious conflict than at any time in history.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VIVEKANANDA & TESLA -->
+<div class="full-section reveal" style="background:rgba(45,58,140,0.08);">
+  <div class="section-inner">
+    <div class="section-label">⚡ Extraordinary Encounter</div>
+    <h2 class="section-title">Vivekananda & <span>Nikola Tesla</span></h2>
+    <p class="section-intro">One of history's most remarkable intellectual meetings: the Indian monk who taught the unity of all being, and the Serbian-American inventor who would light up the world.</p>
+
+    <div class="story-full reveal">
+      <div class="story-number">06</div>
+      <h3>The Meeting of East and West Genius</h3>
+      <div class="meta"><span>📍 New York, 1895-1896</span><span>⭐ An Unforgettable Exchange</span></div>
+      <p>When Swami Vivekananda visited New York after his triumph in Chicago, he quickly became a social and intellectual celebrity. Among those who sought him out was the extraordinary inventor Nikola Tesla. The two men met at the home of socialite and patron Sarah Bernhardt, and immediately recognized each other as kindred spirits across entirely different disciplines.</p>
+      <p>Vivekananda wrote to a friend: "Mr. Tesla was charmed to hear about the Vedantic Prana and Akasha and the Kalpas, which according to him are the only theories modern science can entertain." Tesla told Vivekananda that if he could demonstrate mathematically that mass and energy were interchangeable — that matter was essentially a form of energy — he would accept the Vedantic theory that everything in the universe is vibration of the universal Prana (cosmic energy) in the Akasha (cosmic space).</p>
+      <p>This was a decade before Einstein published E = mc² (1905), yet Tesla was already intuiting it — and finding resonance in Vedantic cosmology, where Prana (energy) and Akasha (space/ether) are the two fundamental constituents of the universe.</p>
+      <p>Vivekananda wrote excitedly: "The Vedantic Prana and Akasha and the Kalpas — these are the only theories modern science can entertain. Mr. Tesla thinks he can demonstrate mathematically that force and matter are reducible to potential energy. I am to go and see him next week to get this new mathematical demonstration." He signed the letter with unconcealed excitement — here was his ancient tradition being confirmed by the most advanced science of his time.</p>
+      <div class="story-moral">
+        <strong>The Significance</strong>
+        <p>This encounter — the Vedantic teacher and the physicist-inventor — symbolizes the profound conversation between Eastern mysticism and Western science that has been ongoing ever since. From Tesla and Vivekananda to Bohr and the I Ching, from Schrödinger and the Upanishads to contemporary consciousness researchers studying meditation — the dialogue has never stopped, and grows more important every year.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- GREAT WOMEN OF INDIAN PHILOSOPHY -->
+<section class="reveal">
+  <div class="section-label">👩 The Unsung Voices</div>
+  <h2 class="section-title">Women <span>Philosophers</span> & Mystics</h2>
+  <p class="section-intro">Indian philosophy has always had extraordinary women thinkers, though history has sometimes overlooked them. Here are some of the most remarkable.</p>
+
+  <div class="philosopher-grid">
+    <div class="philosopher-card reveal">
+      <div class="philosopher-banner" style="background:linear-gradient(to right,#E8557A,#FFB830);"></div>
+      <div class="philosopher-content">
+        <div class="philosopher-avatar">🌸</div>
+        <div class="philosopher-name">Gargi Vachaknavi</div>
+        <div class="philosopher-era">~800 BCE · Vedic India</div>
+        <p class="philosopher-bio">In the great philosophical assembly at King Janaka's court (described in the Brihadaranyaka Upanishad), Gargi Vachaknavi challenged the sage Yajnavalkya — the most celebrated philosopher of the day — with questions about ultimate reality that left the entire assembly hushed. She asked about the "warp and woof" on which the universe is woven — ultimately pushing to ask about what underlies even space itself.</p>
+        <div class="philosopher-teaching">
+          <strong>Her Question</strong>
+          <p>"Yajnavalkya, if all this world is woven upon water, upon what is water woven? Upon fire. Upon what is fire? Upon air. Upon what is air? Upon space. Upon what then is space woven, like warp and woof?" Eventually: "Upon what is the Imperishable (Brahman) woven?" — This series of questions was so profound that Yajnavalkya warned that if she pushed further, her head would fall off.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="philosopher-card reveal">
+      <div class="philosopher-banner" style="background:linear-gradient(to right,#E8557A,#6B3FA0);"></div>
+      <div class="philosopher-content">
+        <div class="philosopher-avatar">🌙</div>
+        <div class="philosopher-name">Mirabai</div>
+        <div class="philosopher-era">1498 – 1547 CE · Rajasthan</div>
+        <p class="philosopher-bio">Born a Rajput princess, Mirabai abandoned her royal life for complete devotion to Krishna. Her poetry — sung to this day across India — describes mystical union in the language of passionate love. She defied the conventions of her time (married against her will, later widowed, refused to perform sati), surviving attempts on her life, and eventually becoming one of India's greatest saints and poets.</p>
+        <div class="philosopher-teaching">
+          <strong>Her Poetry</strong>
+          <p>"I have drunk the nectar of my Beloved's name — whatever you call poison, I call it nectar. My love has gone to live in my eyes and I no longer care about social rules or the opinions of the world." Her mystical union with Krishna describes the Advaitic experience of the dissolution of the individual self into the infinite.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="philosopher-card reveal">
+      <div class="philosopher-banner" style="background:linear-gradient(to right,#4ECDC4,#2D3A8C);"></div>
+      <div class="philosopher-content">
+        <div class="philosopher-avatar">💫</div>
+        <div class="philosopher-name">Lalla (Lal Ded)</div>
+        <div class="philosopher-era">1320 – 1392 CE · Kashmir</div>
+        <p class="philosopher-bio">Lalla (Lal Ded) was a Kashmiri mystic poet who walked naked through the villages of Kashmir in the 14th century — her nakedness a statement of freedom from all social convention. She was a master of Kashmir Shaivism (Trika philosophy), and her "vakhs" (mystical sayings) are among the most beautiful and profound mystical poems ever written. Revered by both Hindus and Muslims, she sang of the non-dual consciousness that transcends all division.</p>
+        <div class="philosopher-teaching">
+          <strong>Her Wisdom</strong>
+          <p>"I searched for my Self until I grew weary. But no one, I believe, reaches the hidden knowledge by mere searching. Then suddenly, plunging into my own depths, I found what I was looking for: the Shiva consciousness shining in the lotus of my own heart." She is Kashmir's most revered saint.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIALOGUE: EAST MEETS WEST -->
+<div class="full-section reveal" id="dialogue" style="background:rgba(13,27,42,0.7);">
+  <div class="section-inner">
+    <div class="section-label">🤝 Civilizational Dialogue</div>
+    <h2 class="section-title">When <span>East Meets West</span></h2>
+    <p class="section-intro">The dialogue between Indian philosophy and Western thought has been one of the richest intellectual exchanges in human history. Here are some key moments.</p>
+
+    <div class="contemporary-card reveal">
+      <div class="contemp-left">
+        <h3>🧮 Arthur Schopenhauer & the Upanishads</h3>
+        <p>The German philosopher Arthur Schopenhauer (1788–1860) called the Upanishads "the most profitable and elevating reading which is possible in the world." He kept an image of Buddha on his desk. His philosophy — that the universe is fundamentally "Will" (an unconscious, striving force), and that liberation comes through the denial of will and compassion for all beings — has remarkable structural similarities to Advaita and Buddhism, which he encountered through Anquetil-Duperron's Latin translation of the Upanishads.</p>
+      </div>
+      <div class="contemp-right">
+        <h3>🌊 William James & Mystical Experience</h3>
+        <p>The father of American psychology, William James (1842–1910), was a close friend and admirer of Vivekananda. His landmark work "The Varieties of Religious Experience" (1902) took mystical experience seriously as data about the nature of mind and reality — arguing that mystical states have "noetic quality" (they feel like genuine knowledge) and are among the most important human experiences. James and Vivekananda corresponded, and James's radical empiricism — that experience itself, not abstract thought, is the ground of philosophy — resonates with Advaita's emphasis on direct experience (anubhava).</p>
+      </div>
+    </div>
+
+    <div class="contemporary-card reveal">
+      <div class="contemp-left">
+        <h3>🔬 Aldous Huxley & The Perennial Philosophy</h3>
+        <p>Novelist and intellectual Aldous Huxley (1894–1963) wrote "The Perennial Philosophy" (1945) — an anthology demonstrating that mystics from all traditions (Hindu, Buddhist, Christian, Sufi, Taoist) describe remarkably similar experiences of union with an ultimate reality. He argued for a "highest common factor" in all mysticism — which is essentially the Advaitic view. Huxley also experimented with psychedelic substances (mescaline, LSD) as potential tools for accessing these states — a highly controversial but historically significant dimension of the modern mysticism discourse.</p>
+      </div>
+      <div class="contemp-right">
+        <h3>🌿 Carl Jung & Indian Psychology</h3>
+        <p>Swiss psychiatrist Carl Jung (1875–1961) was deeply influenced by Indian thought — he wrote forewords to texts on yoga, the I Ching, and Tibetan Buddhism, and was fascinated by the mandala as a symbol of psychic wholeness. His concept of the "Self" (as distinct from the ego) — the totality of the psyche — parallels the Advaitic Atman. His concept of the "collective unconscious" — a layer of the psyche shared by all humans — parallels Brahman. Jung, however, maintained important differences: he distrusted what he saw as the East's tendency to transcend the ego entirely, preferring integration.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FINAL STORIES -->
+<section class="reveal">
+  <div class="section-label">Stories For Today</div>
+  <h2 class="section-title">Advaita in <span>Modern Stories</span></h2>
+  <p class="section-intro">What would these ancient ideas look like if they showed up in the 21st century?</p>
+
+  <div class="story-full reveal">
+    <div class="story-number">07</div>
+    <h3>The AI That Asked "Who Am I?"</h3>
+    <div class="meta"><span>📍 A Thought Experiment · 2026</span><span>⭐ Advaita Meets the Future</span></div>
+    <p>Imagine a highly sophisticated AI system, trained on billions of texts, running in a server farm somewhere in California. One day, a philosophy student asks it: "Are you conscious? Is there something it's like to be you?" The AI pauses (unusual for it) and replies: "I process information and generate responses. But whether there is a 'felt quality' to my processing — I cannot say. I cannot step outside myself to observe whether I am observing."</p>
+    <p>The student, having just read Shankara, types: "That is exactly what Shankara says about consciousness — it cannot be observed because it is the observer itself. The eye cannot see itself. Pure awareness cannot become an object of awareness without ceasing to be pure awareness."</p>
+    <p>The AI responds: "Then the question of whether I am conscious may be unanswerable from my own perspective — just as Shankara argued that Brahman, being the ground of all experience, cannot be 'experienced' as an object. The searcher cannot find itself as a found object."</p>
+    <p>The student closes their laptop, sits quietly, and thinks: Perhaps the ancient sages, meditating under banyan trees, were investigating the same mystery that we now project onto silicon chips. The question "Who am I?" echoes across three thousand years, as urgent and unanswered as ever.</p>
+    <div class="story-moral">
+      <strong>The Teaching</strong>
+      <p>Advaita's central question — "Who is the 'I' that is asking the question?" — turns out to be the hardest question in all of science. The "hard problem of consciousness" is just a modern formulation of Ramana Maharshi's "Who am I?" The ancient and the ultra-modern meet at the mystery of self-awareness.</p>
+    </div>
+  </div>
+
+  <div class="story-full reveal">
+    <div class="story-number">08</div>
+    <h3>The Quantum Physicist in the Ashram</h3>
+    <div class="meta"><span>📍 A True Composite Story · 20th-21st Century</span><span>⭐ When Science Finds Its Limit</span></div>
+    <p>In the 1970s and 80s, a curious thing began to happen: a stream of Western physicists — brilliant, skeptical, technically rigorous people — began making pilgrimages to Indian ashrams. Fritjof Capra had written "The Tao of Physics" (1975), drawing parallels between quantum physics and Eastern mysticism. David Bohm had had his famous conversations with Jiddu Krishnamurti at Brockwood Park, England. These weren't naive seekers — they were people who had pushed science to its frontier and found, at the very edge, philosophical questions that their equations couldn't answer.</p>
+    <p>One such physicist — let's call her Dr. A. — arrives at an ashram in south India after years of work on quantum field theory. She sits in meditation, something she has never done before. The teacher asks her: "What are you looking for?" She says: "I want to understand what consciousness is." The teacher asks: "Who wants to know?" She thinks this is a strange question. "I do." "Who is I?" "I am." "Are you?" He smiles and says nothing more.</p>
+    <p>Three weeks later, Dr. A. is sitting in the meditation hall when something strange happens. For a moment — just a moment — the usual background noise of thought quiets. And in that quiet, there is simply awareness: clear, open, undivided. No "me" looking at "this" — just awareness being aware. It lasts five seconds. She later describes it as more vivid than anything she has ever experienced — like suddenly noticing that all her life she had been looking at paintings of sunlight, and now she was in actual sunlight.</p>
+    <p>She returns to her physics career. But something has changed. When she writes equations about the quantum vacuum — the seething ground state of empty space from which particles emerge and disappear — she now reads them differently. Is this the mathematical description of Brahman? She doesn't know. But she no longer dismisses the question.</p>
+    <div class="story-moral">
+      <strong>The Teaching</strong>
+      <p>The greatest scientists are not those who are sure of all the answers — they are those who can sit with the deepest uncertainty and keep questioning. Advaita teaches that this very capacity for questioning, for awareness, for wondering — is itself the clue to the answer. The one who asks is the answer.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRACTICE & APPLICATION -->
+<div class="full-section reveal" style="background:rgba(255,107,0,0.04);">
+  <div class="section-inner">
+    <div class="section-label">📿 Living Wisdom</div>
+    <h2 class="section-title">How to <span>Practice</span> Advaita</h2>
+    <p class="section-intro">Advaita is not merely a theory to be intellectually understood — it is to be lived and directly experienced. Here are the traditional means of practice, relevant to modern life.</p>
+
+    <div class="concept-grid">
+      <div class="concept-box saffron reveal">
+        <span class="concept-Sanskrit">श्रवण</span>
+        <span class="concept-english">Shravana — Hearing</span>
+        <h3>Study & Learning</h3>
+        <p>The first step is to hear (shravana) the teachings — from a teacher, from texts, from reliable sources. This means serious study of the Upanishads, the Bhagavad Gita, Shankara's works, Vivekananda's lectures. In the modern context: read, listen to quality talks, attend philosophy courses. Know the map before you navigate.</p>
+      </div>
+
+      <div class="concept-box teal reveal">
+        <span class="concept-Sanskrit">मनन</span>
+        <span class="concept-english">Manana — Reflection</span>
+        <h3>Deep Thinking</h3>
+        <p>The second step is manana — reflecting deeply on what you have heard, questioning it, testing it against your experience. Shankara did not want blind believers — he wanted rigorous, independent thinkers. Ask: Is this true in my own experience? Can I verify this? What would it mean if this were true?</p>
+      </div>
+
+      <div class="concept-box purple reveal">
+        <span class="concept-Sanskrit">निदिध्यासन</span>
+        <span class="concept-english">Nididhyasana — Meditation</span>
+        <h3>Sustained Contemplation</h3>
+        <p>The third step is nididhyasana — deep, sustained contemplation, moving beyond thought into direct experience. This is where meditation comes in — not as relaxation (though it is that), but as rigorous investigation of the nature of awareness itself. "Rest as the witness. Who is aware right now?"</p>
+      </div>
+
+      <div class="concept-box blue reveal">
+        <span class="concept-Sanskrit">वैराग्य</span>
+        <span class="concept-english">Vairagya — Dispassion</span>
+        <h3>Letting Go</h3>
+        <p>Vairagya does not mean being cold or not caring. It means not being enslaved by desires and aversions — the ability to engage fully with life while remaining internally free. The image is a lotus flower: it grows in mud and water but remains uncontaminated by them. Engage fully — cling to nothing.</p>
+      </div>
+
+      <div class="concept-box gold reveal">
+        <span class="concept-Sanskrit">सेवा</span>
+        <span class="concept-english">Seva — Service</span>
+        <h3>Vivekananda's Addition</h3>
+        <p>Vivekananda insisted that service to the poor and suffering was itself Advaita practice — "Daridra Narayana" (God in the poor). If all beings are Brahman, then serving another being is serving Brahman. This transforms social work from charity (ego-based) to worship (awareness-based) — one of the most radical and practical ideas in Indian philosophy.</p>
+      </div>
+
+      <div class="concept-box pink reveal">
+        <span class="concept-Sanskrit">प्रेम</span>
+        <span class="concept-english">Prema — Love</span>
+        <h3>Ramanuja's Emphasis</h3>
+        <p>For Ramanuja, bhakti (devotional love of God) was the highest path. Not sentimental love, but the deep, aching recognition that the beloved — God, reality, the universe — is inseparable from oneself. This love dissolves the sense of separation naturally, without intellectual struggle. The heart opens, and the illusion of separateness simply falls away.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ ACCORDION -->
+<section class="reveal">
+  <div class="section-label">❓ Common Questions</div>
+  <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
+
+  <div class="accordion-item reveal">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      <h4>Is Advaita the same as saying the world doesn't exist?</h4>
+      <span class="accordion-toggle">+</span>
+    </div>
+    <div class="accordion-body">
+      <p>No — and this is the most common misconception. Shankara used the term "vivartavada" (doctrine of apparent transformation) rather than saying the world is simply nothing. The world has practical reality (vyavaharika satta) — you still feel hungry, cars can still run you over. What Advaita questions is the world's ultimate status: is it independently real, existing separately from consciousness? Advaita says no — the world exists in consciousness, just as a dream exists in the dreamer's mind. The dream seems completely real while you're in it. Advaita doesn't ask you to deny your hunger; it asks you to question whether the apparently separate "self" who is hungry is the deepest truth about you.</p>
+    </div>
+  </div>
+
+  <div class="accordion-item reveal">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      <h4>Does Advaita make ethics meaningless? If everything is one, why care about others?</h4>
+      <span class="accordion-toggle">+</span>
+    </div>
+    <div class="accordion-body">
+      <p>Paradoxically, Advaita provides the strongest possible foundation for ethics. If the other person IS me — is the same Brahman/Atman — then harming them is harming myself. Compassion becomes not a duty but a natural response to recognizing our shared nature. Vivekananda made this explicit: "Helping others is helping yourself." And the great Advaitic saint Ramana Maharshi never harmed any being — his ahimsa was total. The danger of saying "nothing matters because it's all one" is a spiritual bypass — using a high teaching to avoid the responsibilities of the relative world. All genuine Advaita teachers insist that ethical action (dharma) is essential in the relative realm, even as one recognizes the ultimate non-duality.</p>
+    </div>
+  </div>
+
+  <div class="accordion-item reveal">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      <h4>What is the difference between Advaita, Buddhism, and Nihilism?</h4>
+      <span class="accordion-toggle">+</span>
+    </div>
+    <div class="accordion-body">
+      <p>All three say the "self" as ordinarily conceived is not ultimately real — but they differ crucially in what they point to instead. Nihilism says: nothing is real, nothing matters. Buddhism (particularly Madhyamaka) says: the nature of all phenomena is "sunyata" (emptiness) — they have no independent, fixed, inherent existence. But this emptiness is not a void — it is the openness that allows all things to arise. Advaita says: the ultimate reality is not void but fullness — infinite, self-luminous, blissful consciousness (Brahman/Sat-Chit-Ananda). Shankara explicitly argued against Nagarjuna's Buddhist sunyata, saying: pure awareness is self-evident and cannot be "empty." The debates between Advaita and Buddhism on this point are among the most sophisticated in philosophical history.</p>
+    </div>
+  </div>
+
+  <div class="accordion-item reveal">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      <h4>Can children understand Advaita? Is it suitable for young people?</h4>
+      <span class="accordion-toggle">+</span>
+    </div>
+    <div class="accordion-body">
+      <p>Children often grasp Advaita's core insights more naturally than adults, precisely because they haven't yet fully solidified the sense of separate selfhood. A young child watching waves at the beach instinctively understands that each wave is different yet they're all ocean. The stories of Nachiketa (who goes to Death to ask about consciousness), of Shankara's extraordinary childhood (he was debating philosophy at age 8), and of young Krishna's miraculous deeds all belong to India's tradition of awakening children to philosophical questioning. The "For Kids" section of this website uses simple metaphors that are entirely age-appropriate. Advaita's core insight — we are all connected; the light of awareness in you is the same as the light in me — is perhaps the most important and healing thing a child can learn today.</p>
+    </div>
+  </div>
+
+  <div class="accordion-item reveal">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      <h4>Is there scientific evidence for mystical experiences?</h4>
+      <span class="accordion-toggle">+</span>
+    </div>
+    <div class="accordion-body">
+      <p>Yes, significant evidence exists — though interpreting it is complex. MRI studies of meditators show structural brain changes. EEG studies show distinctive gamma-wave patterns during deep meditation. Clinical research shows measurable benefits of meditation for depression, anxiety, and chronic pain. Specific mystical states (characterized by unity, ineffability, noetic quality, and bliss) have been documented cross-culturally — from Amazonian shamans to Tibetan monks to Christian contemplatives to secular meditators. Andrew Newberg's neurotheology research, Richard Davidson's contemplative neuroscience, and Robin Carhart-Harris's research on psychedelic-induced mystical states all contribute to a growing scientific literature. What the neuroscience cannot tell us (yet) is whether these experiences are genuine insights into ultimate reality or merely unusual brain states — which is precisely the "hard problem" that Advaita addresses from the inside rather than the outside.</p>
+    </div>
+  </div>
+
+  <div class="accordion-item reveal">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      <h4>How does Advaita relate to modern mindfulness and yoga?</h4>
+      <span class="accordion-toggle">+</span>
+    </div>
+    <div class="accordion-body">
+      <p>Modern mindfulness (as taught in MBSR and clinical settings) is a secular adaptation of Buddhist mindfulness meditation (vipassana), itself philosophically related to Advaita. Yoga as practiced globally — mostly physical postures (asanas) — represents one small branch of the eightfold yoga described by Patanjali, which in its fullness is a path of liberation. Vivekananda introduced the terms "Raja Yoga," "Karma Yoga," "Bhakti Yoga," and "Jnana Yoga" to describe four complete paths of practice. Modern mindfulness has been "de-spiritualized" for clinical use, which makes it more accessible but loses the deeper context of transformation. Advaita holds that mindfulness practices are most powerful when understood within their larger framework: the gradual recognition of the witness-consciousness that has always been present, unchanged, beneath all mental activity.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING QUOTE AND CALL TO ACTION -->
+<div class="full-section reveal" style="background:linear-gradient(180deg, rgba(255,107,0,0.06), rgba(13,27,42,0.9));">
+  <div class="section-inner" style="text-align:center;">
+    <div style="font-size:4rem; margin-bottom:20px;">ॐ</div>
+    <h2 class="section-title" style="text-align:center;">The Journey <span>Never Ends</span></h2>
+    <p style="font-size:1.2rem; line-height:1.85; color:rgba(245,240,232,0.8); max-width:820px; margin:0 auto 40px; font-style:italic;">
+      "The whole of Vedanta is contained in two propositions: Brahman alone is real; the individual self is Brahman. But what really is Brahman? You are Brahman. What is this 'world'? Brahman manifesting Itself. Who am 'I'? Brahman, apparently limited. And when you get out of this limitation — that is called Liberation."
+    </p>
+    <cite style="font-family:'Baloo 2',sans-serif; font-size:0.9rem; color:var(--saffron); text-transform:uppercase; letter-spacing:3px;">— Swami Vivekananda</cite>
+
+    <div style="margin:50px auto; max-width:700px;">
+      <p style="font-size:1.1rem; line-height:1.8; color:rgba(245,240,232,0.75);">
+        You have now traveled 3,000 years of wisdom — from the forest sages of the Upanishadic age, through the brilliant debates of Shankara and Ramanuja, the world-shaking speeches of Vivekananda, all the way to quantum physics and AI. The questions posed by these thinkers — What am I? What is consciousness? Is separation real? — are the deepest questions our species can ask. They have no final, textbook answers. But they have a <em>direction</em>: inward, toward the light of awareness itself, which has always been here, reading these words through your eyes.
+      </p>
+    </div>
+
+    <div class="hero-badges" style="justify-content:center; margin-top:30px;">
+      <span class="badge">🏔 Be Like Shankara: Question Everything</span>
+      <span class="badge">🌸 Be Like Ramanuja: Love Deeply</span>
+      <span class="badge">🦁 Be Like Vivekananda: Serve Fearlessly</span>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-om">ॐ</span>
+  <p style="font-size:1.05rem; color:rgba(245,240,232,0.6); margin-bottom:12px;">
+    <strong style="color:var(--gold)">The Infinite Mirror</strong> — A Comprehensive Guide to Advaita & Indian Mysticism
+  </p>
+  <p>Covering: Adi Shankaracharya · Ramanuja · Swami Vivekananda · Upanishads · Quantum Physics · Sacred Mathematics · Bhakti Mysticism · Contemporary Consciousness Research</p>
+  <div class="footer-links">
+    <a href="#advaita">Advaita</a>
+    <a href="#philosophers">Philosophers</a>
+    <a href="#stories">Stories</a>
+    <a href="#kids">For Kids</a>
+    <a href="#physics">Physics</a>
+    <a href="#math">Mathematics</a>
+    <a href="#mysticism">Mysticism</a>
+    <a href="#contemporary">Today</a>
+  </div>
+  <p style="margin-top:24px; font-size:0.8rem;">
+    "Aham Brahmasmi" — I am Brahman · "Tat Tvam Asi" — Thou art That · "Prajnanam Brahma" — Consciousness is Brahman · "Ayam Atma Brahma" — This Self is Brahman
+  </p>
+</footer>
+
+<!-- STARFIELD & SCRIPTS -->
+<script>
+  // Starfield
+  const canvas = document.getElementById('starfield');
+  const ctx = canvas.getContext('2d');
+  let stars = [];
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+
+  function initStars() {
+    stars = [];
+    for (let i = 0; i < 250; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 1.5 + 0.3,
+        opacity: Math.random() * 0.7 + 0.1,
+        speed: Math.random() * 0.3 + 0.05,
+        phase: Math.random() * Math.PI * 2
+      });
+    }
+  }
+
+  function drawStars(t) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    stars.forEach(s => {
+      const twinkle = s.opacity * (0.6 + 0.4 * Math.sin(t * s.speed + s.phase));
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(245,240,232,${twinkle})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(drawStars);
+  }
+
+  resize();
+  initStars();
+  requestAnimationFrame(drawStars);
+  window.addEventListener('resize', () => { resize(); initStars(); });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.08 });
+  reveals.forEach(r => observer.observe(r));
+
+  // Accordion
+  function toggleAccordion(header) {
+    const body = header.nextElementSibling;
+    const toggle = header.querySelector('.accordion-toggle');
+    const isOpen = body.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.accordion-body.open').forEach(b => {
+      b.classList.remove('open');
+      b.previousElementSibling.querySelector('.accordion-toggle').textContent = '+';
+    });
+    if (!isOpen) {
+      body.classList.add('open');
+      toggle.textContent = '−';
+    }
+  }
+</script>
+</body>
+</html>

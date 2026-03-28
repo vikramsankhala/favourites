@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advaita Vedānta & The Six Schools</title>
+<link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:      #1C0F00;
+  --amber:    #D4780A;
+  --gold:     #F2B134;
+  --flame:    #E84B1C;
+  --lotus:    #C0392B;
+  --sage:     #3B6E4C;
+  --sky:      #1A6B8A;
+  --cream:    #FBF4E8;
+  --parchment:#F0E6CC;
+  --sand:     #E8D5A3;
+  --white:    #FFFDF7;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+html{scroll-behavior:smooth;}
+
+body{
+  font-family:'Lora',Georgia,serif;
+  background:var(--cream);
+  color:var(--ink);
+  overflow-x:hidden;
+}
+
+/* ═══════════════════════════════ NAV ═══════════════════════════════ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(28,15,0,.92);
+  backdrop-filter:blur(8px);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.8rem 2rem;
+  border-bottom:2px solid var(--amber);
+}
+.nav-logo{
+  font-family:'Yatra One',cursive;
+  font-size:1.4rem;
+  color:var(--gold);
+  letter-spacing:1px;
+}
+.nav-links{display:flex;gap:1.5rem;list-style:none;flex-wrap:wrap;}
+.nav-links a{
+  color:rgba(255,255,255,.75);
+  text-decoration:none;
+  font-family:'Nunito',sans-serif;
+  font-size:.9rem;font-weight:600;
+  transition:color .2s;
+}
+.nav-links a:hover{color:var(--gold);}
+.study-link{
+  background:var(--amber)!important;
+  color:#fff!important;
+  padding:.3rem .9rem;
+  border-radius:50px;
+}
+.study-link:hover{background:var(--flame)!important;}
+
+/* ═══════════════════════════════ HERO ═══════════════════════════════ */
+.hero{
+  min-height:100vh;
+  background:
+    radial-gradient(ellipse at 60% 40%, rgba(212,120,10,.18) 0%, transparent 60%),
+    radial-gradient(ellipse at 20% 80%, rgba(232,75,28,.12) 0%, transparent 50%),
+    linear-gradient(170deg,#1C0F00 0%,#2E1A00 40%,#1A0800 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:7rem 2rem 4rem;
+  position:relative;overflow:hidden;
+}
+
+/* Mandala rings */
+.mandala{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  pointer-events:none;
+}
+.ring{
+  position:absolute;border-radius:50%;border:1px solid rgba(242,177,52,.1);
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  animation:spin linear infinite;
+}
+.ring:nth-child(1){width:300px;height:300px;animation-duration:40s;}
+.ring:nth-child(2){width:500px;height:500px;animation-duration:70s;animation-direction:reverse;border-color:rgba(212,120,10,.08);}
+.ring:nth-child(3){width:700px;height:700px;animation-duration:100s;border-color:rgba(242,177,52,.05);}
+.ring:nth-child(4){width:900px;height:900px;animation-duration:140s;animation-direction:reverse;border-color:rgba(255,255,255,.03);}
+@keyframes spin{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+
+.hero-om{
+  font-size:clamp(4rem,12vw,9rem);
+  line-height:1;
+  animation:pulse 5s ease-in-out infinite;
+  margin-bottom:1.5rem;
+  filter:drop-shadow(0 0 40px rgba(242,177,52,.6));
+}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+
+.hero h1{
+  font-family:'Yatra One',cursive;
+  font-size:clamp(2rem,7vw,5.5rem);
+  color:var(--gold);
+  line-height:1.1;
+  text-shadow:0 2px 30px rgba(212,120,10,.5);
+}
+.hero h1 em{
+  font-style:normal;
+  color:#fff;
+  font-size:.65em;
+  display:block;
+  letter-spacing:3px;
+  margin-bottom:.3rem;
+  font-family:'Nunito',sans-serif;
+  font-weight:700;
+  text-transform:uppercase;
+}
+.hero-sub{
+  margin-top:1.2rem;
+  color:rgba(255,255,255,.65);
+  font-size:clamp(.95rem,2.2vw,1.25rem);
+  font-style:italic;
+  max-width:620px;
+  line-height:1.7;
+}
+.hero-cta{
+  margin-top:2.5rem;
+  display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--amber),var(--flame));
+  color:#fff;
+  border:none;border-radius:50px;
+  padding:.85rem 2.2rem;
+  font-family:'Nunito',sans-serif;font-weight:800;font-size:1rem;
+  cursor:pointer;text-decoration:none;
+  box-shadow:0 6px 25px rgba(212,120,10,.45);
+  transition:transform .2s,box-shadow .2s;
+}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 35px rgba(212,120,10,.5);}
+.btn-secondary{
+  background:transparent;
+  color:var(--gold);
+  border:2px solid var(--gold);
+  border-radius:50px;
+  padding:.85rem 2.2rem;
+  font-family:'Nunito',sans-serif;font-weight:700;font-size:1rem;
+  cursor:pointer;text-decoration:none;
+  transition:all .2s;
+}
+.btn-secondary:hover{background:var(--gold);color:var(--ink);}
+
+.scroll-hint{
+  position:absolute;bottom:2rem;
+  color:rgba(255,255,255,.35);
+  font-family:'Nunito',sans-serif;font-size:.85rem;
+  animation:bob 2s ease-in-out infinite;
+}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+
+/* ═══════════════════════════════ SECTION WRAPPER ═══════════════════════════════ */
+.section{padding:5rem 2rem;}
+.section-title{
+  font-family:'Yatra One',cursive;
+  font-size:clamp(1.8rem,5vw,3.2rem);
+  color:var(--ink);
+  text-align:center;
+  margin-bottom:.6rem;
+}
+.section-title span{color:var(--amber);}
+.section-lead{
+  text-align:center;
+  max-width:680px;margin:0 auto 3rem;
+  font-size:1.05rem;line-height:1.75;color:#555;
+  font-style:italic;
+}
+.divider{
+  width:80px;height:4px;
+  background:linear-gradient(90deg,var(--amber),var(--gold));
+  border-radius:4px;margin:1rem auto 1.5rem;
+}
+
+/* ═══════════════════════════════ SIX SCHOOLS ═══════════════════════════════ */
+#six-schools{background:var(--white);}
+
+.schools-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:1.8rem;max-width:1200px;margin:0 auto;
+}
+
+.s-card{
+  border-radius:20px;overflow:hidden;
+  box-shadow:0 6px 30px rgba(0,0,0,.09);
+  transition:transform .3s,box-shadow .3s;
+  position:relative;
+}
+.s-card:hover{transform:translateY(-7px);box-shadow:0 18px 50px rgba(0,0,0,.16);}
+
+.s-head{
+  padding:1.8rem 1.6rem 1.3rem;
+  position:relative;overflow:hidden;
+}
+.s-head::before{
+  content:'';position:absolute;
+  top:-50px;right:-50px;
+  width:160px;height:160px;
+  border-radius:50%;
+  background:rgba(255,255,255,.1);
+}
+.s-head::after{
+  content:'';position:absolute;
+  bottom:-30px;left:-30px;
+  width:100px;height:100px;
+  border-radius:50%;
+  background:rgba(255,255,255,.07);
+}
+.s-emoji{font-size:2.6rem;display:block;margin-bottom:.4rem;position:relative;z-index:1;}
+.s-num{
+  font-family:'Nunito',sans-serif;font-size:.75rem;font-weight:800;
+  letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.6);
+  position:relative;z-index:1;
+}
+.s-name{
+  font-family:'Yatra One',cursive;
+  font-size:1.9rem;color:#fff;
+  margin:.15rem 0;position:relative;z-index:1;
+}
+.s-nick{
+  font-style:italic;color:rgba(255,255,255,.8);
+  font-size:.95rem;position:relative;z-index:1;
+}
+
+.s-body{background:#fff;padding:1.5rem 1.6rem;}
+.s-founder{
+  display:inline-flex;align-items:center;gap:.4rem;
+  background:var(--cream);border-radius:50px;
+  padding:.25rem .8rem;font-family:'Nunito',sans-serif;
+  font-size:.85rem;font-weight:700;margin-bottom:.9rem;color:var(--ink);
+}
+.s-idea{font-size:1rem;line-height:1.65;color:#333;margin-bottom:1rem;}
+
+.tag-row{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1rem;}
+.tag{
+  border:2px solid;border-radius:8px;
+  padding:.2rem .65rem;font-family:'Nunito',sans-serif;
+  font-size:.8rem;font-weight:700;
+}
+
+.story-panel{
+  background:var(--cream);
+  border-left:4px solid;
+  border-radius:0 12px 12px 0;
+  padding:.9rem 1.1rem;margin-bottom:1rem;
+}
+.story-lbl{
+  font-family:'Nunito',sans-serif;font-size:.72rem;font-weight:800;
+  letter-spacing:2px;text-transform:uppercase;margin-bottom:.3rem;
+}
+.story-panel p{font-size:.93rem;line-height:1.62;color:#444;}
+
+.kids-panel{
+  background:#EAF6EF;border-radius:12px;
+  padding:.8rem 1rem;
+  display:flex;align-items:flex-start;gap:.6rem;
+}
+.kids-panel .ki{font-size:1.4rem;flex-shrink:0;}
+.kids-panel p{font-size:.88rem;line-height:1.5;color:#2a6e47;font-family:'Nunito',sans-serif;font-weight:700;}
+
+/* colour sets */
+.c1 .s-head{background:linear-gradient(135deg,#D4780A,#E84B1C);}
+.c1 .tag{border-color:#D4780A;color:#D4780A;}
+.c1 .story-panel{border-color:#D4780A;}.c1 .story-lbl{color:#D4780A;}
+
+.c2 .s-head{background:linear-gradient(135deg,#7B3FA0,#4A235A);}
+.c2 .tag{border-color:#7B3FA0;color:#7B3FA0;}
+.c2 .story-panel{border-color:#7B3FA0;}.c2 .story-lbl{color:#7B3FA0;}
+
+.c3 .s-head{background:linear-gradient(135deg,#1A6B8A,#0D3E52);}
+.c3 .tag{border-color:#1A6B8A;color:#1A6B8A;}
+.c3 .story-panel{border-color:#1A6B8A;}.c3 .story-lbl{color:#1A6B8A;}
+
+.c4 .s-head{background:linear-gradient(135deg,#3B6E4C,#1E3D29);}
+.c4 .tag{border-color:#3B6E4C;color:#3B6E4C;}
+.c4 .story-panel{border-color:#3B6E4C;}.c4 .story-lbl{color:#3B6E4C;}
+
+.c5 .s-head{background:linear-gradient(135deg,#C0392B,#7B241C);}
+.c5 .tag{border-color:#C0392B;color:#C0392B;}
+.c5 .story-panel{border-color:#C0392B;}.c5 .story-lbl{color:#C0392B;}
+
+.c6 .s-head{background:linear-gradient(135deg,#F2B134,#D4780A);}
+.c6 .tag{border-color:#C47A00;color:#8a5500;}
+.c6 .story-panel{border-color:#F2B134;}.c6 .story-lbl{color:#a06800;}
+
+/* ═══════════════════════════════ VEDANTA TODAY ═══════════════════════════════ */
+#vedanta-today{
+  background:linear-gradient(160deg,#1C0F00 0%,#2E1A00 60%,#1A0800 100%);
+  color:var(--cream);
+  position:relative;overflow:hidden;
+}
+#vedanta-today::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 70% 50%,rgba(212,120,10,.12) 0%,transparent 60%);
+  pointer-events:none;
+}
+#vedanta-today .section-title{color:var(--gold);}
+#vedanta-today .section-lead{color:rgba(255,255,255,.65);}
+
+.schools-vedanta{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+  gap:1.5rem;max-width:1100px;margin:0 auto;
+}
+.v-card{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(242,177,52,.2);
+  border-radius:16px;padding:1.6rem;
+  transition:background .3s,transform .3s;
+}
+.v-card:hover{background:rgba(242,177,52,.1);transform:translateY(-4px);}
+.v-icon{font-size:2.2rem;margin-bottom:.7rem;}
+.v-card h3{
+  font-family:'Yatra One',cursive;
+  font-size:1.3rem;color:var(--gold);margin-bottom:.5rem;
+}
+.v-card p{font-size:.95rem;line-height:1.65;color:rgba(255,255,255,.72);}
+.v-tag{
+  display:inline-block;margin-top:.7rem;
+  background:rgba(242,177,52,.15);
+  color:var(--gold);
+  border-radius:50px;padding:.2rem .7rem;
+  font-family:'Nunito',sans-serif;font-size:.78rem;font-weight:700;
+}
+
+/* ═══════════════════════════════ SHANKARA FEATURE ═══════════════════════════════ */
+#shankara{background:var(--parchment);}
+
+.shankara-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:3rem;max-width:1100px;margin:0 auto;
+  align-items:start;
+}
+@media(max-width:750px){.shankara-grid{grid-template-columns:1fr;}}
+
+.shankara-bio{
+  background:#fff;border-radius:20px;
+  padding:2rem;box-shadow:0 6px 30px rgba(0,0,0,.08);
+}
+.bio-badge{
+  display:inline-block;
+  background:linear-gradient(135deg,var(--amber),var(--flame));
+  color:#fff;border-radius:50px;
+  padding:.3rem 1rem;
+  font-family:'Nunito',sans-serif;font-size:.8rem;font-weight:800;
+  letter-spacing:1px;margin-bottom:1rem;
+}
+.shankara-bio h3{
+  font-family:'Yatra One',cursive;
+  font-size:2rem;color:var(--ink);margin-bottom:.3rem;
+}
+.shankara-bio .dates{
+  font-family:'Nunito',sans-serif;font-size:.85rem;
+  color:var(--amber);font-weight:700;margin-bottom:1rem;
+}
+.shankara-bio p{font-size:1rem;line-height:1.75;color:#444;margin-bottom:1rem;}
+
+.quote-block{
+  background:linear-gradient(135deg,var(--ink),#2E1A00);
+  color:var(--gold);
+  border-radius:16px;padding:1.5rem;
+  font-size:1.05rem;font-style:italic;line-height:1.7;
+  position:relative;margin-top:1.5rem;
+}
+.quote-block::before{
+  content:'\201C';
+  font-size:5rem;line-height:0;
+  position:absolute;top:1.5rem;left:1rem;
+  color:rgba(242,177,52,.25);
+  font-family:Georgia,serif;
+}
+.quote-attr{
+  display:block;margin-top:.7rem;
+  font-style:normal;font-size:.85rem;
+  color:rgba(255,255,255,.5);
+}
+
+.advaita-concepts{display:flex;flex-direction:column;gap:1.2rem;}
+
+.concept-card{
+  background:#fff;border-radius:16px;
+  padding:1.3rem 1.5rem;
+  border-left:5px solid var(--amber);
+  box-shadow:0 3px 15px rgba(0,0,0,.07);
+  transition:transform .2s;
+}
+.concept-card:hover{transform:translateX(6px);}
+.concept-card h4{
+  font-family:'Yatra One',cursive;
+  font-size:1.3rem;color:var(--amber);margin-bottom:.3rem;
+}
+.concept-card .sanskrit{
+  font-size:.8rem;color:#888;
+  font-family:'Nunito',sans-serif;font-weight:700;
+  letter-spacing:1px;margin-bottom:.5rem;display:block;
+}
+.concept-card p{font-size:.95rem;line-height:1.6;color:#444;}
+.concept-card .kids-note{
+  margin-top:.6rem;background:#EAF6EF;
+  border-radius:8px;padding:.5rem .8rem;
+  font-family:'Nunito',sans-serif;font-size:.85rem;
+  color:#2a6e47;font-weight:700;
+}
+
+/* ═══════════════════════════════ TIMELINE ═══════════════════════════════ */
+#timeline{background:var(--white);}
+
+.timeline{
+  max-width:800px;margin:0 auto;
+  position:relative;
+  padding:1rem 0;
+}
+.timeline::before{
+  content:'';position:absolute;
+  left:50%;top:0;bottom:0;width:3px;
+  background:linear-gradient(to bottom,var(--amber),var(--gold),var(--amber));
+  transform:translateX(-50%);
+  border-radius:3px;
+}
+@media(max-width:600px){.timeline::before{left:20px;}}
+
+.tl-item{
+  display:flex;
+  justify-content:flex-end;
+  padding-right:calc(50% + 2rem);
+  margin-bottom:2rem;
+  position:relative;
+}
+.tl-item:nth-child(even){
+  justify-content:flex-start;
+  padding-right:0;
+  padding-left:calc(50% + 2rem);
+}
+@media(max-width:600px){
+  .tl-item,.tl-item:nth-child(even){
+    justify-content:flex-start;
+    padding-right:0;padding-left:3rem;
+  }
+}
+.tl-dot{
+  position:absolute;left:50%;top:1rem;
+  transform:translateX(-50%);
+  width:18px;height:18px;
+  background:var(--amber);border-radius:50%;
+  border:3px solid var(--white);
+  box-shadow:0 0 0 3px rgba(212,120,10,.3);
+}
+@media(max-width:600px){.tl-dot{left:20px;}}
+
+.tl-box{
+  background:var(--cream);
+  border-radius:14px;padding:1rem 1.2rem;
+  max-width:300px;
+  box-shadow:0 3px 12px rgba(0,0,0,.07);
+  border:1px solid var(--sand);
+}
+.tl-year{
+  font-family:'Nunito',sans-serif;font-size:.78rem;
+  font-weight:800;letter-spacing:2px;
+  color:var(--amber);margin-bottom:.3rem;
+}
+.tl-box h4{font-family:'Yatra One',cursive;font-size:1.1rem;margin-bottom:.3rem;color:var(--ink);}
+.tl-box p{font-size:.88rem;line-height:1.55;color:#555;}
+
+/* ═══════════════════════════════ STUDY CTA ═══════════════════════════════ */
+#study{
+  background:linear-gradient(135deg,var(--amber) 0%,var(--flame) 100%);
+  padding:5rem 2rem;text-align:center;
+  position:relative;overflow:hidden;
+}
+#study::before{
+  content:'🕉';
+  position:absolute;right:-3rem;top:50%;transform:translateY(-50%);
+  font-size:18rem;opacity:.06;line-height:1;
+}
+#study h2{
+  font-family:'Yatra One',cursive;
+  font-size:clamp(2rem,5vw,3.5rem);
+  color:#fff;margin-bottom:.8rem;
+}
+#study p{color:rgba(255,255,255,.85);font-size:1.1rem;max-width:600px;margin:0 auto 2rem;line-height:1.7;}
+.study-grid{
+  display:flex;flex-wrap:wrap;gap:1rem;
+  justify-content:center;margin-bottom:2rem;
+}
+.study-pill{
+  background:rgba(255,255,255,.2);
+  color:#fff;border:2px solid rgba(255,255,255,.4);
+  border-radius:50px;padding:.5rem 1.3rem;
+  font-family:'Nunito',sans-serif;font-size:.9rem;font-weight:700;
+}
+.big-btn{
+  display:inline-block;
+  background:#fff;
+  color:var(--flame);
+  border-radius:50px;
+  padding:1.1rem 3rem;
+  font-family:'Nunito',sans-serif;font-size:1.2rem;font-weight:800;
+  text-decoration:none;
+  box-shadow:0 8px 30px rgba(0,0,0,.2);
+  transition:transform .2s,box-shadow .2s;
+}
+.big-btn:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.25);}
+.big-btn .arrow{margin-left:.5rem;}
+
+/* ═══════════════════════════════ FOOTER ═══════════════════════════════ */
+footer{
+  background:var(--ink);
+  color:rgba(255,255,255,.4);
+  text-align:center;padding:2rem;
+  font-family:'Nunito',sans-serif;font-size:.88rem;
+}
+footer span{color:var(--gold);}
+
+/* ═══════════════════════════════ MISC ═══════════════════════════════ */
+.pairs-row{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:1.2rem;max-width:900px;margin:2rem auto 0;
+}
+.pair-chip{
+  background:#fff;border-radius:14px;
+  padding:1.2rem 1.4rem;
+  border-top:4px solid var(--amber);
+  box-shadow:0 3px 14px rgba(0,0,0,.07);
+}
+.pair-chip h4{font-family:'Yatra One',cursive;font-size:1.1rem;color:var(--ink);margin-bottom:.4rem;}
+.pair-chip p{font-size:.9rem;line-height:1.55;color:#555;}
+
+@media(max-width:500px){
+  .s-name{font-size:1.6rem;}
+  nav{padding:.7rem 1rem;}
+  .nav-links{gap:.8rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">🕉 Vedānta</div>
+  <ul class="nav-links">
+    <li><a href="#six-schools">Six Schools</a></li>
+    <li><a href="#shankara">Śaṅkara</a></li>
+    <li><a href="#vedanta-today">Vedānta Today</a></li>
+    <li><a href="#timeline">Timeline</a></li>
+    <li><a href="#study" class="study-link">Study Vedānta ↗</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="mandala">
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
+  </div>
+  <div class="hero-om">🕉️</div>
+  <h1>
+    <em>Advaita Vedānta &</em>
+    The Six Schools
+  </h1>
+  <p class="hero-sub">
+    Six extraordinary thinkers. One ultimate truth. 3,000 years of wisdom that still changes lives — 
+    and an 8-year-old genius from Kerala who mapped the universe of consciousness before he turned 32.
+  </p>
+  <div class="hero-cta">
+    <a href="#shankara" class="btn-primary">Meet Śaṅkara →</a>
+    <a href="#six-schools" class="btn-secondary">Explore Six Schools</a>
+  </div>
+  <div class="scroll-hint">↓ scroll to explore ↓</div>
+</section>
+
+<!-- ══════════════ SIX SCHOOLS ══════════════ -->
+<section class="section" id="six-schools">
+  <h2 class="section-title">The <span>Six Schools</span> (Ṣaḍ-Darśanas)</h2>
+  <div class="divider"></div>
+  <p class="section-lead">
+    <em>Darśana</em> means "a way of seeing." Long before smartphones or science labs, six groups of Indian sages asked the biggest questions ever — <em>What is real? Who am I? How do I find lasting peace?</em> Their answers still shape science, law, yoga and mindfulness today.
+  </p>
+
+  <div class="schools-grid">
+
+    <!-- Nyaya -->
+    <div class="s-card c1">
+      <div class="s-head">
+        <span class="s-emoji">🔍</span>
+        <div class="s-num">School 01</div>
+        <div class="s-name">Nyāya</div>
+        <div class="s-nick">"The Logic Detectives"</div>
+      </div>
+      <div class="s-body">
+        <div class="s-founder">👤 Sage Gautama · ~550 BCE</div>
+        <p class="s-idea">Nyāya is India's school of <strong>logic and valid reasoning</strong>. These philosophers were the world's first professional arguers — they said you can only know something is true if you can prove it through one of four valid means: direct perception, inference, comparison, or reliable testimony.</p>
+        <div class="tag-row">
+          <span class="tag">🧠 Critical Thinking</span>
+          <span class="tag">⚖️ Debate</span>
+          <span class="tag">🔬 Scientific Method</span>
+        </div>
+        <div class="story-panel">
+          <div class="story-lbl">📖 Story</div>
+          <p>You can't see fire on the mountain, but you see smoke. A Nyāya sage says: <em>"Fire MUST be there — smoke never comes without fire."</em> This is <strong>Anumāna</strong> (inference). It's exactly how Sherlock Holmes reasons — and precisely how modern scientists form hypotheses. Gautama's <em>Nyāya Sūtra</em> is the world's oldest textbook on logic.</p>
+        </div>
+        <div class="kids-panel">
+          <span class="ki">🧒</span>
+          <p>Hey kids! Nyāya says: NEVER just believe — ask for PROOF! You're already a Nyāya thinker every time you ask "But how do you know that?"</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vaisheshika -->
+    <div class="s-card c2">
+      <div class="s-head">
+        <span class="s-emoji">⚛️</span>
+        <div class="s-num">School 02</div>
+        <div class="s-name">Vaiśeṣika</div>
+        <div class="s-nick">"The Atom Explorers"</div>
+      </div>
+      <div class="s-body">
+        <div class="s-founder">👤 Sage Kaṇāda · ~600 BCE</div>
+        <p class="s-idea">Vaiśeṣika asks: <strong>what is everything made of?</strong> Sage Kaṇāda proposed that all physical matter is made of tiny, indestructible, indivisible particles called <em>paramāṇu</em> — atoms — nearly 2,600 years before Dalton's modern atomic theory.</p>
+        <div class="tag-row">
+          <span class="tag">⚛️ Atomic Theory</span>
+          <span class="tag">🌌 Physics</span>
+          <span class="tag">🔭 Categorisation</span>
+        </div>
+        <div class="story-panel">
+          <div class="story-lbl">📖 Story</div>
+          <p>Kaṇāda's name literally means "grain eater" — legend says he was so obsessed with tiny particles he'd pick up and study the tiniest food fragments. He identified <strong>9 substances</strong> making up reality: earth, water, fire, air, ether, time, space, soul and mind. Modern physics has "quantum fields and elementary particles." Different words; the same obsession!</p>
+        </div>
+        <div class="kids-panel">
+          <span class="ki">🧒</span>
+          <p>LEGO bricks are basically Vaiśeṣika philosophy! Everything in the universe — your phone, a mountain, a star — is just tiny "bricks" combining in different ways. 🧱</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Samkhya -->
+    <div class="s-card c3">
+      <div class="s-head">
+        <span class="s-emoji">🌊</span>
+        <div class="s-num">School 03</div>
+        <div class="s-name">Sāṃkhya</div>
+        <div class="s-nick">"The Great Mapper"</div>
+      </div>
+      <div class="s-body">
+        <div class="s-founder">👤 Sage Kapila · ~700 BCE</div>
+        <p class="s-idea">Sāṃkhya is possibly the oldest Indian philosophy. It boldly claims that reality has exactly <strong>two ingredients</strong>: <em>Puruṣa</em> (pure consciousness — the unchanging witness) and <em>Prakṛti</em> (nature — the performer). Suffering arises when we forget which one we are.</p>
+        <div class="tag-row">
+          <span class="tag">🧬 Consciousness</span>
+          <span class="tag">🎭 Mind-Body</span>
+          <span class="tag">🧘 Yoga Base</span>
+        </div>
+        <div class="story-panel">
+          <div class="story-lbl">📖 Story</div>
+          <p>Think of a cinema screen and a movie. The <strong>screen</strong> (Puruṣa) never changes — it's silent, still, pure light. The <strong>movie</strong> (Prakṛti) has drama, tears, explosions. We suffer when we forget we're the screen and think we ARE the movie. Every modern mindfulness teacher says the same: <em>"You are not your thoughts — you watch them."</em> Sāṃkhya said it first, ~2,700 years ago.</p>
+        </div>
+        <div class="kids-panel">
+          <span class="ki">🧒</span>
+          <p>Next time you feel angry, try to be the "camera operator" noticing the anger — don't be inside it. Watch it like a movie. That IS Sāṃkhya! 🎬</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Yoga -->
+    <div class="s-card c4">
+      <div class="s-head">
+        <span class="s-emoji">🧘</span>
+        <div class="s-num">School 04</div>
+        <div class="s-name">Yoga</div>
+        <div class="s-nick">"The Practice Masters"</div>
+      </div>
+      <div class="s-body">
+        <div class="s-founder">👤 Sage Patañjali · ~200 BCE</div>
+        <p class="s-idea">If Sāṃkhya is the map, <strong>Yoga is the GPS and the vehicle.</strong> Patañjali's <em>Yoga Sūtras</em> — 196 compact verses — is the world's oldest self-help manual. Its core teaching: <em>Yoga is the stilling of the fluctuations of the mind</em> (yogaś citta-vṛtti-nirodhaḥ).</p>
+        <div class="tag-row">
+          <span class="tag">🧠 Neuroscience</span>
+          <span class="tag">🌍 300M+ practitioners</span>
+          <span class="tag">🏋️ Mental Training</span>
+        </div>
+        <div class="story-panel">
+          <div class="story-lbl">📖 Story</div>
+          <p>Harvard Medical School researchers found that 8 weeks of meditation literally <strong>shrinks the amygdala</strong> (the brain's alarm bell) and thickens the prefrontal cortex (the wise decision-maker). Patañjali described this exact transformation ~2,200 years ago — just without the MRI scanner! The Indian Army, Google, the NBA and NASA all use techniques rooted in his system.</p>
+        </div>
+        <div class="kids-panel">
+          <span class="ki">🧒</span>
+          <p>Try it now: breathe IN for 4 counts… HOLD for 4… OUT for 4. Do it 3 times. Your brain just got calmer. Patañjali would be proud! 🌬️</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mimamsa -->
+    <div class="s-card c5">
+      <div class="s-head">
+        <span class="s-emoji">📜</span>
+        <div class="s-num">School 05</div>
+        <div class="s-name">Mīmāṃsā</div>
+        <div class="s-nick">"The Duty Champions"</div>
+      </div>
+      <div class="s-body">
+        <div class="s-founder">👤 Sage Jaimini · ~400 BCE</div>
+        <p class="s-idea">Mīmāṃsā asks: <strong>"What is the right thing to DO?"</strong> It says the Vedas are eternal truth, and our highest purpose is to perform our duties (dharma) flawlessly — without attachment to personal reward. It is the philosophy of commitment, ethics and righteous action.</p>
+        <div class="tag-row">
+          <span class="tag">⚖️ Ethics & Law</span>
+          <span class="tag">🫡 Duty over Reward</span>
+          <span class="tag">📋 Indian Law Basis</span>
+        </div>
+        <div class="story-panel">
+          <div class="story-lbl">📖 Story</div>
+          <p>Imagine a doctor who gives exactly the same care to every patient whether they get famous for it or not — simply because healing is the right thing to do. That's Mīmāṃsā ethics in action. Remarkably, India's Supreme Court still references Mīmāṃsā principles in legal interpretation of Sanskrit texts. This ancient school literally underpins modern Indian law.</p>
+        </div>
+        <div class="kids-panel">
+          <span class="ki">🧒</span>
+          <p>Mīmāṃsā challenge: Do one kind thing today WITHOUT telling a single person about it. No social media! That's pure dharmic action. 🌟</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vedanta -->
+    <div class="s-card c6">
+      <div class="s-head">
+        <span class="s-emoji">✨</span>
+        <div class="s-num">School 06</div>
+        <div class="s-name">Vedānta</div>
+        <div class="s-nick">"The Grand Unifiers"</div>
+      </div>
+      <div class="s-body">
+        <div class="s-founder">👤 Bādarāyaṇa; perfected by Śaṅkara · ~788 CE</div>
+        <p class="s-idea">Vedānta — "end of the Vedas" — is the philosophical crown of India, exploring the deepest question: <strong>What is the ultimate nature of reality?</strong> Śaṅkara's Advaita answer: <em>Brahman alone is real; the world is appearance (māyā); your true Self IS Brahman.</em></p>
+        <div class="tag-row">
+          <span class="tag">🌌 Non-duality</span>
+          <span class="tag">🔬 Quantum parallels</span>
+          <span class="tag">🌍 Vivekananda</span>
+        </div>
+        <div class="story-panel">
+          <div class="story-lbl">📖 Story</div>
+          <p>When Steve Jobs died, his parting gift to guests at his memorial was Paramahansa Yogananda's <em>Autobiography of a Yogi</em> — pure Vedānta. Quantum physicist Erwin Schrödinger kept the Upanishads on his desk and wrote: <em>"The total number of minds in the universe is one."</em> Śaṅkara had written the same thing 1,200 years earlier.</p>
+        </div>
+        <div class="kids-panel">
+          <span class="ki">🧒</span>
+          <p>Vedānta's big idea: the same sunlight shines through all different coloured windows. The light is ONE — the colours just look different. You, the stars, and everything are made of the same one thing! ⭐</p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /schools-grid -->
+
+  <div class="section-title" style="font-size:1.5rem;margin-top:4rem;">The Three Classic Pairs 👯</div>
+  <div class="divider"></div>
+  <div class="pairs-row">
+    <div class="pair-chip">
+      <h4>🔍⚛️ Nyāya + Vaiśeṣika</h4>
+      <p><strong>The Scientists.</strong> Nyāya gives the tools of knowing (HOW to prove things); Vaiśeṣika gives the content (WHAT the universe is made of). Together they form India's ancient philosophy of natural science.</p>
+    </div>
+    <div class="pair-chip">
+      <h4>🌊🧘 Sāṃkhya + Yoga</h4>
+      <p><strong>Theory + Practice.</strong> Sāṃkhya is the blueprint — a precise analysis of consciousness and matter. Yoga is the construction — practical methods to live what Sāṃkhya describes.</p>
+    </div>
+    <div class="pair-chip">
+      <h4>📜✨ Mīmāṃsā + Vedānta</h4>
+      <p><strong>Action → Wisdom.</strong> Mīmāṃsā teaches you to act rightly. Vedānta reveals why — your true nature is the ultimate reality. Begin with duty; graduate to truth.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ SHANKARA ══════════════ -->
+<section class="section" id="shankara">
+  <h2 class="section-title"><span>Ādi Śaṅkarācārya</span></h2>
+  <div class="divider"></div>
+  <p class="section-lead">The boy who became a monk at eight, debated the greatest scholars in India, wrote commentaries on all major scriptures — and changed the world — all before the age of 32.</p>
+
+  <div class="shankara-grid">
+    <!-- Bio -->
+    <div class="shankara-bio">
+      <div class="bio-badge">⭐ THE MASTER OF ADVAITA</div>
+      <h3>Ādi Śaṅkara</h3>
+      <div class="dates">c. 788 – 820 CE · Kerala, India</div>
+      <p>Born in <strong>Kalady, Kerala</strong>, Śaṅkara showed extraordinary gifts from infancy. By age 8 he had memorised the Vedas and begged his widowed mother to let him become a renunciant (<em>sannyāsi</em>). Legend tells how a crocodile seized his leg in a river; he called out to his mother that he was dying — would she grant him renunciation? She did. The crocodile released him. He walked away from home forever.</p>
+      <p>He became the student of <strong>Govinda Bhagavatpāda</strong> on the banks of the Narmada, then embarked on a <em>digvijaya</em> (victory tour) of India on foot — from Kerala to Kashmir to Badrinath to Varanasi — debating every philosopher he met. He never lost a debate.</p>
+      <p>He established <strong>four monasteries (maṭhas)</strong> at the four corners of India — Sringeri, Dwarka, Puri, and Joshimath — institutions that still operate today, 1,200 years later.</p>
+      <p>He wrote commentaries on the Brahma Sūtras, all ten major Upanishads, and the Bhagavad Gītā — plus devotional hymns of astonishing beauty. His system is called <strong>Advaita Vedānta</strong>: non-dual wisdom.</p>
+      <div class="quote-block">
+        Brahma satyam jagan mithyā, jīvo brahmaiva nāparaḥ —
+        Brahman alone is real; the world is appearance; the individual self is none other than Brahman.
+        <span class="quote-attr">— Śaṅkara, core teaching of Advaita Vedānta</span>
+      </div>
+    </div>
+
+    <!-- Concepts -->
+    <div class="advaita-concepts">
+
+      <div class="concept-card">
+        <h4>Brahman</h4>
+        <span class="sanskrit">BRAHMAN · The Absolute Reality</span>
+        <p>Brahman is the one, infinite, undivided consciousness that is the only ultimate reality. It has no form, no limits, no beginning and no end. Everything that exists is Brahman — like waves that are always, entirely, nothing but ocean water.</p>
+        <div class="kids-note">🧒 Imagine one huge ocean. Every wave looks different but it's all the same water. Brahman is the ocean; you and me and the stars are all waves! 🌊</div>
+      </div>
+
+      <div class="concept-card">
+        <h4>Ātman = Brahman</h4>
+        <span class="sanskrit">MAHĀVĀKYA · The Great Saying: "Aham Brahmāsmi"</span>
+        <p>The most radical claim in Advaita: your deepest Self (Ātman — the pure witness behind all your thoughts) is <em>identical</em> to Brahman. Not similar. Not connected. Identical. "I am Brahman." This is the highest discovery Vedānta points to.</p>
+        <div class="kids-note">🧒 The same sunshine that fills the whole sky also shines inside a little jar. The jar's light and the sky's light are THE SAME light. You are that! ☀️</div>
+      </div>
+
+      <div class="concept-card">
+        <h4>Māyā</h4>
+        <span class="sanskrit">MĀYĀ · The Power of Appearance</span>
+        <p>Māyā is the inexplicable cosmic power that makes the one Brahman appear as a many-coloured, diverse world — like a magician's illusion, or like a rope mistaken for a snake in dim light. The world isn't fake; it just isn't ultimately real the way Brahman is.</p>
+        <div class="kids-note">🧒 In a dream, everything feels totally real — until you wake up! Māyā is like the dream. Brahman is the one who wakes up. 🌙➡️☀️</div>
+      </div>
+
+      <div class="concept-card">
+        <h4>The Three Levels of Reality</h4>
+        <span class="sanskrit">PĀRAMĀRTHIKA · VYĀVAHĀRIKA · PRĀTIBHĀSIKA</span>
+        <p><strong>Absolute</strong> (Brahman alone, ever-real) → <strong>Empirical</strong> (the everyday waking world, relatively real) → <strong>Apparent</strong> (dreams and illusions, momentarily real). Śaṅkara used this framework to show that the world isn't dismissed — it's placed in its proper context.</p>
+        <div class="kids-note">🧒 Gold jewellery is real as jewellery. But ultimately it's all just gold. The shapes are "vyāvahārika" real; the gold is "pāramārthika" real! 💍</div>
+      </div>
+
+      <div class="concept-card">
+        <h4>Viveka, Vairāgya & Mumukṣutva</h4>
+        <span class="sanskrit">SĀDHANĀ CATUṢṬAYA · The Four Qualifications</span>
+        <p>Śaṅkara prescribed four preparations for Vedāntic enquiry: <em>Viveka</em> (discernment between real and unreal), <em>Vairāgya</em> (non-attachment to outcomes), <em>Ṣaṭ-sampat</em> (six virtues including calmness), and <em>Mumukṣutva</em> (burning desire for liberation). You need all four before the teaching truly lands.</p>
+        <div class="kids-note">🧒 It's like a smartphone needing both hardware AND software AND a charged battery. Vedānta needs a prepared mind — and YOU can prepare it! 📱</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ VEDANTA TODAY ══════════════ -->
+<section class="section" id="vedanta-today">
+  <h2 class="section-title">Vedānta <span>Today</span></h2>
+  <div class="divider"></div>
+  <p class="section-lead">Advaita Vedānta isn't a museum piece. It is alive, practised and profoundly relevant — in hospitals, laboratories, boardrooms, therapy rooms and living rooms around the world.</p>
+
+  <div class="schools-vedanta">
+
+    <div class="v-card">
+      <div class="v-icon">🧬</div>
+      <h3>Quantum Physics</h3>
+      <p>Erwin Schrödinger (Nobel Prize, 1933) wrote that Vedāntic non-duality directly inspired his concept of a single universal wave-function. Werner Heisenberg studied the Upanishads. David Bohm's "implicate order" reads like a modern Advaita text. The parallels are too deep to be coincidental.</p>
+      <span class="v-tag">🔬 Science</span>
+    </div>
+
+    <div class="v-card">
+      <div class="v-icon">🧠</div>
+      <h3>Consciousness Studies</h3>
+      <p>The "hard problem of consciousness" — why does subjective experience exist at all? — baffles modern neuroscience. Advaita answers: consciousness is primary, not produced by the brain. Researchers like David Chalmers and Bernardo Kastrup now seriously engage Vedāntic frameworks.</p>
+      <span class="v-tag">🧠 Neuroscience</span>
+    </div>
+
+    <div class="v-card">
+      <div class="v-icon">🧘</div>
+      <h3>Mindfulness & Therapy</h3>
+      <p>MBSR (Mindfulness-Based Stress Reduction), ACT therapy, and many modern wellbeing programmes are direct descendants of Vedāntic witness-consciousness practices. Thousands of hospitals worldwide prescribe them. Śaṅkara's "be the witness, not the witnessed" is now clinical medicine.</p>
+      <span class="v-tag">❤️ Wellbeing</span>
+    </div>
+
+    <div class="v-card">
+      <div class="v-icon">🌍</div>
+      <h3>Swami Vivekananda</h3>
+      <p>In 1893, a 30-year-old monk from Calcutta walked onto the Parliament of World Religions stage in Chicago and said: <em>"Sisters and Brothers of America…"</em> — and the hall erupted. His Vedānta, rooted in Śaṅkara, gave the modern West its first real encounter with Indian philosophy and sparked a global spiritual revolution.</p>
+      <span class="v-tag">🌏 Global Impact</span>
+    </div>
+
+    <div class="v-card">
+      <div class="v-icon">💼</div>
+      <h3>Leadership & Business</h3>
+      <p>Vedāntic concepts like <em>nishkāma karma</em> (action without selfish attachment) are now taught at IIMs, Harvard Business School and in executive coaching. Leaders like Satya Nadella (Microsoft CEO) cite Indian philosophy as central to their leadership approach.</p>
+      <span class="v-tag">💡 Leadership</span>
+    </div>
+
+    <div class="v-card">
+      <div class="v-icon">📱</div>
+      <h3>Silicon Valley & Tech</h3>
+      <p>Steve Jobs famously gave every attendee at his memorial a Vedānta text. Apple's aesthetic philosophy of "the essential beneath the ornamental" echoes Śaṅkara's stripping away of māyā to reveal Brahman. The tech world's fascination with "non-duality" and "flow states" is Advaita repackaged.</p>
+      <span class="v-tag">💻 Technology</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════ TIMELINE ══════════════ -->
+<section class="section" id="timeline">
+  <h2 class="section-title">The <span>Journey</span> Through Time</h2>
+  <div class="divider"></div>
+  <p class="section-lead">From the earliest sages to the modern classroom — 3,500 years of living wisdom.</p>
+
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-box">
+        <div class="tl-year">~1500 BCE</div>
+        <h4>The Vedas Are Composed</h4>
+        <p>The oldest scriptures of humanity — hymns, rituals and philosophical reflections — form the bedrock on which all six schools will later be built.</p>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-box">
+        <div class="tl-year">~800–600 BCE</div>
+        <h4>The Upanishads</h4>
+        <p>Forest sages record their insights on Ātman and Brahman in dialogues of astonishing depth. "Tat tvam asi" — That thou art. Vedānta's seed is planted.</p>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-box">
+        <div class="tl-year">~700–200 BCE</div>
+        <h4>The Six Schools Emerge</h4>
+        <p>Kapila, Gautama, Kaṇāda, Jaimini and Patañjali each systematise their insights into foundational sūtras. India's philosophical golden age blazes.</p>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-box">
+        <div class="tl-year">c. 200 BCE</div>
+        <h4>Patañjali's Yoga Sūtras</h4>
+        <p>The world's first complete manual on mental training. Still unrivalled. 300 million people practise its legacy today.</p>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-box">
+        <div class="tl-year">c. 788 CE</div>
+        <h4>Śaṅkara Is Born</h4>
+        <p>A child of extraordinary gifts appears in Kalady, Kerala. In 32 years he will traverse India on foot, debate every philosopher, write dozens of texts, and establish Advaita Vedānta as the crown of Indian thought.</p>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-box">
+        <div class="tl-year">c. 820 CE</div>
+        <h4>Śaṅkara Passes On</h4>
+        <p>At around 32, having changed the intellectual world of India forever, Śaṅkara is said to have walked into the Kedarnath peaks and merged with the infinite — fitting for someone who always taught that separation was the only illusion.</p>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-box">
+        <div class="tl-year">1893 CE</div>
+        <h4>Vivekananda at Chicago</h4>
+        <p>"Sisters and Brothers of America!" — three words that broke the ice of Western spiritual insularity. Vedānta goes global. The West would never look the same again.</p>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-box">
+        <div class="tl-year">Today</div>
+        <h4>Vedānta Lives On</h4>
+        <p>Studied at S-VYASA University, taught in hospitals as mindfulness, cited in quantum physics papers, quoted by tech CEOs. Śaṅkara's vision — that consciousness is the foundation of all reality — is more relevant now than ever.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════ STUDY CTA ══════════════ -->
+<section id="study">
+  <h2>Ready to Go Deeper?</h2>
+  <p>Vedānta isn't just philosophy — it's a complete path of self-discovery. Whether you're eight or eighty, curious or committed, the door is open.</p>
+  <div class="study-grid">
+    <span class="study-pill">📖 Upanishads</span>
+    <span class="study-pill">🕉 Brahma Sūtras</span>
+    <span class="study-pill">📜 Bhagavad Gītā</span>
+    <span class="study-pill">🧘 Yoga Sūtras</span>
+    <span class="study-pill">🌟 Vivekacūḍāmaṇi</span>
+  </div>
+  <a href="https://svyasa.edu.in" target="_blank" class="big-btn">Study Vedānta at S-VYASA <span class="arrow">↗</span></a>
+</section>
+
+<footer>
+  <p>Based on S-VYASA lectures on <span>Ṣaḍ-Darśanas</span> and <span>Advaita Vedānta</span> · Ādi Śaṅkarācārya Introduction</p>
+  <p style="margin-top:.4rem">The oldest questions are still the most important ones. 🕉</p>
+</footer>
+
+<script>
+// Smooth active nav highlight on scroll
+const sections = document.querySelectorAll('section[id]');
+const links = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 120) current = s.id;
+  });
+  links.forEach(l => {
+    l.style.color = l.getAttribute('href') === '#' + current
+      ? 'var(--gold)' : '';
+  });
+});
+
+// Subtle card entrance animation via IntersectionObserver
+const cards = document.querySelectorAll('.s-card, .v-card, .concept-card, .tl-box');
+cards.forEach(c => { c.style.opacity = '0'; c.style.transform = 'translateY(24px)'; c.style.transition = 'opacity .5s, transform .5s'; });
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+cards.forEach(c => io.observe(c));
+</script>
+
+</body>
+</html>
